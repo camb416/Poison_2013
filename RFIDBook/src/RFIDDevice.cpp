@@ -19,7 +19,7 @@ RFIDDevice::RFIDDevice(){
 bool RFIDDevice::isConfident(){
 
     if(confidence>0.5f){
-            cout << confidence;
+     //       cout << confidence;
         return true;
     } else {
         return false;
@@ -106,6 +106,7 @@ int lostTag(CPhidgetRFIDHandle phid, void *context, char *tag, CPhidgetRFID_Prot
     return 0;
 }
 void RFIDDevice::connect(int serialNumber){
+    serial = serialNumber;
     if(!isSetup){
         cout << "running RFIDDevice::connect before RFIDDevice::setup(). Expect problems." << endl;
     }

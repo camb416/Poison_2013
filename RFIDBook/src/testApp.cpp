@@ -4,18 +4,21 @@
 void testApp::setup(){
     devices.setup();
         devices.startThread(true,false);
+    
+    book.setup(&devices);
    // rfidsetup();
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-// test
-   // devices.lock();
-    
-    devices.report();
-    
-   // devices.unlock();
+
+  //  devices.report();
+
     devices.update();
+    
+    if(book.isPageLanded()){
+        // checks for three sensors active.
+    }
 
 }
 

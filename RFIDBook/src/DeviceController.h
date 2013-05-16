@@ -24,7 +24,7 @@ public:
     int curSensor;
     
     // all the sensors
-    vector<RFIDDevice> rfids;
+    vector<RFIDDevice*> rfids;
     // pointers to the lefts and the rights;
     vector<RFIDDevice*> leftSensors;
     vector<RFIDDevice*> rightSensors;
@@ -69,10 +69,10 @@ public:
                     } else {
                         sensorState = 1;
                     }
-                    rfids.at(i).setListening(sensorState);
-                    CPhidgetRFID_setAntennaOn(rfids.at(i).rfid, sensorState);
-                    CPhidgetRFID_setLEDOn(rfids.at(i).rfid, sensorState);
-                    rfids.at(i).update();
+                    rfids.at(i)->setListening(sensorState);
+                    CPhidgetRFID_setAntennaOn(rfids.at(i)->rfid, sensorState);
+                    CPhidgetRFID_setLEDOn(rfids.at(i)->rfid, sensorState);
+                    rfids.at(i)->update();
                 }
                 
                 curSensor++;

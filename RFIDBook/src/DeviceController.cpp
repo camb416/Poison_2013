@@ -21,47 +21,54 @@ void DeviceController::setup(){
     selected_img.loadImage("radio_selected.png");
     
     for(int i=0;i<numSensors;i++){
-        rfids.push_back(RFIDDevice());
+        RFIDDevice * aDevice = new RFIDDevice();
+        rfids.push_back(aDevice);
         if(i%2==0){
-            leftSensors.push_back(&(rfids.at(i)));
+            leftSensors.push_back(aDevice);
         } else {
-            rightSensors.push_back(&(rfids.at(i)));
+            rightSensors.push_back(aDevice);
         }
     }
     
     timer.start();
-    rfids.at(0).setup("left-top",this);
-    rfids.at(1).setup("right-top",this);
-    rfids.at(2).setup("left-middle",this);
-    rfids.at(3).setup("right-middle",this);
-    rfids.at(4).setup("left-bottom",this);
-    rfids.at(5).setup("right-bottom",this);
-    //rfidLeft.setup(this);
-    //rfidRight.setup(this);
-    rfids.at(0).connect(112512);
-    rfids.at(1).connect(309045);
-//    rfidLeft.connect(112512);
- //   rfidRight.connect(309045);
+    rfids.at(0)->setup("left-top",this);
+    rfids.at(1)->setup("right-top",this);
+    rfids.at(2)->setup("left-middle",this);
+    rfids.at(3)->setup("right-middle",this);
+    rfids.at(4)->setup("left-bottom",this);
+    rfids.at(5)->setup("right-bottom",this);
+
+    
+    rfids.at(0)->connect(308152);
+    rfids.at(1)->connect(112512);
+    rfids.at(2)->connect(308150);
+    rfids.at(3)->connect(308147);
+    rfids.at(4)->connect(309045);
+    rfids.at(5)->connect(308137);
+
     lastTime = 0;
     curSensor = 0;
 }
 void DeviceController::doSomething(){
     cout << "do something here when you get a tag." << endl;
 }
+
+
+
 void DeviceController::update(){
 
     for(int i=0;i<numSensors;i++){
-        if(rfids.at(i).isAttached()){
-            if(rfids.at(i).hasTag()){
-                rfids.at(i).confidence = 1.0f;
+        if(rfids.at(i)->isAttached()){
+            if(rfids.at(i)->hasTag()){
+                rfids.at(i)->confidence = 1.0f;
             } else {
-               rfids.at(i).confidence_dest = 0.0f;
+               rfids.at(i)->confidence_dest = 0.0f;
             }
         } else {
-            rfids.at(i).confidence_dest = 0.0f;
+            rfids.at(i)->confidence_dest = 0.0f;
         }
-        rfids.at(i).confidence += (rfids.at(i).confidence_dest- rfids.at(i).confidence)/256.0f;
-        rfids.at(i).confidence = MAX(0.0f,MIN(rfids.at(i).confidence,1.0f));
+        rfids.at(i)->confidence += (rfids.at(i)->confidence_dest- rfids.at(i)->confidence)/256.0f;
+        rfids.at(i)->confidence = MAX(0.0f,MIN(rfids.at(i)->confidence,1.0f));
         // cout << rfids.at(i).title << ": " << rfids.at(i).isAttached() << ", " << rfids.at(i).hasTag() << endl;
     }
 }
@@ -69,8 +76,8 @@ void DeviceController::update(){
 int DeviceController::getSensorId(string idLookup){
     int idToReturn = -1;
     for(int i=0;i<numSensors;i++){
-        cout << rfids.at(i).title << endl;
-        if(idLookup.compare(rfids.at(i).title)==0){
+        cout << rfids.at(i)->title << endl;
+        if(idLookup.compare(rfids.at(i)->title)==0){
             idToReturn = i;
         }
     }
@@ -103,7 +110,7 @@ int DeviceController::getRightSensorCount(){
 int DeviceController::getActiveSensorCount(){
     int activeCount = 0;
     for(int i=0;i<numSensors;i++){
-        if(rfids.at(i).isConfident()){
+        if(rfids.at(i)->isConfident()){
             activeCount++;
         }
     }
@@ -116,14 +123,14 @@ void DeviceController::draw(){
     ofEnableAlphaBlending();
     ofEnableSmoothing();
     for(int i=0;i<numSensors;i++){
-        if(rfids.at(i).getListening()){
+        if(rfids.at(i)->getListening()){
             ofSetColor(255,128,128);
         } else {
             ofSetColor(255,255,255);
         }
         
-        if(rfids.at(i).isAttached()){
-            if(rfids.at(i).hasTag()){
+        if(rfids.at(i)->isAttached()){
+            if(rfids.at(i)->hasTag()){
                 selected_img.draw(0,i*53);
             } else {
                 active_img.draw(0,i*53);
@@ -133,15 +140,20 @@ void DeviceController::draw(){
 
         }
         ofSetColor(255,255,255,64);
-        ofRectRounded(53-5,i*53+10-5,rfids.at(i).confidence*246.0f+32+10,53-20+10,16+5);
-        if(rfids.at(i).confidence<0.5f){
+        ofRectRounded(53-5,i*53+10-5,rfids.at(i)->confidence*246.0f+32+10,53-20+10,16+5);
+        if(rfids.at(i)->confidence<0.5f){
             ofSetColor(128,16,32);
         } else {
             ofSetColor(128,256,212);
         }
 
-        ofRectRounded(53,i*53+10,rfids.at(i).confidence*246.0f+32,53-20,16);
-        
+        ofRectRounded(53,i*53+10,rfids.at(i)->confidence*246.0f+32,53-20,16);
+        ofPoint p;
+        p.x = 53+rfids.at(i)->confidence*246.0f+32 + 32;
+        p.y = i*53+10+8;
+        stringstream ss;//create a stringstream
+        ss << rfids.at(i)->serial;//add number to the stream
+        ofDrawBitmapString(ss.str(), p);
        // cout << rfids.at(i).confidence << endl;
        // cout << rfids.at(i).title << ": " << rfids.at(i).isAttached() << ", " << rfids.at(i).hasTag() << endl;
     }
@@ -155,7 +167,7 @@ void DeviceController::report(){
     //for(int i=0;i<numSensors;i++){
        // cout << rfids.at(i).title << ": " << rfids.at(i).isAttached() << ", " << rfids.at(i).hasTag() << endl;
   //  }
-    
+    /*
     //int activeCount = 0;
     // cout << leftSensors.size() << " elems in leftSensors." << endl;
     cout << "left sensors: " ;
@@ -171,7 +183,7 @@ void DeviceController::report(){
         cout << rightSensors.at(i)->confidence << ", ";
     }
     cout << endl;
-
+*/
     
     unlock();
 }

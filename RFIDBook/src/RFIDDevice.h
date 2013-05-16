@@ -41,6 +41,7 @@ public:
     void setListening(int listenValue=1);
     bool getListening();
     bool isConfident();
+    int serial;
    //static int gotAttach(CPhidgetHandle phid, void *context);
     
    //static int gotDetach(CPhidgetHandle phid, void *context);

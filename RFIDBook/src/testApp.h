@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "DeviceController.h"
+#include "BookController.h"
 
 class testApp : public ofBaseApp{
 
@@ -21,6 +22,7 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
     DeviceController devices;
+    BookController book;
     
 
 		
