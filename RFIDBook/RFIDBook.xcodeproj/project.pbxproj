@@ -12,6 +12,9 @@
 		2c776d21a9559288b0f7aed9b1be072d /* ofxSimpleGuiMovieSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8445ea9a5fd9905881cbb8a624e1cf51 /* ofxSimpleGuiMovieSlider.cpp */; };
 		2dd56bbc82953d6ae0a018bfad910b7d /* ofxSimpleGuiComboBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = b8e04ba7dcfb448a2ed1ec25aead7222 /* ofxSimpleGuiComboBox.cpp */; };
 		32192F3A17454F5F009007DC /* BookController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32192F3817454F5F009007DC /* BookController.cpp */; };
+		32192F3D17468913009007DC /* TextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32192F3B17468913009007DC /* TextField.cpp */; };
+		32192F4017468D27009007DC /* PositionUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32192F3E17468D26009007DC /* PositionUI.cpp */; };
+		32192F431746941A009007DC /* BarGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32192F411746941A009007DC /* BarGraph.cpp */; };
 		326E662617394FC300B3ABC2 /* RFIDDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326E662417394FC300B3ABC2 /* RFIDDevice.cpp */; };
 		326E66341739830400B3ABC2 /* Phidget21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326E66331739830400B3ABC2 /* Phidget21.framework */; };
 		326E66371739920D00B3ABC2 /* DeviceController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326E66351739920D00B3ABC2 /* DeviceController.cpp */; };
@@ -93,6 +96,12 @@
 		2b40eda85beb63e46785bc299a638898 /* tinyxml.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxml.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxml.cpp; sourceTree = SOURCE_ROOT; };
 		32192F3817454F5F009007DC /* BookController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookController.cpp; sourceTree = "<group>"; };
 		32192F3917454F5F009007DC /* BookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookController.h; sourceTree = "<group>"; };
+		32192F3B17468913009007DC /* TextField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextField.cpp; sourceTree = "<group>"; };
+		32192F3C17468913009007DC /* TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextField.h; sourceTree = "<group>"; };
+		32192F3E17468D26009007DC /* PositionUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PositionUI.cpp; sourceTree = "<group>"; };
+		32192F3F17468D26009007DC /* PositionUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionUI.h; sourceTree = "<group>"; };
+		32192F411746941A009007DC /* BarGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BarGraph.cpp; sourceTree = "<group>"; };
+		32192F421746941A009007DC /* BarGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarGraph.h; sourceTree = "<group>"; };
 		326E662417394FC300B3ABC2 /* RFIDDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RFIDDevice.cpp; sourceTree = "<group>"; };
 		326E662517394FC300B3ABC2 /* RFIDDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFIDDevice.h; sourceTree = "<group>"; };
 		326E66331739830400B3ABC2 /* Phidget21.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Phidget21.framework; path = ../../../../../../../../Library/Frameworks/Phidget21.framework; sourceTree = "<group>"; };
@@ -367,10 +376,16 @@
 				326E662417394FC300B3ABC2 /* RFIDDevice.cpp */,
 				326E66381739953900B3ABC2 /* Reporter.cpp */,
 				326E66391739953900B3ABC2 /* Reporter.h */,
+				326E66361739920D00B3ABC2 /* DeviceController.h */,
+				32192F411746941A009007DC /* BarGraph.cpp */,
+				32192F421746941A009007DC /* BarGraph.h */,
 				326E66351739920D00B3ABC2 /* DeviceController.cpp */,
+				32192F3B17468913009007DC /* TextField.cpp */,
+				32192F3C17468913009007DC /* TextField.h */,
+				32192F3E17468D26009007DC /* PositionUI.cpp */,
+				32192F3F17468D26009007DC /* PositionUI.h */,
 				32192F3817454F5F009007DC /* BookController.cpp */,
 				32192F3917454F5F009007DC /* BookController.h */,
-				326E66361739920D00B3ABC2 /* DeviceController.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -502,6 +517,9 @@
 				326E66371739920D00B3ABC2 /* DeviceController.cpp in Sources */,
 				326E663A1739953900B3ABC2 /* Reporter.cpp in Sources */,
 				32192F3A17454F5F009007DC /* BookController.cpp in Sources */,
+				32192F3D17468913009007DC /* TextField.cpp in Sources */,
+				32192F4017468D27009007DC /* PositionUI.cpp in Sources */,
+				32192F431746941A009007DC /* BarGraph.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

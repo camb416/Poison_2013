@@ -7,6 +7,14 @@ void testApp::setup(){
     
     book.setup(&devices);
    // rfidsetup();
+    tfield.setup();
+    tfield.update("Magic Book", 16,360);
+    debugState = 1;
+    
+
+    
+    
+    
 }
 
 //--------------------------------------------------------------
@@ -19,12 +27,24 @@ void testApp::update(){
     if(book.isPageLanded()){
         // checks for three sensors active.
     }
+    
+    if(debugState>0){
+        tfield.update("Magic Book \n" + book.getReport());
+        if(ofGetMousePressed()){
+            pos_ui.update();
+        }
+    }
 
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
+    if(debugState>0){
     devices.draw();
+        tfield.draw();
+        if(ofGetMousePressed()) pos_ui.draw();
+        
+    }
 }
 
 //--------------------------------------------------------------

@@ -22,6 +22,7 @@ public:
     void update();
     void report();
     int curSensor;
+
     
     // all the sensors
     vector<RFIDDevice*> rfids;

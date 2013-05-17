@@ -15,6 +15,8 @@ RFIDDevice::RFIDDevice(){
     isConnected = false;
     isListening = false;
     confidence = 0.0f;
+    for(int i=0;i<64;i++) currentTag[i]='\0';
+
 }
 bool RFIDDevice::isConfident(){
 
@@ -122,7 +124,7 @@ void RFIDDevice::connect(int serialNumber){
 	CPhidget_set_OnDetach_Handler((CPhidgetHandle)rfid, gotDetach, this);
 	CPhidget_set_OnError_Handler((CPhidgetHandle)rfid, gotError, this);
     
-    CPhidget_open((CPhidgetHandle)rfid, -1);
+    CPhidget_open((CPhidgetHandle)rfid, serial);
     isConnected = true;
 }
 
@@ -141,6 +143,7 @@ bool RFIDDevice::getListening(){
 void RFIDDevice::update(bool attached_in, char * tagName){
     bIsAttached = attached_in;
    // if(isListening){
+    for(int i=0;i<64;i++) currentTag[i]='\0';
         strcpy(currentTag,tagName);
    // }
 }

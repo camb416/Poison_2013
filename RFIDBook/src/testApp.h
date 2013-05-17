@@ -3,6 +3,9 @@
 #include "ofMain.h"
 #include "DeviceController.h"
 #include "BookController.h"
+#include "TextField.h"
+#include "PositionUI.h"
+#include "BarGraph.h"
 
 class testApp : public ofBaseApp{
 
@@ -23,6 +26,11 @@ class testApp : public ofBaseApp{
 
     DeviceController devices;
     BookController book;
+    TextField tfield;
+    PositionUI pos_ui;
+    BarGraph bar;
+    
+    int debugState;
     
 
 		

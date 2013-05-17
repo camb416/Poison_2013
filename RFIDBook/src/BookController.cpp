@@ -25,13 +25,23 @@ void BookController::update(){
 }
 bool BookController::isPageLanded(){
    int howManyActive = deviceController->getActiveSensorCount();
-    cout << "there are " << howManyActive << " sensors active at the moment: ";
+  //  cout << "there are " << howManyActive << " sensors active at the moment: ";
     
     if(howManyActive==3){
-        cout << "pages landed." << endl;
+//        cout << "pages landed." << endl;
         return true;
     } else {
-        cout << "pages not laneded" << endl;
+  //      cout << "pages not laneded" << endl;
         return false;
     }
+}
+
+string BookController::getReport(){
+    string report_str;
+    if(isPageLanded()){
+        report_str = "pages landed";
+    } else {
+        report_str = "fade out pages";
+    }
+    return report_str;
 }

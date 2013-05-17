@@ -22,6 +22,7 @@ public:
     void setup(DeviceController * deviceController_in);
     void update();
     bool isPageLanded();
+    string getReport();
     
 private:
     DeviceController * deviceController;

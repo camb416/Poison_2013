@@ -32,24 +32,29 @@ void DeviceController::setup(){
     
     timer.start();
     rfids.at(0)->setup("left-top",this);
-    rfids.at(1)->setup("right-top",this);
+   rfids.at(1)->setup("right-top",this);
     rfids.at(2)->setup("left-middle",this);
     rfids.at(3)->setup("right-middle",this);
     rfids.at(4)->setup("left-bottom",this);
     rfids.at(5)->setup("right-bottom",this);
 
-    
-    rfids.at(0)->connect(308152);
-    rfids.at(1)->connect(112512);
-    rfids.at(2)->connect(308150);
-    rfids.at(3)->connect(308147);
-    rfids.at(4)->connect(309045);
-    rfids.at(5)->connect(308137);
+      rfids.at(0)->connect(308147);
+     rfids.at(1)->connect(308137);
+        rfids.at(2)->connect(309045);
+        rfids.at(3)->connect(308150);
+        rfids.at(4)->connect(112512);
+    rfids.at(5)->connect(308152);
+
+
+
+
+
 
     lastTime = 0;
     curSensor = 0;
 }
 void DeviceController::doSomething(){
+    // deprecated
     cout << "do something here when you get a tag." << endl;
 }
 
@@ -67,7 +72,8 @@ void DeviceController::update(){
         } else {
             rfids.at(i)->confidence_dest = 0.0f;
         }
-        rfids.at(i)->confidence += (rfids.at(i)->confidence_dest- rfids.at(i)->confidence)/256.0f;
+        //rfids.at(i)->confidence += (rfids.at(i)->confidence_dest- rfids.at(i)->confidence)/16.0f;
+        rfids.at(i)->confidence -= 0.002f;
         rfids.at(i)->confidence = MAX(0.0f,MIN(rfids.at(i)->confidence,1.0f));
         // cout << rfids.at(i).title << ": " << rfids.at(i).isAttached() << ", " << rfids.at(i).hasTag() << endl;
     }
@@ -152,7 +158,7 @@ void DeviceController::draw(){
         p.x = 53+rfids.at(i)->confidence*246.0f+32 + 32;
         p.y = i*53+10+8;
         stringstream ss;//create a stringstream
-        ss << rfids.at(i)->serial;//add number to the stream
+        ss << rfids.at(i)->serial << "\n" << rfids.at(i)->currentTag;//add number to the stream
         ofDrawBitmapString(ss.str(), p);
        // cout << rfids.at(i).confidence << endl;
        // cout << rfids.at(i).title << ": " << rfids.at(i).isAttached() << ", " << rfids.at(i).hasTag() << endl;
