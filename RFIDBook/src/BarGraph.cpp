@@ -32,8 +32,8 @@ void BarGraph::draw(){
     ofPushMatrix();
     ofTranslate(pos.x,pos.y);
     tfield.draw();
-    ofRect(tfield.getWidth()+12,-0.5f*thickness-0.5f*tfield.getHeight(),barWidth,thickness);
+    ofRect(tfield.getWidth()+12,0.5f*thickness-tfield.getHeight(),barWidth,thickness);
     ofSetColor(0, 0, 0, 32);
-    ofRect(tfield.getWidth()+12,-0.5f*thickness-0.5f*tfield.getHeight(),multiplier,thickness);
+    ofRect(tfield.getWidth()+12,0.5f*thickness-tfield.getHeight(),multiplier,thickness);
     ofPopMatrix();
 }

@@ -16,6 +16,7 @@ RFIDDevice::RFIDDevice(){
     isListening = false;
     confidence = 0.0f;
     for(int i=0;i<64;i++) currentTag[i]='\0';
+    lostBuffer = false;
 
 }
 bool RFIDDevice::isConfident(){
@@ -89,21 +90,22 @@ int gotTag(CPhidgetRFIDHandle phid, void *context, char *tag, CPhidgetRFID_Proto
 }
 
 int lostTag(CPhidgetRFIDHandle phid, void *context, char *tag, CPhidgetRFID_Protocol proto) {
+  /*
     int * antennaState = new int();
     
     CPhidgetRFID_getAntennaOn(phid, antennaState);
-  //  if(&antennaState!=0){
+    if(&antennaState!=0){
         //cout << "lostTag" << endl;
         RFIDDevice * obj = (RFIDDevice*)context;
         char * tagToSend = new char[1];
         *tagToSend = 'x';
         obj->update(true,tagToSend);
         delete tagToSend;
-//	}
+	}
     delete antennaState;
     
     
-
+*/
     
     return 0;
 }
@@ -142,10 +144,10 @@ bool RFIDDevice::getListening(){
 
 void RFIDDevice::update(bool attached_in, char * tagName){
     bIsAttached = attached_in;
-   // if(isListening){
+    if(isListening){
     for(int i=0;i<64;i++) currentTag[i]='\0';
         strcpy(currentTag,tagName);
-   // }
+    }
 }
 bool RFIDDevice::isAttached(){
     return bIsAttached;

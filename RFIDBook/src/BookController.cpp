@@ -35,6 +35,36 @@ bool BookController::isPageLanded(){
         return false;
     }
 }
+string BookController::whatSituation(){
+    string returnval_str = "";
+    
+    if(deviceController->getSensor("top-right")->hasTag()){
+        // if page one is there, then it's definitely on a page...
+        returnval_str = "A";
+    } else if(deviceController->getSensor("middle-right")->hasTag()){
+        // page one not down, but page 2 is.
+        if(deviceController->getSensor("top-left")->hasTag()){
+            returnval_str = "B";
+        } else {
+            returnval_str = "AB";
+        }
+    } else if(deviceController->getSensor("bottom-right")->hasTag()){
+        // first two pages are not on the right, but the third is.
+        if(deviceController->getSensor("middle-left")->hasTag()){
+            returnval_str = "C";
+        } else if(deviceController->getSensor("top-left")->hasTag()){
+            returnval_str = "BC";
+        }
+    } else if(deviceController->getSensor("bottom-right")->hasTag()){
+        returnval_str = "D";
+    } else if(deviceController->getSensor("middle-right")->hasTag()){
+        returnval_str = "CD";
+    } else if(deviceController->getSensor("top-left")->hasTag()){
+        returnval_str = "BD";
+    }
+    
+    return returnval_str;
+}
 
 string BookController::getReport(){
     string report_str;

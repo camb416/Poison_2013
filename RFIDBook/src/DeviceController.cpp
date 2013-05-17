@@ -13,7 +13,7 @@ using namespace std;
 
 
 void DeviceController::setup(){
-    cycleTime = 100; // ms to cycle the RFID antennae
+    cycleTime = 150; // ms to cycle the RFID antennae
     numSensors = 6;
     
     inactive_img.loadImage("radio_inactive.png");
@@ -67,10 +67,12 @@ void DeviceController::update(){
             if(rfids.at(i)->hasTag()){
                 rfids.at(i)->confidence = 1.0f;
             } else {
-               rfids.at(i)->confidence_dest = 0.0f;
+               rfids.at(i)->confidence = 0.0f;
+                //rfids.at(i)->confidence_dest = 0.0f;
             }
         } else {
-            rfids.at(i)->confidence_dest = 0.0f;
+            rfids.at(i)->confidence = 0.0f;
+            //rfids.at(i)->confidence_dest = 0.0f;
         }
         //rfids.at(i)->confidence += (rfids.at(i)->confidence_dest- rfids.at(i)->confidence)/16.0f;
         rfids.at(i)->confidence -= 0.002f;
@@ -88,6 +90,14 @@ int DeviceController::getSensorId(string idLookup){
         }
     }
     return idToReturn;
+}
+RFIDDevice * DeviceController::getSensor(string idLookup){
+    RFIDDevice * returnVal;
+    int whatId = getSensorId(idLookup);
+    if(whatId>=0 && whatId<rfids.size()){
+    returnVal = rfids.at(whatId);
+    }
+    return returnVal;
 }
 
 int DeviceController::getLeftSensorCount(){

@@ -42,6 +42,9 @@ public:
     bool getListening();
     bool isConfident();
     int serial;
+    
+    bool lostBuffer;
+    
    //static int gotAttach(CPhidgetHandle phid, void *context);
     
    //static int gotDetach(CPhidgetHandle phid, void *context);

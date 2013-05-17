@@ -42,6 +42,7 @@ public:
     int numSensors;
     
     int getSensorId(string idLookup);
+    RFIDDevice * getSensor(string idLookup);
     int getActiveSensorCount();
     int getLeftSensorCount();
     int getRightSensorCount();
@@ -49,6 +50,19 @@ public:
     ofImage inactive_img;
     ofImage active_img;
     ofImage selected_img;
+    
+    bool doublecheck(int sensor){
+        bool returnval;
+        int * sensorState = new int();
+        CPhidgetRFID_getTagStatus(rfids.at(sensor)->rfid,sensorState);
+        if(*sensorState==1){
+            returnval = true;
+        } else {
+            returnval = false;
+        }
+        delete sensorState;
+        return returnval;
+    }
     
     void threadedFunction(){
         while(isThreadRunning()){
@@ -63,8 +77,38 @@ public:
                 // DO THE THING!
                 
                 // turn the others off
+                
+                int prevSensor = curSensor-1;
+                if(prevSensor<0) prevSensor=numSensors-1;
+                int * prevSensorState = new int();
+                CPhidgetRFID_getTagStatus(rfids.at(prevSensor)->rfid,prevSensorState);
+                //cout << *(prevSensorState) << endl;
+                char * tagToSend = new char[1];
+                if(*prevSensorState==1 && doublecheck(prevSensor)){
+                    *tagToSend = 'O';
+                    
+                } else {
+                    *tagToSend = 'x';
+                    if(prevSensor%2==1){
+                        //breakpoint
+                        cout << "" << endl;
+                    }
+                }
+                
+                rfids.at(prevSensor)->update(true,tagToSend);
+                
+                delete tagToSend;
+                delete prevSensorState;
+                
+                
+                
+                
+                
+                
+                
                 int sensorState;
                 for(int i=0;i<numSensors;i++){
+                    
                     if(i!=curSensor){
                         sensorState = 0;
                     } else {

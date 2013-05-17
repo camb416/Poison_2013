@@ -23,6 +23,7 @@ public:
     void update();
     bool isPageLanded();
     string getReport();
+    string whatSituation();
     
 private:
     DeviceController * deviceController;

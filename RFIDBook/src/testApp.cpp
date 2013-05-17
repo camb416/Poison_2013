@@ -32,7 +32,12 @@ void testApp::update(){
     }
     
     if(debugState>0){
+
+        //TO DO: Implement this... whatSituation needs work! Currently has a vector out of range and/or bad access.
+        //tfield.update("Magic Book \n" + book.getReport() + "\n" + book.whatSituation());
         tfield.update("Magic Book \n" + book.getReport());
+
+        
         if(ofGetMousePressed()){
             pos_ui.update();
             aValue = ofRandom(1.0f);
