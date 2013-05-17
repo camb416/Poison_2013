@@ -20,6 +20,8 @@ public:
     void update(string text_in, int x_in, int y_in);
     void setPosition(ofPoint pos_in);
     void setPosition(int x_in, int y_in);
+    float getWidth();
+    float getHeight();
     void draw(int x_in,int y_in);
     void draw();
     

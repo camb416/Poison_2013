@@ -17,19 +17,23 @@ void BarGraph::setup(string label_in, float * value_ptr_in, float multiplier_in,
     tfield.setup(12);
     multiplier = multiplier_in;
     tfield.update(label);
+    tweenVal = 0.0f;
     
 }
 void BarGraph::setPosition(ofPoint pos_in){
     pos = pos_in;
 }
 void BarGraph::update(){
-    barWidth = multiplier * (*value_ptr);
+    tweenVal += ((*value_ptr)-tweenVal)/64.0f;
+    barWidth = multiplier * tweenVal;
 }
 void BarGraph::draw(){
     ofSetColor(0);
     ofPushMatrix();
     ofTranslate(pos.x,pos.y);
     tfield.draw();
-    ofRect(0,0,barWidth,thickness);
+    ofRect(tfield.getWidth()+12,-0.5f*thickness-0.5f*tfield.getHeight(),barWidth,thickness);
+    ofSetColor(0, 0, 0, 32);
+    ofRect(tfield.getWidth()+12,-0.5f*thickness-0.5f*tfield.getHeight(),multiplier,thickness);
     ofPopMatrix();
 }

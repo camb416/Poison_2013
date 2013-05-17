@@ -29,6 +29,7 @@ class testApp : public ofBaseApp{
     TextField tfield;
     PositionUI pos_ui;
     BarGraph bar;
+    float aValue;
     
     int debugState;
     

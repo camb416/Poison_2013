@@ -41,3 +41,9 @@ void TextField::draw(int x_in, int y_in){
 void TextField::draw(){
     draw(pos.x,pos.y);
 }
+float TextField::getWidth(){
+    return font.stringWidth(text);
+}
+float TextField::getHeight(){
+    return font.stringHeight(text);
+}

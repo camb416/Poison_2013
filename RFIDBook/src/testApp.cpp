@@ -11,6 +11,9 @@ void testApp::setup(){
     tfield.update("Magic Book", 16,360);
     debugState = 1;
     
+    aValue = 0.5f;
+    bar.setup("Page Confidence", &aValue, 600, 16);
+    bar.setPosition(ofPoint(16,749));
 
     
     
@@ -23,7 +26,7 @@ void testApp::update(){
   //  devices.report();
 
     devices.update();
-    
+    bar.update();
     if(book.isPageLanded()){
         // checks for three sensors active.
     }
@@ -32,6 +35,7 @@ void testApp::update(){
         tfield.update("Magic Book \n" + book.getReport());
         if(ofGetMousePressed()){
             pos_ui.update();
+            aValue = ofRandom(1.0f);
         }
     }
 
@@ -42,6 +46,7 @@ void testApp::draw(){
     if(debugState>0){
     devices.draw();
         tfield.draw();
+        bar.draw();
         if(ofGetMousePressed()) pos_ui.draw();
         
     }

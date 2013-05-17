@@ -28,6 +28,7 @@ private:
     float * value_ptr;
     TextField tfield;
     float barWidth;
+    float tweenVal;
 };
 
 #endif /* defined(__RFIDBook__BarGraph__) */
