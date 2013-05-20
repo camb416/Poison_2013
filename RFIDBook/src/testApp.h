@@ -10,6 +10,7 @@
 class testApp : public ofBaseApp{
 
 	public:
+    testApp();
 		void setup();
 		void update();
 		void draw();
@@ -32,6 +33,8 @@ class testApp : public ofBaseApp{
     float aValue;
     
     int debugState;
+    
+    bool isSetup;
     
 
 		

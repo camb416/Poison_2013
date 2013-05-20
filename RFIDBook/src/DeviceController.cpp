@@ -31,12 +31,12 @@ void DeviceController::setup(){
     }
     
     timer.start();
-    rfids.at(0)->setup("left-top",this);
-   rfids.at(1)->setup("right-top",this);
-    rfids.at(2)->setup("left-middle",this);
-    rfids.at(3)->setup("right-middle",this);
-    rfids.at(4)->setup("left-bottom",this);
-    rfids.at(5)->setup("right-bottom",this);
+    rfids.at(0)->setup("top-left",this);
+   rfids.at(1)->setup("top-right",this);
+    rfids.at(2)->setup("middle-left",this);
+    rfids.at(3)->setup("middle-right",this);
+    rfids.at(4)->setup("bottom-left",this);
+    rfids.at(5)->setup("bottom-right",this);
 
       rfids.at(0)->connect(308147);
      rfids.at(1)->connect(308137);
@@ -84,15 +84,18 @@ void DeviceController::update(){
 int DeviceController::getSensorId(string idLookup){
     int idToReturn = -1;
     for(int i=0;i<numSensors;i++){
-        cout << rfids.at(i)->title << endl;
+        //cout << rfids.at(i)->title << endl;
         if(idLookup.compare(rfids.at(i)->title)==0){
             idToReturn = i;
         }
     }
+    if(idToReturn == -1){
+        cout << "WARNING: phidget not found: " << idLookup << "." << endl;
+    }
     return idToReturn;
 }
 RFIDDevice * DeviceController::getSensor(string idLookup){
-    RFIDDevice * returnVal;
+    RFIDDevice * returnVal = 0;
     int whatId = getSensorId(idLookup);
     if(whatId>=0 && whatId<rfids.size()){
     returnVal = rfids.at(whatId);

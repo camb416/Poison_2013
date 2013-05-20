@@ -1,5 +1,9 @@
 #include "testApp.h"
 
+testApp::testApp(){
+    isSetup = false;
+}
+
 //--------------------------------------------------------------
 void testApp::setup(){
     devices.setup();
@@ -14,6 +18,7 @@ void testApp::setup(){
     aValue = 0.5f;
     bar.setup("Page Confidence", &aValue, 600, 16);
     bar.setPosition(ofPoint(16,749));
+    isSetup = true;
 
     
     
@@ -24,7 +29,7 @@ void testApp::setup(){
 void testApp::update(){
 
   //  devices.report();
-
+    if(isSetup){
     devices.update();
     bar.update();
     if(book.isPageLanded()){
@@ -34,8 +39,8 @@ void testApp::update(){
     if(debugState>0){
 
         //TO DO: Implement this... whatSituation needs work! Currently has a vector out of range and/or bad access.
-        //tfield.update("Magic Book \n" + book.getReport() + "\n" + book.whatSituation());
-        tfield.update("Magic Book \n" + book.getReport());
+        tfield.update("Magic Book \n" + book.getReport() + "\n" + book.whatSituation());
+        //tfield.update("Magic Book \n" + book.getReport());
 
         
         if(ofGetMousePressed()){
@@ -43,7 +48,7 @@ void testApp::update(){
             aValue = ofRandom(1.0f);
         }
     }
-
+    }
 }
 
 //--------------------------------------------------------------
