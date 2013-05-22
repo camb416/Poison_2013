@@ -10,7 +10,7 @@
 #define __RFIDBook__BookController__
 
 #include <iostream>
-
+#include "BookModel.h"
 #include "DeviceController.h"
 
 class BookController{
@@ -19,7 +19,7 @@ public:
     BookController();
     ~BookController();
     
-    void setup(DeviceController * deviceController_in);
+    void setup(DeviceController * deviceController_in, BookModel * bookModel_in);
     void update();
     bool isPageLanded();
     string getReport();
@@ -27,6 +27,7 @@ public:
     
 private:
     DeviceController * deviceController;
+    BookModel * bookModel;
     bool isSetup;
     
 };

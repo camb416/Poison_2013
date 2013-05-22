@@ -6,10 +6,15 @@ testApp::testApp(){
 
 //--------------------------------------------------------------
 void testApp::setup(){
+    bookModel.setup();
+    bookModel.addPage("0.jpg");
+    bookModel.addPage("1.jpg");
+    bookModel.addPage("2.jpg");
+    bookModel.addPage("3.jpg");
     devices.setup();
         devices.startThread(true,false);
     
-    book.setup(&devices);
+    book.setup(&devices,&bookModel);
    // rfidsetup();
     tfield.setup();
     tfield.update("Magic Book", 16,360);
@@ -19,6 +24,8 @@ void testApp::setup(){
     bar.setup("Page Confidence", &aValue, 600, 16);
     bar.setPosition(ofPoint(16,749));
     isSetup = true;
+    
+    ofSetFrameRate(60);
 
     
     
@@ -32,6 +39,7 @@ void testApp::update(){
     if(isSetup){
     devices.update();
     bar.update();
+        bookModel.update();
     if(book.isPageLanded()){
         // checks for three sensors active.
     }
@@ -60,6 +68,7 @@ void testApp::draw(){
         if(ofGetMousePressed()) pos_ui.draw();
         
     }
+    bookModel.draw(16,450);
 }
 
 //--------------------------------------------------------------

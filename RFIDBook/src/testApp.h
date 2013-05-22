@@ -6,6 +6,7 @@
 #include "TextField.h"
 #include "PositionUI.h"
 #include "BarGraph.h"
+#include "BookModel.h"
 
 class testApp : public ofBaseApp{
 
@@ -31,6 +32,8 @@ class testApp : public ofBaseApp{
     PositionUI pos_ui;
     BarGraph bar;
     float aValue;
+    
+    BookModel bookModel;
     
     int debugState;
     

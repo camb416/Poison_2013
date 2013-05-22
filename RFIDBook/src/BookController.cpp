@@ -16,8 +16,9 @@ BookController::~BookController(){
     
 }
 
-void BookController::setup(DeviceController * deviceController_in){
+void BookController::setup(DeviceController * deviceController_in, BookModel * bookModel_in){
     deviceController = deviceController_in;
+    bookModel = bookModel_in;
     isSetup = true;
 }
 void BookController::update(){
@@ -41,10 +42,12 @@ string BookController::whatSituation(){
     if(deviceController->getSensor("top-right")->hasTag()){
         // if page one is there, then it's definitely on a page...
         returnval_str = "A";
+        bookModel->activate(0);
     } else if(deviceController->getSensor("middle-right")->hasTag()){
         // page one not down, but page 2 is.
         if(deviceController->getSensor("top-left")->hasTag()){
             returnval_str = "B";
+            bookModel->activate(1);
         } else {
             returnval_str = "AB";
         }
@@ -52,12 +55,14 @@ string BookController::whatSituation(){
         // first two pages are not on the right, but the third is.
         if(deviceController->getSensor("middle-left")->hasTag()){
             returnval_str = "C";
+            bookModel->activate(2);
         } else if(deviceController->getSensor("top-left")->hasTag()){
             returnval_str = "BC";
         }
-    } else if(deviceController->getSensor("bottom-right")->hasTag()){
+    } else if(deviceController->getSensor("bottom-left")->hasTag()){
         returnval_str = "D";
-    } else if(deviceController->getSensor("middle-right")->hasTag()){
+        bookModel->activate(3);
+    } else if(deviceController->getSensor("middle-left")->hasTag()){
         returnval_str = "CD";
     } else if(deviceController->getSensor("top-left")->hasTag()){
         returnval_str = "BD";

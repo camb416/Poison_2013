@@ -19,6 +19,8 @@
 		326E66341739830400B3ABC2 /* Phidget21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326E66331739830400B3ABC2 /* Phidget21.framework */; };
 		326E66371739920D00B3ABC2 /* DeviceController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326E66351739920D00B3ABC2 /* DeviceController.cpp */; };
 		326E663A1739953900B3ABC2 /* Reporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326E66381739953900B3ABC2 /* Reporter.cpp */; };
+		329FCD4C174D691000030F69 /* BookModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 329FCD4A174D691000030F69 /* BookModel.cpp */; };
+		329FCD4F174D6C4500030F69 /* ofFadeImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 329FCD4D174D6C4500030F69 /* ofFadeImage.cpp */; };
 		3317b76ee9202b4c6482d15c4ec6cc7b /* ofxSimpleGuiToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1c56b6200d48da052208be05afd7bde7 /* ofxSimpleGuiToggle.cpp */; };
 		49073c5c875b61f6d54cf6ab8584e712 /* ofxSimpleGuiQuadWarp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39b743be64c2fc3fc8c221637b98639e /* ofxSimpleGuiQuadWarp.cpp */; };
 		495e773e470ff7c742646e77652f964d /* ofxSimpleGuiContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = cd862afb8eff69d2b30a7293a307d7d7 /* ofxSimpleGuiContent.cpp */; };
@@ -109,6 +111,10 @@
 		326E66361739920D00B3ABC2 /* DeviceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceController.h; sourceTree = "<group>"; };
 		326E66381739953900B3ABC2 /* Reporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Reporter.cpp; sourceTree = "<group>"; };
 		326E66391739953900B3ABC2 /* Reporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reporter.h; sourceTree = "<group>"; };
+		329FCD4A174D691000030F69 /* BookModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookModel.cpp; sourceTree = "<group>"; };
+		329FCD4B174D691000030F69 /* BookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
+		329FCD4D174D6C4500030F69 /* ofFadeImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofFadeImage.cpp; sourceTree = "<group>"; };
+		329FCD4E174D6C4500030F69 /* ofFadeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofFadeImage.h; sourceTree = "<group>"; };
 		33067f54b52161835b50408dca636f93 /* ofxSimpleGuiToggle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSimpleGuiToggle.h; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiToggle.h; sourceTree = SOURCE_ROOT; };
 		37be47726868d2acd7e5ce49194a7984 /* ofxSimpleGuiColorPicker.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSimpleGuiColorPicker.cpp; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiColorPicker.cpp; sourceTree = SOURCE_ROOT; };
 		39b743be64c2fc3fc8c221637b98639e /* ofxSimpleGuiQuadWarp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSimpleGuiQuadWarp.cpp; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiQuadWarp.cpp; sourceTree = SOURCE_ROOT; };
@@ -377,6 +383,10 @@
 				326E66381739953900B3ABC2 /* Reporter.cpp */,
 				326E66391739953900B3ABC2 /* Reporter.h */,
 				326E66361739920D00B3ABC2 /* DeviceController.h */,
+				329FCD4A174D691000030F69 /* BookModel.cpp */,
+				329FCD4B174D691000030F69 /* BookModel.h */,
+				329FCD4D174D6C4500030F69 /* ofFadeImage.cpp */,
+				329FCD4E174D6C4500030F69 /* ofFadeImage.h */,
 				32192F411746941A009007DC /* BarGraph.cpp */,
 				32192F421746941A009007DC /* BarGraph.h */,
 				326E66351739920D00B3ABC2 /* DeviceController.cpp */,
@@ -520,6 +530,8 @@
 				32192F3D17468913009007DC /* TextField.cpp in Sources */,
 				32192F4017468D27009007DC /* PositionUI.cpp in Sources */,
 				32192F431746941A009007DC /* BarGraph.cpp in Sources */,
+				329FCD4C174D691000030F69 /* BookModel.cpp in Sources */,
+				329FCD4F174D6C4500030F69 /* ofFadeImage.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
