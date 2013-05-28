@@ -1,11 +1,11 @@
-#include "App.h"
+#include "BookApp.h"
 
-testApp::testApp(){
+BookApp::BookApp(){
     isSetup = false;
 }
 
 //--------------------------------------------------------------
-void testApp::setup(){
+void BookApp::setup(){
     bookView.setup();
     bookView.addPage("0.jpg");
     bookView.addPage("1.jpg");
@@ -33,7 +33,7 @@ void testApp::setup(){
 }
 
 //--------------------------------------------------------------
-void testApp::update(){
+void BookApp::update(){
 
   //  devices.report();
     if(isSetup){
@@ -63,7 +63,7 @@ void testApp::update(){
 }
 
 //--------------------------------------------------------------
-void testApp::draw(){
+void BookApp::draw(){
     if(debugState>0){
     devices.draw();
         tfield.draw();
@@ -75,46 +75,60 @@ void testApp::draw(){
 }
 
 //--------------------------------------------------------------
-void testApp::keyPressed(int key){
+void BookApp::keyPressed(int key){
+    switch(key){
+            case 'd':
+            case 'D':
+            
+            toggleDebug();
+            break;
+            //case default:
+            
+            //break;
+    }
+}
+
+void BookApp::toggleDebug(){
+    debugState++;
+    if(debugState>1) debugState = 0;
+}
+
+//--------------------------------------------------------------
+void BookApp::keyReleased(int key){
 
 }
 
 //--------------------------------------------------------------
-void testApp::keyReleased(int key){
+void BookApp::mouseMoved(int x, int y ){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mouseMoved(int x, int y ){
+void BookApp::mouseDragged(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mouseDragged(int x, int y, int button){
+void BookApp::mousePressed(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mousePressed(int x, int y, int button){
+void BookApp::mouseReleased(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mouseReleased(int x, int y, int button){
+void BookApp::windowResized(int w, int h){
 
 }
 
 //--------------------------------------------------------------
-void testApp::windowResized(int w, int h){
+void BookApp::gotMessage(ofMessage msg){
 
 }
 
 //--------------------------------------------------------------
-void testApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void testApp::dragEvent(ofDragInfo dragInfo){ 
+void BookApp::dragEvent(ofDragInfo dragInfo){ 
 
 }

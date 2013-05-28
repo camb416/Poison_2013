@@ -8,10 +8,10 @@
 #include "BarGraph.h"
 #include "BookView.h"
 
-class testApp : public ofBaseApp{
+class BookApp : public ofBaseApp{
 
 	public:
-    testApp();
+    BookApp();
 		void setup();
 		void update();
 		void draw();
@@ -25,6 +25,8 @@ class testApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+    
+        void toggleDebug();
 
     DeviceController devices;
     BookController book;
