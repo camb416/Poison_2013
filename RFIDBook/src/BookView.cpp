@@ -1,30 +1,30 @@
 //
-//  BookModel.cpp
+//  BookView.cpp
 //  RFIDBook
 //
 //  Created by Cameron Browning on 5/22/13.
 //
 //
 
-#include "BookModel.h"
-BookModel::BookModel(){
+#include "BookView.h"
+BookView::BookView(){
     
 }
-BookModel::~BookModel(){
+BookView::~BookView(){
     
 }
-void BookModel::setup(){
+void BookView::setup(){
     
 }
-void BookModel::update(){
+void BookView::update(){
     for(int i=0;i<pages.size();i++){
         pages.at(i)->update();
     }
 }
-void BookModel::draw(){
+void BookView::draw(){
     draw(0,0);
 }
-void BookModel::draw(int x_in, int y_in){
+void BookView::draw(int x_in, int y_in){
     ofSetColor(255);
     ofPushMatrix();
     ofTranslate(x_in,y_in);
@@ -34,13 +34,13 @@ void BookModel::draw(int x_in, int y_in){
     }
     ofPopMatrix();
 }
-void BookModel::addPage(string pagename_in){
+void BookView::addPage(string pagename_in){
     ofFadeImage * newPage = new ofFadeImage();
     newPage->setup(pagename_in);
 
     pages.push_back(newPage);
 }
-void BookModel::activate(int pagenum_in){
+void BookView::activate(int pagenum_in){
 for(int i=0;i<pages.size();i++){
     if(i==pagenum_in){
         pages.at(i)->fadeIn();
@@ -48,4 +48,7 @@ for(int i=0;i<pages.size();i++){
         pages.at(i)->fadeOut();
     }
 }
+}
+void BookView::deactivate(){
+    activate(-1);
 }

@@ -1,4 +1,4 @@
-#include "testApp.h"
+#include "App.h"
 
 testApp::testApp(){
     isSetup = false;
@@ -6,15 +6,15 @@ testApp::testApp(){
 
 //--------------------------------------------------------------
 void testApp::setup(){
-    bookModel.setup();
-    bookModel.addPage("0.jpg");
-    bookModel.addPage("1.jpg");
-    bookModel.addPage("2.jpg");
-    bookModel.addPage("3.jpg");
+    bookView.setup();
+    bookView.addPage("0.jpg");
+    bookView.addPage("1.jpg");
+    bookView.addPage("2.jpg");
+    bookView.addPage("3.jpg");
     devices.setup();
         devices.startThread(true,false);
     
-    book.setup(&devices,&bookModel);
+    book.setup(&devices,&bookView);
    // rfidsetup();
     tfield.setup();
     tfield.update("Magic Book", 16,360);
@@ -39,14 +39,17 @@ void testApp::update(){
     if(isSetup){
     devices.update();
     bar.update();
-        bookModel.update();
+        bookView.update();
     if(book.isPageLanded()){
         // checks for three sensors active.
     }
     
+        
+        book.update();
+    
+        
     if(debugState>0){
 
-        //TO DO: Implement this... whatSituation needs work! Currently has a vector out of range and/or bad access.
         tfield.update("Magic Book \n" + book.getReport() + "\n" + book.whatSituation());
         //tfield.update("Magic Book \n" + book.getReport());
 
@@ -68,7 +71,7 @@ void testApp::draw(){
         if(ofGetMousePressed()) pos_ui.draw();
         
     }
-    bookModel.draw(16,450);
+    bookView.draw(16,450);
 }
 
 //--------------------------------------------------------------

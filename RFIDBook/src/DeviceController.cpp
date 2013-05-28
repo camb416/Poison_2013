@@ -13,7 +13,7 @@ using namespace std;
 
 
 void DeviceController::setup(){
-    cycleTime = 120; // ms to cycle the RFID antennae
+    cycleTime = 125; // ms to cycle the RFID antennae
     numSensors = 6;
     
     inactive_img.loadImage("radio_inactive.png");

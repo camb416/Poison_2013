@@ -6,7 +6,7 @@
 #include "TextField.h"
 #include "PositionUI.h"
 #include "BarGraph.h"
-#include "BookModel.h"
+#include "BookView.h"
 
 class testApp : public ofBaseApp{
 
@@ -33,7 +33,7 @@ class testApp : public ofBaseApp{
     BarGraph bar;
     float aValue;
     
-    BookModel bookModel;
+    BookView bookView;
     
     int debugState;
     

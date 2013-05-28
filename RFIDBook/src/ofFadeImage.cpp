@@ -17,8 +17,10 @@ void ofFadeImage::update(){
     alpha += (alphaDest-alpha)/8.0f;
 }
 void ofFadeImage::draw(){
-    ofSetColor(255,255,255,alpha*255);
-    ofImage::draw(0,0,160,120);
+    if(alpha>0.05){
+        ofSetColor(255,255,255,alpha*255);
+        ofImage::draw(0,0,160,120);
+    }
 }
 void ofFadeImage::fadeIn(){
     alphaDest = 1.0f;

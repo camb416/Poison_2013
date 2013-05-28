@@ -16,13 +16,34 @@ BookController::~BookController(){
     
 }
 
-void BookController::setup(DeviceController * deviceController_in, BookModel * bookModel_in){
+void BookController::setup(DeviceController * deviceController_in, BookView * bookView_in){
     deviceController = deviceController_in;
-    bookModel = bookModel_in;
+    bookView = bookView_in;
     isSetup = true;
 }
 void BookController::update(){
     // do something to update here
+    string currentSitation = whatSituation();
+    if(currentSitation.length() == 1){
+        // page is landed
+        
+        // take A-D and make 0-3
+        char curSit_char = currentSitation[0];
+        int whichPageNum = (int)curSit_char - 65;
+        
+        // send the view activation.
+        bookView->activate(whichPageNum);
+        
+    } else if(currentSitation.length()==2){
+        // you're on an interstitial
+        bookView->deactivate();
+        
+    } else {
+        // seems like an error...
+        cout << "Error: Current Book Situation has a strange length: " << currentSitation.length() << endl;
+    }
+   // cout << currentSitation << " " << currentSitation.length() << currentSitation.substr(0,1) << endl;
+    
 }
 bool BookController::isPageLanded(){
    int howManyActive = deviceController->getActiveSensorCount();
@@ -42,12 +63,12 @@ string BookController::whatSituation(){
     if(deviceController->getSensor("top-right")->hasTag()){
         // if page one is there, then it's definitely on a page...
         returnval_str = "A";
-        bookModel->activate(0);
+        //bookView->activate(0);
     } else if(deviceController->getSensor("middle-right")->hasTag()){
         // page one not down, but page 2 is.
         if(deviceController->getSensor("top-left")->hasTag()){
             returnval_str = "B";
-            bookModel->activate(1);
+            //bookView->activate(1);
         } else {
             returnval_str = "AB";
         }
@@ -55,17 +76,21 @@ string BookController::whatSituation(){
         // first two pages are not on the right, but the third is.
         if(deviceController->getSensor("middle-left")->hasTag()){
             returnval_str = "C";
-            bookModel->activate(2);
+           // bookView->activate(2);
         } else if(deviceController->getSensor("top-left")->hasTag()){
             returnval_str = "BC";
+        } else {
+            returnval_str = "AC";
         }
     } else if(deviceController->getSensor("bottom-left")->hasTag()){
         returnval_str = "D";
-        bookModel->activate(3);
+        //bookView->activate(3);
     } else if(deviceController->getSensor("middle-left")->hasTag()){
         returnval_str = "CD";
     } else if(deviceController->getSensor("top-left")->hasTag()){
         returnval_str = "BD";
+    } else {
+        returnval_str = "AD";
     }
     
     return returnval_str;
