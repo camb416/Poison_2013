@@ -19,6 +19,8 @@ public:
     void fadeIn();
     void fadeOut();
     void draw();
+    void draw(int x_in, int y_in);
+    void draw(int x_in, int y_in, int w_in, int h_in);
     
 private:
     

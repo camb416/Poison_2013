@@ -19,12 +19,14 @@ public:
     void setup();
     void update();
     void draw();
-    void draw(int x_in, int y_in);
+    void draw(int x_in, int y_in, int debugState=0);
     void addPage(string pagename_in);
+    void addBackplate(string platename_in);
     void activate(int pagenum_in);
     void deactivate();
 private:
     vector<ofFadeImage*> pages;
+    ofImage backplate;
 
 };
 #endif /* defined(__RFIDBook__BookView__) */

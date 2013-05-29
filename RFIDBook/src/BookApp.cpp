@@ -7,10 +7,11 @@ BookApp::BookApp(){
 //--------------------------------------------------------------
 void BookApp::setup(){
     bookView.setup();
-    bookView.addPage("0.jpg");
-    bookView.addPage("1.jpg");
-    bookView.addPage("2.jpg");
-    bookView.addPage("3.jpg");
+    bookView.addBackplate("backplate.jpg");
+    bookView.addPage("0.png");
+    bookView.addPage("1.png");
+    bookView.addPage("2.png");
+    bookView.addPage("3.png");
     devices.setup();
         devices.startThread(true,false);
     
@@ -26,7 +27,8 @@ void BookApp::setup(){
     isSetup = true;
     
     ofSetFrameRate(60);
-
+    ofBackground(0);
+    ofSetVerticalSync(true);
     
     
     
@@ -69,9 +71,11 @@ void BookApp::draw(){
         tfield.draw();
         bar.draw();
         if(ofGetMousePressed()) pos_ui.draw();
-        
+        bookView.draw(16,450,debugState);
+    } else {
+        bookView.draw(0,0);
     }
-    bookView.draw(16,450);
+    
 }
 
 //--------------------------------------------------------------
@@ -90,7 +94,15 @@ void BookApp::keyPressed(int key){
 
 void BookApp::toggleDebug(){
     debugState++;
-    if(debugState>1) debugState = 0;
+    if(debugState>1){
+    debugState = 0;    
+    }
+    updateDebug();
+}
+void BookApp::updateDebug(){
+    if(debugState==0){
+        ofSetFullscreen(true);
+    }
 }
 
 //--------------------------------------------------------------

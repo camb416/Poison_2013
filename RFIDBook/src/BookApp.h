@@ -27,6 +27,7 @@ class BookApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
         void toggleDebug();
+    void updateDebug();
 
     DeviceController devices;
     BookController book;

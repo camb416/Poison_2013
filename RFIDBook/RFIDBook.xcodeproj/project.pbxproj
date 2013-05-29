@@ -376,8 +376,8 @@
 			isa = PBXGroup;
 			children = (
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
-				3238844A17553D1E00EF4A8D /* BookApp.cpp */,
 				3238844B17553D1E00EF4A8D /* BookApp.h */,
+				3238844A17553D1E00EF4A8D /* BookApp.cpp */,
 				326E662517394FC300B3ABC2 /* RFIDDevice.h */,
 				326E662417394FC300B3ABC2 /* RFIDDevice.cpp */,
 				326E66381739953900B3ABC2 /* Reporter.cpp */,
