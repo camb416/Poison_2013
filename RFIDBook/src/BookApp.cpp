@@ -27,7 +27,7 @@ void BookApp::setup(){
     isSetup = true;
     
     ofSetFrameRate(60);
-    ofBackground(0);
+    updateDebug();
     ofSetVerticalSync(true);
     
     
@@ -102,6 +102,9 @@ void BookApp::toggleDebug(){
 void BookApp::updateDebug(){
     if(debugState==0){
         ofSetFullscreen(true);
+    } else {
+        ofBackground(192);
+        ofSetFullscreen(false);
     }
 }
 
