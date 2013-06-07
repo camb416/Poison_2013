@@ -59,6 +59,7 @@ void Media::update(){
     //TODO check mediaState to see what to do
     
     img.update();
+    vid.update();
     
 
     

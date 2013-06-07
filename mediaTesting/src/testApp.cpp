@@ -4,7 +4,7 @@
 void testApp::setup(){
     
     testImg.setup("poison.jpg", 0.0f, 0.0f);
-    testVid.setup("poison.jpg", "poisonVid.mp4", 0.0f, 300.0f);
+    testVid.setup("skull.png", "skull.mov", 0.0f, 300.0f);
     
     ofSetFrameRate(60.0f);
 
@@ -24,8 +24,6 @@ void testApp::draw(){
     
     testImg.draw();
     testVid.draw();
-    
-    ofDrawBitmapString(ofToString(ofGetFrameRate()), 500, 500);
 
 }
 
