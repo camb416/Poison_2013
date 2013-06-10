@@ -52,6 +52,17 @@ void BookView::addPage(string pagename_in){
 
     pages.push_back(newPage);
 }
+
+
+// Add a new page
+void BookView::addMediaPage(string _pageName){
+    Page * newPage = new Page();
+    newPage->setup();
+    
+    mediaPages.push_back(newPage);
+    
+}
+
 void BookView::addBackplate(string platename_in){
     backplate.loadImage(platename_in);
 }

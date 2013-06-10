@@ -10,6 +10,7 @@
 #define __RFIDBook__BookView__
 #include "ofMain.h"
 #include "ofFadeImage.h"
+#include "Page.h"
 #include <iostream>
 class BookView{
     
@@ -21,11 +22,15 @@ public:
     void draw();
     void draw(int x_in, int y_in, int debugState=0);
     void addPage(string pagename_in);
+    void addMediaPage(string _pagenName);
     void addBackplate(string platename_in);
     void activate(int pagenum_in);
     void deactivate();
 private:
     vector<ofFadeImage*> pages;
+    
+    // TODO - Change mediaPages to pages
+    vector<Page*> mediaPages;
     ofImage backplate;
 
 };

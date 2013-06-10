@@ -52,6 +52,8 @@
 		E7E077E515D3B63C0020DFD4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */; };
 		E7E077E815D3B6510020DFD4 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E715D3B6510020DFD4 /* QTKit.framework */; };
 		E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F985F515E0DE99003869B5 /* Accelerate.framework */; };
+		F92430A91766466A00E0DCB3 /* Page.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F92430A71766466A00E0DCB3 /* Page.cpp */; };
+		F92430AD176647B300E0DCB3 /* Media.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F92430AB176647B300E0DCB3 /* Media.cpp */; };
 		a0b7f6a3ec34b4f84321385da811b467 /* ofxSimpleGuiButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7eb99f95be2d12cc78d7890339c79ead /* ofxSimpleGuiButton.cpp */; };
 		c2ed558d391ba9692d3bf70567fb7804 /* ofxSimpleGuiToo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = cd6833700340995a484f6405e32bad9a /* ofxSimpleGuiToo.cpp */; };
 		cf142a7d9914b99e6e2870527205bee8 /* ofxSimpleGuiTitle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7a7cbac306f060bbc794c4f031710694 /* ofxSimpleGuiTitle.cpp */; };
@@ -156,6 +158,10 @@
 		E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		E7E077E715D3B6510020DFD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		E7F985F515E0DE99003869B5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
+		F92430A71766466A00E0DCB3 /* Page.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Page.cpp; sourceTree = "<group>"; };
+		F92430A81766466A00E0DCB3 /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page.h; sourceTree = "<group>"; };
+		F92430AB176647B300E0DCB3 /* Media.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Media.cpp; sourceTree = "<group>"; };
+		F92430AC176647B300E0DCB3 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
 		a5c54a5752a9362986db5b350961b7de /* ofxSimpleGuiControl.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSimpleGuiControl.cpp; path = ../../../addons/ofxSimpleGuiToo/src/ofxSimpleGuiControl.cpp; sourceTree = SOURCE_ROOT; };
 		af2311980a9c84efaff7c63b196663fe /* ofxSimpleGuiColorPicker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSimpleGuiColorPicker.h; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiColorPicker.h; sourceTree = SOURCE_ROOT; };
 		b21e7e5f548eea92f368040bb1aa2f69 /* tinyxml.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tinyxml.h; path = ../../../addons/ofxXmlSettings/libs/tinyxml.h; sourceTree = SOURCE_ROOT; };
@@ -386,6 +392,8 @@
 				326E66351739920D00B3ABC2 /* DeviceController.cpp */,
 				329FCD4A174D691000030F69 /* BookView.cpp */,
 				329FCD4B174D691000030F69 /* BookView.h */,
+				F92430A71766466A00E0DCB3 /* Page.cpp */,
+				F92430A81766466A00E0DCB3 /* Page.h */,
 				329FCD4D174D6C4500030F69 /* ofFadeImage.cpp */,
 				329FCD4E174D6C4500030F69 /* ofFadeImage.h */,
 				32192F411746941A009007DC /* BarGraph.cpp */,
@@ -396,6 +404,8 @@
 				32192F3F17468D26009007DC /* PositionUI.h */,
 				32192F3817454F5F009007DC /* BookController.cpp */,
 				32192F3917454F5F009007DC /* BookController.h */,
+				F92430AB176647B300E0DCB3 /* Media.cpp */,
+				F92430AC176647B300E0DCB3 /* Media.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -532,6 +542,8 @@
 				329FCD4C174D691000030F69 /* BookView.cpp in Sources */,
 				329FCD4F174D6C4500030F69 /* ofFadeImage.cpp in Sources */,
 				3238844C17553D1E00EF4A8D /* BookApp.cpp in Sources */,
+				F92430A91766466A00E0DCB3 /* Page.cpp in Sources */,
+				F92430AD176647B300E0DCB3 /* Media.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
