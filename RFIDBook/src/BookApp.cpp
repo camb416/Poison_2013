@@ -18,28 +18,22 @@ void BookApp::setup(){
     vector<ofVec2f> page1Positions;
     page1Files.push_back("0.png");
         page1Positions.push_back(ofVec2f(0, 0));
-//    page1Files.push_back("file1_2.mov");
-//        page1Positions.push_back(ofVec2f(100, 100));
-//    page1Files.push_back("file1_3.png");
-//        page1Positions.push_back(ofVec2f(100, 100));
+    // For testing multiple media on a page
+    page1Files.push_back("radio_selected.png");
+        page1Positions.push_back(ofVec2f(100, 100));
+
     
     vector<string> page2Files;
     vector<ofVec2f> page2Positions;
     page2Files.push_back("1.png");
         page2Positions.push_back(ofVec2f(0, 0));
-//    page2Files.push_back("file2_2.img");
-//        page2Positions.push_back(ofVec2f(100, 100));
-//    page2Files.push_back("file2_3.mov");
-//        page2Positions.push_back(ofVec2f(100, 100));
+
     
     vector<string> page3Files;
     vector<ofVec2f> page3Positions;
     page3Files.push_back("2.png");
-    page3Positions.push_back(ofVec2f(0, 0));
-    //    page3Files.push_back("file3_2.img");
-    //        page3Positions.push_back(ofVec2f(100, 100));
-    //    page3Files.push_back("file3_3.mov");
-    //        page3Positions.push_back(ofVec2f(100, 100));
+        page3Positions.push_back(ofVec2f(0, 0));
+
     
     
     // Add pages of media to bookview

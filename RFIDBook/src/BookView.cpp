@@ -36,6 +36,8 @@ void BookView::draw(int x_in, int y_in, int debugState){
     ofSetColor(255);
     ofPushMatrix();
     ofTranslate(x_in,y_in);
+        
+    // Old Pages
 //    for(int i=0;i<pages.size();i++){
 //        pages.at(i)->draw(0,0,160,120);
 //        ofTranslate(25,25);
@@ -53,6 +55,7 @@ void BookView::draw(int x_in, int y_in, int debugState){
         backplate.draw(0,0,ofGetWidth(),ofGetHeight());
         ofPushMatrix();
         ofTranslate(x_in,y_in);
+    // Old Pages
 //        for(int i=0;i<pages.size();i++){
 //            pages.at(i)->draw(0,0,ofGetWidth(),ofGetHeight());
 //            //ofTranslate(25,25);
