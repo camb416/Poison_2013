@@ -28,6 +28,35 @@ void Page::draw(){
     
 }
 
+void Page::addMedia(string fileName, ofVec2f position){
+    
+    Media newMedia;
+    
+    string sub = fileName.substr(fileName.length()-3,3);
+    if (sub == "png") {
+        
+        // run the setup for a media element that is just an image
+        newMedia.setup(fileName, position.x, position.y);
+        
+    }
+    else if (sub == "mov"){
+        
+        // Run the setup for a media element that is a video and an image
+        string imageFile = fileName.replace(fileName.length() -3, 3, "png");
+        newMedia.setup(imageFile, fileName, position.x, position.y);
+        
+    }
+    else {
+        
+        ofLogNotice() << "unrecognized media file extension: " << fileName;
+    
+    }
+    
+    media.push_back(newMedia);
+    ofLogNotice() << "Added new media element " << fileName << " to page at position " << position.x << "," << position.y;
+    
+}
+
 void Page::receiveInput(char input ){
 
     int position = -1;
@@ -42,7 +71,7 @@ void Page::receiveInput(char input ){
     
     // If the input character is found, send the touch event to the corresponding media object
     if (position != -1){
-        media.at(position)->playPause();
+        media.at(position).playPause();
     }
     else {
         std::cout << "no media element found for character " << input;

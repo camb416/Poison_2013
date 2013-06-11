@@ -54,12 +54,20 @@ void BookView::addPage(string pagename_in){
 }
 
 
-// Add a new page
-void BookView::addMediaPage(string _pageName){
+// Add all media elements and add to page
+void BookView::addMediaPage(vector<string> mediaFiles, vector<ofVec2f> positions){
+    
     Page * newPage = new Page();
     newPage->setup();
     
+    for (int i = 0; i < mediaFiles.size(); i++) {
+        
+        newPage->addMedia(mediaFiles.at(i), positions.at(i));
+        
+    }
+    
     mediaPages.push_back(newPage);
+    ofLogNotice() << "added new page. total pages: " << mediaPages.size();
     
 }
 

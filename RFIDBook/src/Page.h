@@ -23,13 +23,13 @@ public:
     void update();
     void draw();
     
-    void addMedia();
+    void addMedia(string fileName, ofVec2f);
     void receiveInput(char input);
     
-    vector<Media*> media;
+    vector<Media> media;
     vector<char> validInputs;
-
     
+
 };
 
 #endif /* defined(__RFIDBook__Page__) */

@@ -394,6 +394,8 @@
 				329FCD4B174D691000030F69 /* BookView.h */,
 				F92430A71766466A00E0DCB3 /* Page.cpp */,
 				F92430A81766466A00E0DCB3 /* Page.h */,
+				F92430AB176647B300E0DCB3 /* Media.cpp */,
+				F92430AC176647B300E0DCB3 /* Media.h */,
 				329FCD4D174D6C4500030F69 /* ofFadeImage.cpp */,
 				329FCD4E174D6C4500030F69 /* ofFadeImage.h */,
 				32192F411746941A009007DC /* BarGraph.cpp */,
@@ -404,8 +406,6 @@
 				32192F3F17468D26009007DC /* PositionUI.h */,
 				32192F3817454F5F009007DC /* BookController.cpp */,
 				32192F3917454F5F009007DC /* BookController.h */,
-				F92430AB176647B300E0DCB3 /* Media.cpp */,
-				F92430AC176647B300E0DCB3 /* Media.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;

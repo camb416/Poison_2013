@@ -12,6 +12,33 @@ void BookApp::setup(){
     bookView.addPage("1.png");
     bookView.addPage("2.png");
     bookView.addPage("3.png");
+    
+    // Page settings. Will later be taken from XML
+    vector<string> page1Files;
+    vector<ofVec2f> page1Positions;
+    page1Files.push_back("file1_1.png");
+        page1Positions.push_back(ofVec2f(100, 100));
+    page1Files.push_back("file1_2.mov");
+        page1Positions.push_back(ofVec2f(100, 100));
+    page1Files.push_back("file1_3.png");
+        page1Positions.push_back(ofVec2f(100, 100));
+    
+    vector<string> page2Files;
+    vector<ofVec2f> page2Positions;
+    page2Files.push_back("file2_1.png");
+        page2Positions.push_back(ofVec2f(100, 100));
+    page2Files.push_back("file2_2.img");
+        page2Positions.push_back(ofVec2f(100, 100));
+    page2Files.push_back("file2_3.mov");
+        page2Positions.push_back(ofVec2f(100, 100));
+    
+    
+    // Add pages of media to bookview
+    bookView.addMediaPage(page1Files, page1Positions);
+    bookView.addMediaPage(page2Files, page2Positions);
+    
+    
+    
     devices.setup();
         devices.startThread(true,false);
     
