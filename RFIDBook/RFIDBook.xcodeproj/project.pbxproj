@@ -15,6 +15,7 @@
 		32192F3D17468913009007DC /* TextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32192F3B17468913009007DC /* TextField.cpp */; };
 		32192F4017468D27009007DC /* PositionUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32192F3E17468D26009007DC /* PositionUI.cpp */; };
 		32192F431746941A009007DC /* BarGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32192F411746941A009007DC /* BarGraph.cpp */; };
+		32323CC0176780D20093710C /* LanguageModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323CBE176780D20093710C /* LanguageModel.cpp */; };
 		3238844C17553D1E00EF4A8D /* BookApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3238844A17553D1E00EF4A8D /* BookApp.cpp */; };
 		326E662617394FC300B3ABC2 /* RFIDDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326E662417394FC300B3ABC2 /* RFIDDevice.cpp */; };
 		326E66341739830400B3ABC2 /* Phidget21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326E66331739830400B3ABC2 /* Phidget21.framework */; };
@@ -104,6 +105,8 @@
 		32192F3F17468D26009007DC /* PositionUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionUI.h; sourceTree = "<group>"; };
 		32192F411746941A009007DC /* BarGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BarGraph.cpp; sourceTree = "<group>"; };
 		32192F421746941A009007DC /* BarGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarGraph.h; sourceTree = "<group>"; };
+		32323CBE176780D20093710C /* LanguageModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LanguageModel.cpp; sourceTree = "<group>"; };
+		32323CBF176780D20093710C /* LanguageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageModel.h; sourceTree = "<group>"; };
 		3238844A17553D1E00EF4A8D /* BookApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookApp.cpp; sourceTree = "<group>"; };
 		3238844B17553D1E00EF4A8D /* BookApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookApp.h; sourceTree = "<group>"; };
 		326E662417394FC300B3ABC2 /* RFIDDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RFIDDevice.cpp; sourceTree = "<group>"; };
@@ -396,6 +399,8 @@
 				32192F3F17468D26009007DC /* PositionUI.h */,
 				32192F3817454F5F009007DC /* BookController.cpp */,
 				32192F3917454F5F009007DC /* BookController.h */,
+				32323CBE176780D20093710C /* LanguageModel.cpp */,
+				32323CBF176780D20093710C /* LanguageModel.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -532,6 +537,7 @@
 				329FCD4C174D691000030F69 /* BookView.cpp in Sources */,
 				329FCD4F174D6C4500030F69 /* ofFadeImage.cpp in Sources */,
 				3238844C17553D1E00EF4A8D /* BookApp.cpp in Sources */,
+				32323CC0176780D20093710C /* LanguageModel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

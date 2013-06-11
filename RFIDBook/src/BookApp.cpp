@@ -30,6 +30,9 @@ void BookApp::setup(){
     updateDebug();
     ofSetVerticalSync(true);
     
+
+    lang = new LanguageModel("settings/languages.xml");
+    cout << "setup complete." << endl;
     
     
 }

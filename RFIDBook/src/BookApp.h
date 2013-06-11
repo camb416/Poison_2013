@@ -7,6 +7,7 @@
 #include "PositionUI.h"
 #include "BarGraph.h"
 #include "BookView.h"
+#include "LanguageModel.h"
 
 class BookApp : public ofBaseApp{
 
@@ -29,6 +30,8 @@ class BookApp : public ofBaseApp{
         void toggleDebug();
     void updateDebug();
 
+    LanguageModel * lang;
+    
     DeviceController devices;
     BookController book;
     TextField tfield;
