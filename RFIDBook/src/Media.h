@@ -23,6 +23,7 @@ public:
     void setup(string imgFile, string vidFile, float _x, float _y);
     void update();
     void draw();
+    void drawScaled(float scale);
     void setPosition(float _x, float _y);
     void playPause();
     

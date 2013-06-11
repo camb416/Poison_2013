@@ -20,30 +20,50 @@ void Page::setup(){
     
 }
 
+// Update all media elements on page
 void Page::update(){
+    
+    for (int i = 0; i < media.size(); i++) {
+        media.at(i)->update();
+    }
     
 }
 
-void Page::draw(){
+void Page::draw(float originX, float originY, float scale){
+    
+    if (scale == 1.0f) {
+        
+        // Run the normal draw method for each media element
+        for (int i = 0; i < media.size(); i++) {
+            media.at(i)->draw();
+        }
+        
+    }
+    else {
+        // Run the scaled draw method for each media element
+        for (int i = 0; i < media.size(); i++) {
+            media.at(i)->drawScaled(scale);
+        }
+    }
     
 }
 
 void Page::addMedia(string fileName, ofVec2f position){
     
-    Media newMedia;
+    Media * newMedia = new Media();
     
     string sub = fileName.substr(fileName.length()-3,3);
     if (sub == "png") {
         
         // run the setup for a media element that is just an image
-        newMedia.setup(fileName, position.x, position.y);
+        newMedia->setup(fileName, position.x, position.y);
         
     }
     else if (sub == "mov"){
         
         // Run the setup for a media element that is a video and an image
         string imageFile = fileName.replace(fileName.length() -3, 3, "png");
-        newMedia.setup(imageFile, fileName, position.x, position.y);
+        newMedia->setup(imageFile, fileName, position.x, position.y);
         
     }
     else {
@@ -71,12 +91,33 @@ void Page::receiveInput(char input ){
     
     // If the input character is found, send the touch event to the corresponding media object
     if (position != -1){
-        media.at(position).playPause();
+        media.at(position)->playPause();
     }
     else {
         std::cout << "no media element found for character " << input;
     }
 
+}
+
+void Page::fade(int dir){
+    
+    // Loop through media elements and fade them in or out
+    // TODO - add the randomized load in here
+    
+    if (dir == 1) {
+        for (int i = 0; i < media.size(); i++) {
+            // TODO - handle video fade in as well
+            media.at(i)->img.fadeIn();
+        }
+    }
+    else {
+        for (int i = 0; i < media.size(); i++) {
+            // TODO - handle video fade in as well
+            media.at(i)->img.fadeOut();
+        }
+    }
+    
+    
 }
 
 

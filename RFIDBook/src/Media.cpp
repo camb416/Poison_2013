@@ -59,7 +59,7 @@ void Media::update(){
     //TODO check mediaState to see what to do
     
     img.update();
-    vid.update();
+    //vid.update();
     
     
     
@@ -67,13 +67,33 @@ void Media::update(){
 
 void Media::draw(){
     
-    //TODO check mediaState
-    
-    if (vidState == 0){
+    if (hasVid == false) {
         img.draw(x,y);
     }
     else {
-        vid.draw(x, y);
+    
+        if (vidState == 0){
+            img.draw(x,y);
+        }
+        else {
+            vid.draw(x, y);
+        }
     }
     
+}
+
+void Media::drawScaled(float scale){
+    
+    if (hasVid == false){
+        img.draw(x,y, img.width*scale, img.height*scale);
+    }
+    else {
+        if (vidState == 0 || hasVid == false){
+            img.draw(x,y, img.width*scale, img.height*scale);
+        }
+        else {
+            vid.draw(x, y, vid.width*scale, vid.width*scale);
+        }
+    }
+
 }

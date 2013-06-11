@@ -392,6 +392,8 @@
 				326E66351739920D00B3ABC2 /* DeviceController.cpp */,
 				329FCD4A174D691000030F69 /* BookView.cpp */,
 				329FCD4B174D691000030F69 /* BookView.h */,
+				32192F3817454F5F009007DC /* BookController.cpp */,
+				32192F3917454F5F009007DC /* BookController.h */,
 				F92430A71766466A00E0DCB3 /* Page.cpp */,
 				F92430A81766466A00E0DCB3 /* Page.h */,
 				F92430AB176647B300E0DCB3 /* Media.cpp */,
@@ -404,8 +406,6 @@
 				32192F3C17468913009007DC /* TextField.h */,
 				32192F3E17468D26009007DC /* PositionUI.cpp */,
 				32192F3F17468D26009007DC /* PositionUI.h */,
-				32192F3817454F5F009007DC /* BookController.cpp */,
-				32192F3917454F5F009007DC /* BookController.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;

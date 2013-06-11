@@ -21,12 +21,14 @@ public:
     
     void setup();
     void update();
-    void draw();
+    void draw(float originX, float originY, float scale);
     
-    void addMedia(string fileName, ofVec2f);
+    void addMedia(string fileName, ofVec2f position);
     void receiveInput(char input);
     
-    vector<Media> media;
+    void fade(int dir);
+    
+    vector<Media*> media;
     vector<char> validInputs;
     
 
