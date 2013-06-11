@@ -232,19 +232,6 @@
          timestampString = "392672633.243211"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "33"
-         endingLineNumber = "33"
-         landmarkName = "LanguageModel::LanguageModel(string _xmlfile)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/LanguageModel.cpp"
-         timestampString = "392672633.243211"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
          startingLineNumber = "29"
          endingLineNumber = "29"
          landmarkName = "LanguageModel::LanguageModel(string _xmlfile)"
