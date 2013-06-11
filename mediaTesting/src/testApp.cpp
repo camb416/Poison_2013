@@ -7,6 +7,10 @@ void testApp::setup(){
     testVid.setup("skull.png", "skull.mov", 0.0f, 300.0f);
     
     ofSetFrameRate(60.0f);
+    
+    string str = "file1.png";
+    string str2 = str.substr(str.length() -3,3);
+    cout << str2;
 
 
 }
