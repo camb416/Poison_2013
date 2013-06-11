@@ -21,9 +21,16 @@ class LanguageModel{
 public:
     LanguageModel(string _xmlfile);
     ~LanguageModel();
+    void report();
+    Language getCurrentLanguage();
+    string getCurrentLanguageName();
+    string getCurrentLanguageId();
     
 private:
     ofxXmlSettings xml;
+    vector<Language> languages;
+    int currentLanguageIndex;
+    int numLanguages;
     
     
 };
