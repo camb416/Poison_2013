@@ -112,8 +112,46 @@ void BookApp::draw(){
 //--------------------------------------------------------------
 void BookApp::keyPressed(int key){
     switch(key){
+            case 'a': 
+            case 'A':
+            
+            book.forcedPage('A');
+            break;
+            
+            case 'b':
+            case 'B':
+            
+            book.forcedPage('B');
+            break;
+            
+            case 'c':
+            case 'C':
+            
+            book.forcedPage('C');
+            break;
+            
             case 'd':
             case 'D':
+            
+            book.forcedPage('D');
+            break;
+            
+            case 'e':
+            case 'E':
+            
+            book.forcedPage('E');
+            break;
+            
+            // toggle keyboard mode on or off
+            case 'x':
+            case 'X':
+            
+            book.forcedPage('X');
+            break;
+            
+            // toggle debug mode on or off
+            case 'z':
+            case 'Z':
             
             toggleDebug();
             break;
@@ -138,6 +176,7 @@ void BookApp::updateDebug(){
         ofSetFullscreen(false);
     }
 }
+
 
 //--------------------------------------------------------------
 void BookApp::keyReleased(int key){
