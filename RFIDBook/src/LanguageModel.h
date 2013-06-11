@@ -12,6 +12,11 @@
 #include "ofxXmlSettings.h"
 #include <iostream>
 
+struct Language {
+    string ident;
+    string name;
+};
+
 class LanguageModel{
 public:
     LanguageModel(string _xmlfile);
