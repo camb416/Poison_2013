@@ -12,6 +12,37 @@ void BookApp::setup(){
     bookView.addPage("1.png");
     bookView.addPage("2.png");
     bookView.addPage("3.png");
+    
+    // Media elements for each page. Will later be taken from XML
+    vector<string> page1Files;
+    vector<ofVec2f> page1Positions;
+    page1Files.push_back("0.png");
+        page1Positions.push_back(ofVec2f(0, 0));
+    // For testing multiple media on a page
+    page1Files.push_back("radio_selected.png");
+        page1Positions.push_back(ofVec2f(100, 100));
+
+    
+    vector<string> page2Files;
+    vector<ofVec2f> page2Positions;
+    page2Files.push_back("1.png");
+        page2Positions.push_back(ofVec2f(0, 0));
+
+    
+    vector<string> page3Files;
+    vector<ofVec2f> page3Positions;
+    page3Files.push_back("2.png");
+        page3Positions.push_back(ofVec2f(0, 0));
+
+    
+    
+    // Add pages of media to bookview
+    bookView.addMediaPage(page1Files, page1Positions);
+    bookView.addMediaPage(page2Files, page2Positions);
+    bookView.addMediaPage(page3Files, page3Positions);
+    
+    
+    
     devices.setup();
         devices.startThread(true,false);
     
@@ -84,8 +115,46 @@ void BookApp::draw(){
 //--------------------------------------------------------------
 void BookApp::keyPressed(int key){
     switch(key){
+            case 'a': 
+            case 'A':
+            
+            book.forcedPage('A');
+            break;
+            
+            case 'b':
+            case 'B':
+            
+            book.forcedPage('B');
+            break;
+            
+            case 'c':
+            case 'C':
+            
+            book.forcedPage('C');
+            break;
+            
             case 'd':
             case 'D':
+            
+            book.forcedPage('D');
+            break;
+            
+            case 'e':
+            case 'E':
+            
+            book.forcedPage('E');
+            break;
+            
+            // toggle keyboard mode on or off
+            case 'x':
+            case 'X':
+            
+            book.forcedPage('X');
+            break;
+            
+            // toggle debug mode on or off
+            case 'z':
+            case 'Z':
             
             toggleDebug();
             break;
@@ -110,6 +179,7 @@ void BookApp::updateDebug(){
         ofSetFullscreen(false);
     }
 }
+
 
 //--------------------------------------------------------------
 void BookApp::keyReleased(int key){
