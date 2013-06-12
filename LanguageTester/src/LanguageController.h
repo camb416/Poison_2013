@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "LanguageModel.h"
+#include "ofMain.h"
 
 class LanguageController{
 public:

@@ -7,6 +7,7 @@
 //
 
 #include "LanguageController.h"
+
 LanguageController::LanguageController(){
 
 }
@@ -45,5 +46,27 @@ bool LanguageController::setLanguage(string _ident){
 }
 string LanguageController::resolvePath(string _filepath){
     // TO DO... implement this.
-    return false;
+    string langSpec_str;
+    string default_str;
+    langSpec_str = model.getCurrentLanguageId() + "/" + _filepath;
+    default_str = "default/" + _filepath;
+    
+    cout << "resolving " << _filepath << " into " << langSpec_str << "." << endl;
+    cout << "does it exist? " ;
+    
+    bool isLanguageSpecific = ofFile::doesFileExist(langSpec_str);
+    bool isAtOrigin = ofFile::doesFileExist(_filepath);
+    bool isInDefault = ofFile::doesFileExist(default_str);
+    
+    isLanguageSpecific ? cout << "YES." << endl : cout << "No." << endl;
+    
+    if(isLanguageSpecific && isAtOrigin){
+        cout << "WARNING: You have duplicate files at: " << langSpec_str << " and " << _filepath << "." << endl;
+    } else if(isLanguageSpecific){
+        return langSpec_str;
+    } else if(isInDefault){
+        return default_str;
+    }
+    
+    return return_str;
 }

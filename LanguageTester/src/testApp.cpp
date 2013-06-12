@@ -5,8 +5,19 @@ void testApp::setup(){
 
     lang.load();
     
+    // try this (seems to work)
     lang.toggleLanguage();
     lang.toggleLanguage();
+
+    // then this... (seems to work)
+    lang.setLanguage("fr");
+    lang.setLanguage("en");
+    
+    cout << "myImage.jpg: " << lang.resolvePath("myImage.jpg") << endl;
+    cout << "subdir/myImage.jpg: " << lang.resolvePath("subdir/myImage.jpg") << endl;
+
+    
+
 }
 
 //--------------------------------------------------------------
