@@ -45,7 +45,7 @@ bool LanguageController::setLanguage(string _ident){
     return returnVal;
 }
 string LanguageController::resolvePath(string _filepath){
-    // TO DO... implement this.
+
     string langSpec_str;
     string default_str;
     langSpec_str = model.getCurrentLanguageId() + "/" + _filepath;
@@ -62,11 +62,10 @@ string LanguageController::resolvePath(string _filepath){
     
     if(isLanguageSpecific && isAtOrigin){
         cout << "WARNING: You have duplicate files at: " << langSpec_str << " and " << _filepath << "." << endl;
+        return langSpec_str;
     } else if(isLanguageSpecific){
         return langSpec_str;
     } else if(isInDefault){
         return default_str;
     }
-    
-    return return_str;
 }
