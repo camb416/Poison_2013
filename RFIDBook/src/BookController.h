@@ -24,11 +24,14 @@ public:
     bool isPageLanded();
     string getReport();
     string whatSituation();
+    void forcedPage(char _keyStatus);
     
 private:
     DeviceController * deviceController;
     BookView * bookView;
     bool isSetup;
+    bool forcedPageActive;
+    string forcedState;
     
 };
 
