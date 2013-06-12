@@ -21,6 +21,9 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 		
     
-    Media testImg;
-    Media testVid;
+        Media testImg;
+        Media testVid;
+        ofFadeImage testSlide;
+    
+        bool visable;
 };
