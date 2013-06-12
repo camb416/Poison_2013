@@ -30,7 +30,7 @@ public:
     int getCurrentLanguageNum();
     string getLanguageIdentAt(int _index);
     int hasLanguage(string _ident);
-    bool setCurrentLanguage(string _ident);
+    bool setCurrentLanguage(int _langid);
     
 private:
     ofxXmlSettings xml;

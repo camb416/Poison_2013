@@ -13,20 +13,16 @@ LanguageModel::LanguageModel(){
 }
 
 bool LanguageModel::load(string _xmlfile){
-    
+    cout << "trying to load: " << _xmlfile << endl;
     numLanguages = -1;
     currentLanguageIndex = 0;
     
-    // TODO: Add error correction on loading this file
     xml.loadFile(_xmlfile);
-    
-    
-    // load the xml, make some Language structs
-    numLanguages = xml.getNumTags("language");
-    
-
+   
     // parse the file, build a vector of structs.
     xml.pushTag("languages");
+    numLanguages = xml.getNumTags("language");
+    
     for(int i=0;i<numLanguages;i++){
         Language lang;
         lang.ident = xml.getAttribute("language", "id", "",i);
@@ -70,12 +66,13 @@ int LanguageModel::hasLanguage(string _ident){
 }
 
 bool LanguageModel::setCurrentLanguage(int _langid){
-    currentLanguageIndex = _langid
+    currentLanguageIndex = _langid;
+    cout << "language changed to: " << languages.at(currentLanguageIndex).name << "." << endl;;
 }
 
 string LanguageModel::getLanguageIdentAt(int _index){
     string returnVal = "";
-    if(_index>0 && _index < numLanguages){
+    if(_index>-1 && _index < numLanguages){
         returnVal = languages.at(_index).ident;
     } else {
         cout << "error: language not found at index: " << _index << "." << endl;

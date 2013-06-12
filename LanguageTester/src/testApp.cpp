@@ -3,9 +3,10 @@
 //--------------------------------------------------------------
 void testApp::setup(){
 
-    langs = new LanguageModel("settings/languages.xml");
+    lang.load();
     
-    
+    lang.toggleLanguage();
+    lang.toggleLanguage();
 }
 
 //--------------------------------------------------------------
