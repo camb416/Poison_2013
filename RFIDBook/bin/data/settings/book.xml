@@ -1,0 +1,30 @@
+<book>
+	<page input="A" >
+		<media input="1" >
+			<img src="anImage.jpg" x="10" y="10" />
+			<video src="aVideo.mov" x="10" y="10" />
+		</media>
+		<media input="2" >
+			<img src="anImage2.jpg" x="10" y="10" />
+			<video src="aVideo2.mov" x="10" y="10" />
+		</media>
+		<media input="3" >
+			<img src="anImage3.jpg" x="10" y="10" />
+			<video src="aVideo3.mov" x="10" y="10" />
+		</media>
+	</page>
+		<page input="A" >
+		<media input="1" >
+			<img src="anImage.jpg" x="10" y="10" />
+			<video src="aVideo.mov" x="10" y="10" />
+		</media>
+		<media input="2" >
+			<img src="anImage2.jpg" x="10" y="10" />
+			<video src="aVideo2.mov" x="10" y="10" />
+		</media>
+		<media input="3" >
+			<img src="anImage3.jpg" x="10" y="10" />
+			<video src="aVideo3.mov" x="10" y="10" />
+		</media>
+	</page>
+	</book>
