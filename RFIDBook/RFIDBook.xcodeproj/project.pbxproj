@@ -11,19 +11,22 @@
 		1f910dcf02326b0e25059352edd39c0c /* ofxSimpleGuiPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = fd30123cd06421602730f58647372e52 /* ofxSimpleGuiPage.cpp */; };
 		2c776d21a9559288b0f7aed9b1be072d /* ofxSimpleGuiMovieSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8445ea9a5fd9905881cbb8a624e1cf51 /* ofxSimpleGuiMovieSlider.cpp */; };
 		2dd56bbc82953d6ae0a018bfad910b7d /* ofxSimpleGuiComboBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = b8e04ba7dcfb448a2ed1ec25aead7222 /* ofxSimpleGuiComboBox.cpp */; };
-		32192F3A17454F5F009007DC /* BookController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32192F3817454F5F009007DC /* BookController.cpp */; };
-		32192F3D17468913009007DC /* TextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32192F3B17468913009007DC /* TextField.cpp */; };
-		32192F4017468D27009007DC /* PositionUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32192F3E17468D26009007DC /* PositionUI.cpp */; };
-		32192F431746941A009007DC /* BarGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32192F411746941A009007DC /* BarGraph.cpp */; };
-		32323CC0176780D20093710C /* LanguageModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323CBE176780D20093710C /* LanguageModel.cpp */; };
-		32323CCE176A302B0093710C /* LanguageController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323CCC176A302B0093710C /* LanguageController.cpp */; };
-		3238844C17553D1E00EF4A8D /* BookApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3238844A17553D1E00EF4A8D /* BookApp.cpp */; };
-		326E662617394FC300B3ABC2 /* RFIDDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326E662417394FC300B3ABC2 /* RFIDDevice.cpp */; };
+		32323D18176A31FD0093710C /* BarGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323CFB176A31FD0093710C /* BarGraph.cpp */; };
+		32323D19176A31FD0093710C /* BookApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323CFD176A31FD0093710C /* BookApp.cpp */; };
+		32323D1A176A31FD0093710C /* BookController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323CFF176A31FD0093710C /* BookController.cpp */; };
+		32323D1B176A31FD0093710C /* BookView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D01176A31FD0093710C /* BookView.cpp */; };
+		32323D1C176A31FD0093710C /* DeviceController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D03176A31FD0093710C /* DeviceController.cpp */; };
+		32323D1D176A31FD0093710C /* LanguageController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D05176A31FD0093710C /* LanguageController.cpp */; };
+		32323D1E176A31FD0093710C /* LanguageModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D07176A31FD0093710C /* LanguageModel.cpp */; };
+		32323D1F176A31FD0093710C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D09176A31FD0093710C /* main.cpp */; };
+		32323D20176A31FD0093710C /* Media.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D0A176A31FD0093710C /* Media.cpp */; };
+		32323D21176A31FD0093710C /* ofFadeImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D0C176A31FD0093710C /* ofFadeImage.cpp */; };
+		32323D22176A31FD0093710C /* Page.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D0E176A31FD0093710C /* Page.cpp */; };
+		32323D23176A31FD0093710C /* PositionUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D10176A31FD0093710C /* PositionUI.cpp */; };
+		32323D24176A31FD0093710C /* Reporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D12176A31FD0093710C /* Reporter.cpp */; };
+		32323D25176A31FD0093710C /* RFIDDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D14176A31FD0093710C /* RFIDDevice.cpp */; };
+		32323D26176A31FD0093710C /* TextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D16176A31FD0093710C /* TextField.cpp */; };
 		326E66341739830400B3ABC2 /* Phidget21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326E66331739830400B3ABC2 /* Phidget21.framework */; };
-		326E66371739920D00B3ABC2 /* DeviceController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326E66351739920D00B3ABC2 /* DeviceController.cpp */; };
-		326E663A1739953900B3ABC2 /* Reporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326E66381739953900B3ABC2 /* Reporter.cpp */; };
-		329FCD4C174D691000030F69 /* BookView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 329FCD4A174D691000030F69 /* BookView.cpp */; };
-		329FCD4F174D6C4500030F69 /* ofFadeImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 329FCD4D174D6C4500030F69 /* ofFadeImage.cpp */; };
 		3317b76ee9202b4c6482d15c4ec6cc7b /* ofxSimpleGuiToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1c56b6200d48da052208be05afd7bde7 /* ofxSimpleGuiToggle.cpp */; };
 		49073c5c875b61f6d54cf6ab8584e712 /* ofxSimpleGuiQuadWarp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39b743be64c2fc3fc8c221637b98639e /* ofxSimpleGuiQuadWarp.cpp */; };
 		495e773e470ff7c742646e77652f964d /* ofxSimpleGuiContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = cd862afb8eff69d2b30a7293a307d7d7 /* ofxSimpleGuiContent.cpp */; };
@@ -46,7 +49,6 @@
 		E45BE9810E8CC7DD009D7055 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9770E8CC7DD009D7055 /* CoreServices.framework */; };
 		E45BE9830E8CC7DD009D7055 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9790E8CC7DD009D7055 /* OpenGL.framework */; };
 		E45BE9840E8CC7DD009D7055 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */; };
-		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424410CC5A17004149E2 /* AppKit.framework */; };
 		E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424510CC5A17004149E2 /* Cocoa.framework */; };
 		E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424610CC5A17004149E2 /* IOKit.framework */; };
@@ -98,31 +100,36 @@
 		1c56b6200d48da052208be05afd7bde7 /* ofxSimpleGuiToggle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSimpleGuiToggle.cpp; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiToggle.cpp; sourceTree = SOURCE_ROOT; };
 		1dcab31f5077c9c550b1adb37be42a5e /* ofxSimpleGuiFPSCounter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSimpleGuiFPSCounter.h; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiFPSCounter.h; sourceTree = SOURCE_ROOT; };
 		2b40eda85beb63e46785bc299a638898 /* tinyxml.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxml.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxml.cpp; sourceTree = SOURCE_ROOT; };
-		32192F3817454F5F009007DC /* BookController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookController.cpp; sourceTree = "<group>"; };
-		32192F3917454F5F009007DC /* BookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookController.h; sourceTree = "<group>"; };
-		32192F3B17468913009007DC /* TextField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextField.cpp; sourceTree = "<group>"; };
-		32192F3C17468913009007DC /* TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextField.h; sourceTree = "<group>"; };
-		32192F3E17468D26009007DC /* PositionUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PositionUI.cpp; sourceTree = "<group>"; };
-		32192F3F17468D26009007DC /* PositionUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionUI.h; sourceTree = "<group>"; };
-		32192F411746941A009007DC /* BarGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BarGraph.cpp; sourceTree = "<group>"; };
-		32192F421746941A009007DC /* BarGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarGraph.h; sourceTree = "<group>"; };
-		32323CBE176780D20093710C /* LanguageModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LanguageModel.cpp; sourceTree = "<group>"; };
-		32323CBF176780D20093710C /* LanguageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageModel.h; sourceTree = "<group>"; };
-		32323CCC176A302B0093710C /* LanguageController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LanguageController.cpp; sourceTree = "<group>"; };
-		32323CCD176A302B0093710C /* LanguageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageController.h; sourceTree = "<group>"; };
-		3238844A17553D1E00EF4A8D /* BookApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookApp.cpp; sourceTree = "<group>"; };
-		3238844B17553D1E00EF4A8D /* BookApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookApp.h; sourceTree = "<group>"; };
-		326E662417394FC300B3ABC2 /* RFIDDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RFIDDevice.cpp; sourceTree = "<group>"; };
-		326E662517394FC300B3ABC2 /* RFIDDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFIDDevice.h; sourceTree = "<group>"; };
+		32323CFB176A31FD0093710C /* BarGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BarGraph.cpp; sourceTree = "<group>"; };
+		32323CFC176A31FD0093710C /* BarGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarGraph.h; sourceTree = "<group>"; };
+		32323CFD176A31FD0093710C /* BookApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookApp.cpp; sourceTree = "<group>"; };
+		32323CFE176A31FD0093710C /* BookApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookApp.h; sourceTree = "<group>"; };
+		32323CFF176A31FD0093710C /* BookController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookController.cpp; sourceTree = "<group>"; };
+		32323D00176A31FD0093710C /* BookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookController.h; sourceTree = "<group>"; };
+		32323D01176A31FD0093710C /* BookView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookView.cpp; sourceTree = "<group>"; };
+		32323D02176A31FD0093710C /* BookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookView.h; sourceTree = "<group>"; };
+		32323D03176A31FD0093710C /* DeviceController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DeviceController.cpp; sourceTree = "<group>"; };
+		32323D04176A31FD0093710C /* DeviceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceController.h; sourceTree = "<group>"; };
+		32323D05176A31FD0093710C /* LanguageController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LanguageController.cpp; sourceTree = "<group>"; };
+		32323D06176A31FD0093710C /* LanguageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageController.h; sourceTree = "<group>"; };
+		32323D07176A31FD0093710C /* LanguageModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LanguageModel.cpp; sourceTree = "<group>"; };
+		32323D08176A31FD0093710C /* LanguageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageModel.h; sourceTree = "<group>"; };
+		32323D09176A31FD0093710C /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		32323D0A176A31FD0093710C /* Media.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Media.cpp; sourceTree = "<group>"; };
+		32323D0B176A31FD0093710C /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
+		32323D0C176A31FD0093710C /* ofFadeImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofFadeImage.cpp; sourceTree = "<group>"; };
+		32323D0D176A31FD0093710C /* ofFadeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofFadeImage.h; sourceTree = "<group>"; };
+		32323D0E176A31FD0093710C /* Page.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Page.cpp; sourceTree = "<group>"; };
+		32323D0F176A31FD0093710C /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page.h; sourceTree = "<group>"; };
+		32323D10176A31FD0093710C /* PositionUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PositionUI.cpp; sourceTree = "<group>"; };
+		32323D11176A31FD0093710C /* PositionUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionUI.h; sourceTree = "<group>"; };
+		32323D12176A31FD0093710C /* Reporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Reporter.cpp; sourceTree = "<group>"; };
+		32323D13176A31FD0093710C /* Reporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reporter.h; sourceTree = "<group>"; };
+		32323D14176A31FD0093710C /* RFIDDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RFIDDevice.cpp; sourceTree = "<group>"; };
+		32323D15176A31FD0093710C /* RFIDDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFIDDevice.h; sourceTree = "<group>"; };
+		32323D16176A31FD0093710C /* TextField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextField.cpp; sourceTree = "<group>"; };
+		32323D17176A31FD0093710C /* TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextField.h; sourceTree = "<group>"; };
 		326E66331739830400B3ABC2 /* Phidget21.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Phidget21.framework; path = ../../../../../../../../Library/Frameworks/Phidget21.framework; sourceTree = "<group>"; };
-		326E66351739920D00B3ABC2 /* DeviceController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DeviceController.cpp; sourceTree = "<group>"; };
-		326E66361739920D00B3ABC2 /* DeviceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceController.h; sourceTree = "<group>"; };
-		326E66381739953900B3ABC2 /* Reporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Reporter.cpp; sourceTree = "<group>"; };
-		326E66391739953900B3ABC2 /* Reporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reporter.h; sourceTree = "<group>"; };
-		329FCD4A174D691000030F69 /* BookView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookView.cpp; sourceTree = "<group>"; };
-		329FCD4B174D691000030F69 /* BookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookView.h; sourceTree = "<group>"; };
-		329FCD4D174D6C4500030F69 /* ofFadeImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofFadeImage.cpp; sourceTree = "<group>"; };
-		329FCD4E174D6C4500030F69 /* ofFadeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofFadeImage.h; sourceTree = "<group>"; };
 		33067f54b52161835b50408dca636f93 /* ofxSimpleGuiToggle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSimpleGuiToggle.h; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiToggle.h; sourceTree = SOURCE_ROOT; };
 		37be47726868d2acd7e5ce49194a7984 /* ofxSimpleGuiColorPicker.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSimpleGuiColorPicker.cpp; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiColorPicker.cpp; sourceTree = SOURCE_ROOT; };
 		39b743be64c2fc3fc8c221637b98639e /* ofxSimpleGuiQuadWarp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSimpleGuiQuadWarp.cpp; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiQuadWarp.cpp; sourceTree = SOURCE_ROOT; };
@@ -152,7 +159,6 @@
 		E45BE9790E8CC7DD009D7055 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
 		E4B69B5B0A3A1756003C02F2 /* RFIDBookDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RFIDBookDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4C2424410CC5A17004149E2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		E4C2424510CC5A17004149E2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -381,31 +387,35 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				32323CCC176A302B0093710C /* LanguageController.cpp */,
-				32323CCD176A302B0093710C /* LanguageController.h */,
-				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
-				3238844B17553D1E00EF4A8D /* BookApp.h */,
-				3238844A17553D1E00EF4A8D /* BookApp.cpp */,
-				326E662517394FC300B3ABC2 /* RFIDDevice.h */,
-				326E662417394FC300B3ABC2 /* RFIDDevice.cpp */,
-				326E66381739953900B3ABC2 /* Reporter.cpp */,
-				326E66391739953900B3ABC2 /* Reporter.h */,
-				326E66361739920D00B3ABC2 /* DeviceController.h */,
-				326E66351739920D00B3ABC2 /* DeviceController.cpp */,
-				329FCD4A174D691000030F69 /* BookView.cpp */,
-				329FCD4B174D691000030F69 /* BookView.h */,
-				329FCD4D174D6C4500030F69 /* ofFadeImage.cpp */,
-				329FCD4E174D6C4500030F69 /* ofFadeImage.h */,
-				32192F411746941A009007DC /* BarGraph.cpp */,
-				32192F421746941A009007DC /* BarGraph.h */,
-				32192F3B17468913009007DC /* TextField.cpp */,
-				32192F3C17468913009007DC /* TextField.h */,
-				32192F3E17468D26009007DC /* PositionUI.cpp */,
-				32192F3F17468D26009007DC /* PositionUI.h */,
-				32192F3817454F5F009007DC /* BookController.cpp */,
-				32192F3917454F5F009007DC /* BookController.h */,
-				32323CBE176780D20093710C /* LanguageModel.cpp */,
-				32323CBF176780D20093710C /* LanguageModel.h */,
+				32323CFB176A31FD0093710C /* BarGraph.cpp */,
+				32323CFC176A31FD0093710C /* BarGraph.h */,
+				32323CFD176A31FD0093710C /* BookApp.cpp */,
+				32323CFE176A31FD0093710C /* BookApp.h */,
+				32323CFF176A31FD0093710C /* BookController.cpp */,
+				32323D00176A31FD0093710C /* BookController.h */,
+				32323D01176A31FD0093710C /* BookView.cpp */,
+				32323D02176A31FD0093710C /* BookView.h */,
+				32323D03176A31FD0093710C /* DeviceController.cpp */,
+				32323D04176A31FD0093710C /* DeviceController.h */,
+				32323D05176A31FD0093710C /* LanguageController.cpp */,
+				32323D06176A31FD0093710C /* LanguageController.h */,
+				32323D07176A31FD0093710C /* LanguageModel.cpp */,
+				32323D08176A31FD0093710C /* LanguageModel.h */,
+				32323D09176A31FD0093710C /* main.cpp */,
+				32323D0A176A31FD0093710C /* Media.cpp */,
+				32323D0B176A31FD0093710C /* Media.h */,
+				32323D0C176A31FD0093710C /* ofFadeImage.cpp */,
+				32323D0D176A31FD0093710C /* ofFadeImage.h */,
+				32323D0E176A31FD0093710C /* Page.cpp */,
+				32323D0F176A31FD0093710C /* Page.h */,
+				32323D10176A31FD0093710C /* PositionUI.cpp */,
+				32323D11176A31FD0093710C /* PositionUI.h */,
+				32323D12176A31FD0093710C /* Reporter.cpp */,
+				32323D13176A31FD0093710C /* Reporter.h */,
+				32323D14176A31FD0093710C /* RFIDDevice.cpp */,
+				32323D15176A31FD0093710C /* RFIDDevice.h */,
+				32323D16176A31FD0093710C /* TextField.cpp */,
+				32323D17176A31FD0093710C /* TextField.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -511,7 +521,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				63b57ac5bf4ef088491e0317dbb2ecaa /* ofxXmlSettings.cpp in Sources */,
 				933a2227713c720ceff80fd967d0a8ee /* tinyxml.cpp in Sources */,
 				9d44dc88ef9e7991b4a09951e2e4769f /* tinyxmlerror.cpp in Sources */,
@@ -532,18 +541,21 @@
 				1f910dcf02326b0e25059352edd39c0c /* ofxSimpleGuiPage.cpp in Sources */,
 				c2ed558d391ba9692d3bf70567fb7804 /* ofxSimpleGuiToo.cpp in Sources */,
 				7f8d13cd42f89d3284829cf0a5a4cba1 /* ofxSimpleGuiValueControl.cpp in Sources */,
-				326E662617394FC300B3ABC2 /* RFIDDevice.cpp in Sources */,
-				326E66371739920D00B3ABC2 /* DeviceController.cpp in Sources */,
-				326E663A1739953900B3ABC2 /* Reporter.cpp in Sources */,
-				32192F3A17454F5F009007DC /* BookController.cpp in Sources */,
-				32192F3D17468913009007DC /* TextField.cpp in Sources */,
-				32192F4017468D27009007DC /* PositionUI.cpp in Sources */,
-				32192F431746941A009007DC /* BarGraph.cpp in Sources */,
-				329FCD4C174D691000030F69 /* BookView.cpp in Sources */,
-				329FCD4F174D6C4500030F69 /* ofFadeImage.cpp in Sources */,
-				3238844C17553D1E00EF4A8D /* BookApp.cpp in Sources */,
-				32323CC0176780D20093710C /* LanguageModel.cpp in Sources */,
-				32323CCE176A302B0093710C /* LanguageController.cpp in Sources */,
+				32323D18176A31FD0093710C /* BarGraph.cpp in Sources */,
+				32323D19176A31FD0093710C /* BookApp.cpp in Sources */,
+				32323D1A176A31FD0093710C /* BookController.cpp in Sources */,
+				32323D1B176A31FD0093710C /* BookView.cpp in Sources */,
+				32323D1C176A31FD0093710C /* DeviceController.cpp in Sources */,
+				32323D1D176A31FD0093710C /* LanguageController.cpp in Sources */,
+				32323D1E176A31FD0093710C /* LanguageModel.cpp in Sources */,
+				32323D1F176A31FD0093710C /* main.cpp in Sources */,
+				32323D20176A31FD0093710C /* Media.cpp in Sources */,
+				32323D21176A31FD0093710C /* ofFadeImage.cpp in Sources */,
+				32323D22176A31FD0093710C /* Page.cpp in Sources */,
+				32323D23176A31FD0093710C /* PositionUI.cpp in Sources */,
+				32323D24176A31FD0093710C /* Reporter.cpp in Sources */,
+				32323D25176A31FD0093710C /* RFIDDevice.cpp in Sources */,
+				32323D26176A31FD0093710C /* TextField.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

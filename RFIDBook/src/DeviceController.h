@@ -91,7 +91,8 @@ public:
                     *tagToSend = 'x';
                     if(prevSensor%2==1){
                         //breakpoint
-                        cout << "" << endl;
+                        // I think this shouldn't happen.
+                        //cout << "" << endl;
                     }
                 }
                 
