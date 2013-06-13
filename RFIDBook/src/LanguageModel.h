@@ -19,12 +19,18 @@ struct Language {
 
 class LanguageModel{
 public:
-    LanguageModel(string _xmlfile);
+    LanguageModel();
     ~LanguageModel();
+    bool load(string _xmlfile);
     void report();
     Language getCurrentLanguage();
     string getCurrentLanguageName();
     string getCurrentLanguageId();
+    int getNumLanguages();
+    int getCurrentLanguageNum();
+    string getLanguageIdentAt(int _index);
+    int hasLanguage(string _ident);
+    bool setCurrentLanguage(int _langid);
     
 private:
     ofxXmlSettings xml;

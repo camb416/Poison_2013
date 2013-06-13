@@ -234,7 +234,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "29"
          endingLineNumber = "29"
-         landmarkName = "LanguageModel::LanguageModel(string _xmlfile)"
+         landmarkName = "LanguageModel::load(string _xmlfile)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

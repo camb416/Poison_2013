@@ -16,7 +16,7 @@ TextField::~TextField(){
     // destructor
 }
 void TextField::setup(int fontsize){
-    font.loadFont("Avenir.ttc",fontsize);
+    font.loadFont("fonts/Avenir.ttc",fontsize);
 }
 void TextField::update(string text_in){
     text = text_in;
