@@ -54,8 +54,6 @@ string LanguageController::resolvePath(string _filepath){
     
     int slashIndex = _filepath.find_last_of("/");
     
-    cout << "slash index: " << slashIndex << endl;
-    
     if(slashIndex<0){
     
         langSpec_str = model.getCurrentLanguageId() + "/" + _filepath;
@@ -71,24 +69,17 @@ string LanguageController::resolvePath(string _filepath){
         
     } else {
         // has a slash
-        cout << "before slash: " << _filepath.substr(0,slashIndex+1) << " ::: " << _filepath.substr(slashIndex+1) << "...." << endl;
         prefix = _filepath.substr(0,slashIndex+1);
         filePath = _filepath.substr(slashIndex+1);
         
         langSpec_str = prefix + model.getCurrentLanguageId() + "/" + filePath;
         common_str = prefix + "common/" + filePath;
         
-        
     }
-    
-    cout << "resolving " << _filepath << " into " << langSpec_str << "." << endl;
-    cout << "does it exist? " ;
     
     bool isLanguageSpecific = ofFile::doesFileExist(langSpec_str);
     bool isAtOrigin = ofFile::doesFileExist(prefix+filePath);
     bool isInCommon= ofFile::doesFileExist(common_str);
-    
-    isLanguageSpecific ? cout << "YES." << endl : cout << "No." << endl;
     
     if(isLanguageSpecific && isAtOrigin){
         cout << "WARNING: You have duplicate files at: " << langSpec_str << " and " << _filepath << "." << endl;
