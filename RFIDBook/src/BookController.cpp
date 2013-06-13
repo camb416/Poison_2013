@@ -30,7 +30,6 @@ void BookController::update(){
     
     currentSitation = whatSituation();
     
-    
     if(currentSitation.length() == 1){
         // page is landed
         
@@ -154,7 +153,7 @@ void BookController::forcedPage(char _keypress){     //represent RFID actions wi
         
         case 'x':
         case 'X':
-            
+        forcedState = "A";
         forcedPageActive = !forcedPageActive;
         break;
             

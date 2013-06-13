@@ -33,6 +33,12 @@ void BookApp::setup(){
     vector<ofVec2f> page3Positions;
     page3Files.push_back("2.png");
         page3Positions.push_back(ofVec2f(0, 0));
+    
+    vector<string> page4Files;
+    vector<ofVec2f> page4Positions;
+    page4Files.push_back("3.png");
+    page4Positions.push_back(ofVec2f(0, 0));
+
 
     
     
@@ -40,6 +46,7 @@ void BookApp::setup(){
     bookView.addMediaPage(page1Files, page1Positions);
     bookView.addMediaPage(page2Files, page2Positions);
     bookView.addMediaPage(page3Files, page3Positions);
+    bookView.addMediaPage(page4Files, page4Positions);
     
     
     
@@ -119,6 +126,7 @@ void BookApp::keyPressed(int key){
             case 'A':
             
             book.forcedPage('A');
+
             break;
             
             case 'b':
