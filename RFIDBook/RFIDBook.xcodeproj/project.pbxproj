@@ -26,6 +26,7 @@
 		32323D24176A31FD0093710C /* Reporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D12176A31FD0093710C /* Reporter.cpp */; };
 		32323D25176A31FD0093710C /* RFIDDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D14176A31FD0093710C /* RFIDDevice.cpp */; };
 		32323D26176A31FD0093710C /* TextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D16176A31FD0093710C /* TextField.cpp */; };
+		32323D2F176B6B440093710C /* ImageDraggerUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D2D176B6B440093710C /* ImageDraggerUI.cpp */; };
 		326E66341739830400B3ABC2 /* Phidget21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326E66331739830400B3ABC2 /* Phidget21.framework */; };
 		3317b76ee9202b4c6482d15c4ec6cc7b /* ofxSimpleGuiToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1c56b6200d48da052208be05afd7bde7 /* ofxSimpleGuiToggle.cpp */; };
 		49073c5c875b61f6d54cf6ab8584e712 /* ofxSimpleGuiQuadWarp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39b743be64c2fc3fc8c221637b98639e /* ofxSimpleGuiQuadWarp.cpp */; };
@@ -129,6 +130,8 @@
 		32323D15176A31FD0093710C /* RFIDDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFIDDevice.h; sourceTree = "<group>"; };
 		32323D16176A31FD0093710C /* TextField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextField.cpp; sourceTree = "<group>"; };
 		32323D17176A31FD0093710C /* TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextField.h; sourceTree = "<group>"; };
+		32323D2D176B6B440093710C /* ImageDraggerUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageDraggerUI.cpp; sourceTree = "<group>"; };
+		32323D2E176B6B440093710C /* ImageDraggerUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDraggerUI.h; sourceTree = "<group>"; };
 		326E66331739830400B3ABC2 /* Phidget21.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Phidget21.framework; path = ../../../../../../../../Library/Frameworks/Phidget21.framework; sourceTree = "<group>"; };
 		33067f54b52161835b50408dca636f93 /* ofxSimpleGuiToggle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSimpleGuiToggle.h; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiToggle.h; sourceTree = SOURCE_ROOT; };
 		37be47726868d2acd7e5ce49194a7984 /* ofxSimpleGuiColorPicker.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSimpleGuiColorPicker.cpp; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiColorPicker.cpp; sourceTree = SOURCE_ROOT; };
@@ -253,6 +256,79 @@
 				c2e7b57f16a4543d3b10dfa094e86148 /* ofxSimpleGuiValueControl.h */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		32323D27176A4DEA0093710C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				32323D09176A31FD0093710C /* main.cpp */,
+				32323CFD176A31FD0093710C /* BookApp.cpp */,
+				32323CFE176A31FD0093710C /* BookApp.h */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		32323D28176A4E000093710C /* Debug View */ = {
+			isa = PBXGroup;
+			children = (
+				32323D10176A31FD0093710C /* PositionUI.cpp */,
+				32323D11176A31FD0093710C /* PositionUI.h */,
+				32323CFB176A31FD0093710C /* BarGraph.cpp */,
+				32323CFC176A31FD0093710C /* BarGraph.h */,
+			);
+			name = "Debug View";
+			sourceTree = "<group>";
+		};
+		32323D29176A4E100093710C /* Hardware Interface */ = {
+			isa = PBXGroup;
+			children = (
+				32323D03176A31FD0093710C /* DeviceController.cpp */,
+				32323D04176A31FD0093710C /* DeviceController.h */,
+				32323D14176A31FD0093710C /* RFIDDevice.cpp */,
+				32323D15176A31FD0093710C /* RFIDDevice.h */,
+			);
+			name = "Hardware Interface";
+			sourceTree = "<group>";
+		};
+		32323D2A176A4E310093710C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				32323D16176A31FD0093710C /* TextField.cpp */,
+				32323D17176A31FD0093710C /* TextField.h */,
+				32323D0A176A31FD0093710C /* Media.cpp */,
+				32323D0B176A31FD0093710C /* Media.h */,
+				32323D0C176A31FD0093710C /* ofFadeImage.cpp */,
+				32323D0D176A31FD0093710C /* ofFadeImage.h */,
+				32323D05176A31FD0093710C /* LanguageController.cpp */,
+				32323D06176A31FD0093710C /* LanguageController.h */,
+				32323D07176A31FD0093710C /* LanguageModel.cpp */,
+				32323D08176A31FD0093710C /* LanguageModel.h */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		32323D2B176A4E530093710C /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				32323D12176A31FD0093710C /* Reporter.cpp */,
+				32323D13176A31FD0093710C /* Reporter.h */,
+			);
+			name = Deprecated;
+			sourceTree = "<group>";
+		};
+		32323D2C176A4E6F0093710C /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				32323CFF176A31FD0093710C /* BookController.cpp */,
+				32323D00176A31FD0093710C /* BookController.h */,
+				32323D01176A31FD0093710C /* BookView.cpp */,
+				32323D02176A31FD0093710C /* BookView.h */,
+				32323D0E176A31FD0093710C /* Page.cpp */,
+				32323D0F176A31FD0093710C /* Page.h */,
+				32323D2D176B6B440093710C /* ImageDraggerUI.cpp */,
+				32323D2E176B6B440093710C /* ImageDraggerUI.h */,
+			);
+			name = Book;
 			sourceTree = "<group>";
 		};
 		3ffcd8cde089ea259d68f78cef41a435 /* Controls */ = {
@@ -387,35 +463,12 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				32323CFB176A31FD0093710C /* BarGraph.cpp */,
-				32323CFC176A31FD0093710C /* BarGraph.h */,
-				32323CFD176A31FD0093710C /* BookApp.cpp */,
-				32323CFE176A31FD0093710C /* BookApp.h */,
-				32323CFF176A31FD0093710C /* BookController.cpp */,
-				32323D00176A31FD0093710C /* BookController.h */,
-				32323D01176A31FD0093710C /* BookView.cpp */,
-				32323D02176A31FD0093710C /* BookView.h */,
-				32323D03176A31FD0093710C /* DeviceController.cpp */,
-				32323D04176A31FD0093710C /* DeviceController.h */,
-				32323D05176A31FD0093710C /* LanguageController.cpp */,
-				32323D06176A31FD0093710C /* LanguageController.h */,
-				32323D07176A31FD0093710C /* LanguageModel.cpp */,
-				32323D08176A31FD0093710C /* LanguageModel.h */,
-				32323D09176A31FD0093710C /* main.cpp */,
-				32323D0A176A31FD0093710C /* Media.cpp */,
-				32323D0B176A31FD0093710C /* Media.h */,
-				32323D0C176A31FD0093710C /* ofFadeImage.cpp */,
-				32323D0D176A31FD0093710C /* ofFadeImage.h */,
-				32323D0E176A31FD0093710C /* Page.cpp */,
-				32323D0F176A31FD0093710C /* Page.h */,
-				32323D10176A31FD0093710C /* PositionUI.cpp */,
-				32323D11176A31FD0093710C /* PositionUI.h */,
-				32323D12176A31FD0093710C /* Reporter.cpp */,
-				32323D13176A31FD0093710C /* Reporter.h */,
-				32323D14176A31FD0093710C /* RFIDDevice.cpp */,
-				32323D15176A31FD0093710C /* RFIDDevice.h */,
-				32323D16176A31FD0093710C /* TextField.cpp */,
-				32323D17176A31FD0093710C /* TextField.h */,
+				32323D2C176A4E6F0093710C /* Book */,
+				32323D2B176A4E530093710C /* Deprecated */,
+				32323D2A176A4E310093710C /* Utils */,
+				32323D29176A4E100093710C /* Hardware Interface */,
+				32323D28176A4E000093710C /* Debug View */,
+				32323D27176A4DEA0093710C /* App */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -556,6 +609,7 @@
 				32323D24176A31FD0093710C /* Reporter.cpp in Sources */,
 				32323D25176A31FD0093710C /* RFIDDevice.cpp in Sources */,
 				32323D26176A31FD0093710C /* TextField.cpp in Sources */,
+				32323D2F176B6B440093710C /* ImageDraggerUI.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

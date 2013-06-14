@@ -26,12 +26,17 @@ public:
     void addBackplate(string platename_in);
     void activate(int pagenum_in);
     void deactivate();
+    void mousePressed();
+    void mouseReleased();
+    
 private:
     vector<ofFadeImage*> pages;
     
     // TODO - Change mediaPages to pages
     vector<Page*> mediaPages;
     ofImage backplate;
+    int currentPage;
+    
 
 };
 #endif /* defined(__RFIDBook__BookView__) */

@@ -19,17 +19,25 @@ public:
     Page();
     ~Page();
     
-    void setup();
+    void setup(); 
     void update();
+    void dragUpdate();
     void draw(float originX, float originY, float scale);
     
     void addMedia(string fileName, ofVec2f position);
+    
+    void setDrag(bool _doDrag);
+    
     void receiveInput(char input);
     
     void fade(int dir);
     
     vector<Media*> media;
     vector<char> validInputs;
+    Media* selectedMedia;
+    
+private:
+    bool doDrag;
     
 
 };

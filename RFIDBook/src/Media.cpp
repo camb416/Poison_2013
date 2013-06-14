@@ -8,8 +8,13 @@
 
 #include "Media.h"
 
-Media::Media(){}
-Media::~Media(){}
+Media::Media(){
+    isDraggable = true;
+    isDragging = false;
+}
+Media::~Media(){
+
+}
 
 // Image only
 void Media::setup(string imgFile, float _x, float _y){
@@ -36,6 +41,9 @@ void Media::setPosition(float _x, float _y){
     x = _x;
     y = _y;
 }
+ofPoint Media::getPosition(){
+    ofPoint returnVal = ofPoint(x,y);
+}
 
 
 void Media::playPause(){
@@ -60,13 +68,26 @@ void Media::update(){
     
     img.update();
     //vid.update();
-    
+    if(isDraggable){
+        img.setBorder(true);
+        
+    }
     
     
 }
 
+void Media::moveTo(int _x, int _y){
+    // eventually, this should tween.
+    x = _x;
+    y = _y;
+}
+
+void Media::setDraggable(bool _bDrag){
+    isDraggable = _bDrag;
+}
+
 void Media::draw(){
-    
+
     if (hasVid == false) {
         img.draw(x,y);
     }

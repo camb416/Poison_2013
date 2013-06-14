@@ -8,7 +8,7 @@
 
 #include "BookView.h"
 BookView::BookView(){
-    
+    currentPage = -1;
 }
 BookView::~BookView(){
     
@@ -17,10 +17,11 @@ void BookView::setup(){
     
 }
 void BookView::update(){
-    for(int i=0;i<pages.size();i++){
+    /*for(int i=0;i<pages.size();i++){
         pages.at(i)->update();
     }
-    
+    */
+    if(currentPage>=0) mediaPages.at(currentPage)->dragUpdate();
     for(int i=0;i<mediaPages.size();i++){
         mediaPages.at(i)->update();
     }
@@ -37,12 +38,7 @@ void BookView::draw(int x_in, int y_in, int debugState){
     ofPushMatrix();
     ofTranslate(x_in,y_in);
         
-    // Old Pages
-//    for(int i=0;i<pages.size();i++){
-//        pages.at(i)->draw(0,0,160,120);
-//        ofTranslate(25,25);
-//    }
-        
+
     // Draw mediaPages
     for(int i=0;i<mediaPages.size();i++){
         // draw at 1/10th scale
@@ -55,12 +51,7 @@ void BookView::draw(int x_in, int y_in, int debugState){
         backplate.draw(0,0,ofGetWidth(),ofGetHeight());
         ofPushMatrix();
         ofTranslate(x_in,y_in);
-    // Old Pages
-//        for(int i=0;i<pages.size();i++){
-//            pages.at(i)->draw(0,0,ofGetWidth(),ofGetHeight());
-//            //ofTranslate(25,25);
-//        }
-        
+
         // Draw media pages
         for(int i=0;i<mediaPages.size();i++){
             mediaPages.at(i)->draw(0,0,1.0f);
@@ -82,9 +73,15 @@ void BookView::addMediaPage(vector<string> mediaFiles, vector<ofVec2f> positions
     Page * newPage = new Page();
     newPage->setup();
     
+    ofPoint pt;
+    
     for (int i = 0; i < mediaFiles.size(); i++) {
-        
-        newPage->addMedia(mediaFiles.at(i), positions.at(i));
+        if(i < 0 || i>=positions.size()){
+            pt = ofPoint(0,0);
+        } else {
+            pt = positions.at(i);
+        }
+        newPage->addMedia(mediaFiles.at(i), pt);
         
     }
     
@@ -97,25 +94,45 @@ void BookView::addBackplate(string platename_in){
     backplate.loadImage(platename_in);
 }
 
+void BookView::mousePressed(){
+    if(currentPage>=0){
+        mediaPages.at(currentPage)->setDrag(true);
+    }
+}
+void BookView::mouseReleased(){
+    if(currentPage>=0){
+        mediaPages.at(currentPage)->setDrag(false);
+    }
+}
+
 // Activate the current page
 void BookView::activate(int pagenum_in){
-for(int i=0;i<pages.size();i++){
+/*
+    for(int i=0;i<pages.size();i++){
     if(i==pagenum_in){
         pages.at(i)->fadeIn();
     } else {
         pages.at(i)->fadeOut();
     }
 }
-
+*/
     // mediaPage
+   // if(pagenum_in!=currentPage)
+     if(pagenum_in != currentPage){
     for(int i=0;i<mediaPages.size();i++){
+       
         if(i==pagenum_in){
             mediaPages.at(i)->fade(1);
         } else {
             mediaPages.at(i)->fade(-1);
         }
+        }
     }
+    
+    currentPage = pagenum_in;
 }
+
+
 void BookView::deactivate(){
     activate(-1);
 }

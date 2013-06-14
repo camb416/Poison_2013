@@ -6,37 +6,53 @@ BookApp::BookApp(){
 
 //--------------------------------------------------------------
 void BookApp::setup(){
+    
+    lang.load("settings/languages.xml");
+    
     bookView.setup();
-    bookView.addBackplate("backplate.jpg");
-    bookView.addPage("0.png");
-    bookView.addPage("1.png");
-    bookView.addPage("2.png");
-    bookView.addPage("3.png");
+    
+    // I think we're done with these
+    bookView.addBackplate(lang.resolvePath("assets/backplate.png"));
+    //bookView.addPage(lang.resolvePath("assets/0.png"));
+    //bookView.addPage(lang.resolvePath("assets/1.png"));
+    //bookView.addPage(lang.resolvePath("assets/2.png"));
+    //bookView.addPage(lang.resolvePath("assets/3.png"));
     
     // Media elements for each page. Will later be taken from XML
     vector<string> page1Files;
     vector<ofVec2f> page1Positions;
-    page1Files.push_back("0.png");
-        page1Positions.push_back(ofVec2f(0, 0));
+    page1Files.push_back(lang.resolvePath("assets/assassin.png"));
+   
+    page1Files.push_back(lang.resolvePath("assets/cerberus-open.png"));
+    page1Files.push_back(lang.resolvePath("assets/folios.png"));
+    page1Files.push_back(lang.resolvePath("assets/howitworks.png"));
+    page1Files.push_back(lang.resolvePath("assets/identify.png"));
+    page1Files.push_back(lang.resolvePath("assets/main.png"));
+    page1Files.push_back(lang.resolvePath("assets/map-open.png"));
+    page1Files.push_back(lang.resolvePath("assets/parts.png"));
+    page1Files.push_back(lang.resolvePath("assets/plant.png"));
+    page1Files.push_back(lang.resolvePath("assets/wolfsbane-open.png"));
+    
+    page1Positions.push_back(ofVec2f(0, 0));
     // For testing multiple media on a page
-    page1Files.push_back("radio_selected.png");
+    page1Files.push_back(lang.resolvePath("assets/radio_selected.png"));
         page1Positions.push_back(ofVec2f(100, 100));
 
     
     vector<string> page2Files;
     vector<ofVec2f> page2Positions;
-    page2Files.push_back("1.png");
+    page2Files.push_back(lang.resolvePath("assets/1.png"));
         page2Positions.push_back(ofVec2f(0, 0));
 
     
     vector<string> page3Files;
     vector<ofVec2f> page3Positions;
-    page3Files.push_back("2.png");
+    page3Files.push_back(lang.resolvePath("assets/2.png"));
         page3Positions.push_back(ofVec2f(0, 0));
     
     vector<string> page4Files;
     vector<ofVec2f> page4Positions;
-    page4Files.push_back("3.png");
+    page4Files.push_back(lang.resolvePath("assets/3.png"));
     page4Positions.push_back(ofVec2f(0, 0));
 
 
@@ -69,7 +85,7 @@ void BookApp::setup(){
     ofSetVerticalSync(true);
     
 
-    lang.load("settings/languages.xml");
+    
     cout << "setup complete." << endl;
     
     
@@ -206,12 +222,12 @@ void BookApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void BookApp::mousePressed(int x, int y, int button){
-
+    book.mousePressed();
 }
 
 //--------------------------------------------------------------
 void BookApp::mouseReleased(int x, int y, int button){
-
+    book.mouseReleased();
 }
 
 //--------------------------------------------------------------

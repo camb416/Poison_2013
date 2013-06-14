@@ -25,7 +25,12 @@ public:
     void draw();
     void drawScaled(float scale);
     void setPosition(float _x, float _y);
+    ofPoint getPosition();
     void playPause();
+    
+    void moveTo(int _x, int _y);
+    
+    void setDraggable(bool _bDrag);
     
     float x;
     float y;
@@ -42,6 +47,10 @@ public:
     
     ofFadeImage img;
     ofVideoPlayer vid;
+    
+private:
+   bool isDraggable;
+    bool isDragging;
     
     
 };

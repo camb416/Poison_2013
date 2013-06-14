@@ -16,9 +16,9 @@ void DeviceController::setup(){
     cycleTime = 125; // ms to cycle the RFID antennae
     numSensors = 6;
     
-    inactive_img.loadImage("radio_inactive.png");
-    active_img.loadImage("radio_active.png");
-    selected_img.loadImage("radio_selected.png");
+    inactive_img.loadImage("assets/common/radio_inactive.png");
+    active_img.loadImage("assets/common/radio_active.png");
+    selected_img.loadImage("assets/common/radio_selected.png");
     
     for(int i=0;i<numSensors;i++){
         RFIDDevice * aDevice = new RFIDDevice();
