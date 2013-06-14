@@ -39,6 +39,8 @@ public:
     
     ofxXmlSettings getXML();
     
+    void hideAllBorders();
+    
     
 private:
     bool doDrag;

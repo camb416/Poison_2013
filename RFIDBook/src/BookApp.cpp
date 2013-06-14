@@ -7,6 +7,8 @@ BookApp::BookApp(){
 //--------------------------------------------------------------
 void BookApp::setup(){
     
+
+    
     lang.load("settings/languages.xml");
     
     bookView.setup();
@@ -34,13 +36,13 @@ void BookApp::setup(){
     
     
     // Add pages of media to bookview
-    bookView.addMediaPage(pageFiles, pagePositions);
+    bookView.addPage(pageFiles, pagePositions);
     pageFiles.at(0) = lang.resolvePath("assets/1.png");
-    bookView.addMediaPage(pageFiles, pagePositions);
+    bookView.addPage(pageFiles, pagePositions);
         pageFiles.at(0) = lang.resolvePath("assets/2.png");
-    bookView.addMediaPage(pageFiles, pagePositions);
+    bookView.addPage(pageFiles, pagePositions);
         pageFiles.at(0) = lang.resolvePath("assets/3.png");
-    bookView.addMediaPage(pageFiles, pagePositions);
+    bookView.addPage(pageFiles, pagePositions);
     
     
     
@@ -49,19 +51,17 @@ void BookApp::setup(){
     
     book.setup(&devices,&bookView);
    // rfidsetup();
-    tfield.setup();
-    tfield.update("Magic Book", 16,360);
+
     debugState = 1;
     
-    aValue = 0.5f;
-    bar.setup("Page Confidence", &aValue, 600, 16);
-    bar.setPosition(ofPoint(16,749));
-    isSetup = true;
+   
+        isSetup = true;
     
     ofSetFrameRate(60);
     updateDebug();
     ofSetVerticalSync(true);
     
+    dui.setup(&devices, &book, &bookView);
 
     
     cout << "setup complete." << endl;
@@ -74,42 +74,27 @@ void BookApp::update(){
 
   //  devices.report();
     if(isSetup){
-    devices.update();
-    bar.update();
+        devices.update();
         bookView.update();
-    if(book.isPageLanded()){
-        // checks for three sensors active.
-    }
-    
         
+            if(book.isPageLanded()){
+                    // checks for three sensors active.
+            }
+    
         book.update();
-    
         
-    if(debugState>0){
-
-        tfield.update("Magic Book \n" + book.getReport() + "\n" + book.whatSituation());
-        //tfield.update("Magic Book \n" + book.getReport());
-
-        
-        if(ofGetMousePressed()){
-            pos_ui.update();
-            aValue = ofRandom(1.0f);
-        }
     }
-    }
+    dui.update();
 }
 
 //--------------------------------------------------------------
 void BookApp::draw(){
-    if(debugState>0){
-    devices.draw();
-        tfield.draw();
-        bar.draw();
-        if(ofGetMousePressed()) pos_ui.draw();
-        bookView.draw(16,450,debugState);
-    } else {
+  //  if(debugState>0){
+
+  //  } else {
         bookView.draw(0,0);
-    }
+   // }
+    dui.draw();
     
 }
 
@@ -165,6 +150,10 @@ void BookApp::keyPressed(int key){
             case 'S':
             bookView.savePageLayout();
             break;
+            case '`':
+            case '~':
+            dui.toggle();
+            break;
             //case default:
             
             //break;
@@ -205,12 +194,16 @@ void BookApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void BookApp::mousePressed(int x, int y, int button){
-    book.mousePressed();
+    
+    // only send it if the debug ui's not up
+    if(!dui.getIsVisible()) book.mousePressed();
 }
 
 //--------------------------------------------------------------
 void BookApp::mouseReleased(int x, int y, int button){
-    book.mouseReleased();
+    
+    // only send it if the debug ui's not up
+    if(!dui.getIsVisible()) book.mouseReleased();
 }
 
 //--------------------------------------------------------------

@@ -18,7 +18,7 @@
 
 class DeviceController : public ofThread{
 public:
-    void draw();
+    void draw(int _x = 0, int _y = 0);
     void update();
     void report();
     int curSensor;

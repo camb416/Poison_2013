@@ -1,0 +1,18 @@
+<controls>
+    <Toggle_Drag_UI>
+        <name>Drag UI</name>
+        <value>0</value>
+    </Toggle_Drag_UI>
+    <Button_default_XML>
+        <name>default XML</name>
+        <value>0</value>
+    </Button_default_XML>
+    <Button_load_XML>
+        <name>load XML</name>
+        <value>0</value>
+    </Button_load_XML>
+    <Button_save_XML>
+        <name>save XML</name>
+        <value>0</value>
+    </Button_save_XML>
+</controls>

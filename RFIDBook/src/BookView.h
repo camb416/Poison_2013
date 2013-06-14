@@ -22,8 +22,7 @@ public:
     void update();
     void draw();
     void draw(int x_in, int y_in, int debugState=0);
-    void addPage(string pagename_in);
-    void addMediaPage(vector<string> mediaFiles, vector<ofVec2f> positions);
+    void addPage(vector<string> mediaFiles, vector<ofVec2f> positions);
     void addBackplate(string platename_in);
     void activate(int pagenum_in);
     void deactivate();
@@ -31,13 +30,20 @@ public:
     void mouseReleased();
     void savePageLayout();
     
+    void showDragUI();
+    void hideDragUI();
+
+    
 private:
-    vector<ofFadeImage*> pages;
+    //vector<ofFadeImage*> pages;
     
     // TODO - Change mediaPages to pages
     vector<Page*> mediaPages;
     ofImage backplate;
     int currentPage;
+    
+    bool bShowDragUI;
+    bool isSetup;
     
 
 };

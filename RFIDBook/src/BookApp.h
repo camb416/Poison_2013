@@ -8,6 +8,7 @@
 #include "BarGraph.h"
 #include "BookView.h"
 #include "LanguageController.h"
+#include "DebugUI.h"
 
 class BookApp : public ofBaseApp{
 
@@ -34,9 +35,6 @@ class BookApp : public ofBaseApp{
     
     DeviceController devices;
     BookController book;
-    TextField tfield;
-    PositionUI pos_ui;
-    BarGraph bar;
     float aValue;
     
     BookView bookView;
@@ -44,6 +42,8 @@ class BookApp : public ofBaseApp{
     int debugState;
     
     bool isSetup;
+    
+    DebugUI dui;
     
 
 		

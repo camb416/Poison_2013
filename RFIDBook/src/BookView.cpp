@@ -9,10 +9,28 @@
 #include "BookView.h"
 BookView::BookView(){
     currentPage = -1;
+    bShowDragUI = false;
+    isSetup = false;
+    cout << "OKAY, THE BOOKVIEW EXISTS... HERE THE CONSTRUCTOR TO PROVE IT" << endl;
 }
 BookView::~BookView(){
     
 }
+
+void BookView::showDragUI(){
+
+    bShowDragUI = true;
+
+}
+void BookView::hideDragUI(){
+
+    bShowDragUI = false;
+    if(currentPage>=0){
+        mediaPages.at(currentPage)->hideAllBorders();
+    }
+    
+}
+
 void BookView::setup(){
     
 }
@@ -21,13 +39,14 @@ void BookView::update(){
         pages.at(i)->update();
     }
     */
-    if(currentPage>=0) mediaPages.at(currentPage)->dragUpdate();
+    if(currentPage>=0 && bShowDragUI) mediaPages.at(currentPage)->dragUpdate();
     for(int i=0;i<mediaPages.size();i++){
         mediaPages.at(i)->update();
     }
     
 }
 void BookView::draw(){
+    ofEnableAlphaBlending();
     draw(0,0,0);
 }
 void BookView::draw(int x_in, int y_in, int debugState){
@@ -59,16 +78,9 @@ void BookView::draw(int x_in, int y_in, int debugState){
         ofPopMatrix();
     }
 }
-void BookView::addPage(string pagename_in){
-    ofFadeImage * newPage = new ofFadeImage();
-    newPage->setup(pagename_in);
-
-    pages.push_back(newPage);
-}
-
 
 // Add all media elements and add to page
-void BookView::addMediaPage(vector<string> mediaFiles, vector<ofVec2f> positions){
+void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions){
     
     Page * newPage = new Page();
     newPage->setup();

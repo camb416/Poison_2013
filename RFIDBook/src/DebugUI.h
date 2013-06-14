@@ -1,0 +1,59 @@
+//
+//  DebugUI.h
+//  RFIDBook
+//
+//  Created by Cameron Browning on 6/14/13.
+//
+//
+
+#ifndef __RFIDBook__DebugUI__
+#define __RFIDBook__DebugUI__
+
+#include "ofxSimpleGuiToo.h"
+#include "ofMain.h"
+#include "TextField.h"
+#include "PositionUI.h"
+#include "BarGraph.h"
+#include "DeviceController.h"
+#include "BookController.h"
+#include "BookView.h"
+#include <iostream>
+
+class DebugUI{
+  
+public:
+    DebugUI();
+    ~DebugUI();
+    
+    void    setup(DeviceController * _devices, BookController * _book, BookView * _bookView);
+    void    update();
+    void    draw();
+    
+    void show();
+    void hide();
+    void toggle();
+    bool getIsVisible();
+    
+    bool getDragSetting();
+    
+    
+private:
+    BookView * bookView;
+    bool bDragUIcheckbox;
+    bool bDragUIcheckbox_prev;
+    bool saveXMLbtn;
+    bool loadXMLbtn;
+    bool defaultXMLbtn;
+    bool isVisible;
+    DeviceController * devices;
+    BookController * book;
+    TextField tfield;
+    PositionUI pos_ui;
+    BarGraph bar;
+
+    float aValue;   // what is this? Something for bar graph...
+    
+    
+};
+
+#endif /* defined(__RFIDBook__DebugUI__) */

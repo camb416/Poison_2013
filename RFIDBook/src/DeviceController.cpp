@@ -137,8 +137,10 @@ int DeviceController::getActiveSensorCount(){
 
 }
 
-void DeviceController::draw(){
+void DeviceController::draw(int _x, int _y){
     
+    ofPushMatrix();
+    ofTranslate(_x, _y);
     ofEnableAlphaBlending();
     ofEnableSmoothing();
     for(int i=0;i<numSensors;i++){
@@ -176,6 +178,7 @@ void DeviceController::draw(){
        // cout << rfids.at(i).confidence << endl;
        // cout << rfids.at(i).title << ": " << rfids.at(i).isAttached() << ", " << rfids.at(i).hasTag() << endl;
     }
+    ofPopMatrix();
 }
 
 void DeviceController::report(){

@@ -28,7 +28,13 @@ void Page::setDrag(bool _doDrag){
 
 // Update all media elements on page
 
-    
+
+void Page::hideAllBorders(){
+    for (int i = 0; i < media.size(); i++) {
+        media.at(i)->setDraggable(false);
+    }
+}
+
 void Page::dragUpdate(){
 
     // add toggleable draggy stuff
