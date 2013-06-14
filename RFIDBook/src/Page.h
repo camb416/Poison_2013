@@ -11,6 +11,7 @@
 
 #include "ofMain.h"
 #include "Media.h"
+#include "ofxXmlSettings.h"
 #include <iostream>
 
 class Page {
@@ -35,6 +36,9 @@ public:
     vector<Media*> media;
     vector<char> validInputs;
     Media* selectedMedia;
+    
+    ofxXmlSettings getXML();
+    
     
 private:
     bool doDrag;

@@ -17,19 +17,22 @@ Media::~Media(){
 }
 
 // Image only
-void Media::setup(string imgFile, float _x, float _y){
+void Media::setup(string _imgFile, float _x, float _y){
     
+    imgFileName = _imgFile;
     setPosition(_x, _y);
-    img.setup(imgFile);
+    img.setup(_imgFile);
     
     hasVid = false;
 }
 
 // Image and video
-void Media::setup(string imgFile, string vidFile, float _x, float _y){
+void Media::setup(string _imgFile, string vidFile, float _x, float _y){
     
+    
+    imgFileName = _imgFile;
     setPosition(_x, _y);
-    img.setup(imgFile);
+    img.setup(_imgFile);
     
     hasVid = true;
     vidState = 0;
@@ -43,6 +46,10 @@ void Media::setPosition(float _x, float _y){
 }
 ofPoint Media::getPosition(){
     ofPoint returnVal = ofPoint(x,y);
+    return returnVal;
+}
+string Media::getFileName(){
+    return imgFileName;
 }
 
 
@@ -68,10 +75,7 @@ void Media::update(){
     
     img.update();
     //vid.update();
-    if(isDraggable){
-        img.setBorder(true);
-        
-    }
+
     
     
 }
@@ -84,26 +88,13 @@ void Media::moveTo(int _x, int _y){
 
 void Media::setDraggable(bool _bDrag){
     isDraggable = _bDrag;
-}
 
-void Media::draw(){
+        img.setBorder(isDraggable);
 
-    if (hasVid == false) {
-        img.draw(x,y);
-    }
-    else {
-    
-        if (vidState == 0){
-            img.draw(x,y);
-        }
-        else {
-            vid.draw(x, y);
-        }
-    }
     
 }
 
-void Media::drawScaled(float scale){
+void Media::draw(float scale){
     
     if (hasVid == false){
         img.draw(x,y, img.width*scale, img.height*scale);

@@ -136,3 +136,12 @@ void BookView::activate(int pagenum_in){
 void BookView::deactivate(){
     activate(-1);
 }
+
+void BookView::savePageLayout(){
+    for(int i=0;i<mediaPages.size();i++){
+        string myString;
+        ofxXmlSettings xml = mediaPages.at(i)->getXML();
+        xml.copyXmlToString(myString);
+        cout << myString << endl;
+    }
+}

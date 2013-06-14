@@ -10,6 +10,7 @@
 #define __RFIDBook__BookView__
 #include "ofMain.h"
 #include "ofFadeImage.h"
+#include "ofxXmlSettings.h"
 #include "Page.h"
 #include <iostream>
 class BookView{
@@ -28,6 +29,7 @@ public:
     void deactivate();
     void mousePressed();
     void mouseReleased();
+    void savePageLayout();
     
 private:
     vector<ofFadeImage*> pages;

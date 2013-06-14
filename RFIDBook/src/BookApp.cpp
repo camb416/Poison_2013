@@ -13,56 +13,34 @@ void BookApp::setup(){
     
     // I think we're done with these
     bookView.addBackplate(lang.resolvePath("assets/backplate.png"));
-    //bookView.addPage(lang.resolvePath("assets/0.png"));
-    //bookView.addPage(lang.resolvePath("assets/1.png"));
-    //bookView.addPage(lang.resolvePath("assets/2.png"));
-    //bookView.addPage(lang.resolvePath("assets/3.png"));
-    
+
     // Media elements for each page. Will later be taken from XML
-    vector<string> page1Files;
-    vector<ofVec2f> page1Positions;
-    page1Files.push_back(lang.resolvePath("assets/assassin.png"));
-   
-    page1Files.push_back(lang.resolvePath("assets/cerberus-open.png"));
-    page1Files.push_back(lang.resolvePath("assets/folios.png"));
-    page1Files.push_back(lang.resolvePath("assets/howitworks.png"));
-    page1Files.push_back(lang.resolvePath("assets/identify.png"));
-    page1Files.push_back(lang.resolvePath("assets/main.png"));
-    page1Files.push_back(lang.resolvePath("assets/map-open.png"));
-    page1Files.push_back(lang.resolvePath("assets/parts.png"));
-    page1Files.push_back(lang.resolvePath("assets/plant.png"));
-    page1Files.push_back(lang.resolvePath("assets/wolfsbane-open.png"));
-    
-    page1Positions.push_back(ofVec2f(0, 0));
-    // For testing multiple media on a page
-    page1Files.push_back(lang.resolvePath("assets/radio_selected.png"));
-        page1Positions.push_back(ofVec2f(100, 100));
+    vector<string> pageFiles;
+    vector<ofVec2f> pagePositions;
+    pageFiles.push_back(lang.resolvePath("assets/0.png"));
+    pageFiles.push_back(lang.resolvePath("assets/assassin.png"));
+    pageFiles.push_back(lang.resolvePath("assets/cerberus-open.png"));
+    pageFiles.push_back(lang.resolvePath("assets/folios.png"));
+    pageFiles.push_back(lang.resolvePath("assets/howitworks.png"));
+    pageFiles.push_back(lang.resolvePath("assets/identify.png"));
+    pageFiles.push_back(lang.resolvePath("assets/main.png"));
+    pageFiles.push_back(lang.resolvePath("assets/map-open.png"));
+    pageFiles.push_back(lang.resolvePath("assets/parts.png"));
+    pageFiles.push_back(lang.resolvePath("assets/plant.png"));
+    pageFiles.push_back(lang.resolvePath("assets/wolfsbane-open.png"));
 
-    
-    vector<string> page2Files;
-    vector<ofVec2f> page2Positions;
-    page2Files.push_back(lang.resolvePath("assets/1.png"));
-        page2Positions.push_back(ofVec2f(0, 0));
-
-    
-    vector<string> page3Files;
-    vector<ofVec2f> page3Positions;
-    page3Files.push_back(lang.resolvePath("assets/2.png"));
-        page3Positions.push_back(ofVec2f(0, 0));
-    
-    vector<string> page4Files;
-    vector<ofVec2f> page4Positions;
-    page4Files.push_back(lang.resolvePath("assets/3.png"));
-    page4Positions.push_back(ofVec2f(0, 0));
-
+    pagePositions.push_back(ofVec2f(0, 0));
 
     
     
     // Add pages of media to bookview
-    bookView.addMediaPage(page1Files, page1Positions);
-    bookView.addMediaPage(page2Files, page2Positions);
-    bookView.addMediaPage(page3Files, page3Positions);
-    bookView.addMediaPage(page4Files, page4Positions);
+    bookView.addMediaPage(pageFiles, pagePositions);
+    pageFiles.at(0) = lang.resolvePath("assets/1.png");
+    bookView.addMediaPage(pageFiles, pagePositions);
+        pageFiles.at(0) = lang.resolvePath("assets/2.png");
+    bookView.addMediaPage(pageFiles, pagePositions);
+        pageFiles.at(0) = lang.resolvePath("assets/3.png");
+    bookView.addMediaPage(pageFiles, pagePositions);
     
     
     
@@ -182,6 +160,11 @@ void BookApp::keyPressed(int key){
             
             toggleDebug();
             break;
+            
+            case 's':
+            case 'S':
+            bookView.savePageLayout();
+            break;
             //case default:
             
             //break;
@@ -197,10 +180,10 @@ void BookApp::toggleDebug(){
 }
 void BookApp::updateDebug(){
     if(debugState==0){
-        ofSetFullscreen(true);
+     //   ofSetFullscreen(true);
     } else {
         ofBackground(192);
-        ofSetFullscreen(false);
+    //    ofSetFullscreen(false);
     }
 }
 
