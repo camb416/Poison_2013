@@ -9,6 +9,7 @@
 #include "BookView.h"
 #include "LanguageController.h"
 #include "DebugUI.h"
+#include "BookLoader.h"
 
 class BookApp : public ofBaseApp{
 
@@ -44,6 +45,8 @@ class BookApp : public ofBaseApp{
     bool isSetup;
     
     DebugUI dui;
+    
+    BookLoader loader;
     
 
 		

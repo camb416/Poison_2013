@@ -82,19 +82,14 @@ void BookView::draw(int x_in, int y_in, int debugState){
 // Add all media elements and add to page
 void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions){
     
+    
     Page * newPage = new Page();
     newPage->setup();
     
-    ofPoint pt;
-    
+    // Add the media objects using the filename and positions from xml
     for (int i = 0; i < mediaFiles.size(); i++) {
-        if(i < 0 || i>=positions.size()){
-            pt = ofPoint(0,0);
-        } else {
-            pt = positions.at(i);
-        }
-        newPage->addMedia(mediaFiles.at(i), pt);
-        
+
+        newPage->addMedia(mediaFiles.at(i), positions.at(i));
     }
     
     mediaPages.push_back(newPage);
@@ -164,10 +159,10 @@ void BookView::savePageLayout(){
     
     buff.set(wholeXML);
     
-    bool written = ofBufferToFile("positions.xml", buff);
+    bool written = ofBufferToFile("settings/book.xml", buff);
     
     if (written) {
-        ofLogNotice() << "Media object positions saved to positions.xml";
+        ofLogNotice() << "Media object positions saved to book.xml";
     }
     else {
         ofLogNotice() << "Error writing media object positions to positions.xml";

@@ -1,0 +1,61 @@
+<Book>
+<Page>
+    
+    <Media x="949" y="597" src="assets/en/0.png"></Media>
+    <Media x="1366" y="585" src="assets/en/assassin.png"></Media>
+    <Media x="712" y="936" src="assets/en/cerberus-open.png"></Media>
+    <Media x="958" y="1109" src="assets/en/folios.png"></Media>
+    <Media x="1250" y="927" src="assets/en/howitworks.png"></Media>
+    <Media x="1608" y="613" src="assets/en/identify.png"></Media>
+    <Media x="398" y="136" src="assets/en/main.png"></Media>
+    <Media x="242" y="850" src="assets/en/map-open.png"></Media>
+    <Media x="1450" y="269" src="assets/en/parts.png"></Media>
+    <Media x="615" y="619" src="assets/en/plant.png"></Media>
+    <Media x="483" y="518" src="assets/en/wolfsbane-open.png"></Media>
+</Page>
+
+<Page>
+    
+    <Media x="1163" y="534" src="assets/en/1.png"></Media>
+    <Media x="866" y="683" src="assets/en/assassin.png"></Media>
+    <Media x="925" y="634" src="assets/en/cerberus-open.png"></Media>
+    <Media x="840" y="589" src="assets/en/folios.png"></Media>
+    <Media x="981" y="694" src="assets/en/howitworks.png"></Media>
+    <Media x="997" y="729" src="assets/en/identify.png"></Media>
+    <Media x="909" y="668" src="assets/en/main.png"></Media>
+    <Media x="1141" y="823" src="assets/en/map-open.png"></Media>
+    <Media x="1004" y="793" src="assets/en/parts.png"></Media>
+    <Media x="1189" y="613" src="assets/en/plant.png"></Media>
+    <Media x="1045" y="748" src="assets/en/wolfsbane-open.png"></Media>
+</Page>
+
+<Page>
+    
+    <Media x="839" y="752" src="assets/en/2.png"></Media>
+    <Media x="854" y="861" src="assets/en/assassin.png"></Media>
+    <Media x="943" y="981" src="assets/en/cerberus-open.png"></Media>
+    <Media x="1400" y="773" src="assets/en/folios.png"></Media>
+    <Media x="1321" y="748" src="assets/en/howitworks.png"></Media>
+    <Media x="982" y="677" src="assets/en/identify.png"></Media>
+    <Media x="1298" y="628" src="assets/en/main.png"></Media>
+    <Media x="480" y="791" src="assets/en/map-open.png"></Media>
+    <Media x="653" y="427" src="assets/en/parts.png"></Media>
+    <Media x="221" y="713" src="assets/en/plant.png"></Media>
+    <Media x="1411" y="404" src="assets/en/wolfsbane-open.png"></Media>
+</Page>
+
+<Page>
+    
+    <Media x="977" y="259" src="assets/en/3.png"></Media>
+    <Media x="972" y="362" src="assets/en/assassin.png"></Media>
+    <Media x="1003" y="1162" src="assets/en/cerberus-open.png"></Media>
+    <Media x="1232" y="910" src="assets/en/folios.png"></Media>
+    <Media x="1532" y="780" src="assets/en/howitworks.png"></Media>
+    <Media x="1452" y="988" src="assets/en/identify.png"></Media>
+    <Media x="444" y="995" src="assets/en/main.png"></Media>
+    <Media x="1127" y="950" src="assets/en/map-open.png"></Media>
+    <Media x="1595" y="409" src="assets/en/parts.png"></Media>
+    <Media x="478" y="818" src="assets/en/plant.png"></Media>
+    <Media x="1005" y="752" src="assets/en/wolfsbane-open.png"></Media>
+</Page>
+</Book>

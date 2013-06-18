@@ -15,36 +15,15 @@ void BookApp::setup(){
     
     // I think we're done with these
     bookView.addBackplate(lang.resolvePath("assets/backplate.png"));
-
-    // Media elements for each page. Will later be taken from XML
-    vector<string> pageFiles;
-    vector<ofVec2f> pagePositions;
-    pageFiles.push_back(lang.resolvePath("assets/0.png"));
-    pageFiles.push_back(lang.resolvePath("assets/assassin.png"));
-    pageFiles.push_back(lang.resolvePath("assets/cerberus-open.png"));
-    pageFiles.push_back(lang.resolvePath("assets/folios.png"));
-    pageFiles.push_back(lang.resolvePath("assets/howitworks.png"));
-    pageFiles.push_back(lang.resolvePath("assets/identify.png"));
-    pageFiles.push_back(lang.resolvePath("assets/main.png"));
-    pageFiles.push_back(lang.resolvePath("assets/map-open.png"));
-    pageFiles.push_back(lang.resolvePath("assets/parts.png"));
-    pageFiles.push_back(lang.resolvePath("assets/plant.png"));
-    pageFiles.push_back(lang.resolvePath("assets/wolfsbane-open.png"));
-
-    pagePositions.push_back(ofVec2f(0, 0));
-
     
     
-    // Add pages of media to bookview
-    bookView.addPage(pageFiles, pagePositions);
-    pageFiles.at(0) = lang.resolvePath("assets/1.png");
-    bookView.addPage(pageFiles, pagePositions);
-        pageFiles.at(0) = lang.resolvePath("assets/2.png");
-    bookView.addPage(pageFiles, pagePositions);
-        pageFiles.at(0) = lang.resolvePath("assets/3.png");
-    bookView.addPage(pageFiles, pagePositions);
     
+    // Load Book XML
+    vector<XmlPage> pages = loader.load();
     
+    for (int i = 0; i < pages.size(); i++) {
+        bookView.addPage(pages.at(i).media, pages.at(i).position);
+    }
     
     devices.setup();
         devices.startThread(true,false);
@@ -71,6 +50,7 @@ void BookApp::setup(){
 
 //--------------------------------------------------------------
 void BookApp::update(){
+    ofEnableAlphaBlending();
 
   //  devices.report();
     if(isSetup){
