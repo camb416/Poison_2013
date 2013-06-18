@@ -150,10 +150,27 @@ void BookView::deactivate(){
 }
 
 void BookView::savePageLayout(){
+    ofBuffer buff;
+    string wholeXML;
+    ofFile outFile;
+    
     for(int i=0;i<mediaPages.size();i++){
         string myString;
         ofxXmlSettings xml = mediaPages.at(i)->getXML();
         xml.copyXmlToString(myString);
-        cout << myString << endl;
+        wholeXML += myString;
+    }
+    cout << wholeXML << endl;
+    
+    buff.set(wholeXML);
+    
+    bool written = ofBufferToFile("positions.xml", buff);
+    
+    if (written) {
+        ofLogNotice() << "Media object positions saved to positions.xml";
+    }
+    else {
+        ofLogNotice() << "Error writing media object positions to positions.xml";
     }
 }
+
