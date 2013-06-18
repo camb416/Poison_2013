@@ -89,6 +89,7 @@ void BookApp::update(){
 
 //--------------------------------------------------------------
 void BookApp::draw(){
+    ofEnableAlphaBlending();
   //  if(debugState>0){
 
   //  } else {
@@ -150,6 +151,7 @@ void BookApp::keyPressed(int key){
             case 'S':
             bookView.savePageLayout();
             break;
+            
             case '`':
             case '~':
             dui.toggle();
