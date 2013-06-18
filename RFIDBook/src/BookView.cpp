@@ -27,8 +27,12 @@ void BookView::hideDragUI(){
     bShowDragUI = false;
     if(currentPage>=0){
         mediaPages.at(currentPage)->hideAllBorders();
+        for(int i=0; i < mediaPages.size(); i++){
+            mediaPages.at(i)->hideAllBorders();
+        }
+        
     }
-    
+
 }
 
 void BookView::setup(){

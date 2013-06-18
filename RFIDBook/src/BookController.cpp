@@ -11,8 +11,8 @@
 
 BookController::BookController(){
     isSetup = false;
-    forcedPageActive = false;
-    forcedState = "";
+    forcedPageActive = true;
+    forcedState = "A";
 }
 BookController::~BookController(){
     
@@ -109,6 +109,10 @@ string BookController::whatSituation(){
             returnval_str = "AD";
         }
     }
+//    else if (forcedState == "XX"){
+//        forcedState = "A";
+//        returnval_str = forcedState;
+//    }
     else {
         returnval_str = forcedState;
     }
@@ -161,7 +165,7 @@ void BookController::forcedPage(char _keypress){     //represent RFID actions wi
         
         case 'x':
         case 'X':
-        forcedState = "A";
+        forcedState = "AB";
         forcedPageActive = !forcedPageActive;
         break;
             
