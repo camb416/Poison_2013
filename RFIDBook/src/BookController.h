@@ -25,6 +25,8 @@ public:
     string getReport();
     string whatSituation();
     void forcedPage(char _keyStatus);
+    void mousePressed();
+    void mouseReleased();
     
 private:
     DeviceController * deviceController;

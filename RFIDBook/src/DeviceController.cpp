@@ -16,9 +16,9 @@ void DeviceController::setup(){
     cycleTime = 125; // ms to cycle the RFID antennae
     numSensors = 6;
     
-    inactive_img.loadImage("radio_inactive.png");
-    active_img.loadImage("radio_active.png");
-    selected_img.loadImage("radio_selected.png");
+    inactive_img.loadImage("assets/common/radio_inactive.png");
+    active_img.loadImage("assets/common/radio_active.png");
+    selected_img.loadImage("assets/common/radio_selected.png");
     
     for(int i=0;i<numSensors;i++){
         RFIDDevice * aDevice = new RFIDDevice();
@@ -137,8 +137,10 @@ int DeviceController::getActiveSensorCount(){
 
 }
 
-void DeviceController::draw(){
+void DeviceController::draw(int _x, int _y){
     
+    ofPushMatrix();
+    ofTranslate(_x, _y);
     ofEnableAlphaBlending();
     ofEnableSmoothing();
     for(int i=0;i<numSensors;i++){
@@ -176,6 +178,7 @@ void DeviceController::draw(){
        // cout << rfids.at(i).confidence << endl;
        // cout << rfids.at(i).title << ": " << rfids.at(i).isAttached() << ", " << rfids.at(i).hasTag() << endl;
     }
+    ofPopMatrix();
 }
 
 void DeviceController::report(){

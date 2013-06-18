@@ -14,11 +14,13 @@ class ofFadeImage : public ofImage{
 
 public:
     
+    ofFadeImage();
     void setup(string filename_in);
     void update();
-    void fadeIn();
-    void fadeOut();
+    void fadeIn(float _tweenD = 8.0f);
+    void fadeOut(float _tweenD = 8.0f);
     void draw();
+    void setBorder(bool _showBorder);
     void draw(int x_in, int y_in);
     void draw(int x_in, int y_in, int w_in, int h_in);
     
@@ -26,6 +28,9 @@ private:
     
     float alpha;
     float alphaDest;
+    float tweenDivisor;
+    bool showBorder;
+    
     
     
 };

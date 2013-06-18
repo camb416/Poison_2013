@@ -8,7 +8,9 @@
 
 #include "Page.h"
 
-Page::Page(){}
+Page::Page(){
+    doDrag = false;
+}
 Page::~Page(){}
 
 void Page::setup(){
@@ -20,12 +22,55 @@ void Page::setup(){
     
 }
 
+void Page::setDrag(bool _doDrag){
+    doDrag = _doDrag;
+}
+
 // Update all media elements on page
+
+
+void Page::hideAllBorders(){
+    for (int i = 0; i < media.size(); i++) {
+        media.at(i)->setDraggable(false);
+    }
+}
+
+void Page::dragUpdate(){
+
+    // add toggleable draggy stuff
+    if(!doDrag){
+        // cout << this;
+        ofPoint mousePos = ofPoint(ofGetMouseX(),ofGetMouseY());
+        float nearestDist = 99999;
+        int nearestID = -1;
+        for (int i = 0; i < media.size(); i++) {
+            ofPoint thisOrigin = media.at(i)->getPosition();
+           // cout << thisOrigin.x << ", " << thisOrigin.y << endl;
+            float thisDist = ofDist(thisOrigin.x,thisOrigin.y,mousePos.x,mousePos.y);
+           // cout << "this dist is: " << thisDist << endl;
+            if(thisDist<nearestDist){
+                nearestID = i;
+                nearestDist = thisDist;
+            }
+            media.at(i)->setDraggable(false);
+        }
+       // cout << "nearest dist is: " << nearestDist << endl;
+        if(nearestID>-1){
+            media.at(nearestID)->setDraggable(true);
+            selectedMedia = media.at(nearestID);
+        }
+    } else {
+      //  cout << "I am dragging now." << endl;
+        if(selectedMedia!=NULL){
+            selectedMedia->moveTo(ofGetMouseX(),ofGetMouseY());
+        }
+    }
+}
 void Page::update(){
-    
     for (int i = 0; i < media.size(); i++) {
         media.at(i)->update();
     }
+    
     
 }
 
@@ -42,7 +87,7 @@ void Page::draw(float originX, float originY, float scale){
     else {
         // Run the scaled draw method for each media element
         for (int i = 0; i < media.size(); i++) {
-            media.at(i)->drawScaled(scale);
+            media.at(i)->draw(scale);
         }
     }
     
@@ -103,23 +148,46 @@ void Page::fade(int dir){
     
     // Loop through media elements and fade them in or out
     // TODO - add the randomized load in here
+    float minFadeIn = 4.0f;
+    float maxFadeIn = 64.0f;
+    float minFadeOut = 2.0f;
+    float maxFadeOut = 8.0f;
     
     if (dir == 1) {
         for (int i = 0; i < media.size(); i++) {
             // TODO - handle video fade in as well
-            media.at(i)->img.fadeIn();
+            float fadeVal = ofRandomuf()*(maxFadeIn-minFadeIn)+minFadeIn;
+            //cout << fadeVal << endl;
+            media.at(i)->img.fadeIn(fadeVal);
         }
     }
     else {
         for (int i = 0; i < media.size(); i++) {
             // TODO - handle video fade in as well
-            media.at(i)->img.fadeOut();
+           
+            float fadeVal = ofRandomuf()*(maxFadeOut-minFadeOut)+minFadeOut;
+            // cout << fadeVal << endl;
+            media.at(i)->img.fadeOut(fadeVal);
         }
     }
     
     
 }
-
+ofxXmlSettings Page::getXML(){
+    ofxXmlSettings xml;
+    xml.addTag("Page");
+    xml.pushTag("Page");
+    for(int i=0;i<media.size();i++){
+        xml.addTag("Media");
+        ofPoint pt = media.at(i)->getPosition();
+        xml.setAttribute("Media", "x", (int)pt.x,i);
+        xml.setAttribute("Media", "y", (int)pt.y,i);
+        xml.setAttribute("Media", "src", media.at(i)->getFileName(),i);
+        
+        
+    }
+    return xml;
+}
 
 
 

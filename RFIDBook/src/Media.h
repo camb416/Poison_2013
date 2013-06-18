@@ -22,10 +22,15 @@ public:
     void setup(string imgFile, float _x, float _y);
     void setup(string imgFile, string vidFile, float _x, float _y);
     void update();
-    void draw();
-    void drawScaled(float scale);
+    void draw(float scale=1.0f);
     void setPosition(float _x, float _y);
+    ofPoint getPosition();
+    string getFileName();
     void playPause();
+    
+    void moveTo(int _x, int _y);
+    
+    void setDraggable(bool _bDrag);
     
     float x;
     float y;
@@ -45,6 +50,11 @@ public:
     
     ofFadeImage img;
     ofVideoPlayer vid;
+    
+private:
+   bool isDraggable;
+    bool isDragging;
+    string imgFileName;
     
     
 };

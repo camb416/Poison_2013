@@ -23,13 +23,20 @@ void BookController::setup(DeviceController * deviceController_in, BookView * bo
     bookView = bookView_in;
     isSetup = true;
 }
+
+void BookController::mousePressed(){
+    bookView->mousePressed();
+}
+void BookController::mouseReleased(){
+    bookView->mouseReleased();
+}
+
 void BookController::update(){
     // do something to update here
     
     string currentSitation;
     
     currentSitation = whatSituation();
-    
     
     if(currentSitation.length() == 1){
         // page is landed
@@ -154,7 +161,7 @@ void BookController::forcedPage(char _keypress){     //represent RFID actions wi
         
         case 'x':
         case 'X':
-            
+        forcedState = "A";
         forcedPageActive = !forcedPageActive;
         break;
             

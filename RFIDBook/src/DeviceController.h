@@ -18,7 +18,7 @@
 
 class DeviceController : public ofThread{
 public:
-    void draw();
+    void draw(int _x = 0, int _y = 0);
     void update();
     void report();
     int curSensor;
@@ -91,7 +91,8 @@ public:
                     *tagToSend = 'x';
                     if(prevSensor%2==1){
                         //breakpoint
-                        cout << "" << endl;
+                        // I think this shouldn't happen.
+                        //cout << "" << endl;
                     }
                 }
                 

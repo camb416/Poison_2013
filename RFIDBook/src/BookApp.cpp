@@ -6,63 +6,43 @@ BookApp::BookApp(){
 
 //--------------------------------------------------------------
 void BookApp::setup(){
+    
+
+    
+    lang.load("settings/languages.xml");
+    
     bookView.setup();
-    bookView.addBackplate("backplate.jpg");
-    bookView.addPage("0.png");
-    bookView.addPage("1.png");
-    bookView.addPage("2.png");
-    bookView.addPage("3.png");
     
-    // Media elements for each page. Will later be taken from XML
-    vector<string> page1Files;
-    vector<ofVec2f> page1Positions;
-    page1Files.push_back("0.png");
-        page1Positions.push_back(ofVec2f(0, 0));
-    // For testing multiple media on a page
-    page1Files.push_back("radio_selected.png");
-        page1Positions.push_back(ofVec2f(100, 100));
-
-    
-    vector<string> page2Files;
-    vector<ofVec2f> page2Positions;
-    page2Files.push_back("1.png");
-        page2Positions.push_back(ofVec2f(0, 0));
-
-    
-    vector<string> page3Files;
-    vector<ofVec2f> page3Positions;
-    page3Files.push_back("2.png");
-        page3Positions.push_back(ofVec2f(0, 0));
-
+    // I think we're done with these
+    bookView.addBackplate(lang.resolvePath("assets/backplate.png"));
     
     
-    // Add pages of media to bookview
-    bookView.addMediaPage(page1Files, page1Positions);
-    bookView.addMediaPage(page2Files, page2Positions);
-    bookView.addMediaPage(page3Files, page3Positions);
     
+    // Load Book XML
+    vector<XmlPage> pages = loader.load();
     
+    for (int i = 0; i < pages.size(); i++) {
+        bookView.addPage(pages.at(i).media, pages.at(i).position);
+    }
     
     devices.setup();
         devices.startThread(true,false);
     
     book.setup(&devices,&bookView);
    // rfidsetup();
-    tfield.setup();
-    tfield.update("Magic Book", 16,360);
+
     debugState = 1;
     
-    aValue = 0.5f;
-    bar.setup("Page Confidence", &aValue, 600, 16);
-    bar.setPosition(ofPoint(16,749));
-    isSetup = true;
+   
+        isSetup = true;
     
     ofSetFrameRate(60);
     updateDebug();
     ofSetVerticalSync(true);
     
+    dui.setup(&devices, &book, &bookView);
 
-    lang = new LanguageModel("settings/languages.xml");
+    
     cout << "setup complete." << endl;
     
     
@@ -70,45 +50,31 @@ void BookApp::setup(){
 
 //--------------------------------------------------------------
 void BookApp::update(){
+    ofEnableAlphaBlending();
 
   //  devices.report();
     if(isSetup){
-    devices.update();
-    bar.update();
+        devices.update();
         bookView.update();
-    if(book.isPageLanded()){
-        // checks for three sensors active.
-    }
-    
         
+            if(book.isPageLanded()){
+                    // checks for three sensors active.
+            }
+    
         book.update();
-    
         
-    if(debugState>0){
-
-        tfield.update("Magic Book \n" + book.getReport() + "\n" + book.whatSituation());
-        //tfield.update("Magic Book \n" + book.getReport());
-
-        
-        if(ofGetMousePressed()){
-            pos_ui.update();
-            aValue = ofRandom(1.0f);
-        }
     }
-    }
+    dui.update();
 }
 
 //--------------------------------------------------------------
 void BookApp::draw(){
-    if(debugState>0){
-    devices.draw();
-        tfield.draw();
-        bar.draw();
-        if(ofGetMousePressed()) pos_ui.draw();
-        bookView.draw(16,450,debugState);
-    } else {
+  //  if(debugState>0){
+
+  //  } else {
         bookView.draw(0,0);
-    }
+   // }
+    dui.draw();
     
 }
 
@@ -119,6 +85,7 @@ void BookApp::keyPressed(int key){
             case 'A':
             
             book.forcedPage('A');
+
             break;
             
             case 'b':
@@ -158,6 +125,15 @@ void BookApp::keyPressed(int key){
             
             toggleDebug();
             break;
+            
+            case 's':
+            case 'S':
+            bookView.savePageLayout();
+            break;
+            case '`':
+            case '~':
+            dui.toggle();
+            break;
             //case default:
             
             //break;
@@ -173,10 +149,10 @@ void BookApp::toggleDebug(){
 }
 void BookApp::updateDebug(){
     if(debugState==0){
-        ofSetFullscreen(true);
+     //   ofSetFullscreen(true);
     } else {
         ofBackground(192);
-        ofSetFullscreen(false);
+    //    ofSetFullscreen(false);
     }
 }
 
@@ -198,12 +174,16 @@ void BookApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void BookApp::mousePressed(int x, int y, int button){
-
+    
+    // only send it if the debug ui's not up
+    if(!dui.getIsVisible()) book.mousePressed();
 }
 
 //--------------------------------------------------------------
 void BookApp::mouseReleased(int x, int y, int button){
-
+    
+    // only send it if the debug ui's not up
+    if(!dui.getIsVisible()) book.mouseReleased();
 }
 
 //--------------------------------------------------------------

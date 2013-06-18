@@ -8,25 +8,45 @@
 
 #include "BookView.h"
 BookView::BookView(){
-    
+    currentPage = -1;
+    bShowDragUI = false;
+    isSetup = false;
+    cout << "OKAY, THE BOOKVIEW EXISTS... HERE THE CONSTRUCTOR TO PROVE IT" << endl;
 }
 BookView::~BookView(){
     
 }
+
+void BookView::showDragUI(){
+
+    bShowDragUI = true;
+
+}
+void BookView::hideDragUI(){
+
+    bShowDragUI = false;
+    if(currentPage>=0){
+        mediaPages.at(currentPage)->hideAllBorders();
+    }
+    
+}
+
 void BookView::setup(){
     
 }
 void BookView::update(){
-    for(int i=0;i<pages.size();i++){
+    /*for(int i=0;i<pages.size();i++){
         pages.at(i)->update();
     }
-    
+    */
+    if(currentPage>=0 && bShowDragUI) mediaPages.at(currentPage)->dragUpdate();
     for(int i=0;i<mediaPages.size();i++){
         mediaPages.at(i)->update();
     }
     
 }
 void BookView::draw(){
+    ofEnableAlphaBlending();
     draw(0,0,0);
 }
 void BookView::draw(int x_in, int y_in, int debugState){
@@ -37,12 +57,7 @@ void BookView::draw(int x_in, int y_in, int debugState){
     ofPushMatrix();
     ofTranslate(x_in,y_in);
         
-    // Old Pages
-//    for(int i=0;i<pages.size();i++){
-//        pages.at(i)->draw(0,0,160,120);
-//        ofTranslate(25,25);
-//    }
-        
+
     // Draw mediaPages
     for(int i=0;i<mediaPages.size();i++){
         // draw at 1/10th scale
@@ -55,12 +70,7 @@ void BookView::draw(int x_in, int y_in, int debugState){
         backplate.draw(0,0,ofGetWidth(),ofGetHeight());
         ofPushMatrix();
         ofTranslate(x_in,y_in);
-    // Old Pages
-//        for(int i=0;i<pages.size();i++){
-//            pages.at(i)->draw(0,0,ofGetWidth(),ofGetHeight());
-//            //ofTranslate(25,25);
-//        }
-        
+
         // Draw media pages
         for(int i=0;i<mediaPages.size();i++){
             mediaPages.at(i)->draw(0,0,1.0f);
@@ -68,24 +78,18 @@ void BookView::draw(int x_in, int y_in, int debugState){
         ofPopMatrix();
     }
 }
-void BookView::addPage(string pagename_in){
-    ofFadeImage * newPage = new ofFadeImage();
-    newPage->setup(pagename_in);
-
-    pages.push_back(newPage);
-}
-
 
 // Add all media elements and add to page
-void BookView::addMediaPage(vector<string> mediaFiles, vector<ofVec2f> positions){
+void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions){
+    
     
     Page * newPage = new Page();
     newPage->setup();
     
+    // Add the media objects using the filename and positions from xml
     for (int i = 0; i < mediaFiles.size(); i++) {
-        
+
         newPage->addMedia(mediaFiles.at(i), positions.at(i));
-        
     }
     
     mediaPages.push_back(newPage);
@@ -97,25 +101,71 @@ void BookView::addBackplate(string platename_in){
     backplate.loadImage(platename_in);
 }
 
+void BookView::mousePressed(){
+    if(currentPage>=0){
+        mediaPages.at(currentPage)->setDrag(true);
+    }
+}
+void BookView::mouseReleased(){
+    if(currentPage>=0){
+        mediaPages.at(currentPage)->setDrag(false);
+    }
+}
+
 // Activate the current page
 void BookView::activate(int pagenum_in){
-for(int i=0;i<pages.size();i++){
+/*
+    for(int i=0;i<pages.size();i++){
     if(i==pagenum_in){
         pages.at(i)->fadeIn();
     } else {
         pages.at(i)->fadeOut();
     }
 }
-
+*/
     // mediaPage
+   // if(pagenum_in!=currentPage)
+     if(pagenum_in != currentPage){
     for(int i=0;i<mediaPages.size();i++){
+       
         if(i==pagenum_in){
             mediaPages.at(i)->fade(1);
         } else {
             mediaPages.at(i)->fade(-1);
         }
+        }
     }
+    
+    currentPage = pagenum_in;
 }
+
+
 void BookView::deactivate(){
     activate(-1);
 }
+
+void BookView::savePageLayout(){
+    ofBuffer buff;
+    string wholeXML;
+    ofFile outFile;
+    
+    for(int i=0;i<mediaPages.size();i++){
+        string myString;
+        ofxXmlSettings xml = mediaPages.at(i)->getXML();
+        xml.copyXmlToString(myString);
+        wholeXML += myString;
+    }
+    cout << wholeXML << endl;
+    
+    buff.set(wholeXML);
+    
+    bool written = ofBufferToFile("settings/book.xml", buff);
+    
+    if (written) {
+        ofLogNotice() << "Media object positions saved to book.xml";
+    }
+    else {
+        ofLogNotice() << "Error writing media object positions to positions.xml";
+    }
+}
+
