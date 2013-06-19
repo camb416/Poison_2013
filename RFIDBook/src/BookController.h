@@ -28,6 +28,8 @@ public:
     void mousePressed();
     void mouseReleased();
     
+    bool toggleFullScreen;
+    
 private:
     DeviceController * deviceController;
     BookView * bookView;

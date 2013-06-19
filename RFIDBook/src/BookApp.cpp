@@ -7,8 +7,6 @@ BookApp::BookApp(){
 //--------------------------------------------------------------
 void BookApp::setup(){
     
-
-    
     lang.load("settings/languages.xml");
     
     bookView.setup();
@@ -16,10 +14,8 @@ void BookApp::setup(){
     // I think we're done with these
     bookView.addBackplate(lang.resolvePath("assets/backplate.png"));
     
-    
-    
     // Load Book XML
-    vector<XmlPage> pages = loader.load();
+    vector<XmlPage> pages = loader.load("settings/book.xml");
     
     for (int i = 0; i < pages.size(); i++) {
         bookView.addPage(pages.at(i).media, pages.at(i).position);
@@ -32,15 +28,15 @@ void BookApp::setup(){
    // rfidsetup();
 
     debugState = 1;
-    
    
-        isSetup = true;
+    isSetup = true;
+    
+    updateDebug();
     
     ofSetFrameRate(60);
-    updateDebug();
     ofSetVerticalSync(true);
     
-    dui.setup(&devices, &book, &bookView);
+    dui.setup(&devices, &book, &bookView, &loader);
 
     
     cout << "setup complete." << endl;
@@ -51,7 +47,7 @@ void BookApp::setup(){
 //--------------------------------------------------------------
 void BookApp::update(){
     ofEnableAlphaBlending();
-
+    ofSetFullscreen(book.toggleFullScreen);
   //  devices.report();
     if(isSetup){
         devices.update();
@@ -111,6 +107,12 @@ void BookApp::keyPressed(int key){
             case 'E':
             
             book.forcedPage('E');
+            break;
+            
+            case 'f':
+            case 'F':
+            
+            book.forcedPage('F');
             break;
             
             // toggle keyboard mode on or off

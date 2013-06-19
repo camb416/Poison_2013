@@ -12,9 +12,7 @@ Media::Media(){
     isDraggable = true;
     isDragging = false;
 }
-Media::~Media(){
-
-}
+Media::~Media(){}
 
 // Image only
 void Media::setup(string _imgFile, float _x, float _y){

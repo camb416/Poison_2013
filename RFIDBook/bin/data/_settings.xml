@@ -15,4 +15,8 @@
         <name>save XML</name>
         <value>0</value>
     </Button_save_XML>
+    <Toggle_full_screen>
+        <name>full screen</name>
+        <value>0</value>
+    </Toggle_full_screen>
 </controls>
