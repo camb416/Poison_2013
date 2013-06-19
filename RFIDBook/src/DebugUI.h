@@ -26,7 +26,7 @@ public:
     DebugUI();
     ~DebugUI();
     
-    void    setup(DeviceController * _devices, BookController * _book, BookView * _bookView, BookLoader *_loader);
+    void setup(DeviceController * _devices, BookController * _book, BookView * _bookView, BookLoader *_loader);
     void    update();
     void    draw();
     

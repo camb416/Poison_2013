@@ -35,7 +35,6 @@ void BookApp::setup(){
     
     ofSetFrameRate(60);
     ofSetVerticalSync(true);
-    toggleFullScreen = false;
     
     dui.setup(&devices, &book, &bookView, &loader);
 
@@ -48,7 +47,7 @@ void BookApp::setup(){
 //--------------------------------------------------------------
 void BookApp::update(){
     ofEnableAlphaBlending();
-
+    ofSetFullscreen(book.toggleFullScreen);
   //  devices.report();
     if(isSetup){
         devices.update();
@@ -67,7 +66,6 @@ void BookApp::update(){
 //--------------------------------------------------------------
 void BookApp::draw(){
     ofEnableAlphaBlending();
-    ofSetFullscreen(toggleFullScreen);
   //  if(debugState>0){
 
   //  } else {
@@ -114,7 +112,7 @@ void BookApp::keyPressed(int key){
             case 'f':
             case 'F':
             
-            toggleFullScreen = !toggleFullScreen;
+            book.forcedPage('F');
             break;
             
             // toggle keyboard mode on or off

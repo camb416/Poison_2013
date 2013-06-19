@@ -13,6 +13,7 @@ BookController::BookController(){
     isSetup = false;
     forcedPageActive = true;
     forcedState = "A";
+    toggleFullScreen = false;
 }
 BookController::~BookController(){
     
@@ -109,10 +110,6 @@ string BookController::whatSituation(){
             returnval_str = "AD";
         }
     }
-//    else if (forcedState == "XX"){
-//        forcedState = "A";
-//        returnval_str = forcedState;
-//    }
     else {
         returnval_str = forcedState;
     }
@@ -161,6 +158,12 @@ void BookController::forcedPage(char _keypress){     //represent RFID actions wi
         case 'E':
             
         forcedState = "AB";
+        break;
+            
+        case 'f':
+        case 'F':
+        
+        toggleFullScreen = !toggleFullScreen;
         break;
         
         case 'x':

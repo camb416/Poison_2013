@@ -32,8 +32,6 @@ class BookApp : public ofBaseApp{
     
         void toggleDebug();
         void updateDebug();
-    
-        bool toggleFullScreen;
 
         LanguageController lang;
     

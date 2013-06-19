@@ -24,10 +24,11 @@ bool DebugUI::getIsVisible(){
     return isVisible;
 }
 
-void DebugUI::setup(DeviceController * _devices, BookController * _book, BookView * _bookView, BookLoader *_loader){
+void DebugUI::setup(DeviceController * _devices, BookController * _book, BookView * _bookView, BookLoader * _loader){
     devices = _devices;
     book = _book;
     bookView = _bookView;
+    loader = _loader;
     
     appSettings.loadFile("_settings.xml");
     bDragUIcheckbox = appSettings.getValue("controls:Toggle_Drag_UI:value", 0);
@@ -39,7 +40,7 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, BookVie
     tfield.setup();
     tfield.update("Magic Book", 16,660);
     
-     aValue = 0.5f;
+    aValue = 0.5f;
     bar.setup("Page Confidence", &aValue, 600, 16);
     bar.setPosition(ofPoint(16,749));
 
@@ -50,7 +51,7 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, BookVie
     gui.addButton("default XML", defaultXMLbtn);
     gui.addButton("load XML", loadXMLbtn);
     gui.addButton("save XML", saveXMLbtn);
-    gui.addButton("full screen", bFullScreencheckbox);
+    gui.addToggle("full screen", bFullScreencheckbox);
 
 }
 void DebugUI::update(){
@@ -73,15 +74,21 @@ void DebugUI::update(){
         bDragUIcheckbox_prev = bDragUIcheckbox;
     }
     
-//    if(bFullScreencheckbox!=bFullScreencheckbox_prev){
-//        
-//        if(bFullScreencheckbox){
-//            bookApp->toggleFullScreen = true;
-//        } else {
-//
-//        }
-//        bFullScreencheckbox_prev = bFullScreencheckbox;
-//    }
+    if(bFullScreencheckbox!=bFullScreencheckbox_prev){
+        
+        if(bFullScreencheckbox){
+            book->toggleFullScreen = true;
+        } else {
+            book->toggleFullScreen = false;
+        }
+        bFullScreencheckbox_prev = bFullScreencheckbox;
+    }
+    
+    if (book->toggleFullScreen == true){
+        bFullScreencheckbox = true;
+    } else{
+        bFullScreencheckbox = false;
+    }
 
     
     if(defaultXMLbtn){
