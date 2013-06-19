@@ -90,8 +90,16 @@ void DebugUI::update(){
         bFullScreencheckbox = false;
     }
 
-    
+    // Load in default XML file
     if(defaultXMLbtn){
+        
+        bookView->clearPages();
+        
+        vector<XmlPage> pages = loader->load("settings/book.default");
+        
+        for (int i = 0; i < pages.size(); i++) {
+            bookView->addPage(pages.at(i).media, pages.at(i).position);
+        }
         
     }
     
@@ -99,8 +107,16 @@ void DebugUI::update(){
         bookView->savePageLayout();
     }
     
+    // Load in custom XML file
     if(loadXMLbtn){
-        loader->load();
+        
+        bookView->clearPages();
+        
+        vector<XmlPage> pages = loader->load("settings/book.xml");
+        
+        for (int i = 0; i < pages.size(); i++) {
+            bookView->addPage(pages.at(i).media, pages.at(i).position);
+        }
     }
 }
 bool DebugUI::getDragSetting(){

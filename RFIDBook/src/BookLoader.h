@@ -28,11 +28,11 @@ public:
     BookLoader();
     ~BookLoader();
     
-    vector<XmlPage> load();
+    vector<XmlPage> load(string fileName);
     
     ofxXmlSettings bookElements;
     
-    string fileName = "settings/book.xml";
+    //string fileName = "settings/book.xml";
     
     vector<XmlPage> pages;
     

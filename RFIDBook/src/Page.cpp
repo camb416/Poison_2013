@@ -11,7 +11,9 @@
 Page::Page(){
     doDrag = false;
 }
-Page::~Page(){}
+Page::~Page(){
+    media.clear();
+}
 
 void Page::setup(){
     

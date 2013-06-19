@@ -15,7 +15,7 @@ void BookApp::setup(){
     bookView.addBackplate(lang.resolvePath("assets/backplate.png"));
     
     // Load Book XML
-    vector<XmlPage> pages = loader.load();
+    vector<XmlPage> pages = loader.load("settings/book.xml");
     
     for (int i = 0; i < pages.size(); i++) {
         bookView.addPage(pages.at(i).media, pages.at(i).position);

@@ -101,6 +101,13 @@ void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions){
     
 }
 
+// Remove all pages to load new ones.
+void BookView::clearPages(){
+    
+    mediaPages.clear();
+    
+}
+
 void BookView::addBackplate(string platename_in){
     backplate.loadImage(platename_in);
 }
