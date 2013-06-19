@@ -13,11 +13,13 @@ BookLoader::~BookLoader(){}
 
 
 // Load each page from the book XML file
-vector<XmlPage> BookLoader::load(){
+vector<XmlPage> BookLoader::load(string fileName){
     
     cout << " -------- LOADING BOOK XML --------" << "\n";
     
     if (bookElements.loadFile(fileName)){
+        
+        pages.clear();
         
         bookElements.pushTag("Book");
         

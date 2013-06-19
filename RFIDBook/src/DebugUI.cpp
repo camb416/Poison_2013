@@ -28,6 +28,7 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, BookVie
     devices = _devices;
     book = _book;
     bookView = _bookView;
+    loader = _loader;
     
     appSettings.loadFile("_settings.xml");
     bDragUIcheckbox = appSettings.getValue("controls:Toggle_Drag_UI:value", 0);
@@ -83,8 +84,16 @@ void DebugUI::update(){
 //        bFullScreencheckbox_prev = bFullScreencheckbox;
 //    }
 
-    
+    // Load in default XML file
     if(defaultXMLbtn){
+        
+        bookView->clearPages();
+        
+        vector<XmlPage> pages = loader->load("settings/book.default");
+        
+        for (int i = 0; i < pages.size(); i++) {
+            bookView->addPage(pages.at(i).media, pages.at(i).position);
+        }
         
     }
     
@@ -92,8 +101,16 @@ void DebugUI::update(){
         bookView->savePageLayout();
     }
     
+    // Load in custom XML file
     if(loadXMLbtn){
-        loader->load();
+        
+        bookView->clearPages();
+        
+        vector<XmlPage> pages = loader->load("settings/book.xml");
+        
+        for (int i = 0; i < pages.size(); i++) {
+            bookView->addPage(pages.at(i).media, pages.at(i).position);
+        }
     }
 }
 bool DebugUI::getDragSetting(){
