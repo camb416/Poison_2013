@@ -1,0 +1,21 @@
+<book>
+	<page input="A" >
+		<media id="1">
+			<img src="anImage_A_1.jpg" x="10" y="10"/>
+		</media>
+		<media id="2">
+			<img src="anImage_A_2.jpg" x="20" y="20"/>
+			<video src="aVideo_A_2.mov" x="30" y="30"/>
+		</media>
+	</page>
+	<page input="B" >
+		<media id="1">
+			<img src="anImage_B_1.jpg" x="10" y="10"/>
+			<video src="aVideo_B_1.mov" x="10" y="10"/>
+		</media>
+		<media id="2">
+			<img src="anImage_B_2.jpg" x="20" y="20"/>
+			<video src="aVideo_B_2.mov" x="30" y="30"/>
+		</media>
+	</page>
+</book>

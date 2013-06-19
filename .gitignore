@@ -1,3 +1,8 @@
 *.app
 RFIDBook/bin/RFIDBookDebug.app
 RFIDBook/bin/RFIDBook.app
+bookLoader/bookLoader.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+bookLoader/bookLoader.xcodeproj/project.xcworkspace/xcuserdata/tterb.xcuserdatad/UserInterfaceState.xcuserstate
+bookLoader/bookLoader.xcodeproj/xcshareddata/xcschemes/bookLoader Debug.xcscheme
+bookLoader/bookLoader.xcodeproj/xcshareddata/xcschemes/bookLoader Release.xcscheme
+bookLoader/bookLoader.xcodeproj/xcuserdata/tterb.xcuserdatad/xcschemes/xcschememanagement.plist

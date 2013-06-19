@@ -39,7 +39,7 @@ void Page::dragUpdate(){
 
     // add toggleable draggy stuff
     if(!doDrag){
-       // cout << this;
+        // cout << this;
         ofPoint mousePos = ofPoint(ofGetMouseX(),ofGetMouseY());
         float nearestDist = 99999;
         int nearestID = -1;

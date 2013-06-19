@@ -35,6 +35,9 @@ public:
     float x;
     float y;
     
+    float vidX;
+    float vidY;
+    
     bool hasVid;
     bool vidState;
     
