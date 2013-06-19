@@ -84,7 +84,7 @@ void BookView::draw(int x_in, int y_in, int debugState){
 }
 
 // Add all media elements and add to page
-void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions){
+void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions, vector<int> autoplay, vector<string> tapId){
     
     
     Page * newPage = new Page();
@@ -93,7 +93,7 @@ void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions){
     // Add the media objects using the filename and positions from xml
     for (int i = 0; i < mediaFiles.size(); i++) {
 
-        newPage->addMedia(mediaFiles.at(i), positions.at(i));
+        newPage->addMedia(mediaFiles.at(i), positions.at(i), autoplay.at(i), tapId.at(i));
     }
     
     mediaPages.push_back(newPage);
@@ -125,25 +125,16 @@ void BookView::mouseReleased(){
 
 // Activate the current page
 void BookView::activate(int pagenum_in){
-/*
-    for(int i=0;i<pages.size();i++){
-    if(i==pagenum_in){
-        pages.at(i)->fadeIn();
-    } else {
-        pages.at(i)->fadeOut();
-    }
-}
-*/
-    // mediaPage
-   // if(pagenum_in!=currentPage)
-     if(pagenum_in != currentPage){
-    for(int i=0;i<mediaPages.size();i++){
-       
-        if(i==pagenum_in){
-            mediaPages.at(i)->fade(1);
-        } else {
-            mediaPages.at(i)->fade(-1);
-        }
+
+
+    if(pagenum_in != currentPage){
+        for(int i=0;i<mediaPages.size();i++){
+           
+            if(i==pagenum_in){
+                mediaPages.at(i)->fade(1);
+            } else {
+                mediaPages.at(i)->fade(-1);
+            }
         }
     }
     

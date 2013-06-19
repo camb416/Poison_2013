@@ -15,25 +15,30 @@ Media::Media(){
 Media::~Media(){}
 
 // Image only
-void Media::setup(string _imgFile, float _x, float _y){
+void Media::setup(string mediaFile, float _x, float _y){
     
-    imgFileName = _imgFile;
+    imgFileName = mediaFile;
     setPosition(_x, _y);
-    img.setup(_imgFile);
-    
+    img.setup(mediaFile);
     hasVid = false;
+    autoplay = -1;
+    tapId = "";
+
 }
 
 // Image and video
-void Media::setup(string _imgFile, string vidFile, float _x, float _y){
+void Media::setup(string _imgFile, string vidFile, float _x, float _y, int _autoplay, string _tapId){
     
     
     imgFileName = _imgFile;
     setPosition(_x, _y);
     img.setup(_imgFile);
     
+    autoplay = _autoplay;
+    string tapId;
     hasVid = true;
     vidState = 0;
+    vid.setPixelFormat(OF_PIXELS_RGBA);
     vid.loadMovie(vidFile);
     
 }
@@ -72,10 +77,11 @@ void Media::update(){
     //TODO check mediaState to see what to do
     
     img.update();
-    //vid.update();
+    
+    if (hasVid) {
+        vid.update();
+    }
 
-    
-    
 }
 
 void Media::moveTo(int _x, int _y){
@@ -98,7 +104,7 @@ void Media::draw(float scale){
         img.draw(x,y, img.width*scale, img.height*scale);
     }
     else {
-        if (vidState == 0 || hasVid == false){
+        if (vidState == 0){
             img.draw(x,y, img.width*scale, img.height*scale);
         }
         else {

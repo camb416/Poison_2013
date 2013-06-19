@@ -17,10 +17,10 @@ Page::~Page(){
 
 void Page::setup(){
     
-    validInputs.push_back('A');
-    validInputs.push_back('B');
-    validInputs.push_back('C');
-    validInputs.push_back('D');
+    validInputs.push_back('H');
+    validInputs.push_back('J');
+    validInputs.push_back('K');
+    validInputs.push_back('L');
     
 }
 
@@ -95,7 +95,7 @@ void Page::draw(float originX, float originY, float scale){
     
 }
 
-void Page::addMedia(string fileName, ofVec2f position){
+void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId){
     
     Media * newMedia = new Media();
     
@@ -109,8 +109,9 @@ void Page::addMedia(string fileName, ofVec2f position){
     else if (sub == "mov"){
         
         // Run the setup for a media element that is a video and an image
-        string imageFile = fileName.replace(fileName.length() -3, 3, "png");
-        newMedia->setup(imageFile, fileName, position.x, position.y);
+        string imageFile = fileName;
+        imageFile.replace(fileName.length() -3, 3, "png");
+        newMedia->setup(imageFile, fileName, position.x, position.y, autoplay, tapId);
         
     }
     else {
@@ -149,7 +150,6 @@ void Page::receiveInput(char input ){
 void Page::fade(int dir){
     
     // Loop through media elements and fade them in or out
-    // TODO - add the randomized load in here
     float minFadeIn = 4.0f;
     float maxFadeIn = 64.0f;
     float minFadeOut = 2.0f;
@@ -161,6 +161,11 @@ void Page::fade(int dir){
             float fadeVal = ofRandomuf()*(maxFadeIn-minFadeIn)+minFadeIn;
             //cout << fadeVal << endl;
             media.at(i)->img.fadeIn(fadeVal);
+            
+            // If autoplay is on for the video, start playing
+            if (media.at(i)->autoplay == 1){
+                media.at(i)->playPause();
+            }
         }
     }
     else {
@@ -170,9 +175,11 @@ void Page::fade(int dir){
             float fadeVal = ofRandomuf()*(maxFadeOut-minFadeOut)+minFadeOut;
             // cout << fadeVal << endl;
             media.at(i)->img.fadeOut(fadeVal);
+            
+            // stop all video
+            media.at(i)->playPause();
         }
     }
-    
     
 }
 ofxXmlSettings Page::getXML(){

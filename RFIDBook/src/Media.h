@@ -19,8 +19,8 @@ public:
     Media();
     ~Media();
     
-    void setup(string imgFile, float _x, float _y);
-    void setup(string imgFile, string vidFile, float _x, float _y);
+    void setup(string mediaFile, float _x, float _y);
+    void setup(string _imgFile, string vidFile, float _x, float _y, int _autoplay, string _tapId);
     void update();
     void draw(float scale=1.0f);
     void setPosition(float _x, float _y);
@@ -40,6 +40,9 @@ public:
     
     bool hasVid;
     bool vidState;
+    
+    int autoplay;
+    string tapId;
     
     //TODO
     int mediaState;

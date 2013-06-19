@@ -18,6 +18,8 @@
 struct XmlPage {
     vector<string> media;
     vector<ofVec2f> position;
+    vector<int> autoplay;
+    vector<string> tapId;
     
 };
 

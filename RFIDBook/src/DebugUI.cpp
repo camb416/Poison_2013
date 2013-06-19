@@ -98,7 +98,7 @@ void DebugUI::update(){
         vector<XmlPage> pages = loader->load("settings/book.default");
         
         for (int i = 0; i < pages.size(); i++) {
-            bookView->addPage(pages.at(i).media, pages.at(i).position);
+            bookView->addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId);
         }
         
     }
@@ -115,7 +115,7 @@ void DebugUI::update(){
         vector<XmlPage> pages = loader->load("settings/book.xml");
         
         for (int i = 0; i < pages.size(); i++) {
-            bookView->addPage(pages.at(i).media, pages.at(i).position);
+            bookView->addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId);
         }
     }
 }

@@ -4,7 +4,7 @@
 void testApp::setup(){
     
     testImg.setup("poison.jpg", 0.0f, 0.0f);
-    testVid.setup("skull.png", "skull.mov", 0.0f, 300.0f);
+    testVid.setup("skull.png", "plant_alpha_v01.mov", 0.0f, 300.0f);
     
     testSlide.setup("perry.png");
     

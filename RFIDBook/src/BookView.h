@@ -22,7 +22,7 @@ public:
     void update();
     void draw();
     void draw(int x_in, int y_in, int debugState=0);
-    void addPage(vector<string> mediaFiles, vector<ofVec2f> positions);
+    void addPage(vector<string> mediaFiles, vector<ofVec2f> positions, vector<int> autoplay, vector<string> tapId);
     void clearPages();
     void addBackplate(string platename_in);
     void activate(int pagenum_in);
