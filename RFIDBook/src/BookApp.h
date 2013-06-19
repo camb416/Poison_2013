@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxXmlSettings.h"
 #include "DeviceController.h"
 #include "BookController.h"
 #include "TextField.h"
@@ -30,24 +31,25 @@ class BookApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
         void toggleDebug();
-    void updateDebug();
+        void updateDebug();
+    
+        bool toggleFullScreen;
 
-    LanguageController lang;
+        LanguageController lang;
     
-    DeviceController devices;
-    BookController book;
-    float aValue;
+        DeviceController devices;
+        BookController book;
+        float aValue;
     
-    BookView bookView;
+        BookView bookView;
     
-    int debugState;
+        int debugState;
     
-    bool isSetup;
+        bool isSetup;
     
-    DebugUI dui;
+        DebugUI dui;
     
-    BookLoader loader;
-    
+        BookLoader loader;
 
 		
 };

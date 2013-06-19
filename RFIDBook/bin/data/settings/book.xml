@@ -1,20 +1,20 @@
 <Page>
     
-    <Media x="0" y="0" src="assets/en/0.png"></Media>
-    <Media x="0" y="0" src="assets/en/assassin.png"></Media>
+    <Media x="1232" y="656" src="assets/en///0.png"></Media>
+    <Media x="1292" y="277" src="assets/en///assassin.png"></Media>
 </Page>
 <Page>
     
-    <Media x="541" y="330" src="assets/en/1.png"></Media>
-    <Media x="460" y="254" src="assets/en/wolfsbane-open.png"></Media>
+    <Media x="541" y="330" src="assets/en///1.png"></Media>
+    <Media x="460" y="254" src="assets/en///wolfsbane-open.png"></Media>
 </Page>
 <Page>
     
-    <Media x="352" y="233" src="assets/en/2.png"></Media>
-    <Media x="1091" y="753" src="assets/en/main.png"></Media>
+    <Media x="352" y="233" src="assets/en///2.png"></Media>
+    <Media x="1091" y="753" src="assets/en///main.png"></Media>
 </Page>
 <Page>
     
-    <Media x="0" y="0" src="assets/en/3.png"></Media>
-    <Media x="0" y="0" src="assets/en/map-open.png"></Media>
+    <Media x="0" y="0" src="assets/en///3.png"></Media>
+    <Media x="0" y="0" src="assets/en///map-open.png"></Media>
 </Page>

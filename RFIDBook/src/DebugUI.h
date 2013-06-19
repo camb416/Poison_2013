@@ -17,6 +17,7 @@
 #include "DeviceController.h"
 #include "BookController.h"
 #include "BookView.h"
+#include "BookLoader.h"
 #include <iostream>
 
 class DebugUI{
@@ -25,7 +26,7 @@ public:
     DebugUI();
     ~DebugUI();
     
-    void    setup(DeviceController * _devices, BookController * _book, BookView * _bookView);
+    void    setup(DeviceController * _devices, BookController * _book, BookView * _bookView, BookLoader *_loader);
     void    update();
     void    draw();
     
@@ -45,13 +46,18 @@ private:
     bool loadXMLbtn;
     bool defaultXMLbtn;
     bool isVisible;
+    bool bFullScreencheckbox;
+    bool bFullScreencheckbox_prev;
     DeviceController * devices;
     BookController * book;
+    BookLoader * loader;
     TextField tfield;
     PositionUI pos_ui;
     BarGraph bar;
 
     float aValue;   // what is this? Something for bar graph...
+    
+    ofxXmlSettings appSettings;
     
     
 };
