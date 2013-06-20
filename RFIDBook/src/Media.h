@@ -12,6 +12,7 @@
 #include <iostream>
 #include "ofMain.h"
 #include "ofFadeImage.h"
+#include "OfFadeVideo.h"
 
 class Media {
     
@@ -52,10 +53,10 @@ public:
     float loopback = -1.0f;
     
     ofFadeImage img;
-    ofVideoPlayer vid;
+    ofFadeVideo vid;
     
 private:
-   bool isDraggable;
+    bool isDraggable;
     bool isDragging;
     string imgFileName;
     

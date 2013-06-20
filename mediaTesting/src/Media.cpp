@@ -25,10 +25,12 @@ void Media::setup(string imgFile, string vidFile, float _x, float _y){
 
     setPosition(_x, _y);
     img.setup(imgFile);
+    vid.setup(vidFile);
     
     hasVid = true;
-    vidState = 0;
-    vid.loadMovie(vidFile);
+    vidState = 1;
+
+    vid.play();
 
 }
 

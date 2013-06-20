@@ -161,6 +161,7 @@ void Page::fade(int dir){
             float fadeVal = ofRandomuf()*(maxFadeIn-minFadeIn)+minFadeIn;
             //cout << fadeVal << endl;
             media.at(i)->img.fadeIn(fadeVal);
+            media.at(i)->vid.fadeIn(fadeVal);
             
             // If autoplay is on for the video, start playing
             if (media.at(i)->autoplay == 1){
@@ -170,11 +171,13 @@ void Page::fade(int dir){
     }
     else {
         for (int i = 0; i < media.size(); i++) {
-            // TODO - handle video fade in as well
+            // TODO - handle video fade out as well
            
             float fadeVal = ofRandomuf()*(maxFadeOut-minFadeOut)+minFadeOut;
             // cout << fadeVal << endl;
+            
             media.at(i)->img.fadeOut(fadeVal);
+            media.at(i)->vid.fadeOut(fadeVal);
             
             // stop all video
             media.at(i)->playPause();
