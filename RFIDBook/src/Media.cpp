@@ -30,9 +30,10 @@ void Media::setup(string mediaFile, float _x, float _y){
 void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback){
     
     
-    imgFileName = _imgFile;
+    vidFileName = _vidFile;
     setPosition(_x, _y);
     img.setup(_imgFile);
+    
     
     autoplay = _autoplay;
     string tapId;
@@ -54,7 +55,11 @@ ofPoint Media::getPosition(){
 }
 
 string Media::getFileName(){
-    return imgFileName;
+    if (hasVid == true){
+        return vidFileName;
+    } else {
+        return imgFileName;
+    }
 }
 
 
@@ -101,7 +106,7 @@ void Media::update(){
                 }
             }
             
-            if (currentFrame == loopback && loopCount >= 1){
+            if (currentFrame <= loopback && loopCount >= 1){
                 float currentSpeed = vid.getSpeed();
                 if (currentSpeed == 1){
                     vid.setSpeed(-1);
