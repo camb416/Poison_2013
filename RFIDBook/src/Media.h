@@ -61,6 +61,7 @@ private:
     bool isDraggable;
     bool isDragging;
     string imgFileName;
+    string vidFileName;
     
     
 };
