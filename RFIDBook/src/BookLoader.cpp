@@ -48,6 +48,7 @@ vector<XmlPage> BookLoader::load(string fileName){
                 
                 int autoplay = -1;
                 string tapId = "";
+                int loopback = -1;
                 
                 if (bookElements.attributeExists("Media", "auto", i)) {
                     // set autoplay to true
@@ -62,12 +63,20 @@ vector<XmlPage> BookLoader::load(string fileName){
                     tapId = "";
                 }
                 
+                if (bookElements.attributeExists("Media", "loopback", i)) {
+                    loopback = bookElements.getAttribute("Media", "loopback", 0, i);
+                }
+                else {
+                    loopback = -1;
+                }
+                
                 ofLogNotice() << "Loaded " << mediaFileName << " at position " << mediaPos.x << " : " << mediaPos.y;
                 
                 newPage.media.push_back(mediaFileName);
                 newPage.position.push_back(mediaPos);
                 newPage.autoplay.push_back(autoplay);
                 newPage.tapId.push_back(tapId);
+                newPage.loopback.push_back(loopback);
                 
             }
             

@@ -32,23 +32,18 @@ void DeviceController::setup(){
     
     timer.start();
     rfids.at(0)->setup("top-left",this);
-   rfids.at(1)->setup("top-right",this);
+    rfids.at(1)->setup("top-right",this);
     rfids.at(2)->setup("middle-left",this);
     rfids.at(3)->setup("middle-right",this);
     rfids.at(4)->setup("bottom-left",this);
     rfids.at(5)->setup("bottom-right",this);
 
-      rfids.at(0)->connect(308147);
-     rfids.at(1)->connect(308137);
-        rfids.at(2)->connect(309045);
-        rfids.at(3)->connect(308150);
-        rfids.at(4)->connect(112512);
-    rfids.at(5)->connect(308152);
-
-
-
-
-
+    rfids.at(0)->connect(335342);
+    rfids.at(1)->connect(335300);
+    rfids.at(2)->connect(335334);
+    rfids.at(3)->connect(335095);
+    rfids.at(4)->connect(112512);
+    rfids.at(5)->connect(335290);
 
     lastTime = 0;
     curSensor = 0;

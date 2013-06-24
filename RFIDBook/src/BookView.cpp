@@ -84,7 +84,7 @@ void BookView::draw(int x_in, int y_in, int debugState){
 }
 
 // Add all media elements and add to page
-void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions, vector<int> autoplay, vector<string> tapId){
+void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions, vector<int> autoplay, vector<string> tapId, vector<int> loopback){
     
     
     Page * newPage = new Page();
@@ -93,7 +93,7 @@ void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions, vec
     // Add the media objects using the filename and positions from xml
     for (int i = 0; i < mediaFiles.size(); i++) {
 
-        newPage->addMedia(mediaFiles.at(i), positions.at(i), autoplay.at(i), tapId.at(i));
+        newPage->addMedia(mediaFiles.at(i), positions.at(i), autoplay.at(i), tapId.at(i), loopback.at(i));
     }
     
     mediaPages.push_back(newPage);
