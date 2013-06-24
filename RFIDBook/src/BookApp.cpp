@@ -37,7 +37,13 @@ void BookApp::setup(){
     ofSetVerticalSync(true);
     
     dui.setup(&devices, &book, &bookView, &loader);
-
+    
+    
+    // Set up touch controller
+    serialId = 276576;
+    kit.useEvents(false);
+    kit.connect(serialId);    // Serial ID of phidget connector
+    kit.print(-1);
     
     cout << "setup complete." << endl;
     
@@ -61,6 +67,13 @@ void BookApp::update(){
         
     }
     dui.update();
+    
+    kit.updateKits();
+    
+    // Test output of the touch sensor
+    if (kit.getBool(276576, 0)){
+        ofLogNotice() << "touched!";
+    }
 }
 
 //--------------------------------------------------------------

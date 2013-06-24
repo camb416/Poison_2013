@@ -58,7 +58,10 @@
 		E7E077E515D3B63C0020DFD4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */; };
 		E7E077E815D3B6510020DFD4 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E715D3B6510020DFD4 /* QTKit.framework */; };
 		E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F985F515E0DE99003869B5 /* Accelerate.framework */; };
+		F941A11F177888DF000C5161 /* ofFadeVideo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F941A11D177888DF000C5161 /* ofFadeVideo.cpp */; };
 		F97442311770BFED009D91B4 /* BookLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F974422F1770BFED009D91B4 /* BookLoader.cpp */; };
+		F9DC82491778C383000D8922 /* PhidgetConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9DC82451778C383000D8922 /* PhidgetConnector.cpp */; };
+		F9DC824A1778C383000D8922 /* PhidgetModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9DC82471778C383000D8922 /* PhidgetModel.cpp */; };
 		a0b7f6a3ec34b4f84321385da811b467 /* ofxSimpleGuiButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7eb99f95be2d12cc78d7890339c79ead /* ofxSimpleGuiButton.cpp */; };
 		c2ed558d391ba9692d3bf70567fb7804 /* ofxSimpleGuiToo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = cd6833700340995a484f6405e32bad9a /* ofxSimpleGuiToo.cpp */; };
 		cf142a7d9914b99e6e2870527205bee8 /* ofxSimpleGuiTitle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7a7cbac306f060bbc794c4f031710694 /* ofxSimpleGuiTitle.cpp */; };
@@ -175,8 +178,14 @@
 		E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		E7E077E715D3B6510020DFD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		E7F985F515E0DE99003869B5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
+		F941A11D177888DF000C5161 /* ofFadeVideo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofFadeVideo.cpp; sourceTree = "<group>"; };
+		F941A11E177888DF000C5161 /* ofFadeVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofFadeVideo.h; sourceTree = "<group>"; };
 		F974422F1770BFED009D91B4 /* BookLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookLoader.cpp; sourceTree = "<group>"; };
 		F97442301770BFED009D91B4 /* BookLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookLoader.h; sourceTree = "<group>"; };
+		F9DC82451778C383000D8922 /* PhidgetConnector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhidgetConnector.cpp; sourceTree = "<group>"; };
+		F9DC82461778C383000D8922 /* PhidgetConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhidgetConnector.h; sourceTree = "<group>"; };
+		F9DC82471778C383000D8922 /* PhidgetModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhidgetModel.cpp; sourceTree = "<group>"; };
+		F9DC82481778C383000D8922 /* PhidgetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhidgetModel.h; sourceTree = "<group>"; };
 		a5c54a5752a9362986db5b350961b7de /* ofxSimpleGuiControl.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSimpleGuiControl.cpp; path = ../../../addons/ofxSimpleGuiToo/src/ofxSimpleGuiControl.cpp; sourceTree = SOURCE_ROOT; };
 		af2311980a9c84efaff7c63b196663fe /* ofxSimpleGuiColorPicker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSimpleGuiColorPicker.h; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiColorPicker.h; sourceTree = SOURCE_ROOT; };
 		b21e7e5f548eea92f368040bb1aa2f69 /* tinyxml.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tinyxml.h; path = ../../../addons/ofxXmlSettings/libs/tinyxml.h; sourceTree = SOURCE_ROOT; };
@@ -294,6 +303,10 @@
 				32323D04176A31FD0093710C /* DeviceController.h */,
 				32323D14176A31FD0093710C /* RFIDDevice.cpp */,
 				32323D15176A31FD0093710C /* RFIDDevice.h */,
+				F9DC82451778C383000D8922 /* PhidgetConnector.cpp */,
+				F9DC82461778C383000D8922 /* PhidgetConnector.h */,
+				F9DC82471778C383000D8922 /* PhidgetModel.cpp */,
+				F9DC82481778C383000D8922 /* PhidgetModel.h */,
 			);
 			name = "Hardware Interface";
 			sourceTree = "<group>";
@@ -307,6 +320,8 @@
 				32323D0B176A31FD0093710C /* Media.h */,
 				32323D0C176A31FD0093710C /* ofFadeImage.cpp */,
 				32323D0D176A31FD0093710C /* ofFadeImage.h */,
+				F941A11D177888DF000C5161 /* ofFadeVideo.cpp */,
+				F941A11E177888DF000C5161 /* ofFadeVideo.h */,
 				32323D05176A31FD0093710C /* LanguageController.cpp */,
 				32323D06176A31FD0093710C /* LanguageController.h */,
 				32323D07176A31FD0093710C /* LanguageModel.cpp */,
@@ -625,6 +640,9 @@
 				32323D2F176B6B440093710C /* ImageDraggerUI.cpp in Sources */,
 				3251B2C0176BB0B6006B9BF6 /* DebugUI.cpp in Sources */,
 				F97442311770BFED009D91B4 /* BookLoader.cpp in Sources */,
+				F941A11F177888DF000C5161 /* ofFadeVideo.cpp in Sources */,
+				F9DC82491778C383000D8922 /* PhidgetConnector.cpp in Sources */,
+				F9DC824A1778C383000D8922 /* PhidgetModel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
