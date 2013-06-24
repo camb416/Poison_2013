@@ -195,6 +195,10 @@ ofxXmlSettings Page::getXML(){
         xml.setAttribute("Media", "x", (int)pt.x,i);
         xml.setAttribute("Media", "y", (int)pt.y,i);
         xml.setAttribute("Media", "src", media.at(i)->getFileName(),i);
+        xml.setAttribute("Media", "autoplay", (int)media.at(i)->autoplay, i);
+        xml.setAttribute("Media", "tapId", (string)media.at(i)->tapId, i);
+        xml.setAttribute("Media", "loopback", (int)media.at(i)->loopback, i);
+
         
         
     }
