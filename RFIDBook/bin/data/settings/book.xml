@@ -6,7 +6,7 @@
 <Page>
     
     <Media x="970" y="590" src="assets/en/1.png"></Media>
-    <Media x="939" y="560" src="assets/en/plant_alpha_v01.mov"></Media>
+    <Media x="939" y="560" loopback="129" src="assets/en/plant_alpha_v01.mov"></Media>
 </Page>
 <Page>
     

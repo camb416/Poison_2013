@@ -43,7 +43,7 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, BookVie
     aValue = 0.5f;
     bar.setup("Page Confidence", &aValue, 600, 16);
     bar.setPosition(ofPoint(16,749));
-
+    
     
     gui.hide();
     gui.addTitle("Magic Book");
@@ -52,25 +52,25 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, BookVie
     gui.addButton("load XML", loadXMLbtn);
     gui.addButton("save XML", saveXMLbtn);
     gui.addToggle("full screen", bFullScreencheckbox);
-
+    
 }
 void DebugUI::update(){
     bar.update();
     
     tfield.update("Magic Book \n" + book->getReport() + "\n" + book->whatSituation());
-
+    
     if(ofGetMousePressed()){
         pos_ui.update();
         aValue = ofRandom(1.0f);
     }
     
     if(bDragUIcheckbox!=bDragUIcheckbox_prev){
-    
-    if(bDragUIcheckbox){
-        bookView->showDragUI();
-    } else {
-        bookView->hideDragUI();
-    }
+        
+        if(bDragUIcheckbox){
+            bookView->showDragUI();
+        } else {
+            bookView->hideDragUI();
+        }
         bDragUIcheckbox_prev = bDragUIcheckbox;
     }
     
@@ -89,7 +89,7 @@ void DebugUI::update(){
     } else{
         bFullScreencheckbox = false;
     }
-
+    
     // Load in default XML file
     if(defaultXMLbtn){
         
@@ -98,7 +98,7 @@ void DebugUI::update(){
         vector<XmlPage> pages = loader->load("settings/book.default");
         
         for (int i = 0; i < pages.size(); i++) {
-            bookView->addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId);
+            bookView->addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId, pages.at(i).loopback);
         }
         
     }
@@ -115,7 +115,7 @@ void DebugUI::update(){
         vector<XmlPage> pages = loader->load("settings/book.xml");
         
         for (int i = 0; i < pages.size(); i++) {
-            bookView->addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId);
+            bookView->addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId, pages.at(i).loopback);
         }
     }
 }
@@ -134,7 +134,7 @@ void DebugUI::draw(){
         tfield.draw();
         bar.draw();
         if(ofGetMousePressed()) pos_ui.draw();
-    
+        
         gui.draw();
     }
 }

@@ -20,6 +20,7 @@ struct XmlPage {
     vector<ofVec2f> position;
     vector<int> autoplay;
     vector<string> tapId;
+    vector<int> loopback;
     
 };
 
