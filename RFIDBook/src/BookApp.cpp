@@ -42,7 +42,7 @@ void BookApp::setup(){
     // Set up touch controller
     serialId = 276576;
     kit.useEvents(false);
-    kit.connect(serialId);    // Serial ID of phidget connector
+    //kit.connect(serialId);    // Serial ID of phidget connector
     kit.print(-1);
     
     cout << "setup complete." << endl;

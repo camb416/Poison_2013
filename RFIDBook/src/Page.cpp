@@ -164,9 +164,9 @@ void Page::fade(int dir){
             media.at(i)->vid.fadeIn(fadeVal);
             
             // If autoplay is on for the video, start playing
-//            if (media.at(i)->autoplay == 1){
+            if (media.at(i)->autoplay == 1){
                 media.at(i)->playVid();
-//            }
+            }
         }
     }
     else {
@@ -195,7 +195,7 @@ ofxXmlSettings Page::getXML(){
         xml.setAttribute("Media", "x", (int)pt.x,i);
         xml.setAttribute("Media", "y", (int)pt.y,i);
         xml.setAttribute("Media", "src", media.at(i)->getFileName(),i);
-        xml.setAttribute("Media", "autoplay", (int)media.at(i)->autoplay, i);
+        xml.setAttribute("Media", "auto", (int)media.at(i)->autoplay, i);
         xml.setAttribute("Media", "tapId", (string)media.at(i)->tapId, i);
         xml.setAttribute("Media", "loopback", (int)media.at(i)->loopback, i);
 

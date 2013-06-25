@@ -39,9 +39,9 @@ vector<XmlPage> BookLoader::load(string fileName){
                 
                 string mediaFileName;
                 ofVec2f mediaPos;
-                int autoplay;
+                int autoplay = 0;
                 string tapId;
-                int loopback;
+                int loopback = 0;
                 
                     
                 mediaFileName = lang.resolvePath(bookElements.getAttribute("Media", "src", "", i));
@@ -52,7 +52,7 @@ vector<XmlPage> BookLoader::load(string fileName){
 
                 if (bookElements.attributeExists("Media", "auto", i)) {
                     // set autoplay to true
-                    int autoplay = ofToInt(bookElements.getAttribute("Media", "auto", "0", i));
+                    autoplay = ofToInt(bookElements.getAttribute("Media", "auto", "0", i));
                 }
                 
                 
