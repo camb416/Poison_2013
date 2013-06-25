@@ -47,12 +47,17 @@ void DeviceController::setup(){
 
     lastTime = 0;
     curSensor = 0;
+    
+    // Set up touch controller
+    serialId = 276576;
+    kit.useEvents(false);
+    kit.connect(276576);    // Serial ID of phidget connector
+    kit.print(-1);
 }
 void DeviceController::doSomething(){
     // deprecated
     cout << "do something here when you get a tag." << endl;
 }
-
 
 
 void DeviceController::update(){
@@ -74,6 +79,8 @@ void DeviceController::update(){
         rfids.at(i)->confidence = MAX(0.0f,MIN(rfids.at(i)->confidence,1.0f));
         // cout << rfids.at(i).title << ": " << rfids.at(i).isAttached() << ", " << rfids.at(i).hasTag() << endl;
     }
+    
+    kit.updateKits();
 }
 
 int DeviceController::getSensorId(string idLookup){

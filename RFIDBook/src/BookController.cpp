@@ -39,6 +39,10 @@ void BookController::update(){
     
     currentSitation = whatSituation();
     
+    string currentTap;
+    
+    currentTap = whatTouch();
+    
     if(currentSitation.length() == 1){
         // page is landed
         
@@ -127,7 +131,23 @@ string BookController::getReport(){
     return report_str;
 }
 
-void BookController::forcedPage(char _keypress){     //represent RFID actions with keypress  
+string BookController::whatTouch(){
+    string returnval_str = "";
+    
+        if (forcedPageActive != true){
+            if (deviceController->kit.getBool(276576, 0)){
+                ofLogNotice() << "touched 0!";
+                returnval_str = "A";
+            }
+            if (deviceController->kit.getBool(276576, 1)){
+                ofLogNotice() << "touched 1!";
+                returnval_str = "B";
+            }
+        }
+    return returnval_str;
+}
+
+void BookController::forcedPage(char _keypress){     //represent RFID actions with keypress
   
     switch(_keypress){
         case 'a':

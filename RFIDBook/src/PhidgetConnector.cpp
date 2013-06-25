@@ -158,7 +158,7 @@ void PhidgetConnector::connect(int serial_in, int _timeOut){
     int result;
     const char *err;
     
-    int timeOut = 30000;
+    int timeOut = 3000;
     if(_timeOut>0) timeOut = _timeOut * 1000;
     if((result = CPhidget_waitForAttachment((CPhidgetHandle)*thisIFKIT, timeOut))){
         CPhidget_getErrorDescription(result, &err);

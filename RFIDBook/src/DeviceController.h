@@ -15,6 +15,7 @@
 #include "Reporter.h"
 #include <time.h>  
 #include "MSATimer.h"
+#include "PhidgetConnector.h"
 
 class DeviceController : public ofThread{
 public:
@@ -23,8 +24,11 @@ public:
     void report();
     int curSensor;
 
-    
-    // all the sensors
+    // Interface Kit
+    PhidgetConnector kit;
+    int serialId;
+
+    // RFID Sesnsors
     vector<RFIDDevice*> rfids;
     // pointers to the lefts and the rights;
     vector<RFIDDevice*> leftSensors;

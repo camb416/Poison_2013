@@ -24,6 +24,8 @@ public:
     bool isPageLanded();
     string getReport();
     string whatSituation();
+    
+    string whatTouch();
     void forcedPage(char _keyStatus);
     void mousePressed();
     void mouseReleased();
