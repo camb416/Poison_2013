@@ -95,7 +95,7 @@ void Page::draw(float originX, float originY, float scale){
     
 }
 
-void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId){
+void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback){
     
     Media * newMedia = new Media();
     
@@ -111,7 +111,7 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
         // Run the setup for a media element that is a video and an image
         string imageFile = fileName;
         imageFile.replace(fileName.length() -3, 3, "png");
-        newMedia->setup(imageFile, fileName, position.x, position.y, autoplay, tapId);
+        newMedia->setup(imageFile, fileName, position.x, position.y, autoplay, tapId, loopback);
         
     }
     else {
@@ -139,7 +139,7 @@ void Page::receiveInput(char input ){
     
     // If the input character is found, send the touch event to the corresponding media object
     if (position != -1){
-        media.at(position)->playPause();
+//        media.at(position)->playPause();
     }
     else {
         std::cout << "no media element found for character " << input;
@@ -164,9 +164,9 @@ void Page::fade(int dir){
             media.at(i)->vid.fadeIn(fadeVal);
             
             // If autoplay is on for the video, start playing
-            if (media.at(i)->autoplay == 1){
-                media.at(i)->playPause();
-            }
+//            if (media.at(i)->autoplay == 1){
+                media.at(i)->playVid();
+//            }
         }
     }
     else {
@@ -180,7 +180,7 @@ void Page::fade(int dir){
             media.at(i)->vid.fadeOut(fadeVal);
             
             // stop all video
-            media.at(i)->playPause();
+            media.at(i)->pauseVid();
         }
     }
     
@@ -195,6 +195,10 @@ ofxXmlSettings Page::getXML(){
         xml.setAttribute("Media", "x", (int)pt.x,i);
         xml.setAttribute("Media", "y", (int)pt.y,i);
         xml.setAttribute("Media", "src", media.at(i)->getFileName(),i);
+        xml.setAttribute("Media", "autoplay", (int)media.at(i)->autoplay, i);
+        xml.setAttribute("Media", "tapId", (string)media.at(i)->tapId, i);
+        xml.setAttribute("Media", "loopback", (int)media.at(i)->loopback, i);
+
         
         
     }

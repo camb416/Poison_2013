@@ -27,18 +27,20 @@ void Media::setup(string mediaFile, float _x, float _y){
 }
 
 // Image and video
-void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _autoplay, string _tapId){
+void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback){
     
     
-    imgFileName = _imgFile;
+    vidFileName = _vidFile;
     setPosition(_x, _y);
     img.setup(_imgFile);
+    
     
     autoplay = _autoplay;
     string tapId;
     hasVid = true;
     vidState = 0;
     vid.setup(_vidFile);
+    loopback = _loopback;
     
 }
 
@@ -53,29 +55,39 @@ ofPoint Media::getPosition(){
 }
 
 string Media::getFileName(){
-    return imgFileName;
+    if (hasVid == true){
+        return vidFileName;
+    } else {
+        return imgFileName;
+    }
 }
 
 
-void Media::playPause(){
-    
-    //TODO check mediaState
+void Media::playVid(){
 
-        
+    
     if (hasVid) {
-        if (vidState == 0) {
+        if (vid.isPlaying() == false) {
             vidState = 1;
             vid.setFrame(0);
-            vid.setPosition(0);
             vid.play();
-        } else {
-            vidState = 0;
-            vid.stop();
-            vid.setFrame(0);
-            vid.setPosition(0);
+            if (loopback >= 0){
+                vid.setLoopState(OF_LOOP_PALINDROME);
+            }
         }
     }
+}
+
+void Media::pauseVid(){
     
+    if (hasVid) {
+        if (vid.isPlaying() == true){
+            vid.stop();
+            loopCount = 0;
+        }
+
+    }
+
 }
 
 void Media::update(){
@@ -85,8 +97,29 @@ void Media::update(){
     img.update();
     
     if (hasVid) {
+        if (loopback >=0){
+            int currentFrame = vid.getCurrentFrame();
+            
+            if (loopCount == 0){
+                if (currentFrame == (loopback + 1)){
+                    loopCount++;
+                }
+            }
+            
+            if (currentFrame <= loopback && loopCount >= 1){
+                float currentSpeed = vid.getSpeed();
+                if (currentSpeed == 1){
+                    vid.setSpeed(-1);
+                }
+                else {
+                    vid.setSpeed(1);
+                }
+            }
+        }
         vid.update();
+
     }
+    
 
 }
 

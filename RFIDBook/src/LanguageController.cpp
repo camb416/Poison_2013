@@ -72,7 +72,7 @@ string LanguageController::resolvePath(string _filepath){
         prefix = _filepath.substr(0,slashIndex+1);
         filePath = _filepath.substr(slashIndex+1);
         
-        langSpec_str = prefix + model.getCurrentLanguageId() + "/" + filePath;
+        langSpec_str = prefix + model.getCurrentLanguageId() + filePath;
         common_str = prefix + "common/" + filePath;
         
     }

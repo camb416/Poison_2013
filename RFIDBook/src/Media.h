@@ -21,13 +21,15 @@ public:
     ~Media();
     
     void setup(string mediaFile, float _x, float _y);
-    void setup(string _imgFile, string vidFile, float _x, float _y, int _autoplay, string _tapId);
+    void setup(string _imgFile, string vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback);
     void update();
     void draw(float scale=1.0f);
     void setPosition(float _x, float _y);
     ofPoint getPosition();
     string getFileName();
-    void playPause();
+    
+    void playVid();
+    void pauseVid();
     
     void moveTo(int _x, int _y);
     
@@ -59,6 +61,7 @@ private:
     bool isDraggable;
     bool isDragging;
     string imgFileName;
+    string vidFileName;
     
     
 };
