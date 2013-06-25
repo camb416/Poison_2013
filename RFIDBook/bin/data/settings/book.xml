@@ -1,20 +1,20 @@
 <Page>
     
-    <Media x="1012" y="581" src="assets/en/0.png"></Media>
-    <Media x="1369" y="517" src="assets/en/cerberus-open.png"></Media>
+    <Media x="1012" y="581" src="assets/en/0.png" auto="-1" tapId="" loopback="-1"></Media>
+    <Media x="1369" y="517" src="assets/en/cerberus-open.png" auto="-1" tapId="" loopback="-1"></Media>
 </Page>
 <Page>
     
-    <Media x="970" y="590" src="assets/en/1.png"></Media>
-    <Media x="939" y="560" loopback="129" src="assets/en/plant_alpha_v01.mov"></Media>
+    <Media x="970" y="590" src="assets/en/1.png" auto="-1" tapId="" loopback="-1"></Media>
+    <Media x="939" y="560" src="assets/en/plant_alpha_v01.mov" auto="1" tapId="" loopback="129"></Media>
 </Page>
 <Page>
     
-    <Media x="919" y="579" src="assets/en/2.png"></Media>
-    <Media x="496" y="223" src="assets/en/main.png"></Media>
+    <Media x="919" y="579" src="assets/en/2.png" auto="-1" tapId="" loopback="-1"></Media>
+    <Media x="496" y="223" src="assets/en/main.png" auto="-1" tapId="" loopback="-1"></Media>
 </Page>
 <Page>
     
-    <Media x="910" y="584" src="assets/en/3.png"></Media>
-    <Media x="626" y="266" src="assets/en/map-open.png"></Media>
+    <Media x="910" y="584" src="assets/en/3.png" auto="-1" tapId="" loopback="-1"></Media>
+    <Media x="626" y="266" src="assets/en/map-open.png" auto="-1" tapId="" loopback="-1"></Media>
 </Page>
