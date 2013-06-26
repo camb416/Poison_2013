@@ -42,6 +42,10 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
     vid.setup(_vidFile);
     loopback = _loopback;
     
+    if (loopback >= 0){
+        vid.setLoopState(OF_LOOP_PALINDROME);
+    }
+    
 }
 
 void Media::setPosition(float _x, float _y){
@@ -71,9 +75,6 @@ void Media::playVid(){
             vidState = 1;
             vid.setFrame(0);
             vid.play();
-            if (loopback >= 0){
-                vid.setLoopState(OF_LOOP_PALINDROME);
-            }
         }
     }
 }
@@ -97,25 +98,15 @@ void Media::update(){
     img.update();
     
     if (hasVid) {
-        if (loopback >=0){
+      
             int currentFrame = vid.getCurrentFrame();
-            
-            if (loopCount == 0){
-                if (currentFrame == (loopback + 1)){
-                    loopCount++;
-                }
+            int lastFrame = vid.getTotalNumFrames();
+        
+            if (currentFrame == lastFrame){
+                vid.setFrame(loopback);
+                ofLogNotice() << "current frame: " << currentFrame;
             }
-            
-            if (currentFrame <= loopback && loopCount >= 1){
-                float currentSpeed = vid.getSpeed();
-                if (currentSpeed == 1){
-                    vid.setSpeed(-1);
-                }
-                else {
-                    vid.setSpeed(1);
-                }
-            }
-        }
+        
         vid.update();
 
     }
