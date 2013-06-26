@@ -6,7 +6,7 @@
 <Page>
     
     <Media x="970" y="590" src="assets/en/1.png" auto="-1" tapId="" loopback="-1"></Media>
-    <Media x="939" y="560" src="assets/en/plant_alpha_v01.mov" auto="1" tapId="" loopback="129"></Media>
+    <Media x="939" y="560" src="assets/en/plant_alpha_v02.mov" auto="1" tapId="" loopback="189"></Media>
 </Page>
 <Page>
     
@@ -15,6 +15,7 @@
 </Page>
 <Page>
     
-    <Media x="910" y="584" src="assets/en/3.png" auto="-1" tapId="" loopback="-1"></Media>
-    <Media x="626" y="266" src="assets/en/map-open.png" auto="-1" tapId="" loopback="-1"></Media>
+    <Media x="1220" y="536" src="assets/en/3.png" auto="-1" tapId="" loopback="-1"></Media>
+    <Media x="930" y="266" src="assets/en/map-open.png" auto="-1" tapId="" loopback="-1"></Media>
+    <Media x="615" y="495" src="assets/en/plant_alpha_v02.mov" auto="1" tapId="" loopback="189"></Media>
 </Page>
