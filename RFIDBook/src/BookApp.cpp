@@ -151,7 +151,7 @@ void BookApp::keyPressed(int key){
             case 'h':
             case 'H':
             
-            
+            sendInput('H');
             break;
 
             
@@ -179,6 +179,11 @@ void BookApp::updateDebug(){
         ofBackground(192);
     //    ofSetFullscreen(false);
     }
+}
+
+void BookApp::sendInput(char input){
+    book.receiveInput(input);
+    ofLogNotice() << "received touch input";
 }
 
 

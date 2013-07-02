@@ -19,8 +19,6 @@ void Page::setup(){
     
     validInputs.push_back('H');
     validInputs.push_back('J');
-    validInputs.push_back('K');
-    validInputs.push_back('L');
     
 }
 
@@ -125,25 +123,47 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
     
 }
 
-void Page::receiveInput(char input ){
+void Page::receiveInput(char input, int pageNum){
 
     int position = -1;
     
     // Look for character in valid inputs vector
     for (int i = 0; i < validInputs.size(); i++) {
 
+        // Hide and elements according to which page we're on and which sensor was touched.
         if (validInputs.at(i) == input){
-            position = i;
+            
+            // TODO HARDCODE EACH MEDIA ELEMENT THAT NEEDS TO FADE OUT OR PLAY ON TOUCH
+            if (pageNum == 0){
+                media.at(5)->img.fadeOut();
+                media.at(5)->vid.fadeOut();
+                
+                media.at(6)->img.fadeOut();
+                media.at(6)->vid.fadeOut();
+                
+                media.at(7)->img.fadeOut();
+                media.at(7)->vid.fadeOut();
+                
+                // TODO play animation video
+            }
+            else if (pageNum == 1){
+                media.at(1)->img.fadeOut();
+                media.at(1)->vid.fadeOut();
+            }
+            else if (pageNum == 2){
+                media.at(1)->img.fadeOut();
+                media.at(1)->vid.fadeOut();
+            }
+            else if (pageNum == 3){
+                media.at(1)->img.fadeOut();
+                media.at(1)->vid.fadeOut();
+            }
+            
         }
     }
     
-    // If the input character is found, send the touch event to the corresponding media object
-    if (position != -1){
-//        media.at(position)->playPause();
-    }
-    else {
-        std::cout << "no media element found for character " << input;
-    }
+    
+    
 
 }
 

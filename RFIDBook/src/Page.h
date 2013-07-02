@@ -29,7 +29,7 @@ public:
     
     void setDrag(bool _doDrag);
     
-    void receiveInput(char input);
+    void receiveInput(char input, int pageNum);
     
     void fade(int dir);
     

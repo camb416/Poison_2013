@@ -27,6 +27,7 @@ public:
     void forcedPage(char _keyStatus);
     void mousePressed();
     void mouseReleased();
+    void receiveInput(char touchId);
     
     bool toggleFullScreen;
     

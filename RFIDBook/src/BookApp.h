@@ -33,6 +33,8 @@ class BookApp : public ofBaseApp{
     
         void toggleDebug();
         void updateDebug();
+    
+        void sendInput(char input);
 
         LanguageController lang;
     

@@ -117,6 +117,27 @@ string BookController::whatSituation(){
     return returnval_str;
 }
 
+// Get touch
+void BookController::receiveInput(char touchId){
+    
+    string currentSitation;
+    
+    currentSitation = whatSituation();
+    
+    if(currentSitation.length() == 1){
+        // page is landed
+        
+        // take A-D and make 0-3
+        char curSit_char = currentSitation[0];
+        int whichPageNum = (int)curSit_char - 65;
+        
+        bookView->mediaPages.at(whichPageNum)->receiveInput(touchId, whichPageNum);
+        ofLogNotice() << "touchId: " << touchId << " page number: " << whichPageNum;
+    }
+    
+    
+}
+
 string BookController::getReport(){
     string report_str;
     if(isPageLanded()){

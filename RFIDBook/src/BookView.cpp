@@ -11,7 +11,7 @@ BookView::BookView(){
     currentPage = -1;
     bShowDragUI = false;
     isSetup = false;
-    cout << "OKAY, THE BOOKVIEW EXISTS... HERE THE CONSTRUCTOR TO PROVE IT" << endl;
+    cout << "OKAY, THE BOOKVIEW EXISTS... HERE'S THE CONSTRUCTOR TO PROVE IT" << endl;
 }
 BookView::~BookView(){
     

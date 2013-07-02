@@ -33,13 +33,11 @@ public:
     
     void showDragUI();
     void hideDragUI();
-
+    
+    vector<Page*> mediaPages;
     
 private:
-    //vector<ofFadeImage*> pages;
     
-    // TODO - Change mediaPages to pages
-    vector<Page*> mediaPages;
     ofImage backplate;
     int currentPage;
     
