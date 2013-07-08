@@ -151,10 +151,15 @@ void BookApp::keyPressed(int key){
             case 'h':
             case 'H':
             
-            sendInput('H');
+            book.forcedPage('H');
             break;
 
+            case 'j':
+            case 'J':
             
+            book.forcedPage('J');
+            break;
+
             case '`':
             case '~':
             dui.toggle();
@@ -181,10 +186,10 @@ void BookApp::updateDebug(){
     }
 }
 
-void BookApp::sendInput(char input){
-    book.receiveInput(input);
-    ofLogNotice() << "received touch input";
-}
+//void BookApp::sendInput(char touchId){
+//    book.receiveInput(touchId);
+//    ofLogNotice() << "received touch input";
+//}
 
 
 //--------------------------------------------------------------

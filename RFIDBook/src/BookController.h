@@ -24,10 +24,11 @@ public:
     bool isPageLanded();
     string getReport();
     string whatSituation();
+    char touchSituation();
     void forcedPage(char _keyStatus);
     void mousePressed();
     void mouseReleased();
-    void receiveInput(char touchId);
+    void receiveInput();
     
     bool toggleFullScreen;
     
@@ -37,6 +38,7 @@ private:
     bool isSetup;
     bool forcedPageActive;
     string forcedState;
+    char forcedTouchState;
     
 };
 

@@ -109,30 +109,44 @@ string BookController::whatSituation(){
         } else {
             returnval_str = "AD";
         }
-    }
-    else {
+    } else {
         returnval_str = forcedState;
     }
     
     return returnval_str;
 }
 
+char BookController::touchSituation(){
+    char returnval_char = ' ';
+    
+    if (forcedPageActive != true){
+        // code for checking phidgets
+    } else {
+        returnval_char = forcedTouchState;
+    }
+    
+    return returnval_char;
+    
+}
+
 // Get touch
-void BookController::receiveInput(char touchId){
+void BookController::receiveInput(){
     
     string currentSitation;
+    char currentTouch;
     
     currentSitation = whatSituation();
+    currentTouch = touchSituation();
     
     if(currentSitation.length() == 1){
         // page is landed
-        
+
         // take A-D and make 0-3
         char curSit_char = currentSitation[0];
         int whichPageNum = (int)curSit_char - 65;
         
-        bookView->mediaPages.at(whichPageNum)->receiveInput(touchId, whichPageNum);
-        ofLogNotice() << "touchId: " << touchId << " page number: " << whichPageNum;
+        bookView->mediaPages.at(whichPageNum)->receiveInput(currentTouch, whichPageNum);
+        ofLogNotice() << "touchId: " << currentTouch << " page number: " << whichPageNum;
     }
     
     
@@ -186,12 +200,30 @@ void BookController::forcedPage(char _keypress){     //represent RFID actions wi
         
         toggleFullScreen = !toggleFullScreen;
         break;
+            
+        // Fake touch input
+        case 'h':
+        case 'H':
+
+        forcedTouchState = 'H';
+        receiveInput();
+        break;
+            
+        case 'j':
+        case 'J':
+            
+        forcedTouchState = 'J';
+        receiveInput();
+        break;
+
         
         case 'x':
         case 'X':
         forcedState = "AB";
         forcedPageActive = !forcedPageActive;
         break;
+            
+        
             
     }
 }

@@ -34,7 +34,7 @@ class BookApp : public ofBaseApp{
         void toggleDebug();
         void updateDebug();
     
-        void sendInput(char input);
+        void sendInput(char touchId);
 
         LanguageController lang;
     
@@ -52,8 +52,8 @@ class BookApp : public ofBaseApp{
     
         BookLoader loader;
     
-    PhidgetConnector kit;
-    int serialId;
+        PhidgetConnector kit;
+        int serialId;
 
 		
 };

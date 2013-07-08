@@ -19,6 +19,8 @@
     <Media x="1209" y="249" src="assets/en/howitworks.png" auto="-1" tapId="" loopback="-1"></Media>
     <Media x="415" y="932" src="assets/en/map-open.png" auto="-1" tapId="" loopback="-1"></Media>
     <Media x="428" y="540" src="assets/en/parts.png" auto="-1" tapId="" loopback="-1"></Media>
+    <Media x="428" y="540" src="assets/en/wolf.mov" auto="1" tapId="" loopback="-1"></Media>
+    
 </Page>
 <Page>
     

@@ -123,7 +123,7 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
     
 }
 
-void Page::receiveInput(char input, int pageNum){
+void Page::receiveInput(char touchId, int pageNum){
 
     int position = -1;
     
@@ -131,32 +131,50 @@ void Page::receiveInput(char input, int pageNum){
     for (int i = 0; i < validInputs.size(); i++) {
 
         // Hide and elements according to which page we're on and which sensor was touched.
-        if (validInputs.at(i) == input){
+        if (validInputs.at(i) == touchId){
             
             // TODO HARDCODE EACH MEDIA ELEMENT THAT NEEDS TO FADE OUT OR PLAY ON TOUCH
+            
             if (pageNum == 0){
-                media.at(5)->img.fadeOut();
-                media.at(5)->vid.fadeOut();
+                if (touchId == 'H'){
+                    media.at(5)->img.fadeOut();
+                    media.at(5)->vid.fadeOut();
+                    
+                    media.at(6)->img.fadeOut();
+                    media.at(6)->vid.fadeOut();
+                    
+                    media.at(7)->img.fadeOut();
+                    media.at(7)->vid.fadeOut();
+                        
+                } else if (touchId == 'J') {
+                    //media action
+                }
                 
-                media.at(6)->img.fadeOut();
-                media.at(6)->vid.fadeOut();
-                
-                media.at(7)->img.fadeOut();
-                media.at(7)->vid.fadeOut();
-                
-                // TODO play animation video
+                // TODO play animation video, & reset state
             }
             else if (pageNum == 1){
-                media.at(1)->img.fadeOut();
-                media.at(1)->vid.fadeOut();
+                if (touchId == 'H'){
+                    media.at(1)->img.fadeOut();
+                    media.at(1)->vid.fadeOut();
+                } else if (touchId == 'J') {
+                    //media action
+                }
             }
             else if (pageNum == 2){
+                if (touchId == 'H'){
                 media.at(1)->img.fadeOut();
                 media.at(1)->vid.fadeOut();
+                } else if (touchId == 'J'){
+                    //media ation
+                }
             }
             else if (pageNum == 3){
+                if (touchId == 'H'){
                 media.at(1)->img.fadeOut();
                 media.at(1)->vid.fadeOut();
+                } else if (touchId == 'J'){
+                    //media ation
+                }
             }
             
         }
