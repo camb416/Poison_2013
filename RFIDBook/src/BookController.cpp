@@ -11,7 +11,7 @@
 
 BookController::BookController(){
     isSetup = false;
-    forcedPageActive = true;
+    forcedInputActive = true;
     forcedState = "A";
     toggleFullScreen = false;
 }
@@ -36,12 +36,13 @@ void BookController::update(){
     // do something to update here
     
     string currentSitation;
+    char currentTouch;
     
     currentSitation = whatSituation();
+    currentTouch = touchSituation();
     
     string currentTap;
     
-    currentTap = whatTouch();
     
     if(currentSitation.length() == 1){
         // page is landed
@@ -49,6 +50,11 @@ void BookController::update(){
         // take A-D and make 0-3
         char curSit_char = currentSitation[0];
         int whichPageNum = (int)curSit_char - 65;
+        
+        if (currentTouch == 'H' || currentTouch == 'J'){
+            bookView->mediaPages.at(whichPageNum)->receiveInput(currentTouch, whichPageNum);
+            ofLogNotice() << "touchId: " << currentTouch << " page number: " << whichPageNum;
+        }
         
         // send the view activation.
         bookView->activate(whichPageNum);
@@ -79,7 +85,7 @@ bool BookController::isPageLanded(){
 string BookController::whatSituation(){
     string returnval_str = "";
 
-    if (forcedPageActive != true){
+    if (forcedInputActive != true){
         
         if(deviceController->getSensor("top-right")->hasTag()){
             // if page one is there, then it's definitely on a page...
@@ -123,37 +129,21 @@ string BookController::whatSituation(){
 char BookController::touchSituation(){
     char returnval_char = ' ';
     
-    if (forcedPageActive != true){
-        // code for checking phidgets
+    // TODO move touch status requests to devicecontroller to avoid requireing entry of board serial here
+    
+    if (forcedInputActive != true){
+        if (deviceController->kit.getBool(276576, 0) == true){
+            returnval_char = 'H';
+            ofLogNotice() << "left";
+        } else if (deviceController->kit.getBool(276576, 1) == true){
+            returnval_char = 'J';
+             ofLogNotice() << "right";
+        }
     } else {
         returnval_char = forcedTouchState;
     }
     
     return returnval_char;
-    
-}
-
-// Get touch
-void BookController::receiveInput(){
-    
-    string currentSitation;
-    char currentTouch;
-    
-    currentSitation = whatSituation();
-    currentTouch = touchSituation();
-    
-    if(currentSitation.length() == 1){
-        // page is landed
-
-        // take A-D and make 0-3
-        char curSit_char = currentSitation[0];
-        int whichPageNum = (int)curSit_char - 65;
-        
-        bookView->mediaPages.at(whichPageNum)->receiveInput(currentTouch, whichPageNum);
-        ofLogNotice() << "touchId: " << currentTouch << " page number: " << whichPageNum;
-    }
-    
-    
 }
 
 string BookController::getReport(){
@@ -166,23 +156,7 @@ string BookController::getReport(){
     return report_str;
 }
 
-string BookController::whatTouch(){
-    string returnval_str = "";
-    
-        if (forcedPageActive != true){
-            if (deviceController->kit.getBool(276576, 0)){
-                ofLogNotice() << "touched 0!";
-                returnval_str = "A";
-            }
-            if (deviceController->kit.getBool(276576, 1)){
-                ofLogNotice() << "touched 1!";
-                returnval_str = "B";
-            }
-        }
-    return returnval_str;
-}
-
-void BookController::forcedPage(char _keypress){     //represent RFID actions with keypress
+void BookController::forcedInput(char _keypress){     //represent RFID actions with keypress
   
     switch(_keypress){
         case 'a':
@@ -226,21 +200,19 @@ void BookController::forcedPage(char _keypress){     //represent RFID actions wi
         case 'H':
 
         forcedTouchState = 'H';
-        receiveInput();
         break;
             
         case 'j':
         case 'J':
             
         forcedTouchState = 'J';
-        receiveInput();
         break;
 
         
         case 'x':
         case 'X':
         forcedState = "AB";
-        forcedPageActive = !forcedPageActive;
+        forcedInputActive = !forcedInputActive;
         break;
             
         

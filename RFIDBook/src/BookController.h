@@ -25,10 +25,9 @@ public:
     string getReport();
     string whatSituation();
     char touchSituation();
-    void forcedPage(char _keyStatus);
+    void forcedInput(char _keyStatus);
     void mousePressed();
     void mouseReleased();
-    void receiveInput();
     
     bool toggleFullScreen;
     
@@ -36,7 +35,7 @@ private:
     DeviceController * deviceController;
     BookView * bookView;
     bool isSetup;
-    bool forcedPageActive;
+    bool forcedInputActive;
     string forcedState;
     char forcedTouchState;
     

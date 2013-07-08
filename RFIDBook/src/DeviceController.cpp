@@ -49,9 +49,8 @@ void DeviceController::setup(){
     curSensor = 0;
     
     // Set up touch controller
-    serialId = 276576;
     kit.useEvents(false);
-    kit.connect(276576);    // Serial ID of phidget connector
+    kit.connect(serialId);    // Serial ID of phidget connector
     kit.print(-1);
 }
 void DeviceController::doSomething(){
@@ -210,4 +209,26 @@ void DeviceController::report(){
 */
     
     unlock();
+}
+
+bool DeviceController::hasTouch(int sensorID){
+    bool touchState = false;
+    
+    touchState = kit.getBool(serialId, sensorID);
+    
+    return touchState;
+}
+
+int DeviceController::touchSensor(string sensor){
+    int sensorID;
+    
+    if (sensor == "left"){
+        sensorID = 0;
+    } else if (sensor == "right"){
+        sensorID = 1;
+    } else{
+        ofLogWarning() << "invalid touch sensor request: " << sensor;
+    }
+
+    return sensorID;
 }

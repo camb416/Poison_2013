@@ -26,7 +26,9 @@ public:
 
     // Interface Kit
     PhidgetConnector kit;
-    int serialId;
+    int serialId = 276576;
+    int touchSensor(string sensor);
+    bool hasTouch(int sensorID);
 
     // RFID Sesnsors
     vector<RFIDDevice*> rfids;
@@ -46,6 +48,7 @@ public:
     int numSensors;
     
     int getSensorId(string idLookup);
+    int getTouchSensor(string idLookup);
     RFIDDevice * getSensor(string idLookup);
     int getActiveSensorCount();
     int getLeftSensorCount();

@@ -62,11 +62,6 @@ void BookApp::update(){
     }
     dui.update();
     
-    // Test output of the touch sensor
-//    if (devices.kit.getBool(276576, 0)){
-//        ofLogNotice() << "touched!";
-//    }
-//    
 }
 
 //--------------------------------------------------------------
@@ -87,45 +82,45 @@ void BookApp::keyPressed(int key){
             case 'a': 
             case 'A':
             
-            book.forcedPage('A');
+            book.forcedInput('A');
 
             break;
             
             case 'b':
             case 'B':
             
-            book.forcedPage('B');
+            book.forcedInput('B');
             break;
             
             case 'c':
             case 'C':
             
-            book.forcedPage('C');
+            book.forcedInput('C');
             break;
             
             case 'd':
             case 'D':
             
-            book.forcedPage('D');
+            book.forcedInput('D');
             break;
             
             case 'e':
             case 'E':
             
-            book.forcedPage('E');
+            book.forcedInput('E');
             break;
             
             case 'f':
             case 'F':
             
-            book.forcedPage('F');
+            book.forcedInput('F');
             break;
             
             // toggle keyboard mode on or off
             case 'x':
             case 'X':
             
-            book.forcedPage('X');
+            book.forcedInput('X');
             break;
             
             // toggle debug mode on or off
@@ -144,13 +139,13 @@ void BookApp::keyPressed(int key){
             case 'h':
             case 'H':
             
-            book.forcedPage('H');
+            book.forcedInput('H');
             break;
 
             case 'j':
             case 'J':
             
-            book.forcedPage('J');
+            book.forcedInput('J');
             break;
 
             case '`':
@@ -178,12 +173,6 @@ void BookApp::updateDebug(){
     //    ofSetFullscreen(false);
     }
 }
-
-//void BookApp::sendInput(char touchId){
-//    book.receiveInput(touchId);
-//    ofLogNotice() << "received touch input";
-//}
-
 
 //--------------------------------------------------------------
 void BookApp::keyReleased(int key){
