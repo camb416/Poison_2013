@@ -11,7 +11,6 @@
 #include "LanguageController.h"
 #include "DebugUI.h"
 #include "BookLoader.h"
-#include "PhidgetConnector.h"
 
 class BookApp : public ofBaseApp{
 
@@ -51,9 +50,6 @@ class BookApp : public ofBaseApp{
         DebugUI dui;
     
         BookLoader loader;
-    
-        PhidgetConnector kit;
-        int serialId;
 
 		
 };

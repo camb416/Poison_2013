@@ -49,7 +49,7 @@ public:
     
     //TODO
     int mediaState;
-    int loopCount;
+    int loopCount = 0;
     
     // -1 = no looping, 0 = loop from beginning, {positive number} = loop from that position
     float loopback = -1.0f;

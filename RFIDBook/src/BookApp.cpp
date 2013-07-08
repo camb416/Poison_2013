@@ -7,6 +7,9 @@ BookApp::BookApp(){
 //--------------------------------------------------------------
 void BookApp::setup(){
     
+    ofSetFrameRate(60);
+    ofSetVerticalSync(true);
+    
     lang.load("settings/languages.xml");
     
     bookView.setup();
@@ -21,6 +24,7 @@ void BookApp::setup(){
         bookView.addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId, pages.at(i).loopback);
     }
     
+    // Set up RFID & touch
     devices.setup();
         devices.startThread(true,false);
     
@@ -28,23 +32,12 @@ void BookApp::setup(){
    // rfidsetup();
 
     debugState = 1;
-   
-    isSetup = true;
-    
     updateDebug();
-    
-    ofSetFrameRate(60);
-    ofSetVerticalSync(true);
-    
     dui.setup(&devices, &book, &bookView, &loader);
     
     
-    // Set up touch controller
-    serialId = 276576;
-    kit.useEvents(false);
-    kit.connect(serialId);    // Serial ID of phidget connector
-    kit.print(-1);
-    
+    isSetup = true;
+
     cout << "setup complete." << endl;
     
     
@@ -54,6 +47,7 @@ void BookApp::setup(){
 void BookApp::update(){
     ofEnableAlphaBlending();
     ofSetFullscreen(book.toggleFullScreen);
+    
   //  devices.report();
     if(isSetup){
         devices.update();
@@ -68,12 +62,11 @@ void BookApp::update(){
     }
     dui.update();
     
-    kit.updateKits();
-    
     // Test output of the touch sensor
-    if (kit.getBool(276576, 0)){
-        ofLogNotice() << "touched!";
-    }
+//    if (devices.kit.getBool(276576, 0)){
+//        ofLogNotice() << "touched!";
+//    }
+//    
 }
 
 //--------------------------------------------------------------
