@@ -132,10 +132,10 @@ char BookController::touchSituation(){
     // TODO move touch status requests to devicecontroller to avoid requireing entry of board serial here
     
     if (forcedInputActive != true){
-        if (deviceController->kit.getBool(276576, 0) == true){
+        if (deviceController->hasTouch(0)){
             returnval_char = 'H';
             ofLogNotice() << "left";
-        } else if (deviceController->kit.getBool(276576, 1) == true){
+        } else if (deviceController->hasTouch(1)){
             returnval_char = 'J';
              ofLogNotice() << "right";
         }

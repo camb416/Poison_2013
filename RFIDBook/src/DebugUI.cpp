@@ -38,11 +38,11 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, BookVie
     
     
     tfield.setup();
-    tfield.update("Magic Book", 16,660);
+    tfield.update("Magic Book", 16,760);
     
     aValue = 0.5f;
     bar.setup("Page Confidence", &aValue, 600, 16);
-    bar.setPosition(ofPoint(16,749));
+    bar.setPosition(ofPoint(16,949));
     
     
     gui.hide();

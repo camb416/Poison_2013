@@ -179,6 +179,19 @@ void DeviceController::draw(int _x, int _y){
        // cout << rfids.at(i).confidence << endl;
        // cout << rfids.at(i).title << ": " << rfids.at(i).isAttached() << ", " << rfids.at(i).hasTag() << endl;
     }
+    
+    ofDrawBitmapString("interface kit touch sensors", 0, 340);
+    ofDrawBitmapString(ofToString(serialId), 250, 340);
+    for (int i=0; i<8; i++){
+        bool sensorVal = kit.getBool(276576, i);
+        ofDrawBitmapString(ofToString(i), i*53+20, 400);
+        if (sensorVal == true){
+            active_img.draw(i*53,345);
+            
+        } else {
+            inactive_img.draw(i*53,345);
+        }
+    }
     ofPopMatrix();
 }
 
