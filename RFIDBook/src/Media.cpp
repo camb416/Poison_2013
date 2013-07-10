@@ -42,8 +42,10 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
     vid.setup(_vidFile);
     loopback = _loopback;
     
-    if (loopback >= 0){
+    if (loopback == 0){
         vid.setLoopState(OF_LOOP_PALINDROME);
+    } else {
+        vid.setLoopState(OF_LOOP_NONE);
     }
     
 }
@@ -102,9 +104,9 @@ void Media::update(){
             int currentFrame = vid.getCurrentFrame();
             int lastFrame = vid.getTotalNumFrames();
         
-            if (currentFrame == lastFrame){
+            if (currentFrame == lastFrame && loopback > 0){
                 vid.setFrame(loopback);
-                ofLogNotice() << "current frame: " << currentFrame;
+//                ofLogNotice() << "current frame: " << currentFrame;
             }
         
         vid.update();
