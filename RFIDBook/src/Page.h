@@ -29,7 +29,7 @@ public:
     
     void setDrag(bool _doDrag);
     
-    void receiveInput(char touchId, int pageNum);
+    void receiveInput(char touchId_in, int pageNum_in);
     
     void fade(int dir);
     
@@ -41,9 +41,21 @@ public:
     
     void hideAllBorders();
     
+    bool touchActive;
+
+    int activeMedia;
+    int activePage;
+    char currentTouch;
+    
     
 private:
     bool doDrag;
+    
+    vector<int> touchMedia0;
+    vector<int> touchMedia1;
+    vector<int> touchMedia2;
+    vector<int> touchMedia3;
+
     
 
 };

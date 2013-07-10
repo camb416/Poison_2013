@@ -31,6 +31,8 @@ public:
     
     bool toggleFullScreen;
     
+    char currentTouch;
+    
 private:
     DeviceController * deviceController;
     BookView * bookView;
@@ -38,6 +40,7 @@ private:
     bool forcedInputActive;
     string forcedState;
     char forcedTouchState;
+    string lastTouchPage;
     
 };
 

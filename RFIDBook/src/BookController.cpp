@@ -14,6 +14,7 @@ BookController::BookController(){
     forcedInputActive = true;
     forcedState = "A";
     toggleFullScreen = false;
+    lastTouchPage = -1;
 }
 BookController::~BookController(){
     
@@ -36,13 +37,10 @@ void BookController::update(){
     // do something to update here
     
     string currentSitation;
-    char currentTouch;
+//    char currentTouch;
     
     currentSitation = whatSituation();
     currentTouch = touchSituation();
-    
-    string currentTap;
-    
     
     if(currentSitation.length() == 1){
         // page is landed
@@ -51,24 +49,35 @@ void BookController::update(){
         char curSit_char = currentSitation[0];
         int whichPageNum = (int)curSit_char - 65;
         
-        if (currentTouch == 'H' || currentTouch == 'J'){
-            bookView->mediaPages.at(whichPageNum)->receiveInput(currentTouch, whichPageNum);
-            ofLogNotice() << "touchId: " << currentTouch << " page number: " << whichPageNum;
+        if (lastTouchPage != currentSitation && bookView->mediaPages.at(whichPageNum)->touchActive == true){
+            char lastPage_char = lastTouchPage[0];
+            int lastPageNum = (int)lastPage_char - 65;
+            bookView->mediaPages.at(lastPageNum)->touchActive = false;
         }
+        
+        if (bookView->mediaPages.at(whichPageNum)->touchActive == true && currentTouch != 'R'){
+            currentTouch = 'R';
+            forcedTouchState = '0';
+
+        }
+        
+
+        bookView->mediaPages.at(whichPageNum)->receiveInput(currentTouch, whichPageNum);
         
         // send the view activation.
         bookView->activate(whichPageNum);
         
-    } else if(currentSitation.length()==2){
+        } else if(currentSitation.length()==2){
         // you're on an interstitial
+        
         bookView->deactivate();
         
-    } else {
+        } else {
         // seems like an error...
         cout << "Error: Current Book Situation has a strange length: " << currentSitation.length() << endl;
     }
    // cout << currentSitation << " " << currentSitation.length() << currentSitation.substr(0,1) << endl;
-    
+    lastTouchPage = currentSitation;
 }
 bool BookController::isPageLanded(){
    int howManyActive = deviceController->getActiveSensorCount();
@@ -129,8 +138,6 @@ string BookController::whatSituation(){
 char BookController::touchSituation(){
     char returnval_char = ' ';
     
-    // TODO move touch status requests to devicecontroller to avoid requireing entry of board serial here
-    
     if (forcedInputActive != true){
         if (deviceController->hasTouch(0)){
             returnval_char = 'H';
@@ -138,6 +145,8 @@ char BookController::touchSituation(){
         } else if (deviceController->hasTouch(1)){
             returnval_char = 'J';
              ofLogNotice() << "right";
+        } else {
+            returnval_char = '0';
         }
     } else {
         returnval_char = forcedTouchState;

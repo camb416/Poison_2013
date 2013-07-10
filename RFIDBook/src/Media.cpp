@@ -137,12 +137,14 @@ void Media::draw(float scale){
         img.draw(x,y, img.width*scale, img.height*scale);
     }
     else {
-        if (vidState == 0){
+        if (vidState == 0 && tapId != ""){
             img.draw(x,y, img.width*scale, img.height*scale);
         }
-        else {
+        else if (vidState == 1) {
             vid.draw(x, y, vid.width*scale, vid.height*scale);
         }
+        
+        
     }
 
 }

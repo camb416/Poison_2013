@@ -19,7 +19,19 @@ void Page::setup(){
     
     validInputs.push_back('H');
     validInputs.push_back('J');
+    validInputs.push_back('R'); // running
+    validInputs.push_back('C'); // clear all params
     
+    touchMedia0.push_back(5);
+    touchMedia0.push_back(6);
+    touchMedia0.push_back(7);
+    touchMedia0.push_back(10);
+    
+    touchMedia1.push_back(1);
+
+    touchMedia2.push_back(1);
+    
+    touchMedia3.push_back(1);
 }
 
 void Page::setDrag(bool _doDrag){
@@ -123,7 +135,7 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
     
 }
 
-void Page::receiveInput(char touchId, int pageNum){
+void Page::receiveInput(char touchId_in, int pageNum_in){
 
     int position = -1;
     
@@ -131,59 +143,86 @@ void Page::receiveInput(char touchId, int pageNum){
     for (int i = 0; i < validInputs.size(); i++) {
 
         // Hide and elements according to which page we're on and which sensor was touched.
-        if (validInputs.at(i) == touchId){
+        
+        if (validInputs.at(i) == touchId_in){
             
             // TODO HARDCODE EACH MEDIA ELEMENT THAT NEEDS TO FADE OUT OR PLAY ON TOUCH
-            
-            if (pageNum == 0){
-                if (touchId == 'H'){
-                    media.at(5)->img.fadeOut();
-                    media.at(5)->vid.fadeOut();
-                    
-                    media.at(6)->img.fadeOut();
-                    media.at(6)->vid.fadeOut();
-                    
-                    media.at(7)->img.fadeOut();
-                    media.at(7)->vid.fadeOut();
+                
+            if (pageNum_in == 0){
+                
+                if (touchId_in != currentTouch && touchActive == false){
+                    for (int i=0; i < touchMedia0.size(); i++){
+                        media.at(touchMedia0[i])->img.fadeOut();
+                        media.at(touchMedia0[i])->vid.fadeOut();
+                    }
+
+                    if (touchId_in == 'H'){
+                        currentTouch = 'H';
+                        touchActive = true;
+                        activeMedia = 12;
+
+                        media.at(activeMedia)->playVid();
+                        media.at(activeMedia)->vid.fadeIn();
+                
+                    } else if (touchId_in == 'J') {
+                        currentTouch = 'J';
+                        touchActive = true;
+                        activeMedia = 13;
                         
-                } else if (touchId == 'J') {
-                    //media action
+                        media.at(activeMedia)->playVid();
+                        media.at(activeMedia)->vid.fadeIn();
+
+                    }
                 }
                 
-                // TODO play animation video, & reset state
-            }
-            else if (pageNum == 1){
-                if (touchId == 'H'){
-                    media.at(1)->img.fadeOut();
-                    media.at(1)->vid.fadeOut();
-                } else if (touchId == 'J') {
-                    //media action
+                if (touchActive){
+                    if (currentTouch == 'H' || currentTouch == 'J' || currentTouch == 'R'){
+                        
+                        int currentFrame = media.at(activeMedia)->vid.getCurrentFrame();
+                        int lastFrame = media.at(activeMedia)->vid.getTotalNumFrames();
+                        
+                        if (currentFrame == lastFrame){
+                            media.at(activeMedia)->vid.fadeOut();
+                            media.at(activeMedia)->pauseVid();
+                            media.at(activeMedia)->vidState = 0;
+                            
+                            for (int i=0; i < touchMedia0.size(); i++){
+                                media.at(touchMedia0[i])->img.fadeIn();
+                                media.at(touchMedia0[i])->vid.fadeIn();
+                            }
+                            touchActive = false;
+                            currentTouch = 'R';
+                        }
+             
                 }
-            }
-            else if (pageNum == 2){
-                if (touchId == 'H'){
-                media.at(1)->img.fadeOut();
-                media.at(1)->vid.fadeOut();
-                } else if (touchId == 'J'){
-                    //media ation
-                }
-            }
-            else if (pageNum == 3){
-                if (touchId == 'H'){
-                media.at(1)->img.fadeOut();
-                media.at(1)->vid.fadeOut();
-                } else if (touchId == 'J'){
-                    //media ation
-                }
-            }
+            } else if (pageNum_in == 1){
+
+                
             
+            
+            } else if (pageNum_in == 2){
+                
+               
+            
+            
+            } else if (pageNum_in == 3){
+                
+              
+            
+            }
         }
+        
+                
+
+    
+    
+    currentTouch = touchId_in;
     }
-    
-    
+    }
+}
     
 
-}
+
 
 void Page::fade(int dir){
     
@@ -202,8 +241,11 @@ void Page::fade(int dir){
             media.at(i)->vid.fadeIn(fadeVal);
             
             // If autoplay is on for the video, start playing
-            if (media.at(i)->autoplay == 1){
-                media.at(i)->playVid();
+            
+            if (media.at(i)->hasVid == true){
+                if (media.at(i)->autoplay == 1){
+                    media.at(i)->playVid();
+                }
             }
         }
     }
@@ -216,7 +258,7 @@ void Page::fade(int dir){
             
             media.at(i)->img.fadeOut(fadeVal);
             media.at(i)->vid.fadeOut(fadeVal);
-            
+            media.at(i)->vidState = 0;
             // stop all video
             media.at(i)->pauseVid();
         }
