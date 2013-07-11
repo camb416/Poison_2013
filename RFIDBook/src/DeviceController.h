@@ -26,7 +26,7 @@ public:
 
     // Interface Kit
     PhidgetConnector kit;
-    int serialId = 276576;
+    int serialId = -1; //275939
     int touchSensor(string sensor);
     bool hasTouch(int sensorID);
 
@@ -107,12 +107,6 @@ public:
                 
                 delete tagToSend;
                 delete prevSensorState;
-                
-                
-                
-                
-                
-                
                 
                 int sensorState;
                 for(int i=0;i<numSensors;i++){

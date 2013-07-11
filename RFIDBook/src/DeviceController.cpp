@@ -144,6 +144,7 @@ void DeviceController::draw(int _x, int _y){
     ofTranslate(_x, _y);
     ofEnableAlphaBlending();
     ofEnableSmoothing();
+
     for(int i=0;i<numSensors;i++){
         if(rfids.at(i)->getListening()){
             ofSetColor(255,128,128);
@@ -186,10 +187,10 @@ void DeviceController::draw(int _x, int _y){
         bool sensorVal = kit.getBool(276576, i);
         ofDrawBitmapString(ofToString(i), i*53+20, 400);
         if (sensorVal == true){
-            active_img.draw(i*53,345);
+            selected_img.draw(i*53,345);
             
         } else {
-            inactive_img.draw(i*53,345);
+            active_img.draw(i*53,345);
         }
     }
     ofPopMatrix();

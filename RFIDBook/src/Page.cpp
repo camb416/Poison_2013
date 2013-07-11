@@ -150,7 +150,7 @@ void Page::receiveInput(char touchId_in, int pageNum_in){
                 
             if (pageNum_in == 0){
                 
-                if (touchId_in != currentTouch && touchActive == false){
+                if (touchActive == false){
                     for (int i=0; i < touchMedia0.size(); i++){
                         media.at(touchMedia0[i])->img.fadeOut();
                         media.at(touchMedia0[i])->vid.fadeOut();
@@ -161,8 +161,9 @@ void Page::receiveInput(char touchId_in, int pageNum_in){
                         touchActive = true;
                         activeMedia = 12;
 
-                        media.at(activeMedia)->playVid();
                         media.at(activeMedia)->vid.fadeIn();
+                        media.at(activeMedia)->playVid();
+                       
                 
                     } else if (touchId_in == 'J') {
                         currentTouch = 'J';
@@ -193,34 +194,21 @@ void Page::receiveInput(char touchId_in, int pageNum_in){
                             touchActive = false;
                             currentTouch = 'R';
                         }
-             
+                    }
                 }
-            } else if (pageNum_in == 1){
-
-                
-            
-            
-            } else if (pageNum_in == 2){
-                
-               
-            
-            
-            } else if (pageNum_in == 3){
-                
-              
-            
             }
+            
+            
+          currentTouch = touchId_in;
         }
-        
-                
 
     
     
-    currentTouch = touchId_in;
-    }
+  
     }
 }
-    
+
+
 
 
 
