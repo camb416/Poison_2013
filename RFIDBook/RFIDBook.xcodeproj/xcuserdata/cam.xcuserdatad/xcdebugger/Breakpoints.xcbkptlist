@@ -273,7 +273,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "55"
          endingLineNumber = "55"
-         landmarkName = "BookView::draw(int x_in, int y_in, int debugState)"
+         landmarkName = "BookView::draw()"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -285,9 +285,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "38"
-         endingLineNumber = "38"
-         landmarkName = "BookView::update()"
-         landmarkType = "5">
+         endingLineNumber = "38">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -299,7 +297,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "83"
          endingLineNumber = "83"
-         landmarkName = "Page::draw(float originX, float originY, float scale)"
+         landmarkName = "Page::update()"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -325,7 +323,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "46"
          endingLineNumber = "46"
-         landmarkName = "Page::dragUpdate()"
+         landmarkName = "Page::hideAllBorders()"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -337,9 +335,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "49"
-         endingLineNumber = "49"
-         landmarkName = "Page::dragUpdate()"
-         landmarkType = "5">
+         endingLineNumber = "49">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -351,7 +347,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "183"
          endingLineNumber = "183"
-         landmarkName = "Page::getXML()"
+         landmarkName = "Page::receiveInput(char touchId_in, int pageNum_in)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

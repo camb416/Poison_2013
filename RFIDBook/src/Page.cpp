@@ -17,21 +17,31 @@ Page::~Page(){
 
 void Page::setup(){
     
-    validInputs.push_back('H');
-    validInputs.push_back('J');
+    //
+    // key press inputs for the pages
+    //
+    validInputs.push_back('H'); // touch sensor A (left)
+    validInputs.push_back('J'); // touch sensor B (right)
     validInputs.push_back('R'); // running
     validInputs.push_back('C'); // clear all params
+    //
     
+    //
+    // stuff that has to fade out for a video to play
+    // touchMedia0 is for page 0
+    // each int in the vector refers to the id of the media to
+    // fade out
+    //
+    // for page 0
     touchMedia0.push_back(5);
     touchMedia0.push_back(6);
     touchMedia0.push_back(7);
-    touchMedia0.push_back(10);
-    
+    touchMedia0.push_back(9);
+    // for pages 1-3
     touchMedia1.push_back(1);
-
     touchMedia2.push_back(1);
-    
     touchMedia3.push_back(1);
+    //
 }
 
 void Page::setDrag(bool _doDrag){
