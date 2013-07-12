@@ -146,35 +146,41 @@ void Page::receiveInput(char touchId_in, int pageNum_in){
         
         if (validInputs.at(i) == touchId_in){
             
-            // TODO HARDCODE EACH MEDIA ELEMENT THAT NEEDS TO FADE OUT OR PLAY ON TOUCH
+            // TODO: HARDCODE EACH MEDIA ELEMENT THAT NEEDS TO FADE OUT OR PLAY ON TOUCH
                 
             if (pageNum_in == 0){
                 
                 if (touchId_in != currentTouch && touchActive == false){
+                    // Fade out elements that are in the way
                     for (int i=0; i < touchMedia0.size(); i++){
                         media.at(touchMedia0[i])->img.fadeOut();
                         media.at(touchMedia0[i])->vid.fadeOut();
                     }
 
+                    // Left touch sensor pressed
                     if (touchId_in == 'H'){
                         currentTouch = 'H';
-                        touchActive = true;
                         activeMedia = 12;
-
-                        media.at(activeMedia)->playVid();
-                        media.at(activeMedia)->vid.fadeIn();
-                
-                    } else if (touchId_in == 'J') {
-                        currentTouch = 'J';
-                        touchActive = true;
-                        activeMedia = 13;
-                        
-                        media.at(activeMedia)->playVid();
-                        media.at(activeMedia)->vid.fadeIn();
-
                     }
+                    // Right touch sensor pressed
+                    else if (touchId_in == 'J') {
+                        currentTouch = 'J';
+                        activeMedia = 13;
+                    }
+                    
+                    // Error catching in case hardcoded activeMedia from XML file are invalid
+                    try {
+                        touchActive = true;
+                        media.at(activeMedia)->playVid();
+                        media.at(activeMedia)->vid.fadeIn();
+                    } catch (...) {
+                        touchActive = false;
+                        ofLogError() << "Error playing media number " << activeMedia << " on page " << pageNum_in;
+                    }
+                    
                 }
                 
+                // QUESTION: Should this go in the update loop instead?
                 if (touchActive){
                     if (currentTouch == 'H' || currentTouch == 'J' || currentTouch == 'R'){
                         
@@ -211,11 +217,7 @@ void Page::receiveInput(char touchId_in, int pageNum_in){
             
             }
         }
-        
-                
 
-    
-    
     currentTouch = touchId_in;
     }
     }
