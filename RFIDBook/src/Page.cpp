@@ -32,6 +32,9 @@ void Page::setup(){
     // each int in the vector refers to the id of the media to
     // fade out
     //
+    //
+    // TODO: make this a vector to vectors 
+    //
     // for page 0
     touchMedia0.push_back(5);
     touchMedia0.push_back(6);
@@ -50,7 +53,6 @@ void Page::setDrag(bool _doDrag){
 
 // Update all media elements on page
 
-
 void Page::hideAllBorders(){
     for (int i = 0; i < media.size(); i++) {
         media.at(i)->setDraggable(false);
@@ -61,28 +63,23 @@ void Page::dragUpdate(){
 
     // add toggleable draggy stuff
     if(!doDrag){
-        // cout << this;
         ofPoint mousePos = ofPoint(ofGetMouseX(),ofGetMouseY());
         float nearestDist = 99999;
         int nearestID = -1;
         for (int i = 0; i < media.size(); i++) {
             ofPoint thisOrigin = media.at(i)->getPosition();
-           // cout << thisOrigin.x << ", " << thisOrigin.y << endl;
             float thisDist = ofDist(thisOrigin.x,thisOrigin.y,mousePos.x,mousePos.y);
-           // cout << "this dist is: " << thisDist << endl;
             if(thisDist<nearestDist){
                 nearestID = i;
                 nearestDist = thisDist;
             }
             media.at(i)->setDraggable(false);
         }
-       // cout << "nearest dist is: " << nearestDist << endl;
         if(nearestID>-1){
             media.at(nearestID)->setDraggable(true);
             selectedMedia = media.at(nearestID);
         }
     } else {
-      //  cout << "I am dragging now." << endl;
         if(selectedMedia!=NULL){
             selectedMedia->moveTo(ofGetMouseX(),ofGetMouseY());
         }
