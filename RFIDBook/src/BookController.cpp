@@ -139,14 +139,16 @@ char BookController::touchSituation(){
     char returnval_char = ' ';
     
     if (forcedInputActive != true){
-        if (deviceController->hasTouch(0)){
+        if (deviceController->hasTouch(0) == true){
             returnval_char = 'H';
-            ofLogNotice() << "left";
-        } else if (deviceController->hasTouch(1)){
+//            ofLogNotice() << "left";
+        } else if (deviceController->hasTouch(1) == true){
             returnval_char = 'J';
              ofLogNotice() << "right";
         } else {
             returnval_char = '0';
+//             ofLogNotice() << "right";
+
         }
     } else {
         returnval_char = forcedTouchState;

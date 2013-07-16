@@ -26,7 +26,7 @@ public:
 
     // Interface Kit
     PhidgetConnector kit;
-    int serialId = 276576;
+    int serialId = -1;
     int touchSensor(string sensor);
     bool hasTouch(int sensorID);
 

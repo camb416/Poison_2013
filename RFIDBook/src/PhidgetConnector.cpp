@@ -45,7 +45,16 @@ void PhidgetConnector::reset(){
 
 // return a given ifkit sensor value as a bool.
 bool PhidgetConnector::getBool(int serial_in, int index_in){
-    if(getVal(serial_in, index_in)<500){
+    int serial_2;
+    if (serial_in == -1){
+        if (ifKitModels.size() > 0){
+            cout << ifKitModels.at(0)->getSerial();
+            serial_2 = ifKitModels.at(0)->getSerial();
+        }
+    } else{
+        serial_2 = serial_in;
+    }
+    if(getVal(serial_2, index_in)<500){
         return false;
     } else {
         return true;
@@ -125,17 +134,25 @@ IFKitModel * PhidgetConnector::getIFKit(int serial_in){
     if(whichDeviceID>-1 && whichDeviceID<ifKitModels.size()){
         return (IFKitModel*)ifKitModels.at(whichDeviceID);
     } else {
-        return NULL;
+              return NULL;
     }
 }
 
 // get the IFKit Model's vector id by serial.
 int PhidgetConnector::getIFKitModelID(int serial_in){
-    for(int i=0; i < ifKitModels.size(); i++){
-        IFKitModel * thisKit = (IFKitModel*) ifKitModels.at(i);
-        if(thisKit->getSerial() == serial_in) return i;
+    
+    if (serial_in == -1) {
+        if (ifKitModels.size() > 0){
+            return ifKitModels.at(0)->getSerial();
+        }
+    } else {
+        for(int i=0; i < ifKitModels.size(); i++){
+            IFKitModel * thisKit = (IFKitModel*) ifKitModels.at(i);
+            if(thisKit->getSerial() == serial_in) return i;
+        }
     }
-    return -1;
+
+//    return -1;
 }
 
 // connect to a device. Use -1 for first available device

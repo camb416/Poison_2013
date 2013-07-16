@@ -50,6 +50,7 @@ void DeviceController::setup(){
     
     // Set up touch controller
     kit.useEvents(false);
+    serialId = -1;
     kit.connect(serialId);    // Serial ID of phidget connector
     kit.print(-1);
 }
@@ -179,14 +180,16 @@ void DeviceController::draw(int _x, int _y){
        // cout << rfids.at(i).confidence << endl;
        // cout << rfids.at(i).title << ": " << rfids.at(i).isAttached() << ", " << rfids.at(i).hasTag() << endl;
     }
-    
+    ofSetColor(0,0,0);
     ofDrawBitmapString("interface kit touch sensors", 0, 340);
     ofDrawBitmapString(ofToString(serialId), 250, 340);
     for (int i=0; i<8; i++){
-        bool sensorVal = kit.getBool(276576, i);
+        ofSetColor(0,0,0);
+        bool sensorVal = hasTouch(i);
         ofDrawBitmapString(ofToString(i), i*53+20, 400);
+        ofSetColor(255,255,255);
         if (sensorVal == true){
-            active_img.draw(i*53,345);
+            selected_img.draw(i*53,345);
             
         } else {
             inactive_img.draw(i*53,345);
@@ -232,16 +235,16 @@ bool DeviceController::hasTouch(int sensorID){
     return touchState;
 }
 
-int DeviceController::touchSensor(string sensor){
-    int sensorID;
-    
-    if (sensor == "left"){
-        sensorID = 0;
-    } else if (sensor == "right"){
-        sensorID = 1;
-    } else{
-        ofLogWarning() << "invalid touch sensor request: " << sensor;
-    }
-
-    return sensorID;
-}
+//int DeviceController::touchSensor(string sensor){
+//    int sensorID;
+//    
+//    if (sensor == "left"){
+//        sensorID = 0;
+//    } else if (sensor == "right"){
+//        sensorID = 1;
+//    } else{
+//        ofLogWarning() << "invalid touch sensor request: " << sensor;
+//    }
+//
+//    return sensorID;
+//}
