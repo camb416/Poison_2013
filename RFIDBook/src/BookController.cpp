@@ -72,6 +72,7 @@ void BookController::update(){
         
         bookView->deactivate();
         
+        
         } else {
         // seems like an error...
         cout << "Error: Current Book Situation has a strange length: " << currentSitation.length() << endl;
@@ -144,10 +145,9 @@ char BookController::touchSituation(){
 //            ofLogNotice() << "left";
         } else if (deviceController->hasTouch(1) == true){
             returnval_char = 'J';
-             ofLogNotice() << "right";
+//             ofLogNotice() << "right";
         } else {
             returnval_char = '0';
-//             ofLogNotice() << "right";
 
         }
     } else {

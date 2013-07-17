@@ -6,6 +6,7 @@ bookLoader/bookLoader.xcodeproj/project.xcworkspace/xcuserdata/tterb.xcuserdatad
 bookLoader/bookLoader.xcodeproj/xcshareddata/xcschemes/bookLoader Debug.xcscheme
 bookLoader/bookLoader.xcodeproj/xcshareddata/xcschemes/bookLoader Release.xcscheme
 bookLoader/bookLoader.xcodeproj/xcuserdata/tterb.xcuserdatad/xcschemes/xcschememanagement.plist
+<<<<<<< HEAD
 *.png
 *.jpg
 *.mov
@@ -29,3 +30,11 @@ RFIDBook/bin/data/fonts/*
 *.png
 
 *.jpg
+=======
+
+*.png
+
+*.plist
+
+*.mov
+>>>>>>> 62663cc9923da8c54d3749dea988ae94d9ff50fe

@@ -42,6 +42,7 @@ public:
     void hideAllBorders();
     
     bool touchActive;
+    bool pageReset;
 
     int activeMedia;
     int activePage;
