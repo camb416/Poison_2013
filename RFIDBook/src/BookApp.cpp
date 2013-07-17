@@ -79,6 +79,13 @@ void BookApp::draw(){
 //--------------------------------------------------------------
 void BookApp::keyPressed(int key){
     switch(key){
+            case '=':
+            case '+':
+            
+            bookView.printCurrentMedia();
+            
+            break;
+            
             case 'a': 
             case 'A':
             

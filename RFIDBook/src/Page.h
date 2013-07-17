@@ -48,7 +48,9 @@ public:
     int activePage;
     char currentTouch;
     
-    vector<vector<int> > touchMediaMatrix;    
+    vector<vector<int> > touchMediaMatrix;
+    
+    void printCurrentMedia();
     
 private:
     bool doDrag;
