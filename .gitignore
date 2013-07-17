@@ -6,10 +6,11 @@ bookLoader/bookLoader.xcodeproj/project.xcworkspace/xcuserdata/tterb.xcuserdatad
 bookLoader/bookLoader.xcodeproj/xcshareddata/xcschemes/bookLoader Debug.xcscheme
 bookLoader/bookLoader.xcodeproj/xcshareddata/xcschemes/bookLoader Release.xcscheme
 bookLoader/bookLoader.xcodeproj/xcuserdata/tterb.xcuserdatad/xcschemes/xcschememanagement.plist
-
+*.png
+*.jpg
 *.mov
 
-RFIDBook/bin/data/assets/en/cerberus-open.png
+# RFIDBook/bin/data/assets/en/cerberus-open.png
 
 *.png
 # RFIDBook/bin/data/assets/en/*
