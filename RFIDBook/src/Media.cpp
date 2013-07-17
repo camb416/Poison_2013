@@ -11,6 +11,9 @@
 Media::Media(){
     isDraggable = true;
     isDragging = false;
+    vidFileName = "";
+    imgFileName = "";
+    mediaType = -1;
 }
 Media::~Media(){}
 
@@ -23,6 +26,7 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId){
     hasVid = false;
     autoplay = -1;
     tapId = _tapId;
+    mediaType = IMGMEDIA;
 
 }
 
@@ -30,22 +34,46 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId){
 void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback){
     
     
-    vidFileName = _vidFile;
+    
+
     setPosition(_x, _y);
-    img.setup(_imgFile);
     
     
-    autoplay = _autoplay;
+    
+    
     tapId = _tapId;
-    hasVid = true;
-    vidState = 0;
-    vid.setup(_vidFile);
-    loopback = _loopback;
+    
+
     
     if (loopback == 0){
         vid.setLoopState(OF_LOOP_PALINDROME);
     } else {
         vid.setLoopState(OF_LOOP_NONE);
+    }
+    
+    if(_imgFile.length()>3){
+        if(_vidFile.length()>3){
+            mediaType = DUALMEDIA;
+        } else {
+            mediaType = IMGMEDIA;
+        }
+        
+    } else if(_vidFile.length()>3){
+        mediaType = VIDMEDIA;
+    } else {
+        mediaType = UNKNOWNMEDIA;
+    }
+    
+    if(mediaType==VIDMEDIA || mediaType==DUALMEDIA){
+        vidFileName = _vidFile;
+        hasVid = true;
+        vidState = 0;
+        vid.setup(_vidFile);
+        autoplay = _autoplay;
+        loopback = _loopback;
+    }
+    if(mediaType==IMGMEDIA || mediaType==DUALMEDIA){
+        img.setup(_imgFile);
     }
     
 }
@@ -76,16 +104,18 @@ void Media::playVid(){
         if (vid.isPlaying() == false) {
             vidState = 1;
             vid.setFrame(0);
+            vid.nextFrame();
             vid.play();
         }
     }
 }
 
-void Media::pauseVid(){
+void Media::stopVid(){
     
     if (hasVid) {
         if (vid.isPlaying() == true){
             vid.stop();
+            vid.setFrame(0);
             loopCount = 0;
         }
 
@@ -147,4 +177,23 @@ void Media::draw(float scale){
         
     }
 
+}
+void Media::printInfo(){
+    switch(mediaType){
+        
+        case 0:
+            cout << "IMAGE MEDIA: "<< imgFileName << "." << endl;
+            break;
+        case 1:
+            cout << "VIDEO MEDIA: " << vidFileName << "." << endl;
+            break;
+        case 2:
+            cout << "DUAL MEDIA: " << imgFileName.length() << ": " << imgFileName << ", " << vidFileName << "." << endl;
+            break;
+        default:
+            cout << "UNKNOWN MEDIA: ";
+            break;
+            
+    }
+    //cout << vidFileName << ", " << imgFileName << "." << endl;
 }

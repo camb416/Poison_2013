@@ -86,6 +86,13 @@ void BookApp::keyPressed(int key){
             
             break;
             
+            case '-':
+            case '_':
+            
+            bookView.printCurrentMediaByID("K");
+            
+            break;
+            
             case 'a': 
             case 'A':
             

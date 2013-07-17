@@ -342,11 +342,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Page.cpp"
-         timestampString = "392937359.582432"
+         timestampString = "395778431.626318"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "183"
-         endingLineNumber = "183"
+         startingLineNumber = "184"
+         endingLineNumber = "184"
          landmarkName = "Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -374,6 +374,19 @@
          startingLineNumber = "47"
          endingLineNumber = "47"
          landmarkName = "DebugUI::update()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Media.cpp"
+         timestampString = "395779244.645803"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "191"
+         endingLineNumber = "191"
+         landmarkName = "Media::printInfo()"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

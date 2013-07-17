@@ -92,11 +92,11 @@ void Page::update(){
                 
                 if (currentTouch == 'H'){
                     media.at(touchMediaMatrix[0][0])->vid.fadeOut();
-                    media.at(touchMediaMatrix[0][0])->pauseVid();
+                    media.at(touchMediaMatrix[0][0])->stopVid();
                     media.at(touchMediaMatrix[0][0])->vidState = 0;
                 } else if (currentTouch == 'J'){
                     media.at(touchMediaMatrix[1][0])->vid.fadeOut();
-                    media.at(touchMediaMatrix[1][0])->pauseVid();
+                    media.at(touchMediaMatrix[1][0])->stopVid();
                     media.at(touchMediaMatrix[1][0])->vidState = 0;
                 }
                 
@@ -113,11 +113,11 @@ void Page::update(){
             } else if (pageReset == true){
                 if (currentTouch == 'H'){
                     media.at(touchMediaMatrix[0][0])->vid.fadeOut();
-                    media.at(touchMediaMatrix[0][0])->pauseVid();
+                    media.at(touchMediaMatrix[0][0])->stopVid();
                     media.at(touchMediaMatrix[0][0])->vidState = 0;
                 } else if (currentTouch == 'J'){
                     media.at(touchMediaMatrix[1][0])->vid.fadeOut();
-                    media.at(touchMediaMatrix[1][0])->pauseVid();
+                    media.at(touchMediaMatrix[1][0])->stopVid();
                     media.at(touchMediaMatrix[1][0])->vidState = 0;
                 }
                 touchActive = false;
@@ -169,7 +169,8 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
         // Run the setup for a media element that is a video and an image
         string imageFile = fileName;
         imageFile.replace(fileName.length() -3, 3, "png");
-        newMedia->setup(imageFile, fileName, position.x, position.y, autoplay, tapId, loopback);
+        // newMedia->setup(imageFile, fileName, position.x, position.y, autoplay, tapId, loopback);
+        newMedia->setup("", fileName, position.x, position.y, autoplay, tapId, loopback);
         
     }
     else {
@@ -205,7 +206,7 @@ void Page::receiveInput(char touchId_in, int pageNum_in){
                     for (int i=0; i < size; i++){
                         media.at(touchMediaMatrix[2][i])->img.fadeOut();
                         media.at(touchMediaMatrix[2][i])->vid.fadeOut();
-                        media.at(touchMediaMatrix[2][i])->pauseVid();
+                        media.at(touchMediaMatrix[2][i])->stopVid();
                     }
                     
                     if (touchId_in == 'H'){
@@ -264,8 +265,8 @@ void Page::fade(int dir){
             media.at(i)->img.fadeOut(fadeVal);
             media.at(i)->vid.fadeOut(fadeVal);
             media.at(i)->vidState = 0;
-            // stop all video
-            media.at(i)->pauseVid();
+            // TODO: debug this! stop all video
+            media.at(i)->stopVid();
         }
     }
     
@@ -292,7 +293,36 @@ ofxXmlSettings Page::getXML(){
 
 void Page::printCurrentMedia(){
     for(int i=0;i<media.size();i++){
-        cout << "a media element." << endl;
+        media.at(i)->printInfo();
+        //cout << "a media element." << endl;
     }
+}
+
+void Page::printCurrentMediaByID(string _id){
+    vector<Media*> mediaToPrint;
+    mediaToPrint = getMediaByID(_id);
+    
+    for(int i=0;i<mediaToPrint.size();i++){
+        mediaToPrint.at(i)->printInfo();
+    }
+    
+}
+vector<Media*> Page::getMediaByID(string _id){
+    vector<Media*> returnVal;
+    
+    // TODO: search through and return Media pointers
+    // done?
+    
+    for(int i=0;i<media.size();i++){
+       
+        if(media.at(i)->tapId.compare(_id)==0){
+            returnVal.push_back(media.at(i));
+        }
+
+    }
+    
+    
+    return returnVal;
+    
 }
 

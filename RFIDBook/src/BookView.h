@@ -39,6 +39,10 @@ public:
     void printCurrentMedia(){
         mediaPages.at(currentPage)->printCurrentMedia();
     }
+    void printCurrentMediaByID(string _id){
+       mediaPages.at(currentPage)->printCurrentMediaByID(_id);
+    }
+
     
 private:
     

@@ -14,11 +14,19 @@
 #include "ofFadeImage.h"
 #include "OfFadeVideo.h"
 
+#define UNKNOWNMEDIA -1
+#define IMGMEDIA 0
+#define VIDMEDIA 1
+#define DUALMEDIA 2
+
+
 class Media {
     
 public:
     Media();
     ~Media();
+    
+    int mediaType;
     
     void setup(string mediaFile, float _x, float _y, string _tapId);
     void setup(string _imgFile, string vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback);
@@ -29,7 +37,7 @@ public:
     string getFileName();
     
     void playVid();
-    void pauseVid();
+    void stopVid();
     
     void moveTo(int _x, int _y);
     
@@ -56,6 +64,8 @@ public:
     
     ofFadeImage img;
     ofFadeVideo vid;
+    
+    void printInfo();
     
 private:
     bool isDraggable;
