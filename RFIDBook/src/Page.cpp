@@ -28,6 +28,7 @@ void Page::setup(){
     
     //
     // Media involved in left & right touch events & media faded out when touch active
+    //
     touchMediaMatrix.resize(3);
 }
 
@@ -177,7 +178,7 @@ void Page::receiveInput(char touchId_in, int pageNum_in){
         // Hide and elements according to which page we're on and which sensor was touched.
         
         if (validInputs.at(i) == touchId_in){
-            
+        
             if (touchId_in != currentTouch && touchActive == false){
                 // Fade out elements that are in the way
                                 
