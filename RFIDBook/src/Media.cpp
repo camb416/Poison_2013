@@ -15,14 +15,14 @@ Media::Media(){
 Media::~Media(){}
 
 // Image only
-void Media::setup(string mediaFile, float _x, float _y){
+void Media::setup(string mediaFile, float _x, float _y, string _tapId){
     
     imgFileName = mediaFile;
     setPosition(_x, _y);
     img.setup(mediaFile);
     hasVid = false;
     autoplay = -1;
-    tapId = "";
+    tapId = _tapId;
 
 }
 
@@ -36,7 +36,7 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
     
     
     autoplay = _autoplay;
-    string tapId;
+    tapId = _tapId;
     hasVid = true;
     vidState = 0;
     vid.setup(_vidFile);
@@ -137,7 +137,7 @@ void Media::draw(float scale){
         img.draw(x,y, img.width*scale, img.height*scale);
     }
     else {
-        if (vidState == 0 && tapId != ""){
+        if (vidState == 0 && (tapId == "" || tapId == "K")){
             img.draw(x,y, img.width*scale, img.height*scale);
         }
         else if (vidState == 1) {

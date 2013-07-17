@@ -20,7 +20,7 @@ public:
     Media();
     ~Media();
     
-    void setup(string mediaFile, float _x, float _y);
+    void setup(string mediaFile, float _x, float _y, string _tapId);
     void setup(string _imgFile, string vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback);
     void update();
     void draw(float scale=1.0f);

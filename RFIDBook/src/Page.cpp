@@ -161,7 +161,7 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
     if (sub == "png") {
         
         // run the setup for a media element that is just an image
-        newMedia->setup(fileName, position.x, position.y);
+        newMedia->setup(fileName, position.x, position.y, tapId);
         
     }
     else if (sub == "mov"){
