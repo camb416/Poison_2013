@@ -6,3 +6,9 @@ bookLoader/bookLoader.xcodeproj/project.xcworkspace/xcuserdata/tterb.xcuserdatad
 bookLoader/bookLoader.xcodeproj/xcshareddata/xcschemes/bookLoader Debug.xcscheme
 bookLoader/bookLoader.xcodeproj/xcshareddata/xcschemes/bookLoader Release.xcscheme
 bookLoader/bookLoader.xcodeproj/xcuserdata/tterb.xcuserdatad/xcschemes/xcschememanagement.plist
+
+*.png
+
+*.plist
+
+*.mov
