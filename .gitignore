@@ -12,9 +12,9 @@ bookLoader/bookLoader.xcodeproj/xcuserdata/tterb.xcuserdatad/xcschemes/xcschemem
 RFIDBook/bin/data/assets/en/cerberus-open.png
 
 *.png
-RFIDBook/bin/data/assets/en/*
-RFIDBook/bin/data/assets/fr/*
-RFIDBook/bin/data/assets/common/*
-RFIDBook/bin/data/assets/fonts/*
+# RFIDBook/bin/data/assets/en/*
+# RFIDBook/bin/data/assets/fr/*
+# RFIDBook/bin/data/assets/common/*
+# RFIDBook/bin/data/assets/fonts/*
 
 *.png
