@@ -36,6 +36,10 @@ public:
     
     vector<Page*> mediaPages;
     
+    void printCurrentMedia(){
+        mediaPages.at(currentPage)->printCurrentMedia();
+    }
+    
 private:
     
     ofImage backplate;

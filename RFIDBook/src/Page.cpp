@@ -290,3 +290,9 @@ ofxXmlSettings Page::getXML(){
     return xml;
 }
 
+void Page::printCurrentMedia(){
+    for(int i=0;i<media.size();i++){
+        cout << "a media element." << endl;
+    }
+}
+
