@@ -8,7 +8,7 @@ BookApp::BookApp(){
 void BookApp::setup(){
     
     ofSetFrameRate(60);
-    ofSetVerticalSync(true);
+    ofSetVerticalSync(false);
     
     lang.load("settings/languages.xml");
     

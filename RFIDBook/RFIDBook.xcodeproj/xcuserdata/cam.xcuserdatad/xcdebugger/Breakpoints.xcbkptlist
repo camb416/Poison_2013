@@ -143,7 +143,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "185"
          endingLineNumber = "185"
-         landmarkName = "DeviceController::report()"
+         landmarkName = "DeviceController::draw(int _x, int _y)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

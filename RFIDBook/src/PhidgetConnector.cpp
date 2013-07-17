@@ -88,25 +88,28 @@ void PhidgetConnector::print(int serial_in){
             IFKitModel * thisKit = (IFKitModel *)ifKitModels.at(i);
             if(serial_in == -1 || serial_in == thisKit->getSerial()) thisKit->print();
         }
+        
+        cout << "hardware devices: " << endl;
+        for(int j=0;j<ifkits.size();j++){
+            int serialNo;
+            CPhidget_getSerialNumber((CPhidgetHandle)*ifkits.at(j), &serialNo);
+            int whichKit = getIFKitModelID(serialNo);
+            if(whichKit>-1){
+                IFKitModel * desiredKit = ifKitModels.at(whichKit);
+                cout << "serial: " << desiredKit->getSerial() << endl;
+                for(int i=0;i<desiredKit->getNumSensors();i++){
+                    int sensorVal;
+                    CPhidgetInterfaceKit_getSensorValue(*ifkits.at(j), i, &sensorVal);
+                    cout << i << ": " << sensorVal << endl;
+                    // desiredKit->setSensorVal(i,sensorVal);
+                }
+            }
+        }
+        
     } else {
         cout << "there doesn't seem to be any devices successfully connected with which to print." << endl;
     }
-    cout << "hardware devices: " << endl;
-    for(int j=0;j<ifkits.size();j++){
-        int serialNo;
-        CPhidget_getSerialNumber((CPhidgetHandle)*ifkits.at(j), &serialNo);
-        int whichKit = getIFKitModelID(serialNo);
-        if(whichKit>-1){
-            IFKitModel * desiredKit = ifKitModels.at(whichKit);
-            cout << "serial: " << desiredKit->getSerial() << endl;
-            for(int i=0;i<desiredKit->getNumSensors();i++){
-                int sensorVal;
-                CPhidgetInterfaceKit_getSensorValue(*ifkits.at(j), i, &sensorVal);
-                cout << i << ": " << sensorVal << endl;
-                // desiredKit->setSensorVal(i,sensorVal);
-            }
-        }
-    }
+    
     
 }
 
@@ -117,7 +120,7 @@ void PhidgetConnector::updateKits(){
         int serialNo;
         CPhidget_getSerialNumber((CPhidgetHandle)*ifkits.at(j), &serialNo);
         int whichKit = getIFKitModelID(serialNo);
-        if(whichKit>-1){
+        if(whichKit>-1 && whichKit<ifKitModels.size()){
             IFKitModel * desiredKit = ifKitModels.at(whichKit);
             for(int i=0;i<desiredKit->getNumSensors();i++){
                 int sensorVal;
