@@ -37,9 +37,11 @@ public:
     vector<Page*> mediaPages;
     
     void printCurrentMedia(){
+        ofLogNotice() << "printing current media.";
         mediaPages.at(currentPage)->printCurrentMedia();
     }
     void printCurrentMediaByID(string _id){
+        ofLogNotice() << "printing current media with id: " <<  _id << ".";
        mediaPages.at(currentPage)->printCurrentMediaByID(_id);
     }
 

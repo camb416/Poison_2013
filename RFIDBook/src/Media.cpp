@@ -182,16 +182,16 @@ void Media::printInfo(){
     switch(mediaType){
         
         case 0:
-            cout << "IMAGE MEDIA: "<< imgFileName << "." << endl;
+            ofLogNotice() << "IMAGE MEDIA: "<< imgFileName << ".";
             break;
         case 1:
-            cout << "VIDEO MEDIA: " << vidFileName << "." << endl;
+            ofLogNotice() << "VIDEO MEDIA: " << vidFileName << ".";
             break;
         case 2:
-            cout << "DUAL MEDIA: " << imgFileName.length() << ": " << imgFileName << ", " << vidFileName << "." << endl;
+            ofLogNotice() << "DUAL MEDIA: " << imgFileName.length() << ": " << imgFileName << ", " << vidFileName << ".";
             break;
         default:
-            cout << "UNKNOWN MEDIA: ";
+            ofLogNotice() << "UNKNOWN MEDIA: ";
             break;
             
     }
