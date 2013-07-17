@@ -47,17 +47,12 @@ public:
     int activePage;
     char currentTouch;
     
+    vector<vector<int> > touchMediaMatrix;    
     
 private:
     bool doDrag;
     
-    vector<int> touchMedia0;
-    vector<int> touchMedia1;
-    vector<int> touchMedia2;
-    vector<int> touchMedia3;
-
-    
-
+    int fadeOutMedia;
 };
 
 #endif /* defined(__RFIDBook__Page__) */

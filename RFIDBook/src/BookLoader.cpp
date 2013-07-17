@@ -87,7 +87,7 @@ vector<XmlPage> BookLoader::load(string fileName){
         
     }
     else {
-        ofLogNotice() << "Book XML did not load properly";
+        ofLogError() << "Book XML did not load properly";
     }
     
     cout << " ------------------------" << "\n";

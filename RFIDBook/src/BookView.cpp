@@ -94,6 +94,17 @@ void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions, vec
     for (int i = 0; i < mediaFiles.size(); i++) {
 
         newPage->addMedia(mediaFiles.at(i), positions.at(i), autoplay.at(i), tapId.at(i), loopback.at(i));
+        
+        // Add touch media for left and right & media to be faded out when touch is active
+        if (ofIsStringInString(tapId.at(i), "H")) {
+            newPage->touchMediaMatrix[0].push_back(i);
+        } else if (ofIsStringInString(tapId.at(i), "J")) {
+            newPage->touchMediaMatrix[1].push_back(i);
+        } else if (ofIsStringInString(tapId.at(i), "K")) { // media to be faded out
+            newPage->touchMediaMatrix[2].push_back(i);
+        }
+        else{
+        }
     }
     
     mediaPages.push_back(newPage);
@@ -170,4 +181,3 @@ void BookView::savePageLayout(){
         ofLogNotice() << "Error writing media object positions to positions.xml";
     }
 }
-
