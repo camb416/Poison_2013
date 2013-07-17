@@ -104,10 +104,25 @@ void Page::update(){
                 for (int i=0; i < size; i++){
                     media.at(touchMediaMatrix[2][i])->img.fadeIn();
                     media.at(touchMediaMatrix[2][i])->vid.fadeIn();
+                    media.at(touchMediaMatrix[2][i])->playVid();
                 }
                 
                 touchActive = false;
-                currentTouch = 'R';
+                pageReset = false;
+                currentTouch = ' ';
+            } else if (pageReset == true){
+                if (currentTouch == 'H'){
+                    media.at(touchMediaMatrix[0][0])->vid.fadeOut();
+                    media.at(touchMediaMatrix[0][0])->pauseVid();
+                    media.at(touchMediaMatrix[0][0])->vidState = 0;
+                } else if (currentTouch == 'J'){
+                    media.at(touchMediaMatrix[1][0])->vid.fadeOut();
+                    media.at(touchMediaMatrix[1][0])->pauseVid();
+                    media.at(touchMediaMatrix[1][0])->vidState = 0;
+                }
+                touchActive = false;
+                pageReset = false;
+                currentTouch = ' ';
             }
         }  catch (...) {
             touchActive = false;
@@ -190,6 +205,7 @@ void Page::receiveInput(char touchId_in, int pageNum_in){
                     for (int i=0; i < size; i++){
                         media.at(touchMediaMatrix[2][i])->img.fadeOut();
                         media.at(touchMediaMatrix[2][i])->vid.fadeOut();
+                        media.at(touchMediaMatrix[2][i])->pauseVid();
                     }
                     
                     if (touchId_in == 'H'){
@@ -197,7 +213,7 @@ void Page::receiveInput(char touchId_in, int pageNum_in){
                         media.at(touchMediaMatrix[0][0])->vid.fadeIn();
                     } else if (touchId_in == 'J'){
                         media.at(touchMediaMatrix[1][0])->playVid();
-                        media.at(touchMediaMatrix[0][0])->vid.fadeIn();
+                        media.at(touchMediaMatrix[1][0])->vid.fadeIn();
                     }
                 } catch (...) {
                     touchActive = false;

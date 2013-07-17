@@ -48,7 +48,7 @@ bool PhidgetConnector::getBool(int serial_in, int index_in){
     int serial_2;
     if (serial_in == -1){
         if (ifKitModels.size() > 0){
-            cout << ifKitModels.at(0)->getSerial();
+//            cout << ifKitModels.at(0)->getSerial();
             serial_2 = ifKitModels.at(0)->getSerial();
         }
     } else{

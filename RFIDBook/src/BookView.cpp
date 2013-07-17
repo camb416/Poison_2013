@@ -145,6 +145,14 @@ void BookView::activate(int pagenum_in){
                 mediaPages.at(i)->fade(1);
             } else {
                 mediaPages.at(i)->fade(-1);
+                try {
+                    if (mediaPages.at(currentPage)->touchActive == true){
+                        mediaPages.at(currentPage)->pageReset = true;
+                    }
+                } catch (...) {
+                    
+                }
+                
             }
         }
     }
