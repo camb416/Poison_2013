@@ -48,7 +48,7 @@ void BookController::update(){
         // take A-D and make 0-3
         char curSit_char = currentSitation[0];
         int whichPageNum = (int)curSit_char - 65;
-        
+        /*
         if (lastTouchPage != currentSitation && bookView->mediaPages.at(whichPageNum)->touchActive == true){
             char lastPage_char = lastTouchPage[0];
             int lastPageNum = (int)lastPage_char - 65;
@@ -60,7 +60,7 @@ void BookController::update(){
             forcedTouchState = '0';
 
         }
-        
+        */
 
         bookView->mediaPages.at(whichPageNum)->receiveInput(currentTouch, whichPageNum);
         

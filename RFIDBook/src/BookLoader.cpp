@@ -46,6 +46,7 @@ vector< vector<MediaModel> > BookLoader::load(string fileName){
                 int autoplay = 0;
                 string tapId;
                 int loopback = 0;
+                bool isHidden;
                 
                 MediaModel thisMedia;
                 
@@ -75,6 +76,20 @@ vector< vector<MediaModel> > BookLoader::load(string fileName){
                 else {
                     loopback = -1;
                 }
+                if (bookElements.attributeExists("Media", "hidden", i)) {
+                    string hiddenString = bookElements.getAttribute("Media", "hidden", "0", i);
+                    if(hiddenString.compare("1")==0 || hiddenString.compare("true")==0 || hiddenString.compare("yes")==0){
+                        isHidden = true;
+                    } else {
+                        isHidden = false;
+                    }
+                    
+                }
+                else {
+                    isHidden = false;
+                }
+                
+                
                 
                 ofLogNotice() << "Loaded " << mediaFileName << " at position " << mediaPos.x << " : " << mediaPos.y;
                 
@@ -83,6 +98,7 @@ vector< vector<MediaModel> > BookLoader::load(string fileName){
                 thisMedia.autoPlay = autoplay;
                 thisMedia.mClass = tapId;
                 thisMedia.loopback = loopback;
+                thisMedia.isHidden = isHidden;
                 /*
                 newPage.media.push_back(mediaFileName);
                 newPage.position.push_back(mediaPos);

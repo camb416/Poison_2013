@@ -19,4 +19,8 @@
         <name>full screen</name>
         <value>0</value>
     </Toggle_full_screen>
+    <Button_hide_RHP_elems>
+        <name>hide RHP elems</name>
+        <value>0</value>
+    </Button_hide_RHP_elems>
 </controls>

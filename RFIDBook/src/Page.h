@@ -25,7 +25,7 @@ public:
     void dragUpdate();
     void draw(float originX, float originY, float scale);
     
-    void addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback);
+    void addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback, bool _isHidden);
     
     void setDrag(bool _doDrag);
     

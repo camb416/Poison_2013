@@ -20,6 +20,7 @@ struct MediaModel{
     int autoPlay;
     string mClass;
     int loopback;
+    bool isHidden;
 };
 
 // parsing into MediaModel struct instead

@@ -88,6 +88,7 @@ void BookView::draw(int x_in, int y_in, int debugState){
 void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions, vector<int> autoplay, vector<string> tapId, vector<int> loopback){
     
     ofLogWarning() << "ADDING page with legacy method. Don't do it.";
+    /*
     Page * newPage = new Page();
     newPage->setup();
     
@@ -110,6 +111,7 @@ void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions, vec
     
     mediaPages.push_back(newPage);
     ofLogNotice() << "added new page. total pages: " << mediaPages.size();
+     */
     
 }
 
@@ -121,7 +123,7 @@ void BookView::addPage(vector < MediaModel> medias){
     
     for (int i = 0; i < medias.size(); i++) {
         MediaModel thisMedia = medias.at(i);
-        newPage->addMedia(thisMedia.src,thisMedia.pos,thisMedia.autoPlay,thisMedia.mClass,thisMedia.loopback);
+        newPage->addMedia(thisMedia.src,thisMedia.pos,thisMedia.autoPlay,thisMedia.mClass,thisMedia.loopback, thisMedia.isHidden);
     }
     
     mediaPages.push_back(newPage);

@@ -19,19 +19,18 @@
     <Media x="903" y="584" src="assets/en/3.png" auto="-1" class="" loopback="-1"></Media>
 </Page>
 <Page>
-    
     <Media x="1328" y="1027" src="assets/en/june1/Assasin.png" auto="-1" class="rhp" loopback="-1"></Media>
     <Media x="298" y="475" src="assets/en/june1/how-it-works-Open.png" auto="-1" class="" loopback="-1"></Media>
     <Media x="693" y="675" src="assets/en/june1/IDENTIFY.png" auto="-1" class="" loopback="-1"></Media>
     <Media x="371" y="125" src="assets/en/june1/Main-title-B.png" auto="-1" class="" loopback="-1"></Media>
     <Media x="298" y="929" src="assets/en/june1/map-open.png" auto="-1" class="" loopback="-1"></Media>
-    <Media x="1346" y="250" src="assets/en/june1/parts.png" auto="-1" class="01" loopback="-1"></Media>
+    <Media x="1346" y="250" src="assets/en/june1/parts.png" auto="-1" class="" loopback="-1"></Media>
     <Media x="1173" y="670" src="assets/en/june1/Wolfs-bane-CLOSED-NT.png" auto="-1" class="rhp" loopback="-1"></Media>
     <Media x="1597" y="677" src="assets/en/june1/Taming-Cerberus-CLOSED-NT.png" auto="-1" class="rhp" loopback="-1"></Media>
     <Media x="1079" y="591" src="assets/en/june1/plant_alpha_v02.mov" auto="1" class="" loopback="180"></Media>
     <Media x="950" y="600" src="assets/en/june1/overlays-and-shadows.png" auto="-1" class="" loopback="-1"></Media>
     <Media x="1185" y="529" src="assets/en/june9/wolf-15.mov" auto="1" class="rhp" loopback="-1"></Media>
     <Media x="889" y="1148" src="assets/en/folios.png" auto="-1" class="rhp" loopback="-1"></Media>
-    <Media x="1344" y="498" src="assets/en/june9/conium_V02.mov" auto="-1" class="btn0video" loopback="-1"></Media>
-    <Media x="1321" y="378" src="assets/en/june9/rhodo_V02.mov" auto="-1" class="btn1video" loopback="-1"></Media>
+    <Media x="1344" y="498" src="assets/en/june9/conium_V02.mov" auto="-1" class="0" loopback="-1" hidden="1" ></Media>
+    <Media x="1321" y="378" src="assets/en/june9/rhodo_V02.mov" auto="-1" class="1" loopback="-1" hidden="1" ></Media>
 </Page>

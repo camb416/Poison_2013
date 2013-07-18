@@ -41,8 +41,8 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, BookVie
     tfield.update("Magic Book", 16,760);
     
     aValue = 0.5f;
-    bar.setup("Page Confidence", &aValue, 600, 16);
-    bar.setPosition(ofPoint(16,949));
+ //   bar.setup("Page Confidence", &aValue, 600, 16);
+ //   bar.setPosition(ofPoint(16,949));
     
     
     gui.hide();
@@ -52,10 +52,15 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, BookVie
     gui.addButton("load XML", loadXMLbtn);
     gui.addButton("save XML", saveXMLbtn);
     gui.addToggle("full screen", bFullScreencheckbox);
+
+    gui.addTitle("Testing functions").setNewColumn(true);
+    gui.addButton("hide RHP elems",bHideRHP); //TODO: remove this later
+    
+    bHideRHP_prev = bHideRHP = false;
     
 }
 void DebugUI::update(){
-    bar.update();
+ //   bar.update();
     
     tfield.update("Magic Book \n" + book->getReport() + "\n" + book->whatSituation());
     
@@ -74,6 +79,17 @@ void DebugUI::update(){
         bDragUIcheckbox_prev = bDragUIcheckbox;
     }
     
+    if(bHideRHP!=bHideRHP_prev){
+        if(bHideRHP){
+        ofLogNotice() << "preesed the button" ;
+            
+            bookView->hideCurrentMediaByClassName("rhp");
+            
+        } else {
+            ofLogNotice() << "released the button" ;
+        }
+        bHideRHP_prev = bHideRHP;
+    }
     if(bFullScreencheckbox!=bFullScreencheckbox_prev){
         
         if(bFullScreencheckbox){
@@ -128,13 +144,13 @@ void DebugUI::draw(){
     
     if(isVisible){
         ofEnableAlphaBlending();
-        ofSetColor(255,255,255,212);
+        ofSetColor(255,255,255,32);
         ofFill();
         ofRect(0,0,ofGetWidth(),ofGetHeight());
         ofSetColor(255,255,255,255);
         devices->draw(10,300);
         tfield.draw();
-        bar.draw();
+    //    bar.draw();
         if(ofGetMousePressed()) pos_ui.draw();
         
         gui.draw();

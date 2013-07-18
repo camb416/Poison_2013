@@ -48,6 +48,21 @@ public:
         ofLogNotice() << "printing current media with id: " <<  _id << ".";
        mediaPages.at(currentPage)->printCurrentMediaByClassName(_id);
     }
+    
+    void hideCurrentMediaByClassName(string _classname){
+        vector<Media*> mediaToHide = mediaPages.at(currentPage)->getMediaByClassName(_classname);
+        for(int i=0;i<mediaToHide.size();i++){
+            mediaToHide.at(i)->hide();
+        }
+    }
+    void showCurrentMediaByClassName(string _classname){
+        vector<Media*> mediaToShow = mediaPages.at(currentPage)->getMediaByClassName(_classname);
+        for(int i=0;i<mediaToShow.size();i++){
+            // TODO: implement show();
+            //mediaToShow.at(i)->show();
+        }
+    }
+    
 
     
 private:

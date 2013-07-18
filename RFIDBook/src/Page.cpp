@@ -74,6 +74,7 @@ void Page::update(){
     for (int i = 0; i < media.size(); i++) {
         media.at(i)->update();
     }
+    /*
     
     if (touchActive){
         int currentFrame;
@@ -130,7 +131,7 @@ void Page::update(){
         }
     }
 
-
+*/
 
 }
 
@@ -140,20 +141,20 @@ void Page::draw(float originX, float originY, float scale){
         
         // Run the normal draw method for each media element
         for (int i = 0; i < media.size(); i++) {
-            media.at(i)->draw();
+            if(!media.at(i)->isHidden) media.at(i)->draw();
         }
         
     }
     else {
         // Run the scaled draw method for each media element
         for (int i = 0; i < media.size(); i++) {
-            media.at(i)->draw(scale);
+            if(!media.at(i)->isHidden) media.at(i)->draw(scale);
         }
     }
     
 }
 
-void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback){
+void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback, bool _isHidden){
     
     Media * newMedia = new Media();
     
@@ -161,7 +162,7 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
     if (sub == "png") {
         
         // run the setup for a media element that is just an image
-        newMedia->setup(fileName, position.x, position.y, tapId);
+        newMedia->setup(fileName, position.x, position.y, tapId, _isHidden);
         
     }
     else if (sub == "mov"){
@@ -170,7 +171,8 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
         string imageFile = fileName;
         imageFile.replace(fileName.length() -3, 3, "png");
         // newMedia->setup(imageFile, fileName, position.x, position.y, autoplay, tapId, loopback);
-        newMedia->setup("", fileName, position.x, position.y, autoplay, tapId, loopback);
+        newMedia->setup("", fileName, position.x, position.y, autoplay, tapId, loopback, _isHidden);
+        //newMedia->setBorder(true);
         
     }
     else {
@@ -185,7 +187,7 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
 }
 
 void Page::receiveInput(char touchId_in, int pageNum_in){
-
+/*
     int position = -1;
     
     // Look for character in valid inputs vector
@@ -225,6 +227,7 @@ void Page::receiveInput(char touchId_in, int pageNum_in){
     }
     }
 }
+ */
 }
 
 
@@ -243,15 +246,16 @@ void Page::fade(int dir){
             // TODO - handle video fade in as well
             float fadeVal = ofRandomuf()*(maxFadeIn-minFadeIn)+minFadeIn;
             //cout << fadeVal << endl;
-            media.at(i)->img.fadeIn(fadeVal);
-            media.at(i)->vid.fadeIn(fadeVal);
+            if(media.at(i)->mediaType==IMGMEDIA) media.at(i)->img->fadeIn(fadeVal);
+            
             
             // If autoplay is on for the video, start playing
             
-            if (media.at(i)->hasVid == true){
+            if (media.at(i)->mediaType == VIDMEDIA){
                 if (media.at(i)->autoplay == 1){
                     media.at(i)->playVid();
                 }
+                media.at(i)->vid->fadeIn(fadeVal);
             }
         }
     }
@@ -262,11 +266,14 @@ void Page::fade(int dir){
             float fadeVal = ofRandomuf()*(maxFadeOut-minFadeOut)+minFadeOut;
             // cout << fadeVal << endl;
             
-            media.at(i)->img.fadeOut(fadeVal);
-            media.at(i)->vid.fadeOut(fadeVal);
+            if(media.at(i)->mediaType==IMGMEDIA) media.at(i)->img->fadeOut(fadeVal);
+            if(media.at(i)->mediaType==VIDMEDIA) {
+                
+            media.at(i)->vid->fadeOut(fadeVal);
             media.at(i)->vidState = 0;
             // TODO: debug this! stop all video
             media.at(i)->stopVid();
+                }
         }
     }
     

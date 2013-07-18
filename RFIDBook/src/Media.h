@@ -28,8 +28,8 @@ public:
     
     int mediaType;
     
-    void setup(string mediaFile, float _x, float _y, string _tapId);
-    void setup(string _imgFile, string vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback);
+    void setup(string mediaFile, float _x, float _y, string _tapId, bool _isHidden);
+    void setup(string _imgFile, string vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback, bool _isHidden);
     void update();
     void draw(float scale=1.0f);
     void setPosition(float _x, float _y);
@@ -46,10 +46,12 @@ public:
     float x;
     float y;
     
-    float vidX;
-    float vidY;
+    bool isHidden;
     
-    bool hasVid;
+    //float vidX;
+    //float vidY;
+    
+    //bool hasVid;
     bool vidState;
     
     int autoplay;
@@ -62,12 +64,14 @@ public:
     // -1 = no looping, 0 = loop from beginning, {positive number} = loop from that position
     float loopback = -1.0f;
     
-    ofFadeImage img;
-    ofFadeVideo vid;
+    ofFadeImage * img;
+    ofFadeVideo * vid;
     
     void printInfo();
     
     void setBorder(bool _showBorder);
+    
+    void hide();
     
 private:
     bool isDraggable;
