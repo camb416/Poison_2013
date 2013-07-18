@@ -373,7 +373,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "47"
          endingLineNumber = "47"
-         landmarkName = "DebugUI::update()"
+         landmarkName = "DebugUI::setup(DeviceController * _devices, BookController * _book, BookView * _bookView, BookLoader * _loader)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -381,11 +381,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "395779244.645803"
+         timestampString = "395849559.161599"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "191"
-         endingLineNumber = "191"
+         startingLineNumber = "192"
+         endingLineNumber = "192"
          landmarkName = "Media::printInfo()"
          landmarkType = "5">
       </FileBreakpoint>

@@ -89,7 +89,8 @@ ofPoint Media::getPosition(){
 }
 
 string Media::getFileName(){
-    if (hasVid == true){
+    
+    if (mediaType==DUALMEDIA || mediaType == VIDMEDIA){
         return vidFileName;
     } else {
         return imgFileName;
