@@ -22,6 +22,7 @@ void ofFadeImage::setup(string filename_in){
     alphaDest = 1.0f;
     loadImage(filename_in);
     setAnchorPercent(0.5f, 0.5f);
+    path = filename_in;
 }
 void ofFadeImage::update(){
     alpha += (alphaDest-alpha)/tweenDivisor;
@@ -42,6 +43,9 @@ void ofFadeImage::draw(int x_in, int y_in){
         ofNoFill();
         ofRect(x_in, y_in, myscale*getWidth(), myscale*getHeight());
         ofFill();
+        ofSetColor(0,0,0);
+        ofRect(x_in, y_in, myscale*getWidth(), myscale*getHeight());
+        ofDrawBitmapString(path,x_in,y_in);
     }
 }
 void ofFadeImage::draw(int x_in, int y_in, int w_in, int h_in){
@@ -65,7 +69,10 @@ void ofFadeImage::draw(int x_in, int y_in, int w_in, int h_in){
             stringstream ss;
             ss << x_in << ", " << y_in << " : " << x_in-wOffset << " , " <<  y_in-hOffset;
             
-            ofDrawBitmapString(ss.str(), 0, 0);
+            ofDrawBitmapString(ss.str(), x_in-wOffset, y_in-hOffset+20);
+            //ofSetColor(0,0,0);
+            //ofRect(x_in, y_in, myscale*getWidth(), myscale*getHeight());
+            ofDrawBitmapString(path,x_in-wOffset, y_in-hOffset+40);
 
         }
         ofPopMatrix();

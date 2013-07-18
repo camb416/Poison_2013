@@ -14,17 +14,21 @@
 #include "ofFadeImage.h"
 #include "OfFadeVideo.h"
 
+
 #define UNKNOWNMEDIA -1
 #define IMGMEDIA 0
 #define VIDMEDIA 1
 #define DUALMEDIA 2
 
+class BookView;
 
 class Media {
     
 public:
     Media();
     ~Media();
+    
+    BookView * viewRef;
     
     int mediaType;
     
@@ -47,6 +51,7 @@ public:
     float y;
     
     bool isHidden;
+    bool isHiddenByDefault;
     
     //float vidX;
     //float vidY;
@@ -71,9 +76,22 @@ public:
     
     void setBorder(bool _showBorder);
     
-    void hide();
+    // these return -1 if it's already hidden or shown,
+    // or 0 if everything looks okay
+    int hide();
+    int show();
+    
+    void registerView(BookView * _viewRef){
+        viewRef = _viewRef;
+    }
+    
+    int showWhenDone(string _showWhenDone){
+        showWhenDone_str = _showWhenDone;
+    }
     
 private:
+    
+    string showWhenDone_str;
     bool isDraggable;
     bool isDragging;
     string imgFileName;

@@ -7,6 +7,7 @@
 //
 
 #include "Media.h"
+#include "BookView.h"
 
 Media::Media(){
     isDraggable = true;
@@ -20,10 +21,12 @@ Media::~Media(){}
 // Image only
 void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isHidden){
     
+    
+    showWhenDone_str = "";
     imgFileName = mediaFile;
     setPosition(_x, _y);
     
-    isHidden = _isHidden;
+    isHidden = isHiddenByDefault = _isHidden;
     //hasVid = false;
     autoplay = -1;
     mClass = _tapId;
@@ -37,10 +40,12 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
 // Image and video
 void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback, bool _isHidden){
  
+    
+    showWhenDone_str = "";
     setPosition(_x, _y);
     
     mClass = _tapId;
-    isHidden = _isHidden;
+    isHidden = isHiddenByDefault = _isHidden;
     
     
     if(_imgFile.length()>3){
@@ -62,10 +67,13 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
     if(mediaType==DUALMEDIA) ofLogWarning() << "DUAL MEDIA NOT SUPPORTED";
     
     
-    if (loopback == 0){
+    if(loopback<0){
+        vid->setLoopState(OF_LOOP_NONE);
+    }else if (loopback == 0){
         vid->setLoopState(OF_LOOP_PALINDROME);
     } else {
-        vid->setLoopState(OF_LOOP_NONE);
+        // loop to a partial point...
+        //vid->setLoopState(OF_LOOP_NONE);
     }
     
     if(mediaType==VIDMEDIA || mediaType==DUALMEDIA){
@@ -131,19 +139,32 @@ void Media::update(){
     
     //TODO check mediaState to see what to do
     
-    if(mediaType==IMGMEDIA) img->update();
-    
+    if(mediaType==IMGMEDIA){
+        img->update();
+        img->getAlpha()<0.01f ? isHidden = true : isHidden = false;
+    }
     if (mediaType==VIDMEDIA) {
       
             int currentFrame = vid->getCurrentFrame();
             int lastFrame = vid->getTotalNumFrames();
         
-            if (currentFrame == lastFrame && loopback > 0){
+            if (currentFrame == lastFrame && vid->isPlaying()){
+                if(loopback>0){
                 vid->setFrame(loopback);
+                } else if(loopback<0){
+                    hide();
+                    vid->stop();
+                    if(showWhenDone_str.length()>0){
+                        viewRef->showCurrentMediaByClassName("rhp");
+                        showWhenDone_str = "";
+                    }
+                    
+                }
 //                ofLogNotice() << "current frame: " << currentFrame;
             }
         
         vid->update();
+        vid->getAlpha()<0.01f ? isHidden = true : isHidden = false;
 
     }
     
@@ -203,12 +224,41 @@ void Media::setBorder(bool _showBorder){
     if(mediaType==VIDMEDIA || mediaType==DUALMEDIA) vid->setBorder(_showBorder);
 }
 
-void Media::hide(){
+int Media::hide(){
+    
+    if(isHidden){
+        ofLogWarning() << "already hidden, can't hide it";
+        return -1;
+    } else {
+    
     if(mediaType==IMGMEDIA){
         img->fadeOut();
     } else if(mediaType==VIDMEDIA){
         vid->fadeOut();
     } else {
+        
         ofLogWarning() << "Media::hide not supported for mediaType==" << mediaType;
+        return -1;
+    }
+        return 0;
+    }
+}
+int Media::show(){
+    if(!isHidden){
+        ofLogWarning() << "already showing, can't show it";
+        return -1;
+    } else {
+     isHidden = false;
+    if(mediaType==IMGMEDIA){
+        img->fadeIn();
+    } else if(mediaType==VIDMEDIA){
+       
+        vid->fadeIn();
+        playVid();
+    } else {
+        ofLogWarning() << "Media::show not supported for mediaType==" << mediaType;
+        return -1;
+    }
+        return 0;
     }
 }

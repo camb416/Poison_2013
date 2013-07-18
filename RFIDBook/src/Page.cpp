@@ -7,6 +7,7 @@
 //
 
 #include "Page.h"
+#include "BookView.h"
 
 Page::Page(){
     doDrag = false;
@@ -157,7 +158,7 @@ void Page::draw(float originX, float originY, float scale){
 void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback, bool _isHidden){
     
     Media * newMedia = new Media();
-    
+    newMedia->registerView(viewRef);
     string sub = fileName.substr(fileName.length()-3,3);
     if (sub == "png") {
         
@@ -243,10 +244,9 @@ void Page::fade(int dir){
     
     if (dir == 1) {
         for (int i = 0; i < media.size(); i++) {
-            // TODO - handle video fade in as well
+            if(!media.at(i)->isHiddenByDefault){
             float fadeVal = ofRandomuf()*(maxFadeIn-minFadeIn)+minFadeIn;
-            //cout << fadeVal << endl;
-            if(media.at(i)->mediaType==IMGMEDIA) media.at(i)->img->fadeIn(fadeVal);
+            if(media.at(i)->mediaType==IMGMEDIA  ) media.at(i)->img->fadeIn(fadeVal);
             
             
             // If autoplay is on for the video, start playing
@@ -256,6 +256,7 @@ void Page::fade(int dir){
                     media.at(i)->playVid();
                 }
                 media.at(i)->vid->fadeIn(fadeVal);
+            }
             }
         }
     }
@@ -325,7 +326,7 @@ vector<Media*> Page::getMediaByClassName(string _id){
         if(media.at(i)->mClass.compare(_id)==0){
             returnVal.push_back(media.at(i));
             Media * thisMedia = (Media*) media.at(i);
-            thisMedia->setBorder(true);
+            //thisMedia->setBorder(true);
         }
 
     }

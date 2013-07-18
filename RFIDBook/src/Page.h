@@ -11,8 +11,11 @@
 
 #include "ofMain.h"
 #include "Media.h"
+#include "BookView.h"
 #include "ofxXmlSettings.h"
 #include <iostream>
+
+class BookView;
 
 class Page {
     
@@ -53,6 +56,12 @@ public:
     void printCurrentMedia();
     void printCurrentMediaByClassName(string _id);
     vector<Media *> getMediaByClassName(string _id);
+    
+    BookView * viewRef;
+    
+    void registerView(BookView * _viewRef){
+        viewRef = _viewRef;
+    }
     
 private:
     bool doDrag;

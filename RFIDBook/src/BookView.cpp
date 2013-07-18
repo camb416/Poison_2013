@@ -7,6 +7,8 @@
 //
 
 #include "BookView.h"
+#include "Page.h"
+
 BookView::BookView(){
     currentPage = -1;
     bShowDragUI = false;
@@ -118,6 +120,7 @@ void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions, vec
 void BookView::addPage(vector < MediaModel> medias){
 
     Page * newPage = new Page();
+    newPage->registerView(this);
     newPage->setup();
     
     
@@ -207,4 +210,46 @@ void BookView::savePageLayout(){
     else {
         ofLogNotice() << "Error writing media object positions to positions.xml";
     }
+}
+
+void BookView::printCurrentMedia(){
+    ofLogNotice() << "printing current media.";
+    mediaPages.at(currentPage)->printCurrentMedia();
+}
+void BookView::printCurrentMediaByClassName(string _id){
+    ofLogNotice() << "printing current media with id: " <<  _id << ".";
+    mediaPages.at(currentPage)->printCurrentMediaByClassName(_id);
+}
+
+int BookView::hideCurrentMediaByClassName(string _classname){
+    int returnVal = 0;
+    vector<Media*> mediaToHide = mediaPages.at(currentPage)->getMediaByClassName(_classname);
+    for(int i=0;i<mediaToHide.size();i++){
+        if(mediaToHide.at(i)->hide()!=0){
+            returnVal = -1;
+        }
+    }
+    return returnVal;
+}
+int BookView::showCurrentMediaByClassName(string _classname){
+    int returnVal = 0;
+    vector<Media*> mediaToShow = mediaPages.at(currentPage)->getMediaByClassName(_classname);
+    for(int i=0;i<mediaToShow.size();i++){
+        if(mediaToShow.at(i)->show()!=0){
+            returnVal = -1;
+        }
+    }
+    return returnVal;
+}
+
+int BookView::showCurrentMediaByClassName(string _classname,string _showWhenDone){
+    int returnVal = 0;
+    vector<Media*> mediaToShow = mediaPages.at(currentPage)->getMediaByClassName(_classname);
+    for(int i=0;i<mediaToShow.size();i++){
+        if(mediaToShow.at(i)->show()!=0){
+            returnVal = -1;
+        }
+        mediaToShow.at(i)->showWhenDone(_showWhenDone);
+    }
+    return returnVal;
 }

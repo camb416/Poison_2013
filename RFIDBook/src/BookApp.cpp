@@ -83,14 +83,15 @@ void BookApp::keyPressed(int key){
             case '=':
             case '+':
             
-            bookView.printCurrentMedia();
+            if(bookView.hideCurrentMediaByClassName("rhp")==0) bookView.showCurrentMediaByClassName("0","rhp");
             
             break;
             
             case '-':
             case '_':
             
-            bookView.printCurrentMediaByClassName("rhp");
+            if(bookView.hideCurrentMediaByClassName("rhp")==0) bookView.showCurrentMediaByClassName("1","rhp");
+            
             
             break;
             
