@@ -53,7 +53,7 @@ public:
     bool vidState;
     
     int autoplay;
-    string tapId;
+    string mClass;
     
     //TODO
     int mediaState;
@@ -66,6 +66,8 @@ public:
     ofFadeVideo vid;
     
     void printInfo();
+    
+    void setBorder(bool _showBorder);
     
 private:
     bool isDraggable;

@@ -51,8 +51,8 @@ public:
     vector<vector<int> > touchMediaMatrix;
     
     void printCurrentMedia();
-    void printCurrentMediaByID(string _id);
-    vector<Media *> getMediaByID(string _id);
+    void printCurrentMediaByClassName(string _id);
+    vector<Media *> getMediaByClassName(string _id);
     
 private:
     bool doDrag;

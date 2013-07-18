@@ -18,10 +18,11 @@ void BookApp::setup(){
     bookView.addBackplate(lang.resolvePath("assets/backplate.png"));
     
     // Load Book XML
-    vector<XmlPage> pages = loader.load("settings/book.xml");
+    vector< vector<MediaModel> > pages = loader.load("settings/book.xml");
     
     for (int i = 0; i < pages.size(); i++) {
-        bookView.addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId, pages.at(i).loopback);
+        //bookView.addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId, pages.at(i).loopback);
+        bookView.addPage(pages.at(i));
     }
     
     // Set up RFID & touch
@@ -89,7 +90,7 @@ void BookApp::keyPressed(int key){
             case '-':
             case '_':
             
-            bookView.printCurrentMediaByID("K");
+            bookView.printCurrentMediaByClassName("rhp");
             
             break;
             

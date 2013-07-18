@@ -95,10 +95,11 @@ void DebugUI::update(){
         
         bookView->clearPages();
         
-        vector<XmlPage> pages = loader->load("settings/book.default");
+        vector< vector<MediaModel> > pages = loader->load("settings/book.default");
         
         for (int i = 0; i < pages.size(); i++) {
-            bookView->addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId, pages.at(i).loopback);
+            bookView->addPage(pages.at(i));
+            //bookView->addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId, pages.at(i).loopback);
         }
         
     }
@@ -112,10 +113,11 @@ void DebugUI::update(){
         
         bookView->clearPages();
         
-        vector<XmlPage> pages = loader->load("settings/book.xml");
+        vector< vector<MediaModel> > pages = loader->load("settings/book.xml");
         
         for (int i = 0; i < pages.size(); i++) {
-            bookView->addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId, pages.at(i).loopback);
+            bookView->addPage(pages.at(i));
+            //bookView->addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId, pages.at(i).loopback);
         }
     }
 }

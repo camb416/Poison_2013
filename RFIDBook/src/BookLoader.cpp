@@ -13,9 +13,11 @@ BookLoader::~BookLoader(){}
 
 
 // Load each page from the book XML file
-vector<XmlPage> BookLoader::load(string fileName){
+vector< vector<MediaModel> > BookLoader::load(string fileName){
     
     cout << " -------- LOADING BOOK XML --------" << "\n";
+    
+    vector< vector<MediaModel> > allMedia;
     
     if (bookElements.loadFile(fileName)){
         
@@ -28,7 +30,9 @@ vector<XmlPage> BookLoader::load(string fileName){
         
         for (int i = 0; i < numPages; i++){
             
-            XmlPage newPage;
+            //XmlPage newPage;
+            vector<MediaModel> thisPage;
+            
             
             bookElements.pushTag("Page", i);
             
@@ -43,6 +47,8 @@ vector<XmlPage> BookLoader::load(string fileName){
                 string tapId;
                 int loopback = 0;
                 
+                MediaModel thisMedia;
+                
                     
                 mediaFileName = lang.resolvePath(bookElements.getAttribute("Media", "src", "", i));
 
@@ -56,8 +62,8 @@ vector<XmlPage> BookLoader::load(string fileName){
                 }
                 
                 
-                if (bookElements.attributeExists("Media", "tapId", i)) {
-                    tapId = bookElements.getAttribute("Media", "tapId", "0", i);
+                if (bookElements.attributeExists("Media", "class", i)) {
+                    tapId = bookElements.getAttribute("Media", "class", "0", i);
                 }
                 else {
                     tapId = "";
@@ -72,16 +78,24 @@ vector<XmlPage> BookLoader::load(string fileName){
                 
                 ofLogNotice() << "Loaded " << mediaFileName << " at position " << mediaPos.x << " : " << mediaPos.y;
                 
+                thisMedia.src = mediaFileName;
+                thisMedia.pos = mediaPos;
+                thisMedia.autoPlay = autoplay;
+                thisMedia.mClass = tapId;
+                thisMedia.loopback = loopback;
+                /*
                 newPage.media.push_back(mediaFileName);
                 newPage.position.push_back(mediaPos);
                 newPage.autoplay.push_back(autoplay);
-                newPage.tapId.push_back(tapId);
+                //newPage.tapId.push_back(tapId);
                 newPage.loopback.push_back(loopback);
-                
+                */
+                thisPage.push_back(thisMedia);
             }
             
             bookElements.popTag();
-            pages.push_back(newPage);
+            //pages.push_back(newPage);
+            allMedia.push_back(thisPage);
         }
 
         
@@ -92,5 +106,5 @@ vector<XmlPage> BookLoader::load(string fileName){
     
     cout << " ------------------------" << "\n";
     
-    return pages;
+    return allMedia;
 }

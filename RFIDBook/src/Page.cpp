@@ -282,7 +282,7 @@ ofxXmlSettings Page::getXML(){
         xml.setAttribute("Media", "y", (int)pt.y,i);
         xml.setAttribute("Media", "src", media.at(i)->getFileName(),i);
         xml.setAttribute("Media", "auto", (int)media.at(i)->autoplay, i);
-        xml.setAttribute("Media", "tapId", (string)media.at(i)->tapId, i);
+        xml.setAttribute("Media", "class", (string)media.at(i)->mClass, i);
         xml.setAttribute("Media", "loopback", (int)media.at(i)->loopback, i);
 
         
@@ -298,16 +298,16 @@ void Page::printCurrentMedia(){
     }
 }
 
-void Page::printCurrentMediaByID(string _id){
+void Page::printCurrentMediaByClassName(string _id){
     vector<Media*> mediaToPrint;
-    mediaToPrint = getMediaByID(_id);
+    mediaToPrint = getMediaByClassName(_id);
     
     for(int i=0;i<mediaToPrint.size();i++){
         mediaToPrint.at(i)->printInfo();
     }
     
 }
-vector<Media*> Page::getMediaByID(string _id){
+vector<Media*> Page::getMediaByClassName(string _id){
     vector<Media*> returnVal;
     
     // TODO: search through and return Media pointers
@@ -315,8 +315,10 @@ vector<Media*> Page::getMediaByID(string _id){
     
     for(int i=0;i<media.size();i++){
        
-        if(media.at(i)->tapId.compare(_id)==0){
+        if(media.at(i)->mClass.compare(_id)==0){
             returnVal.push_back(media.at(i));
+            Media * thisMedia = (Media*) media.at(i);
+            thisMedia->setBorder(true);
         }
 
     }

@@ -25,7 +25,7 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId){
     img.setup(mediaFile);
     hasVid = false;
     autoplay = -1;
-    tapId = _tapId;
+    mClass = _tapId;
     mediaType = IMGMEDIA;
 
 }
@@ -41,7 +41,7 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
     
     
     
-    tapId = _tapId;
+    mClass = _tapId;
     
 
     
@@ -168,7 +168,7 @@ void Media::draw(float scale){
         img.draw(x,y, img.width*scale, img.height*scale);
     }
     else {
-        if (vidState == 0 && (tapId == "" || tapId == "K")){
+        if (vidState == 0 && (mClass == "" || mClass == "K")){
             img.draw(x,y, img.width*scale, img.height*scale);
         }
         else if (vidState == 1) {
@@ -197,4 +197,9 @@ void Media::printInfo(){
             
     }
     //cout << vidFileName << ", " << imgFileName << "." << endl;
+}
+
+void Media::setBorder(bool _showBorder){
+    if(mediaType==IMGMEDIA || mediaType==DUALMEDIA) img.setBorder(_showBorder);
+    if(mediaType==VIDMEDIA || mediaType==DUALMEDIA) vid.setBorder(_showBorder);
 }
