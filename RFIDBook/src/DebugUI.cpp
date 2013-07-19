@@ -144,7 +144,7 @@ void DebugUI::draw(){
     
     if(isVisible){
         ofEnableAlphaBlending();
-        ofSetColor(255,255,255,32);
+        ofSetColor(255,255,255,128);
         ofFill();
         ofRect(0,0,ofGetWidth(),ofGetHeight());
         ofSetColor(255,255,255,255);
