@@ -223,6 +223,7 @@ void BookView::printCurrentMediaByClassName(string _id){
 
 int BookView::hideCurrentMediaByClassName(string _classname){
     int returnVal = 0;
+    // TODO: there's a bug here.... mediaToHide == 0 when you are on an interstitial!!!!....
     vector<Media*> mediaToHide = mediaPages.at(currentPage)->getMediaByClassName(_classname);
     for(int i=0;i<mediaToHide.size();i++){
         if(mediaToHide.at(i)->hide()!=0){
