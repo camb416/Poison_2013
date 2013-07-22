@@ -7,45 +7,85 @@
 //
 
 #include "Media.h"
+#include "BookView.h"
 
 Media::Media(){
     isDraggable = true;
     isDragging = false;
+    vidFileName = "";
+    imgFileName = "";
+    mediaType = -1;
 }
 Media::~Media(){}
 
 // Image only
-void Media::setup(string mediaFile, float _x, float _y){
+void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isHidden){
     
+    
+    showWhenDone_str = "";
     imgFileName = mediaFile;
     setPosition(_x, _y);
-    img.setup(mediaFile);
-    hasVid = false;
+    
+    isHidden = isHiddenByDefault = _isHidden;
+    //hasVid = false;
     autoplay = -1;
-    tapId = "";
+    mClass = _tapId;
+    mediaType = IMGMEDIA;
+    
+    img = new ofFadeImage();
+    img->setup(mediaFile);
 
 }
 
 // Image and video
-void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback){
+void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback, bool _isHidden){
+ 
     
-    
-    vidFileName = _vidFile;
+    showWhenDone_str = "";
     setPosition(_x, _y);
-    img.setup(_imgFile);
+    
+    mClass = _tapId;
+    isHidden = isHiddenByDefault = _isHidden;
     
     
-    autoplay = _autoplay;
-    string tapId;
-    hasVid = true;
-    vidState = 0;
-    vid.setup(_vidFile);
-    loopback = _loopback;
-    
-    if (loopback == 0){
-        vid.setLoopState(OF_LOOP_PALINDROME);
+    if(_imgFile.length()>3){
+        if(_vidFile.length()>3){
+            mediaType = DUALMEDIA;
+        } else {
+            mediaType = IMGMEDIA;
+        }
+        
+    } else if(_vidFile.length()>3){
+        mediaType = VIDMEDIA;
     } else {
-        vid.setLoopState(OF_LOOP_NONE);
+        mediaType = UNKNOWNMEDIA;
+    }
+    
+    if(mediaType==VIDMEDIA) vid = new ofFadeVideo();
+    if(mediaType==IMGMEDIA) img = new ofFadeImage();
+    if(mediaType==UNKNOWNMEDIA) ofLogWarning() << "UNKNOWN MEDIA NOT SUPPORTED";
+    if(mediaType==DUALMEDIA) ofLogWarning() << "DUAL MEDIA NOT SUPPORTED";
+    
+    
+    if(loopback<0){
+        vid->setLoopState(OF_LOOP_NONE);
+    }else if (loopback == 0){
+        vid->setLoopState(OF_LOOP_PALINDROME);
+    } else {
+        // loop to a partial point...
+        //vid->setLoopState(OF_LOOP_NONE);
+    }
+    
+    if(mediaType==VIDMEDIA || mediaType==DUALMEDIA){
+        vidFileName = _vidFile;
+       // hasVid = true;
+        vidState = 0;
+        vid->setup(_vidFile);
+        autoplay = _autoplay;
+        loopback = _loopback;
+    }
+    if(mediaType==IMGMEDIA || mediaType==DUALMEDIA){
+        img->setup(_imgFile);
     }
     
 }
@@ -61,7 +101,8 @@ ofPoint Media::getPosition(){
 }
 
 string Media::getFileName(){
-    if (hasVid == true){
+    
+    if (mediaType==DUALMEDIA || mediaType == VIDMEDIA){
         return vidFileName;
     } else {
         return imgFileName;
@@ -71,24 +112,25 @@ string Media::getFileName(){
 
 void Media::playVid(){
 
-    
-    if (hasVid) {
-        if (vid.isPlaying() == false) {
+    if(mediaType==VIDMEDIA){
+        if(vid->isPlaying()==false){
             vidState = 1;
-            vid.setFrame(0);
-            vid.play();
+            vid->setFrame(0);
+            vid->nextFrame();
+            vid->play();
         }
     }
+
 }
 
-void Media::pauseVid(){
-    
-    if (hasVid) {
-        if (vid.isPlaying() == true){
-            vid.stop();
+void Media::stopVid(){
+
+    if(mediaType==VIDMEDIA){
+        if(vid->isPlaying()==true){
+            vid->stop();
+            vid->setFrame(0);
             loopCount = 0;
         }
-
     }
 
 }
@@ -97,19 +139,32 @@ void Media::update(){
     
     //TODO check mediaState to see what to do
     
-    img.update();
-    
-    if (hasVid) {
+    if(mediaType==IMGMEDIA){
+        img->update();
+        img->getAlpha()<0.01f ? isHidden = true : isHidden = false;
+    }
+    if (mediaType==VIDMEDIA) {
       
-            int currentFrame = vid.getCurrentFrame();
-            int lastFrame = vid.getTotalNumFrames();
+            int currentFrame = vid->getCurrentFrame();
+            int lastFrame = vid->getTotalNumFrames();
         
-            if (currentFrame == lastFrame && loopback > 0){
-                vid.setFrame(loopback);
+            if (currentFrame == lastFrame && vid->isPlaying()){
+                if(loopback>0){
+                vid->setFrame(loopback);
+                } else if(loopback<0){
+                    hide();
+                    vid->stop();
+                    if(showWhenDone_str.length()>0){
+                        viewRef->showCurrentMediaByClassName("rhp");
+                        showWhenDone_str = "";
+                    }
+                    
+                }
 //                ofLogNotice() << "current frame: " << currentFrame;
             }
         
-        vid.update();
+        vid->update();
+        vid->getAlpha()<0.01f ? isHidden = true : isHidden = false;
 
     }
     
@@ -125,24 +180,85 @@ void Media::moveTo(int _x, int _y){
 void Media::setDraggable(bool _bDrag){
     isDraggable = _bDrag;
 
-    img.setBorder(isDraggable);
-    vid.setBorder(isDraggable);
+   if(mediaType==IMGMEDIA) img->setBorder(isDraggable);
+   if(mediaType==VIDMEDIA) vid->setBorder(isDraggable);
 
     
 }
 
 void Media::draw(float scale){
     
-    if (hasVid == false){
-        img.draw(x,y, img.width*scale, img.height*scale);
-    }
-    else {
-        if (vidState == 0){
-            img.draw(x,y, img.width*scale, img.height*scale);
+    if (mediaType==IMGMEDIA){
+        img->draw(x,y, img->width*scale, img->height*scale);
+    } else if(mediaType==VIDMEDIA){
+       // if (vidState == 0 && (mClass == "" || mClass == "K")){
+            //img->draw(x,y, img->width*scale, img->height*scale);
+       // }
+       // else if (vidState == 1) {
+            vid->draw(x, y, vid->width*scale, vid->height*scale);
         }
-        else {
-            vid.draw(x, y, vid.width*scale, vid.height*scale);
-        }
-    }
 
+}
+void Media::printInfo(){
+    switch(mediaType){
+        
+        case 0:
+            ofLogNotice() << "IMAGE MEDIA: "<< imgFileName << ".";
+            break;
+        case 1:
+            ofLogNotice() << "VIDEO MEDIA: " << vidFileName << ".";
+            break;
+        case 2:
+            ofLogNotice() << "DUAL MEDIA: " << imgFileName.length() << ": " << imgFileName << ", " << vidFileName << ".";
+            break;
+        default:
+            ofLogNotice() << "UNKNOWN MEDIA: ";
+            break;
+            
+    }
+    //cout << vidFileName << ", " << imgFileName << "." << endl;
+}
+
+void Media::setBorder(bool _showBorder){
+    if(mediaType==IMGMEDIA || mediaType==DUALMEDIA) img->setBorder(_showBorder);
+    if(mediaType==VIDMEDIA || mediaType==DUALMEDIA) vid->setBorder(_showBorder);
+}
+
+int Media::hide(){
+    
+    if(isHidden){
+        ofLogWarning() << "already hidden, can't hide it";
+        return -1;
+    } else {
+    
+    if(mediaType==IMGMEDIA){
+        img->fadeOut();
+    } else if(mediaType==VIDMEDIA){
+        vid->fadeOut();
+    } else {
+        
+        ofLogWarning() << "Media::hide not supported for mediaType==" << mediaType;
+        return -1;
+    }
+        return 0;
+    }
+}
+int Media::show(){
+    if(!isHidden){
+        ofLogWarning() << "already showing, can't show it";
+        return -1;
+    } else {
+     isHidden = false;
+    if(mediaType==IMGMEDIA){
+        img->fadeIn();
+    } else if(mediaType==VIDMEDIA){
+       
+        vid->fadeIn();
+        playVid();
+    } else {
+        ofLogWarning() << "Media::show not supported for mediaType==" << mediaType;
+        return -1;
+    }
+        return 0;
+    }
 }

@@ -11,8 +11,11 @@
 #include "ofMain.h"
 #include "ofFadeImage.h"
 #include "ofxXmlSettings.h"
+#include "BookLoader.h"
 #include "Page.h"
 #include <iostream>
+
+class Page;
 class BookView{
     
 public:
@@ -23,6 +26,9 @@ public:
     void draw();
     void draw(int x_in, int y_in, int debugState=0);
     void addPage(vector<string> mediaFiles, vector<ofVec2f> positions, vector<int> autoplay, vector<string> tapId, vector<int> loopback);
+    
+    void addPage(vector<MediaModel> medias);
+    
     void clearPages();
     void addBackplate(string platename_in);
     void activate(int pagenum_in);
@@ -35,6 +41,15 @@ public:
     void hideDragUI();
     
     vector<Page*> mediaPages;
+    
+    void printCurrentMedia();
+    void printCurrentMediaByClassName(string _id);
+    int hideCurrentMediaByClassName(string _classname);
+    int showCurrentMediaByClassName(string _classname);
+    int showCurrentMediaByClassName(string _classname,string _showWhenDone);
+
+    
+
     
 private:
     

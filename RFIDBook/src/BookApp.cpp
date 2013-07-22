@@ -8,7 +8,7 @@ BookApp::BookApp(){
 void BookApp::setup(){
     
     ofSetFrameRate(60);
-    ofSetVerticalSync(true);
+    ofSetVerticalSync(false);
     
     lang.load("settings/languages.xml");
     
@@ -18,15 +18,16 @@ void BookApp::setup(){
     bookView.addBackplate(lang.resolvePath("assets/backplate.png"));
     
     // Load Book XML
-    vector<XmlPage> pages = loader.load("settings/book.xml");
+    vector< vector<MediaModel> > pages = loader.load("settings/book.xml");
     
     for (int i = 0; i < pages.size(); i++) {
-        bookView.addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId, pages.at(i).loopback);
+        //bookView.addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId, pages.at(i).loopback);
+        bookView.addPage(pages.at(i));
     }
     
     // Set up RFID & touch
     devices.setup();
-        devices.startThread(true,false);
+    devices.startThread(true,false);
     
     book.setup(&devices,&bookView);
    // rfidsetup();
@@ -51,13 +52,15 @@ void BookApp::update(){
   //  devices.report();
     if(isSetup){
         devices.update();
+        book.update();
         bookView.update();
         
+        /*
             if(book.isPageLanded()){
                     // checks for three sensors active.
             }
-    
-        book.update();
+    */
+        
         
     }
     dui.update();
@@ -79,6 +82,21 @@ void BookApp::draw(){
 //--------------------------------------------------------------
 void BookApp::keyPressed(int key){
     switch(key){
+            case '=':
+            case '+':
+            
+            if(bookView.hideCurrentMediaByClassName("rhp")==0) bookView.showCurrentMediaByClassName("0","rhp");
+            
+            break;
+            
+            case '-':
+            case '_':
+            
+            if(bookView.hideCurrentMediaByClassName("rhp")==0) bookView.showCurrentMediaByClassName("1","rhp");
+            
+            
+            break;
+            
             case 'a': 
             case 'A':
             

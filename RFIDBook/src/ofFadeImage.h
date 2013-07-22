@@ -23,6 +23,9 @@ public:
     void setBorder(bool _showBorder);
     void draw(int x_in, int y_in);
     void draw(int x_in, int y_in, int w_in, int h_in);
+    float getAlpha(){
+        return alpha;
+    }
     
 private:
     
@@ -30,6 +33,7 @@ private:
     float alphaDest;
     float tweenDivisor;
     bool showBorder;
+    string path;
     
     
     

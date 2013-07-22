@@ -50,6 +50,8 @@ class BookApp : public ofBaseApp{
         DebugUI dui;
     
         BookLoader loader;
-
+    
+        bool useRFID;
+        bool useTouch;
 		
 };

@@ -7,6 +7,8 @@
 //
 
 #include "BookView.h"
+#include "Page.h"
+
 BookView::BookView(){
     currentPage = -1;
     bShowDragUI = false;
@@ -84,9 +86,11 @@ void BookView::draw(int x_in, int y_in, int debugState){
 }
 
 // Add all media elements and add to page
+// TODO: DEPRECATE ME
 void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions, vector<int> autoplay, vector<string> tapId, vector<int> loopback){
     
-    
+    ofLogWarning() << "ADDING page with legacy method. Don't do it.";
+    /*
     Page * newPage = new Page();
     newPage->setup();
     
@@ -94,6 +98,35 @@ void BookView::addPage(vector<string> mediaFiles, vector<ofVec2f> positions, vec
     for (int i = 0; i < mediaFiles.size(); i++) {
 
         newPage->addMedia(mediaFiles.at(i), positions.at(i), autoplay.at(i), tapId.at(i), loopback.at(i));
+        
+        // Add touch media for left and right & media to be faded out when touch is active
+        if (ofIsStringInString(tapId.at(i), "H")) {
+            newPage->touchMediaMatrix[0].push_back(i);
+        } else if (ofIsStringInString(tapId.at(i), "J")) {
+            newPage->touchMediaMatrix[1].push_back(i);
+        } else if (ofIsStringInString(tapId.at(i), "K")) { // media to be faded out
+            newPage->touchMediaMatrix[2].push_back(i);
+        }
+        else{
+        }
+    }
+    
+    mediaPages.push_back(newPage);
+    ofLogNotice() << "added new page. total pages: " << mediaPages.size();
+     */
+    
+}
+
+void BookView::addPage(vector < MediaModel> medias){
+
+    Page * newPage = new Page();
+    newPage->registerView(this);
+    newPage->setup();
+    
+    
+    for (int i = 0; i < medias.size(); i++) {
+        MediaModel thisMedia = medias.at(i);
+        newPage->addMedia(thisMedia.src,thisMedia.pos,thisMedia.autoPlay,thisMedia.mClass,thisMedia.loopback, thisMedia.isHidden);
     }
     
     mediaPages.push_back(newPage);
@@ -134,6 +167,14 @@ void BookView::activate(int pagenum_in){
                 mediaPages.at(i)->fade(1);
             } else {
                 mediaPages.at(i)->fade(-1);
+                try {
+                    if (mediaPages.at(currentPage)->touchActive == true){
+                        mediaPages.at(currentPage)->pageReset = true;
+                    }
+                } catch (...) {
+                    
+                }
+                
             }
         }
     }
@@ -171,3 +212,44 @@ void BookView::savePageLayout(){
     }
 }
 
+void BookView::printCurrentMedia(){
+    ofLogNotice() << "printing current media.";
+    mediaPages.at(currentPage)->printCurrentMedia();
+}
+void BookView::printCurrentMediaByClassName(string _id){
+    ofLogNotice() << "printing current media with id: " <<  _id << ".";
+    mediaPages.at(currentPage)->printCurrentMediaByClassName(_id);
+}
+
+int BookView::hideCurrentMediaByClassName(string _classname){
+    int returnVal = 0;
+    vector<Media*> mediaToHide = mediaPages.at(currentPage)->getMediaByClassName(_classname);
+    for(int i=0;i<mediaToHide.size();i++){
+        if(mediaToHide.at(i)->hide()!=0){
+            returnVal = -1;
+        }
+    }
+    return returnVal;
+}
+int BookView::showCurrentMediaByClassName(string _classname){
+    int returnVal = 0;
+    vector<Media*> mediaToShow = mediaPages.at(currentPage)->getMediaByClassName(_classname);
+    for(int i=0;i<mediaToShow.size();i++){
+        if(mediaToShow.at(i)->show()!=0){
+            returnVal = -1;
+        }
+    }
+    return returnVal;
+}
+
+int BookView::showCurrentMediaByClassName(string _classname,string _showWhenDone){
+    int returnVal = 0;
+    vector<Media*> mediaToShow = mediaPages.at(currentPage)->getMediaByClassName(_classname);
+    for(int i=0;i<mediaToShow.size();i++){
+        if(mediaToShow.at(i)->show()!=0){
+            returnVal = -1;
+        }
+        mediaToShow.at(i)->showWhenDone(_showWhenDone);
+    }
+    return returnVal;
+}

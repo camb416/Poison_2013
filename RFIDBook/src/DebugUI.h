@@ -48,12 +48,16 @@ private:
     bool isVisible;
     bool bFullScreencheckbox;
     bool bFullScreencheckbox_prev;
+    
+    // TODO: remove this later
+    bool bHideRHP, bHideRHP_prev;
+    
     DeviceController * devices;
     BookController * book;
     BookLoader * loader;
     TextField tfield;
     PositionUI pos_ui;
-    BarGraph bar;
+  //  BarGraph bar;
 
     float aValue;   // what is this? Something for bar graph...
     

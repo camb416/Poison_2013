@@ -14,15 +14,27 @@
 #include "ofxXmlSettings.h"
 #include "LanguageController.h"
 
+struct MediaModel{
+    string src;
+    ofVec2f pos;
+    int autoPlay;
+    string mClass;
+    int loopback;
+    bool isHidden;
+};
 
-struct XmlPage {
-    vector<string> media;
+// parsing into MediaModel struct instead
+// of XmlPage... it seemed confusing
+
+//struct XmlPage {
+ //   vector<MediaModel> medias;
+/*    vector<string> media;
     vector<ofVec2f> position;
     vector<int> autoplay;
     vector<string> tapId;
     vector<int> loopback;
-    
-};
+  */  
+//};
 
 class BookLoader{
     
@@ -31,13 +43,13 @@ public:
     BookLoader();
     ~BookLoader();
     
-    vector<XmlPage> load(string fileName);
+    vector< vector<MediaModel> > load(string fileName);
     
     ofxXmlSettings bookElements;
     
     //string fileName = "settings/book.xml";
     
-    vector<XmlPage> pages;
+    vector< vector<MediaModel> > pages;
     
     LanguageController lang;
     

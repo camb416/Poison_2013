@@ -11,8 +11,11 @@
 
 #include "ofMain.h"
 #include "Media.h"
+#include "BookView.h"
 #include "ofxXmlSettings.h"
 #include <iostream>
+
+class BookView;
 
 class Page {
     
@@ -25,11 +28,11 @@ public:
     void dragUpdate();
     void draw(float originX, float originY, float scale);
     
-    void addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback);
+    void addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback, bool _isHidden);
     
     void setDrag(bool _doDrag);
     
-    void receiveInput(char touchId, int pageNum);
+    void receiveInput(char touchId_in, int pageNum_in);
     
     void fade(int dir);
     
@@ -41,11 +44,29 @@ public:
     
     void hideAllBorders();
     
+    bool touchActive;
+    bool pageReset;
+
+    int activeMedia;
+    int activePage;
+    char currentTouch;
+    
+    vector<vector<int> > touchMediaMatrix;
+    
+    void printCurrentMedia();
+    void printCurrentMediaByClassName(string _id);
+    vector<Media *> getMediaByClassName(string _id);
+    
+    BookView * viewRef;
+    
+    void registerView(BookView * _viewRef){
+        viewRef = _viewRef;
+    }
     
 private:
     bool doDrag;
     
-
+    int fadeOutMedia;
 };
 
 #endif /* defined(__RFIDBook__Page__) */
