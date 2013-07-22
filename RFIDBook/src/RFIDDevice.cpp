@@ -60,6 +60,9 @@ int gotAttach(CPhidgetHandle phid, void *context) {
     *nullchar = 'x';
     obj->update(true,nullchar);
     delete nullchar;
+    
+     cout << "device attached..." << endl;
+    
     return 0;
 }
 
