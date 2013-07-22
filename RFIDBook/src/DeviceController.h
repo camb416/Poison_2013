@@ -74,40 +74,36 @@ public:
     void threadedFunction(){
         while(isThreadRunning()){
             
-            // has it been 10ms since last time?
-            // time_t curTime = time(NULL);
+            
             lock();
-            if(ofGetElapsedTimeMillis()>lastTime+cycleTime){
-                //double lastSeconds = timer.getSecondsSinceLastCall();
-                //cout << ofGetElapsedTimeMillis() << endl;
-               // cout << curSensor << endl;
-                // DO THE THING!
+            if(ofGetElapsedTimeMillis()>lastTime+cycleTime){ // has it been 10ms since last time?
                 
-                // turn the others off
-                
+                // check the last sensor (that has been on for a few ms
                 int prevSensor = curSensor-1;
                 if(prevSensor<0) prevSensor=numSensors-1;
                 int * prevSensorState = new int();
                 CPhidgetRFID_getTagStatus(rfids.at(prevSensor)->rfid,prevSensorState);
-                //cout << *(prevSensorState) << endl;
+                
                 char * tagToSend = new char[1];
                 if(*prevSensorState==1 && doublecheck(prevSensor)){
                     *tagToSend = 'O';
-                    
+                     
                 } else {
                     *tagToSend = 'x';
                     if(prevSensor%2==1){
-                        //breakpoint
-                        // I think this shouldn't happen.
-                        //cout << "" << endl;
+                        // for error checking
                     }
                 }
                 
-                rfids.at(prevSensor)->update(true,tagToSend);
+                rfids.at(prevSensor)->update(rfids.at(prevSensor)->bIsAttached,tagToSend);                
+                
+               
                 
                 delete tagToSend;
                 delete prevSensorState;
                 
+                
+                // cycle the sensor antennae
                 int sensorState;
                 for(int i=0;i<numSensors;i++){
                     
@@ -123,26 +119,12 @@ public:
                 }
                 
                 curSensor++;
-                if(curSensor >=numSensors) curSensor = 0;;
-                
-                
-                // turn a sensor on
-                
-                
-                
-                // pick next sensor
-                
+                if(curSensor >=numSensors) curSensor = 0;
                 
                 lastTime = ofGetElapsedTimeMillis();
                 
             }
             unlock();
-            // if yes: 
-            
-                
-            
-            
-            
         }
     }
 };

@@ -1,7 +1,23 @@
-<Page>
+<!--Page>
     
     <Media x="972" y="609" src="assets/en/page0/0.png" auto="-1" class="" loopback="-1"></Media>
     <Media x="523" y="640" src="assets/en/page0/belladona_alpha01.mov" auto="1" class="" loopback="114"></Media>
+</Page-->
+<Page>
+    
+    <Media x="1328" y="1027" src="assets/en/page1/Assasin.png" auto="-1" class="" loopback="-1"></Media>
+    <Media x="298" y="475" src="assets/en/page1/how-it-works-Open.png" auto="-1" class="" loopback="-1"></Media>
+    <Media x="693" y="675" src="assets/en/page1/IDENTIFY.png" auto="-1" class="" loopback="-1"></Media>
+    <Media x="430" y="112" src="assets/en/page1/Main-title-B.png" auto="-1" class="" loopback="-1"></Media>
+    <Media x="298" y="929" src="assets/en/page1/map-open.png" auto="-1" class="" loopback="-1"></Media>
+    <Media x="1378" y="253" src="assets/en/page1/parts.png" auto="-1" class="" loopback="-1"></Media>
+    <Media x="1175" y="702" src="assets/en/page1/Wolfs-bane-CLOSED-NT.png" auto="-1" class="rhp" loopback="-1"></Media>
+    <Media x="1611" y="690" src="assets/en/page1/Taming-Cerberus-CLOSED.png" auto="-1" class="rhp" loopback="-1"></Media>
+    <Media x="722" y="657" src="assets/en/page1/plant_alpha_v02_prores3.mov" auto="1" class="" loopback="125"></Media>
+    <Media x="950" y="600" src="assets/en/page1/overlays-and-shadows.png" auto="-1" class="" loopback="-1"></Media>
+    <Media x="1181" y="561" src="assets/en/page1/wolf-15_prores.mov" auto="1" class="rhp" loopback="-1"></Media>
+    <Media x="1408" y="693" src="assets/en/page1/wolfsbane3.mov" auto="-1" class="0" loopback="-1" hidden="1"></Media>
+    <Media x="1406" y="693" src="assets/en/page1/taming_cerberus7.mov" auto="-1" class="1" loopback="-1" hidden="1"></Media>
 </Page>
 <Page>
     

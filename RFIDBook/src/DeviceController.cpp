@@ -77,8 +77,9 @@ void DeviceController::update(){
         //rfids.at(i)->confidence += (rfids.at(i)->confidence_dest- rfids.at(i)->confidence)/16.0f;
         rfids.at(i)->confidence -= 0.002f;
         rfids.at(i)->confidence = MAX(0.0f,MIN(rfids.at(i)->confidence,1.0f));
-        // cout << rfids.at(i).title << ": " << rfids.at(i).isAttached() << ", " << rfids.at(i).hasTag() << endl;
+        cout << rfids.at(i)->title << ": " << rfids.at(i)->isAttached() << ", " << rfids.at(i)->hasTag() << endl;
     }
+    
     
     kit.updateKits();
 }

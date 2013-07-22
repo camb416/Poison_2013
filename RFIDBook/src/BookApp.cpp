@@ -27,7 +27,7 @@ void BookApp::setup(){
     
     // Set up RFID & touch
     devices.setup();
-        devices.startThread(true,false);
+    devices.startThread(true,false);
     
     book.setup(&devices,&bookView);
    // rfidsetup();
@@ -52,13 +52,15 @@ void BookApp::update(){
   //  devices.report();
     if(isSetup){
         devices.update();
+        book.update();
         bookView.update();
         
+        /*
             if(book.isPageLanded()){
                     // checks for three sensors active.
             }
-    
-        book.update();
+    */
+        
         
     }
     dui.update();

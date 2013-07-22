@@ -153,7 +153,7 @@ bool RFIDDevice::isAttached(){
     return bIsAttached;
 }
 bool RFIDDevice::hasTag(){
-    //cout << currentTag << endl;
+
     if(isSetup){
     if(strcmp(currentTag,"x") == 0 || strcmp(currentTag,"") == 0){
         return false;
