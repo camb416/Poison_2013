@@ -13,6 +13,7 @@ using namespace std;
 
 
 void DeviceController::setup(){
+    bSeenRFID = false;
     cycleTime = 125; // ms to cycle the RFID antennae
     numSensors = 6;
     
@@ -58,12 +59,17 @@ void DeviceController::doSomething(){
     // deprecated
     cout << "do something here when you get a tag." << endl;
 }
+bool DeviceController::hasSeenRFID(){
+    return bSeenRFID;
+}
 
 
 void DeviceController::update(){
 
+    
     for(int i=0;i<numSensors;i++){
         if(rfids.at(i)->isAttached()){
+            bSeenRFID = true;
             if(rfids.at(i)->hasTag()){
                 rfids.at(i)->confidence = 1.0f;
             } else {

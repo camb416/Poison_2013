@@ -27,8 +27,8 @@ public:
     ~DebugUI();
     
     void setup(DeviceController * _devices, BookController * _book, BookView * _bookView, BookLoader *_loader);
-    void    update();
-    void    draw();
+    void update();
+    void draw();
     
     void show();
     void hide();

@@ -17,6 +17,7 @@
 #include "MSATimer.h"
 #include "PhidgetConnector.h"
 
+
 class DeviceController : public ofThread{
 public:
     void draw(int _x = 0, int _y = 0);
@@ -57,6 +58,9 @@ public:
     ofImage inactive_img;
     ofImage active_img;
     ofImage selected_img;
+    
+    bool hasSeenRFID();
+    bool bSeenRFID;
     
     bool doublecheck(int sensor){
         bool returnval;

@@ -13,6 +13,8 @@
 #include "BookView.h"
 #include "DeviceController.h"
 
+#define RFID_TIMEOUT 1
+
 class BookController{
     
 public:
@@ -29,7 +31,8 @@ public:
     void mousePressed();
     void mouseReleased();
     
-    //bool toggleFullScreen;
+    bool useRFID;
+    bool checkedForRFIDTimeout;
     
     char currentTouch;
     
@@ -37,7 +40,7 @@ private:
     DeviceController * deviceController;
     BookView * bookView;
     bool isSetup;
-    bool forcedInputActive;
+    
     string forcedState;
     char forcedTouchState;
     string lastTouchPage;

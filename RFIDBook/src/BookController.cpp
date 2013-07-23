@@ -11,10 +11,12 @@
 
 BookController::BookController(){
     isSetup = false;
-    forcedInputActive = true;
+    
+    useRFID = true;
+    
     forcedState = "A";
-    //toggleFullScreen = false;
     lastTouchPage = -1;
+    checkedForRFIDTimeout = false;
 }
 BookController::~BookController(){
     
@@ -35,6 +37,13 @@ void BookController::mouseReleased(){
 
 void BookController::update(){
     // do something to update here
+    if(ofGetElapsedTimeMillis()>(RFID_TIMEOUT*1000) && !checkedForRFIDTimeout){
+        if(!deviceController->hasSeenRFID()){
+            ofLogWarning() << "Haven't seen the RFID sensors for " << RFID_TIMEOUT << " second(s). Using manual mode.";
+            useRFID = false;
+            checkedForRFIDTimeout = true;
+        }
+    }
     
     string currentSitation;
 //    char currentTouch;
@@ -95,7 +104,7 @@ bool BookController::isPageLanded(){
 string BookController::whatSituation(){
     string returnval_str = "";
 
-    if (forcedInputActive != true){
+    if (useRFID){
         
         if(deviceController->getSensor("top-right")->hasTag()){
             // if page one is there, then it's definitely on a page...
@@ -139,7 +148,7 @@ string BookController::whatSituation(){
 char BookController::touchSituation(){
     char returnval_char = ' ';
     
-    if (forcedInputActive != true){
+    if (useRFID){
         if (deviceController->hasTouch(0) == true){
             returnval_char = 'H';
 //            ofLogNotice() << "left";
@@ -223,7 +232,7 @@ void BookController::forcedInput(char _keypress){     //represent RFID actions w
         case 'x':
         case 'X':
         forcedState = "AB";
-        forcedInputActive = !forcedInputActive;
+        useRFID = !useRFID;
         break;
             
         
