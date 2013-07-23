@@ -33,15 +33,11 @@ public:
     void show();
     void hide();
     void toggle();
+    
     bool getIsVisible();
-    
     bool getDragSetting();
-    
     void toggleFullScreen();
-    
-    
-    
-    
+     
 private:
     BookView * bookView;
     bool bDragUIcheckbox;
@@ -53,17 +49,12 @@ private:
     bool bFullScreencheckbox;
     bool bFullScreencheckbox_prev;
     
-    // TODO: remove this later
-    bool bHideRHP, bHideRHP_prev;
-    
     DeviceController * devices;
     BookController * book;
     BookLoader * loader;
     TextField tfield;
     PositionUI pos_ui;
 
-    
-    
 };
 
 #endif /* defined(__RFIDBook__DebugUI__) */

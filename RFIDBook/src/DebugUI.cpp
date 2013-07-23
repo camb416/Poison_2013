@@ -42,9 +42,6 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, BookVie
     gui.addToggle("full screen", bFullScreencheckbox);
 
     gui.addTitle("Testing functions").setNewColumn(true);
-    gui.addButton("hide RHP elems",bHideRHP); //TODO: remove this later
-    
-    bHideRHP_prev = bHideRHP = false;
     
     gui.loadFromXML();
     
@@ -55,69 +52,39 @@ void DebugUI::update(){
     
     tfield.update("Magic Book \n" + book->getReport() + "\n" + book->whatSituation());
     
-    if(ofGetMousePressed()){
-        pos_ui.update();
-    }
+    if(ofGetMousePressed()) pos_ui.update();
     
     if(bDragUIcheckbox!=bDragUIcheckbox_prev){
-        
-        if(bDragUIcheckbox){
-            bookView->showDragUI();
-        } else {
-            bookView->hideDragUI();
-        }
+        bDragUIcheckbox ? bookView->showDragUI() : bookView->hideDragUI();
         bDragUIcheckbox_prev = bDragUIcheckbox;
     }
     
-    if(bHideRHP!=bHideRHP_prev){
-        if(bHideRHP){
-        ofLogNotice() << "preesed the button" ;
-            
-            bookView->hideCurrentMediaByClassName("rhp");
-            
-        } else {
-            ofLogNotice() << "released the button" ;
-        }
-        bHideRHP_prev = bHideRHP;
-    }
     if(bFullScreencheckbox!=bFullScreencheckbox_prev){
         ofSetFullscreen(bFullScreencheckbox);
         bFullScreencheckbox_prev = bFullScreencheckbox;
     }
 
-    
     // Load in default XML file
     if(defaultXMLbtn){
-        
         bookView->clearPages();
-        
         vector< vector<MediaModel> > pages = loader->load("settings/book.default");
-        
-        for (int i = 0; i < pages.size(); i++) {
-            bookView->addPage(pages.at(i));
-        }
-        
+        for (int i = 0; i < pages.size(); i++) bookView->addPage(pages.at(i));
     }
     
-    if(saveXMLbtn){
-        bookView->savePageLayout();
-    }
+    if(saveXMLbtn) bookView->savePageLayout();
     
     // Load in custom XML file
     if(loadXMLbtn){
-        
         bookView->clearPages();
-        
         vector< vector<MediaModel> > pages = loader->load("settings/book.xml");
-        
-        for (int i = 0; i < pages.size(); i++) {
-            bookView->addPage(pages.at(i));
-        }
+        for (int i = 0; i < pages.size(); i++) bookView->addPage(pages.at(i));
     }
 }
+
 bool DebugUI::getDragSetting(){
     return bDragUIcheckbox;
 }
+
 void DebugUI::draw(){
     
     if(isVisible){
@@ -128,9 +95,7 @@ void DebugUI::draw(){
         ofSetColor(255,255,255,255);
         devices->draw(10,300);
         tfield.draw();
-    //    bar.draw();
         if(ofGetMousePressed()) pos_ui.draw();
-        
         gui.draw();
     }
 }
