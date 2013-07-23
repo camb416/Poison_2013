@@ -57,11 +57,7 @@ private:
     BookLoader * loader;
     TextField tfield;
     PositionUI pos_ui;
-  //  BarGraph bar;
 
-    float aValue;   // what is this? Something for bar graph...
-    
-    ofxXmlSettings appSettings;
     
     
 };

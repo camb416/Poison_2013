@@ -130,7 +130,7 @@ void BookView::addPage(vector < MediaModel> medias){
     }
     
     mediaPages.push_back(newPage);
-    ofLogNotice() << "added new page. total pages: " << mediaPages.size();
+    //ofLogNotice() << "added new page. total pages: " << mediaPages.size();
     
 }
 

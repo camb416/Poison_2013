@@ -184,7 +184,7 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
     }
     
     media.push_back(newMedia);
-    ofLogNotice() << "Added new media element " << fileName << " to page at position " << position.x << "," << position.y;
+    //ofLogNotice() << "Added new media element " << fileName << " to page at position " << position.x << "," << position.y;
     
 }
 

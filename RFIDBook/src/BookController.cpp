@@ -13,7 +13,7 @@ BookController::BookController(){
     isSetup = false;
     forcedInputActive = true;
     forcedState = "A";
-    toggleFullScreen = false;
+    //toggleFullScreen = false;
     lastTouchPage = -1;
 }
 BookController::~BookController(){
@@ -203,7 +203,7 @@ void BookController::forcedInput(char _keypress){     //represent RFID actions w
         case 'f':
         case 'F':
         
-        toggleFullScreen = !toggleFullScreen;
+       // toggleFullScreen = !toggleFullScreen;
         break;
             
         // Fake touch input

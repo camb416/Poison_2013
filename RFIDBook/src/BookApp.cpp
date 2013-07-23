@@ -47,7 +47,9 @@ void BookApp::setup(){
 //--------------------------------------------------------------
 void BookApp::update(){
     ofEnableAlphaBlending();
-    ofSetFullscreen(book.toggleFullScreen);
+    
+    //TODO: fixthis
+    //ofSetFullscreen(book.toggleFullScreen);
     
   //  devices.report();
     if(isSetup){

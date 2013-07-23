@@ -29,7 +29,7 @@ public:
     void mousePressed();
     void mouseReleased();
     
-    bool toggleFullScreen;
+    //bool toggleFullScreen;
     
     char currentTouch;
     
