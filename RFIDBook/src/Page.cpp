@@ -293,6 +293,7 @@ ofxXmlSettings Page::getXML(){
         xml.setAttribute("Media", "auto", (int)media.at(i)->autoplay, i);
         xml.setAttribute("Media", "class", (string)media.at(i)->mClass, i);
         xml.setAttribute("Media", "loopback", (int)media.at(i)->loopback, i);
+        xml.setAttribute("Media", "hidden", (int)media.at(i)->isHiddenByDefault, i);
 
         
         
