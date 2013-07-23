@@ -1,8 +1,3 @@
-<!--Page>
-    
-    <Media x="972" y="609" src="assets/en/page0/0.png" auto="-1" class="" loopback="-1"></Media>
-    <Media x="523" y="640" src="assets/en/page0/belladona_alpha01.mov" auto="1" class="" loopback="114"></Media>
-</Page-->
 <Page>
     
     <Media x="1328" y="1027" src="assets/en/page1/Assasin.png" auto="-1" class="" loopback="-1"></Media>
