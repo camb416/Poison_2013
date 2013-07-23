@@ -38,7 +38,7 @@ void BookView::hideDragUI(){
 }
 
 void BookView::setup(){
-    
+
 }
 void BookView::update(){
     /*for(int i=0;i<pages.size();i++){

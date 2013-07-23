@@ -78,16 +78,22 @@ void ofFadeImage::draw(int x_in, int y_in, int w_in, int h_in){
         ofPopMatrix();
     }
     
-}
-void ofFadeImage::fadeIn(float _tweenD){
- //   cout << "fadein" << endl;
+} 
+void ofFadeImage::fadeIn(float _tweenD){ // use -1 for immediate fade
+    if(_tweenD<0.0f){
+        alpha = alphaDest = 1.0f;
+    } else {
     tweenDivisor = _tweenD;
-//    tweenDivisor = 4.0f;
+
     alphaDest = 1.0f;
+    }
 }
 void ofFadeImage::fadeOut(float _tweenD){
-    tweenDivisor = _tweenD;
-    alphaDest = 0.0f;
+    if(_tweenD<0.0f){
+        alpha = alphaDest = 0.0f;
+    } else {
+        tweenDivisor = _tweenD;
+        alphaDest = 0.0f;
+    }
 }
-
 

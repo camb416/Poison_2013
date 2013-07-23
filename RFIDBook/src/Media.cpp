@@ -27,6 +27,7 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
     setPosition(_x, _y);
     
     isHidden = isHiddenByDefault = _isHidden;
+    
     //hasVid = false;
     autoplay = -1;
     mClass = _tapId;
@@ -34,6 +35,8 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
     
     img = new ofFadeImage();
     img->setup(mediaFile);
+    
+    img->fadeOut();
 
 }
 
@@ -51,18 +54,29 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
     if(_imgFile.length()>3){
         if(_vidFile.length()>3){
             mediaType = DUALMEDIA;
+
+            
         } else {
             mediaType = IMGMEDIA;
+            
         }
         
     } else if(_vidFile.length()>3){
         mediaType = VIDMEDIA;
+
     } else {
         mediaType = UNKNOWNMEDIA;
     }
     
-    if(mediaType==VIDMEDIA) vid = new ofFadeVideo();
-    if(mediaType==IMGMEDIA) img = new ofFadeImage();
+    if(mediaType==VIDMEDIA){
+        
+    vid = new ofFadeVideo();
+    
+    }
+    if(mediaType==IMGMEDIA){
+        img = new ofFadeImage();
+
+    }
     if(mediaType==UNKNOWNMEDIA) ofLogWarning() << "UNKNOWN MEDIA NOT SUPPORTED";
     if(mediaType==DUALMEDIA) ofLogWarning() << "DUAL MEDIA NOT SUPPORTED";
     
@@ -83,9 +97,11 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
         vid->setup(_vidFile);
         autoplay = _autoplay;
         loopback = _loopback;
+           vid->fadeOut(-1);
     }
     if(mediaType==IMGMEDIA || mediaType==DUALMEDIA){
         img->setup(_imgFile);
+                img->fadeOut(-1);
     }
     
 }
@@ -203,13 +219,13 @@ void Media::printInfo(){
     switch(mediaType){
         
         case 0:
-            ofLogNotice() << "IMAGE MEDIA: "<< imgFileName << ".";
+            ofLogNotice() << "IMAGE MEDIA: "<< imgFileName <<  ", isHidden: " << isHiddenByDefault << ":" << isHidden << ".";
             break;
         case 1:
-            ofLogNotice() << "VIDEO MEDIA: " << vidFileName << ".";
+            ofLogNotice() << "VIDEO MEDIA: " << vidFileName << ", isHidden: " << isHiddenByDefault << ":" << isHidden << ".";
             break;
         case 2:
-            ofLogNotice() << "DUAL MEDIA: " << imgFileName.length() << ": " << imgFileName << ", " << vidFileName << ".";
+            ofLogNotice() << "DUAL MEDIA: " << imgFileName.length() << ": " << imgFileName << ", " << vidFileName << ", isHidden: " << isHiddenByDefault << ".";
             break;
         default:
             ofLogNotice() << "UNKNOWN MEDIA: ";

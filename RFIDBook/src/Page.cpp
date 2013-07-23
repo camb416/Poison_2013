@@ -68,6 +68,7 @@ void Page::dragUpdate(){
     } else {
         if(selectedMedia!=NULL){
             selectedMedia->moveTo(ofGetMouseX(),ofGetMouseY());
+            //selectedMedia->printInfo();
         }
     }
 }
