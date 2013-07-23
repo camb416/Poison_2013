@@ -20,47 +20,48 @@
 
 class DeviceController : public ofThread{
 public:
+    
+    void setup();
     void draw(int _x = 0, int _y = 0);
     void update();
     void report();
-    int curSensor;
-
-    // Interface Kit
+    
+    
+    //////////////////////////////////////////
+    // Interface Kit /////////////////////////
+    //////////////////////////////////////////
     PhidgetConnector kit;
     int serialId = -1; //275939
     int touchSensor(string sensor);
     bool hasTouch(int sensorID);
+    void printTouchSensors();
+    //////////////////////////////////////////
 
-    // RFID Sesnsors
+    //////////////////////////////////////////
+    // RFID Sensors //////////////////////////
+    //////////////////////////////////////////
     vector<RFIDDevice*> rfids;
     // pointers to the lefts and the rights;
     vector<RFIDDevice*> leftSensors;
     vector<RFIDDevice*> rightSensors;
-    
-    //RFIDDevice rfidLeft;
-    //RFIDDevice rfidRight;
-    Reporter reporter;
-    void setup();
-    void doSomething();
-    time_t lastTimeRun;
-    double lastTime;
-    msa::Timer timer;
-    float cycleTime;
-    int numSensors;
-    
     int getSensorId(string idLookup);
     int getTouchSensor(string idLookup);
     RFIDDevice * getSensor(string idLookup);
     int getActiveSensorCount();
     int getLeftSensorCount();
     int getRightSensorCount();
-    
+    bool hasSeenRFID();
+    bool bSeenRFID;
+    int curSensor;
+    time_t lastTimeRun;
+    double lastTime;
+    msa::Timer timer;
+    float cycleTime;
+    int numSensors;
+    // for debug UI
     ofImage inactive_img;
     ofImage active_img;
     ofImage selected_img;
-    
-    bool hasSeenRFID();
-    bool bSeenRFID;
     
     bool doublecheck(int sensor){
         bool returnval;
@@ -77,21 +78,16 @@ public:
     
     void threadedFunction(){
         while(isThreadRunning()){
-            
-            
             lock();
             if(ofGetElapsedTimeMillis()>lastTime+cycleTime){ // has it been 10ms since last time?
-                
                 // check the last sensor (that has been on for a few ms
                 int prevSensor = curSensor-1;
                 if(prevSensor<0) prevSensor=numSensors-1;
                 int * prevSensorState = new int();
                 CPhidgetRFID_getTagStatus(rfids.at(prevSensor)->rfid,prevSensorState);
-                
                 char * tagToSend = new char[1];
                 if(*prevSensorState==1 && doublecheck(prevSensor)){
                     *tagToSend = 'O';
-                     
                 } else {
                     *tagToSend = 'x';
                     if(prevSensor%2==1){
@@ -100,17 +96,12 @@ public:
                 }
                 
                 rfids.at(prevSensor)->update(rfids.at(prevSensor)->bIsAttached,tagToSend);                
-                
-               
-                
                 delete tagToSend;
                 delete prevSensorState;
-                
                 
                 // cycle the sensor antennae
                 int sensorState;
                 for(int i=0;i<numSensors;i++){
-                    
                     if(i!=curSensor){
                         sensorState = 0;
                     } else {
@@ -121,16 +112,15 @@ public:
                     CPhidgetRFID_setLEDOn(rfids.at(i)->rfid, sensorState);
                     rfids.at(i)->update();
                 }
-                
                 curSensor++;
                 if(curSensor >=numSensors) curSensor = 0;
-                
                 lastTime = ofGetElapsedTimeMillis();
-                
             }
             unlock();
         }
     }
+    /////////////////////
+    
 };
 
 #endif /* defined(__RFIDBook__DeviceController__) */

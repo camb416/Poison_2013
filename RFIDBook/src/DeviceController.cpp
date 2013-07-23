@@ -55,10 +55,7 @@ void DeviceController::setup(){
     kit.connect(serialId);    // Serial ID of phidget connector
     kit.print(-1);
 }
-void DeviceController::doSomething(){
-    // deprecated
-    cout << "do something here when you get a tag." << endl;
-}
+
 bool DeviceController::hasSeenRFID(){
     return bSeenRFID;
 }
@@ -78,15 +75,10 @@ void DeviceController::update(){
             }
         } else {
             rfids.at(i)->confidence = 0.0f;
-            //rfids.at(i)->confidence_dest = 0.0f;
         }
-        //rfids.at(i)->confidence += (rfids.at(i)->confidence_dest- rfids.at(i)->confidence)/16.0f;
         rfids.at(i)->confidence -= 0.002f;
         rfids.at(i)->confidence = MAX(0.0f,MIN(rfids.at(i)->confidence,1.0f));
-        // cout << rfids.at(i)->title << ": " << rfids.at(i)->isAttached() << ", " << rfids.at(i)->hasTag() << endl;
     }
-    
-    
     kit.updateKits();
 }
 
@@ -114,9 +106,7 @@ RFIDDevice * DeviceController::getSensor(string idLookup){
 
 int DeviceController::getLeftSensorCount(){
     int activeCount = 0;
-       // cout << leftSensors.size() << " elems in leftSensors." << endl;
     for(int i=0;i<leftSensors.size();i++){
-      //  cout << leftSensors.at(i)->isConfident();
         if(leftSensors.at(i)->isConfident()){
             activeCount++;
         }
@@ -125,9 +115,7 @@ int DeviceController::getLeftSensorCount(){
 }
 int DeviceController::getRightSensorCount(){
     int activeCount = 0;
-    //cout << rightSensors.size() << " elems in rightSensors." << endl;
     for(int i=0;i<rightSensors.size();i++){
-      //   cout << rightSensors.at(i)->isConfident();
         if(rightSensors.at(i)->isConfident()){
             activeCount++;
         }
@@ -138,9 +126,7 @@ int DeviceController::getRightSensorCount(){
 int DeviceController::getActiveSensorCount(){
     int activeCount = 0;
     for(int i=0;i<numSensors;i++){
-        if(rfids.at(i)->isConfident()){
-            activeCount++;
-        }
+        if(rfids.at(i)->isConfident()) activeCount++;
     }
     return activeCount;
 
@@ -185,8 +171,6 @@ void DeviceController::draw(int _x, int _y){
         stringstream ss;//create a stringstream
         ss << rfids.at(i)->serial << "\n" << rfids.at(i)->currentTag;//add number to the stream
         ofDrawBitmapString(ss.str(), p);
-       // cout << rfids.at(i).confidence << endl;
-       // cout << rfids.at(i).title << ": " << rfids.at(i).isAttached() << ", " << rfids.at(i).hasTag() << endl;
     }
     ofSetColor(0,0,0);
     ofDrawBitmapString("interface kit touch sensors", 0, 340);
@@ -208,39 +192,18 @@ void DeviceController::draw(int _x, int _y){
 
 void DeviceController::report(){
     lock();
-  //  for(int i=0;i<numSensors;i++){
-        
-        cout << getActiveSensorCount() << " sensors active, " << getLeftSensorCount() << " on the left, and " << getRightSensorCount() << " on the right" << endl;
-    //for(int i=0;i<numSensors;i++){
-       // cout << rfids.at(i).title << ": " << rfids.at(i).isAttached() << ", " << rfids.at(i).hasTag() << endl;
-  //  }
-    /*
-    //int activeCount = 0;
-    // cout << leftSensors.size() << " elems in leftSensors." << endl;
-    cout << "left sensors: " ;
-    for(int i=0;i<leftSensors.size();i++){
-        //  cout << leftSensors.at(i)->isConfident();
-        cout << leftSensors.at(i)->confidence << ", ";
-    }
-    cout << endl;
-    
-    cout << "right sensors: " ;
-    for(int i=0;i<rightSensors.size();i++){
-        //  cout << leftSensors.at(i)->isConfident();
-        cout << rightSensors.at(i)->confidence << ", ";
-    }
-    cout << endl;
-*/
-    
+    cout << getActiveSensorCount() << " sensors active, " << getLeftSensorCount() << " on the left, and " << getRightSensorCount() << " on the right" << endl;
     unlock();
 }
 
 bool DeviceController::hasTouch(int sensorID){
     bool touchState = false;
-    
     touchState = kit.getBool(serialId, sensorID);
-    
     return touchState;
+}
+
+void DeviceController::printTouchSensors(){
+    kit.print();
 }
 
 //int DeviceController::touchSensor(string sensor){

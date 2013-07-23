@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/DeviceController.cpp"
-         timestampString = "396290531.706944"
+         timestampString = "396291916.936655"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "116"
-         endingLineNumber = "116"
+         startingLineNumber = "108"
+         endingLineNumber = "108"
          landmarkName = "DeviceController::getLeftSensorCount()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/DeviceController.cpp"
-         timestampString = "396290531.706944"
+         timestampString = "396291916.936655"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "127"
-         endingLineNumber = "127"
+         startingLineNumber = "117"
+         endingLineNumber = "117"
          landmarkName = "DeviceController::getRightSensorCount()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -112,37 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/DeviceController.cpp"
-         timestampString = "396290531.706944"
+         timestampString = "396291916.936655"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "119"
-         endingLineNumber = "119"
-         landmarkName = "DeviceController::getLeftSensorCount()"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/DeviceController.cpp"
-         timestampString = "396290531.706944"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "130"
-         endingLineNumber = "130"
-         landmarkName = "DeviceController::getRightSensorCount()"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/DeviceController.cpp"
-         timestampString = "396290531.706944"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "192"
-         endingLineNumber = "192"
+         startingLineNumber = "178"
+         endingLineNumber = "178"
          landmarkName = "DeviceController::draw(int _x, int _y)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -151,11 +125,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/DeviceController.h"
-         timestampString = "396290531.706944"
+         timestampString = "396295535.201184"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "38"
-         endingLineNumber = "38"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
          landmarkName = "class DeviceController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -164,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/DeviceController.h"
-         timestampString = "396290531.706944"
+         timestampString = "396295535.201184"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "97"
-         endingLineNumber = "97"
+         startingLineNumber = "93"
+         endingLineNumber = "93"
          landmarkName = "threadedFunction()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -177,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/DeviceController.cpp"
-         timestampString = "396290531.706944"
+         timestampString = "396291916.936655"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "107"
-         endingLineNumber = "107"
+         startingLineNumber = "99"
+         endingLineNumber = "99"
          landmarkName = "DeviceController::getSensor(string idLookup)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -342,11 +316,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/DebugUI.cpp"
-         timestampString = "396289479.645186"
+         timestampString = "396291916.936655"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
          landmarkName = "DebugUI::update()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -530,19 +504,6 @@
          startingLineNumber = "158"
          endingLineNumber = "158"
          landmarkName = "Media::update()"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/DeviceController.h"
-         timestampString = "396290531.706944"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "104"
-         endingLineNumber = "104"
-         landmarkName = "threadedFunction()"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

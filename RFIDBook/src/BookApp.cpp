@@ -172,6 +172,11 @@ void BookApp::keyPressed(int key){
             case '~':
             dui.toggle();
             break;
+            
+            case 'p':
+            case 'P':
+            devices.printTouchSensors();
+            break;
             //case default:
             
             //break;
