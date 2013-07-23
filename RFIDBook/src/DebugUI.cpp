@@ -134,6 +134,11 @@ void DebugUI::draw(){
         gui.draw();
     }
 }
+
+void DebugUI::toggleFullScreen(){
+    bFullScreencheckbox = !bFullScreencheckbox;
+}
+
 void DebugUI::show(){
     gui.show();
 }

@@ -133,7 +133,7 @@ void BookApp::keyPressed(int key){
             case 'f':
             case 'F':
             
-            book.forcedInput('F');
+            dui.toggleFullScreen();
             break;
             
             // toggle keyboard mode on or off

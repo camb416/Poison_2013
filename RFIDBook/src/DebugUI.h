@@ -37,6 +37,10 @@ public:
     
     bool getDragSetting();
     
+    void toggleFullScreen();
+    
+    
+    
     
 private:
     BookView * bookView;

@@ -57,19 +57,6 @@ void BookController::update(){
         // take A-D and make 0-3
         char curSit_char = currentSitation[0];
         int whichPageNum = (int)curSit_char - 65;
-        /*
-        if (lastTouchPage != currentSitation && bookView->mediaPages.at(whichPageNum)->touchActive == true){
-            char lastPage_char = lastTouchPage[0];
-            int lastPageNum = (int)lastPage_char - 65;
-            bookView->mediaPages.at(lastPageNum)->touchActive = false;
-        }
-        
-        if (bookView->mediaPages.at(whichPageNum)->touchActive == true && currentTouch != 'R'){
-            currentTouch = 'R';
-            forcedTouchState = '0';
-
-        }
-        */
 
         bookView->mediaPages.at(whichPageNum)->receiveInput(currentTouch, whichPageNum);
         
@@ -86,18 +73,14 @@ void BookController::update(){
         // seems like an error...
         cout << "Error: Current Book Situation has a strange length: " << currentSitation.length() << endl;
     }
-   // cout << currentSitation << " " << currentSitation.length() << currentSitation.substr(0,1) << endl;
     lastTouchPage = currentSitation;
 }
 bool BookController::isPageLanded(){
-   int howManyActive = deviceController->getActiveSensorCount();
-  //  cout << "there are " << howManyActive << " sensors active at the moment: ";
+   int howManyActive = deviceController->getActiveSensorCount();  
     
     if(howManyActive==3){
-//        cout << "pages landed." << endl;
         return true;
     } else {
-  //      cout << "pages not laneded" << endl;
         return false;
     }
 }
@@ -151,10 +134,8 @@ char BookController::touchSituation(){
     if (useRFID){
         if (deviceController->hasTouch(0) == true){
             returnval_char = 'H';
-//            ofLogNotice() << "left";
         } else if (deviceController->hasTouch(1) == true){
             returnval_char = 'J';
-//             ofLogNotice() << "right";
         } else {
             returnval_char = '0';
 
@@ -207,12 +188,7 @@ void BookController::forcedInput(char _keypress){     //represent RFID actions w
         case 'E':
             
         forcedState = "AB";
-        break;
             
-        case 'f':
-        case 'F':
-        
-       // toggleFullScreen = !toggleFullScreen;
         break;
             
         // Fake touch input
