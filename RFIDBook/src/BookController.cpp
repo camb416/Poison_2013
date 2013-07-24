@@ -92,18 +92,21 @@ void BookController::update(){
     ///////////////////////////////////////////
     //
     for(int i=0;i<NUM_TOUCHES;i++){
-        touchStates[i] = deviceController->getTouchBool(i);
-        if(touchStates[i]!=prevTouchStates[i]){
-            // a sensor changed.
-            if(touchStates[i]){
-                // it was a touch
-                bookView->touch(i);
-            } else {
-                // it was a release
-                bookView->release(i);
+        // Check for touches if the kit is connected
+        if (deviceController->kitConnected == true){
+            touchStates[i] = deviceController->getTouchBool(i);
+            if(touchStates[i]!=prevTouchStates[i]){
+                // a sensor changed.
+                if(touchStates[i]){
+                    // it was a touch
+                    bookView->touch(i);
+                } else {
+                    // it was a release
+                    bookView->release(i);
+                }
             }
+            prevTouchStates[i] = touchStates[i];
         }
-        prevTouchStates[i] = touchStates[i];
     }
 
     
