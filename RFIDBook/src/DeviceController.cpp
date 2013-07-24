@@ -208,7 +208,11 @@ void DeviceController::report(){
 
 bool DeviceController::hasTouch(int sensorID){
     bool touchState = false;
-    touchState = kit.getBool(serialId, sensorID);
+    
+    if (kitConnected == true) {
+        touchState = kit.getBool(serialId, sensorID);
+    }
+    
     return touchState;
 }
 
