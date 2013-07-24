@@ -257,6 +257,18 @@ int BookView::showCurrentMediaByClassName(string _classname,string _showWhenDone
 
 int BookView::touch(int _whichSensor){
     ofLogNotice() << "BookView received a touch on sensor: " << _whichSensor;
+    switch(currentPage){
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+            if(hideCurrentMediaByClassName("rhp")==0) showCurrentMediaByClassName("0","rhp");
+            
+            break;
+    }
+    
+    
+    
     return -1;
 }
 int BookView::release(int _whichSensor){
