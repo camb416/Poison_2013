@@ -52,6 +52,11 @@ vector< vector<MediaModel> > BookLoader::load(string fileName){
                 
                     
                 mediaFileName = lang.resolvePath(bookElements.getAttribute("Media", "src", "", i));
+                
+                // If file isn't found, preserve the file path to save back to the XML
+                if (mediaFileName == "FILE NOT FOUND"){
+                    mediaFileName = bookElements.getAttribute("Media", "src", "", i);
+                }
 
                 mediaPos.x = ofToFloat(bookElements.getAttribute("Media", "x", "0", i));
                 mediaPos.y = ofToFloat(bookElements.getAttribute("Media", "y", "0", i));

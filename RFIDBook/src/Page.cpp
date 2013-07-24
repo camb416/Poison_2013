@@ -160,6 +160,7 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
     
     Media * newMedia = new Media();
     newMedia->registerView(viewRef);
+    
     string sub = fileName.substr(fileName.length()-3,3);
     if (sub == "png") {
         

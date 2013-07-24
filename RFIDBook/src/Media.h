@@ -97,6 +97,9 @@ private:
     string imgFileName;
     string vidFileName;
     
+    string notFoundImgFile = "assets/notfound.png";
+    string notFoundVidFile = "assets/notfound.mov";
+    
     
 };
 
