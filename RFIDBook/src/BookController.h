@@ -14,6 +14,7 @@
 #include "DeviceController.h"
 
 #define RFID_TIMEOUT 1
+#define NUM_TOUCHES 2
 
 class BookController{
     
@@ -34,7 +35,7 @@ public:
     bool useRFID;
     bool checkedForRFIDTimeout;
     
-    char currentTouch;
+    //char currentTouch;
     
 private:
     DeviceController * deviceController;
@@ -43,7 +44,10 @@ private:
     
     string forcedState;
     char forcedTouchState;
-    string lastTouchPage;
+    //string lastTouchPage;
+    
+    bool touchStates[NUM_TOUCHES];
+    bool prevTouchStates[NUM_TOUCHES];
     
 };
 

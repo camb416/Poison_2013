@@ -125,11 +125,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/DeviceController.h"
-         timestampString = "396295535.201184"
+         timestampString = "396370581.35374"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "52"
-         endingLineNumber = "52"
+         startingLineNumber = "53"
+         endingLineNumber = "53"
          landmarkName = "class DeviceController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -138,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/DeviceController.h"
-         timestampString = "396295535.201184"
+         timestampString = "396370581.35374"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "93"
-         endingLineNumber = "93"
+         startingLineNumber = "94"
+         endingLineNumber = "94"
          landmarkName = "threadedFunction()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -504,6 +504,19 @@
          startingLineNumber = "158"
          endingLineNumber = "158"
          landmarkName = "Media::update()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/PhidgetConnector.cpp"
+         timestampString = "396370615.487069"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "157"
+         endingLineNumber = "157"
+         landmarkName = "PhidgetConnector::getIFKitModelID(int serial_in)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -40,6 +40,9 @@ public:
     void showDragUI();
     void hideDragUI();
     
+    int touch(int _whichSensor);
+    int release(int _whichSensor);
+    
     vector<Page*> mediaPages;
     
     void printCurrentMedia();

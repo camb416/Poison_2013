@@ -35,6 +35,7 @@ public:
     int touchSensor(string sensor);
     bool hasTouch(int sensorID);
     void printTouchSensors();
+    bool getTouchBool(int whichSensor, int whichKit = -1);
     //////////////////////////////////////////
 
     //////////////////////////////////////////

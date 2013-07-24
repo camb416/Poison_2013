@@ -254,3 +254,12 @@ int BookView::showCurrentMediaByClassName(string _classname,string _showWhenDone
     }
     return returnVal;
 }
+
+int BookView::touch(int _whichSensor){
+    ofLogNotice() << "BookView received a touch on sensor: " << _whichSensor;
+    return -1;
+}
+int BookView::release(int _whichSensor){
+    ofLogNotice() << "BookView received a release on sensor: " << _whichSensor;
+    return -1;
+}

@@ -11,12 +11,13 @@
 
 BookController::BookController(){
     isSetup = false;
-    
     useRFID = true;
-    
     forcedState = "A";
-    lastTouchPage = -1;
+    //lastTouchPage = -1;
     checkedForRFIDTimeout = false;
+    for(int i=0;i<NUM_TOUCHES;i++){
+        touchStates[i] = prevTouchStates[i] = false;
+    }
 }
 BookController::~BookController(){
     
@@ -36,7 +37,14 @@ void BookController::mouseReleased(){
 }
 
 void BookController::update(){
-    // do something to update here
+    
+    ///////////////////////////////////////////
+    // RFID / Page turning stuff
+    ///////////////////////////////////////////
+    // if after a number of seconds defined in the header
+    // don't use the RFID sensors (for testing).
+    ///////////////////////////////////////////
+    
     if(ofGetElapsedTimeMillis()>(RFID_TIMEOUT*1000) && !checkedForRFIDTimeout){
         if(!deviceController->hasSeenRFID()){
             ofLogWarning() << "Haven't seen the RFID sensors for " << RFID_TIMEOUT << " second(s). Using manual mode.";
@@ -46,10 +54,10 @@ void BookController::update(){
     }
     
     string currentSitation;
-//    char currentTouch;
-    
     currentSitation = whatSituation();
-    currentTouch = touchSituation();
+    
+    
+    //currentTouch = touchSituation();
     
     if(currentSitation.length() == 1){
         // page is landed
@@ -58,7 +66,7 @@ void BookController::update(){
         char curSit_char = currentSitation[0];
         int whichPageNum = (int)curSit_char - 65;
 
-        bookView->mediaPages.at(whichPageNum)->receiveInput(currentTouch, whichPageNum);
+        //bookView->mediaPages.at(whichPageNum)->receiveInput(currentTouch, whichPageNum);
         
         // send the view activation.
         bookView->activate(whichPageNum);
@@ -73,7 +81,34 @@ void BookController::update(){
         // seems like an error...
         cout << "Error: Current Book Situation has a strange length: " << currentSitation.length() << endl;
     }
-    lastTouchPage = currentSitation;
+    //lastTouchPage = currentSitation;
+    
+    ///////////////////////////////////////////
+    ///////////////////////////////////////////
+    
+    //
+    ///////////////////////////////////////////
+    // TOUCH STUFF
+    ///////////////////////////////////////////
+    //
+    for(int i=0;i<NUM_TOUCHES;i++){
+        touchStates[i] = deviceController->getTouchBool(i);
+        if(touchStates[i]!=prevTouchStates[i]){
+            // a sensor changed.
+            if(touchStates[i]){
+                // it was a touch
+                bookView->touch(i);
+            } else {
+                // it was a release
+                bookView->release(i);
+            }
+        }
+        prevTouchStates[i] = touchStates[i];
+    }
+
+    
+
+
 }
 bool BookController::isPageLanded(){
    int howManyActive = deviceController->getActiveSensorCount();  

@@ -50,7 +50,7 @@ void DeviceController::setup(){
     curSensor = 0;
     
     // Set up touch controller
-    kit.useEvents(true);
+    kit.useEvents(false);
     serialId = -1;
     kit.connect(serialId);    // Serial ID of phidget connector
     kit.print(-1);
@@ -79,6 +79,7 @@ void DeviceController::update(){
         rfids.at(i)->confidence -= 0.002f;
         rfids.at(i)->confidence = MAX(0.0f,MIN(rfids.at(i)->confidence,1.0f));
     }
+    // TODO: we shouldn't be doing this if theres no IFKit connected.
     kit.updateKits();
 }
 
@@ -219,3 +220,8 @@ void DeviceController::printTouchSensors(){
 //
 //    return sensorID;
 //}
+
+bool DeviceController::getTouchBool(int _whichSensor, int _whichKit){
+    if(_whichKit!=-1) ofLogWarning() << "using DeviceController::getTouchBool to specify an IFKit not supported...yet.";
+    return kit.getBool(_whichKit, _whichSensor);
+}
