@@ -84,6 +84,19 @@ void BookApp::draw(){
 //--------------------------------------------------------------
 void BookApp::keyPressed(int key){
     switch(key){
+            // pressing keys 0-7 simulates a touch event on
+            // those sensors
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+                bookView.touch(key-48);
+            break;
+            
             case '=':
             case '+':
             

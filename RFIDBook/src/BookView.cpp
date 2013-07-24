@@ -262,7 +262,14 @@ int BookView::touch(int _whichSensor){
         case 1:
         case 2:
         case 3:
-            if(hideCurrentMediaByClassName("rhp")==0) showCurrentMediaByClassName("0","rhp");
+            switch(_whichSensor){
+                case 0:
+                    if(hideCurrentMediaByClassName("rhp")==0) showCurrentMediaByClassName("0","rhp");
+                    break;
+                case 1:
+                    if(hideCurrentMediaByClassName("rhp")==0) showCurrentMediaByClassName("1","rhp");
+                    break;
+            }
             
             break;
     }
