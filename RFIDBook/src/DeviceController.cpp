@@ -50,7 +50,7 @@ void DeviceController::setup(){
     curSensor = 0;
     
     // Set up touch controller
-    kit.useEvents(false);
+    kit.useEvents(true);
     serialId = -1;
     kit.connect(serialId);    // Serial ID of phidget connector
     kit.print(-1);
