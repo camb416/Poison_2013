@@ -10,7 +10,7 @@
     <Media x="1611" y="690" src="assets/en/page1/Taming-Cerberus-CLOSED-NT.png" auto="-1" class="rhp" loopback="-1"></Media>
     <Media x="722" y="657" src="assets/en/page1/plant_alpha_v02.mov" auto="1" class="" loopback="125"></Media>
     <Media x="950" y="600" src="assets/en/page1/overlays-and-shadows.png" auto="-1" class="" loopback="-1"></Media>
-    <Media x="1181" y="561" src="assets/en/page1/wolf-15_prores.mov" auto="1" class="rhp" loopback="-1"></Media>
+    <Media x="1181" y="561" src="assets/en/page1/wolf-15_prores.mov" auto="1" class="rhp" loopback="0"></Media>
     <Media x="1408" y="693" src="assets/en/page1/wolfsbane3.mov" auto="-1" class="0" loopback="-1" hidden="1"></Media>
     <Media x="1406" y="693" src="assets/en/page1/taming_cerberus7.mov" auto="-1" class="1" loopback="-1" hidden="1"></Media>
 </Page>
