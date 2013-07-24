@@ -154,8 +154,8 @@ int PhidgetConnector::getIFKitModelID(int serial_in){
             if(thisKit->getSerial() == serial_in) return i;
         }
     }
-
-//    return -1;
+    // something bad happened here.
+    return -1;
 }
 
 // connect to a device. Use -1 for first available device
@@ -170,6 +170,7 @@ void PhidgetConnector::connect(int serial_in, int _timeOut){
         cout << "using events..." << endl;
         CPhidget_set_OnError_Handler((CPhidgetHandle)*thisIFKIT, ErrorHandler, this);
         CPhidgetInterfaceKit_set_OnSensorChange_Handler(*thisIFKIT, SensorChangeHandler, this);
+        
     } else {
         cout << "not using events..." << endl;
     }
@@ -215,7 +216,8 @@ void PhidgetConnector::sensorChanged (CPhidgetInterfaceKitHandle IFK, int index,
     
     int serialNo;
     CPhidget_getSerialNumber((CPhidgetHandle)IFK, &serialNo);
-    int whichKit = getIFKitModelID(serialNo);
+    int whichKit = -1;
+    whichKit = getIFKitModelID(serialNo);
     if(whichKit>-1){
         IFKitModel * desiredKit = ifKitModels.at(whichKit);
         desiredKit->setSensorVal(index,value);
@@ -249,7 +251,7 @@ int PhidgetConnector::display_properties(CPhidgetInterfaceKitHandle phid){
 	printf("Ratiometric: %d\n", ratiometric);
     
 	for(i = 0; i < numSensors; i++){
-        CPhidgetInterfaceKit_setSensorChangeTrigger(phid, i, 0);
+        CPhidgetInterfaceKit_setSensorChangeTrigger(phid, i, 500);
 		CPhidgetInterfaceKit_getSensorChangeTrigger (phid, i, &triggerVal);
 		printf("Sensor#: %d > Sensitivity Trigger: %d\n", i, triggerVal);
 	}
