@@ -38,7 +38,7 @@ public:
     CPhidgetInterfaceKitHandle ifkit2;
     IFKitModel * getIFKit(int serial_in);
     vector<int> sensorVals;
-    void connect(int serial_in = -1, int _timeOut = -1);
+    bool connect(int serial_in = -1, int _timeOut = -1);
     void sensorChanged(CPhidgetInterfaceKitHandle IFK, int index, int value);
     void print(int serial_in = -1);
     int getVal(int serial_in, int index_in);

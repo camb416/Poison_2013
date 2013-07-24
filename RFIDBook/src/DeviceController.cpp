@@ -52,8 +52,14 @@ void DeviceController::setup(){
     // Set up touch controller
     kit.useEvents(false);
     serialId = -1;
-    kit.connect(serialId);    // Serial ID of phidget connector
-    kit.print(-1);
+    bool isKitConnected = kit.connect(serialId);    // Serial ID of phidget connector
+    if (isKitConnected == true){
+        kit.print(-1);
+    }
+    else {
+        kitConnected = false;
+    }
+
 }
 
 bool DeviceController::hasSeenRFID(){
@@ -79,8 +85,11 @@ void DeviceController::update(){
         rfids.at(i)->confidence -= 0.002f;
         rfids.at(i)->confidence = MAX(0.0f,MIN(rfids.at(i)->confidence,1.0f));
     }
-    // TODO: we shouldn't be doing this if theres no IFKit connected.
-    kit.updateKits();
+    
+    if (kitConnected == true){
+        kit.updateKits();
+    }
+
 }
 
 int DeviceController::getSensorId(string idLookup){

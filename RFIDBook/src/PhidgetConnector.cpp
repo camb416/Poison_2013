@@ -159,7 +159,7 @@ int PhidgetConnector::getIFKitModelID(int serial_in){
 }
 
 // connect to a device. Use -1 for first available device
-void PhidgetConnector::connect(int serial_in, int _timeOut){
+bool PhidgetConnector::connect(int serial_in, int _timeOut){
     cout << "attempting connection to board #" << serial_in << "... " ;
 
     CPhidgetInterfaceKitHandle * thisIFKIT = new CPhidgetInterfaceKitHandle();
@@ -184,9 +184,13 @@ void PhidgetConnector::connect(int serial_in, int _timeOut){
     if((result = CPhidget_waitForAttachment((CPhidgetHandle)*thisIFKIT, timeOut))){
         CPhidget_getErrorDescription(result, &err);
         printf("Problem waiting for attachment %s\n", err);
+        
+        return false;
     } else {
         printf("sensor opened okay.");
         display_properties(*thisIFKIT);
+        
+        return true;
     }
 }
 
