@@ -154,8 +154,8 @@ int PhidgetConnector::getIFKitModelID(int serial_in){
             if(thisKit->getSerial() == serial_in) return i;
         }
     }
-    // something bad happened here.
-    return -1;
+    cout << "PhidgetConnector::getIFKitModelID() Could not find the sensor: " << serial_in << endl;
+    return -1;  // the IFKit you want is not connected.
 }
 
 // connect to a device. Use -1 for first available device
