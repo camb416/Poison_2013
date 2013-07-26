@@ -13,12 +13,14 @@
 #include "ofMain.h"
 #include "ofFadeImage.h"
 #include "OfFadeVideo.h"
+#include "SegmentedVideo.h"
 
 
 #define UNKNOWNMEDIA -1
 #define IMGMEDIA 0
 #define VIDMEDIA 1
 #define DUALMEDIA 2
+#define SEGMEDIA 3
 
 class BookView;
 
@@ -34,6 +36,7 @@ public:
     
     void setup(string mediaFile, float _x, float _y, string _tapId, bool _isHidden);
     void setup(string _imgFile, string vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback, bool _isHidden);
+    void setup(string _vidFile, float _x, float _y);
     void update();
     void draw(float scale=1.0f);
     void setPosition(float _x, float _y);
@@ -71,6 +74,7 @@ public:
     
     ofFadeImage * img;
     ofFadeVideo * vid;
+    SegmentedVideo * segVid;
     
     void printInfo();
     

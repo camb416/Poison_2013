@@ -170,12 +170,18 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
     }
     else if (sub == "mov"){
         
-        // Run the setup for a media element that is a video and an image
-        string imageFile = fileName;
-        imageFile.replace(fileName.length() -3, 3, "png");
-        // newMedia->setup(imageFile, fileName, position.x, position.y, autoplay, tapId, loopback);
-        newMedia->setup("", fileName, position.x, position.y, autoplay, tapId, loopback, _isHidden);
-        //newMedia->setBorder(true);
+        if (fileName == "assets/en/belladonna.mov"){
+            newMedia->setup("assets/en/belladonna.mov", position.x, position.y);
+        }
+        else {
+        
+            // Run the setup for a media element that is a video and an image
+            string imageFile = fileName;
+            imageFile.replace(fileName.length() -3, 3, "png");
+            // newMedia->setup(imageFile, fileName, position.x, position.y, autoplay, tapId, loopback);
+            newMedia->setup("", fileName, position.x, position.y, autoplay, tapId, loopback, _isHidden);
+            //newMedia->setBorder(true);
+        }
         
     }
     else {
