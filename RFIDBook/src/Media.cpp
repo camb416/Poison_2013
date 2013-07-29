@@ -34,7 +34,14 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
     mediaType = IMGMEDIA;
     
     img = new ofFadeImage();
-    img->setup(mediaFile);
+    
+    // check for image not found
+    if (ofFile::doesFileExist(imgFileName) == true){
+        img->setup(mediaFile);
+    }
+    else{
+        img->setup(notFoundImgFile);
+    }
     
     img->fadeOut();
 
@@ -94,14 +101,29 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
         vidFileName = _vidFile;
        // hasVid = true;
         vidState = 0;
-        vid->setup(_vidFile);
+        
+        // check for video not found
+        if (ofFile::doesFileExist(_vidFile) == true){
+            vid->setup(_vidFile);
+        }
+        else{
+            vid->setup(notFoundVidFile);
+        }
+        
         autoplay = _autoplay;
         loopback = _loopback;
            vid->fadeOut(-1);
     }
     if(mediaType==IMGMEDIA || mediaType==DUALMEDIA){
-        img->setup(_imgFile);
-                img->fadeOut(-1);
+        // check for image not found
+        if (ofFile::doesFileExist(imgFileName) == true){
+            img->setup(_imgFile);
+        }
+        else{
+            img->setup(notFoundImgFile);
+        }
+        
+        img->fadeOut(-1);
     }
     
 }
