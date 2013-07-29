@@ -1,5 +1,18 @@
 #include "testApp.h"
 
+
+bool isSegmented(string _str){
+    
+    size_t thing = _str.find("seg");
+    if(thing!=string::npos){
+    
+    cout << _str.find("seg") << endl;
+    } else {
+        cout << "uh not found?";
+    }
+    return false;
+}
+
 //--------------------------------------------------------------
 void testApp::setup(){
 
@@ -17,8 +30,22 @@ void testApp::setup(){
     cout << "subdir/myImage.jpg: " << lang.resolvePath("subdir/myImage.jpg") << endl;
 
     img.loadImage(lang.resolvePath("assets/testImage.png"));
+    
+    
+    string str1 = "assets/en/page1/plant_alpha_v02.mov";
+    string str2 = "assets/en/page1/plant_segalpha_v02.mov";
+    string str3 = "assets/en/page1/plant_alphaseg_v02.mov";
+
+    // get filename
+    if(isSegmented(str1)) cout << "str1 is a seg video";
+     if(isSegmented(str2)) cout << "str2 is a seg video";
+     if(isSegmented(str3)) cout << "str3 is a seg video";
+    
+    
 
 }
+
+
 
 //--------------------------------------------------------------
 void testApp::update(){

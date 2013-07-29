@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		06980ff65ed01afe2bcaad5e92e994fd /* ofxSimpleGuiConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 434f6d1bd9d80bffafa18b0904eb6fbc /* ofxSimpleGuiConfig.cpp */; };
+		1B11985717A6BEEF0003A356 /* SegmentedVideo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B11985517A6BEEF0003A356 /* SegmentedVideo.cpp */; };
 		1BDF431E1795BC7E00B23DB9 /* Phidget21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BDF431D1795BC7E00B23DB9 /* Phidget21.framework */; };
 		1f910dcf02326b0e25059352edd39c0c /* ofxSimpleGuiPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = fd30123cd06421602730f58647372e52 /* ofxSimpleGuiPage.cpp */; };
 		2c776d21a9559288b0f7aed9b1be072d /* ofxSimpleGuiMovieSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8445ea9a5fd9905881cbb8a624e1cf51 /* ofxSimpleGuiMovieSlider.cpp */; };
@@ -103,6 +104,8 @@
 		01dcc0911400f9acf5b65578af4ec8f9 /* ofxXmlSettings.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxXmlSettings.h; path = ../../../addons/ofxXmlSettings/src/ofxXmlSettings.h; sourceTree = SOURCE_ROOT; };
 		1256c82208d6390d300e7ceaec29faf4 /* ofxSimpleGuiSlider2d.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSimpleGuiSlider2d.h; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiSlider2d.h; sourceTree = SOURCE_ROOT; };
 		18e50a181a480d21484f3120b98c4672 /* ofxSimpleGuiSliderBase.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSimpleGuiSliderBase.h; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiSliderBase.h; sourceTree = SOURCE_ROOT; };
+		1B11985517A6BEEF0003A356 /* SegmentedVideo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentedVideo.cpp; sourceTree = "<group>"; };
+		1B11985617A6BEEF0003A356 /* SegmentedVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedVideo.h; sourceTree = "<group>"; };
 		1B74ADD31796E98A00890989 /* book.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = book.xml; path = bin/data/settings/book.xml; sourceTree = "<group>"; };
 		1BDF431D1795BC7E00B23DB9 /* Phidget21.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Phidget21.framework; path = /Library/Frameworks/Phidget21.framework; sourceTree = "<absolute>"; };
 		1c56b6200d48da052208be05afd7bde7 /* ofxSimpleGuiToggle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSimpleGuiToggle.cpp; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiToggle.cpp; sourceTree = SOURCE_ROOT; };
@@ -315,6 +318,8 @@
 		32323D2A176A4E310093710C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1B11985517A6BEEF0003A356 /* SegmentedVideo.cpp */,
+				1B11985617A6BEEF0003A356 /* SegmentedVideo.h */,
 				32323D16176A31FD0093710C /* TextField.cpp */,
 				32323D17176A31FD0093710C /* TextField.h */,
 				32323D0A176A31FD0093710C /* Media.cpp */,
@@ -645,6 +650,7 @@
 				F941A11F177888DF000C5161 /* ofFadeVideo.cpp in Sources */,
 				F9DC82491778C383000D8922 /* PhidgetConnector.cpp in Sources */,
 				F9DC824A1778C383000D8922 /* PhidgetModel.cpp in Sources */,
+				1B11985717A6BEEF0003A356 /* SegmentedVideo.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
