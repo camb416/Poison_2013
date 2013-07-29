@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "ofMain.h"
+#include "ofFadeVideo.h"
 
 #define NOGATE -1
 #define CLOSEDGATE 0
@@ -22,7 +23,7 @@ struct cue {
     int loopbackCue;
 };
 
-class SegmentedVideo{
+class SegmentedVideo : public ofFadeVideo{
     
     public:
         SegmentedVideo();
@@ -30,10 +31,10 @@ class SegmentedVideo{
     
         void setup(string fileName);
         void update();
-        void draw(float x, float y);
-    void touch();
+        //void draw(float x, float y);
+        void touch();
     
-        ofVideoPlayer player;
+        //ofVideoPlayer player;
         //string animFile = "belladona.mov";
         
         vector<cue> cues;

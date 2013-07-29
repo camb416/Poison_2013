@@ -170,8 +170,9 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
     }
     else if (sub == "mov"){
         
-        if (fileName == "assets/en/belladonna.mov"){
-            newMedia->setup("assets/en/belladonna.mov", position.x, position.y);
+        // Check if video is a segmented one
+        if (isSegVid(fileName) == true){
+            newMedia->setup(fileName, position.x, position.y);
         }
         else {
         
@@ -193,6 +194,14 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
     media.push_back(newMedia);
     //ofLogNotice() << "Added new media element " << fileName << " to page at position " << position.x << "," << position.y;
     
+}
+
+bool Page::isSegVid(string _fileName){
+    if (_fileName.find("SEG") != string::npos){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 void Page::receiveInput(char touchId_in, int pageNum_in){
@@ -256,7 +265,6 @@ void Page::fade(int dir){
             float fadeVal = ofRandomuf()*(maxFadeIn-minFadeIn)+minFadeIn;
             if(media.at(i)->mediaType==IMGMEDIA  ) media.at(i)->img->fadeIn(fadeVal);
             
-            
             // If autoplay is on for the video, start playing
             
             if (media.at(i)->mediaType == VIDMEDIA){
@@ -264,6 +272,12 @@ void Page::fade(int dir){
                     media.at(i)->playVid();
                 }
                 media.at(i)->vid->fadeIn(fadeVal);
+            }
+            if (media.at(i)->mediaType == SEGMEDIA){
+                if (media.at(i)->autoplay == 1){
+                    media.at(i)->playVid();
+                }
+                media.at(i)->segVid->fadeIn(fadeVal);
             }
             }
         }
@@ -277,12 +291,17 @@ void Page::fade(int dir){
             
             if(media.at(i)->mediaType==IMGMEDIA) media.at(i)->img->fadeOut(fadeVal);
             if(media.at(i)->mediaType==VIDMEDIA) {
-                
-            media.at(i)->vid->fadeOut(fadeVal);
-            media.at(i)->vidState = 0;
-            // TODO: debug this! stop all video
-            media.at(i)->stopVid();
-                }
+                media.at(i)->vid->fadeOut(fadeVal);
+                media.at(i)->vidState = 0;
+                // TODO: debug this! stop all video
+                media.at(i)->stopVid();
+            }
+            if(media.at(i)->mediaType==SEGMEDIA) {
+                media.at(i)->segVid->fadeOut(fadeVal);
+                media.at(i)->vidState = 0;
+                // TODO: debug this! stop all video
+                media.at(i)->stopVid();
+            }
         }
     }
     

@@ -131,10 +131,15 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
 // Setup segmented video
 void Media::setup(string _vidFile, float _x, float _y){
     segVid = new SegmentedVideo();
+    vidFileName = _vidFile;
+    vidState = 0;
     
     segVid->setup(_vidFile);
     setPosition(_x, _y);
     mediaType = SEGMEDIA;
+    
+    autoplay = 1;
+    //segVid->fadeOut(-1);
 }
 
 
@@ -152,7 +157,7 @@ ofPoint Media::getPosition(){
 
 string Media::getFileName(){
     
-    if (mediaType==DUALMEDIA || mediaType == VIDMEDIA){
+    if (mediaType==DUALMEDIA || mediaType == VIDMEDIA || mediaType == SEGMEDIA){
         return vidFileName;
     } else {
         return imgFileName;
@@ -170,6 +175,14 @@ void Media::playVid(){
             vid->play();
         }
     }
+    if(mediaType==SEGMEDIA){
+        if(segVid->isPlaying()==false){
+            vidState = 1;
+            segVid->setFrame(0);
+            segVid->nextFrame();
+            segVid->play();
+        }
+    }
 
 }
 
@@ -179,6 +192,13 @@ void Media::stopVid(){
         if(vid->isPlaying()==true){
             vid->stop();
             vid->setFrame(0);
+            loopCount = 0;
+        }
+    }
+    if(mediaType==SEGMEDIA){
+        if(segVid->isPlaying()==true){
+            segVid->stop();
+            segVid->setFrame(0);
             loopCount = 0;
         }
     }
@@ -220,6 +240,7 @@ void Media::update(){
     
     if (mediaType == SEGMEDIA) {
         segVid->update();
+        segVid->getAlpha()<0.01f ? isHidden = true : isHidden = false;
     }
     
 
@@ -234,8 +255,9 @@ void Media::moveTo(int _x, int _y){
 void Media::setDraggable(bool _bDrag){
     isDraggable = _bDrag;
 
-   if(mediaType==IMGMEDIA) img->setBorder(isDraggable);
-   if(mediaType==VIDMEDIA) vid->setBorder(isDraggable);
+    if(mediaType==IMGMEDIA) img->setBorder(isDraggable);
+    if(mediaType==VIDMEDIA) vid->setBorder(isDraggable);
+    if(mediaType==SEGMEDIA) segVid->setBorder(isDraggable);
 
     
 }
@@ -252,7 +274,7 @@ void Media::draw(float scale){
             vid->draw(x, y, vid->width*scale, vid->height*scale);
         }
     else if(mediaType == SEGMEDIA){
-        segVid->draw(x, y);
+        segVid->draw(x, y, segVid->width*scale, segVid->height*scale);
     }
 
 }
@@ -279,6 +301,7 @@ void Media::printInfo(){
 void Media::setBorder(bool _showBorder){
     if(mediaType==IMGMEDIA || mediaType==DUALMEDIA) img->setBorder(_showBorder);
     if(mediaType==VIDMEDIA || mediaType==DUALMEDIA) vid->setBorder(_showBorder);
+    if(mediaType==SEGMEDIA) segVid->setBorder(_showBorder);
 }
 
 int Media::hide(){
@@ -288,34 +311,38 @@ int Media::hide(){
         return -1;
     } else {
     
-    if(mediaType==IMGMEDIA){
-        img->fadeOut();
-    } else if(mediaType==VIDMEDIA){
-        vid->fadeOut();
-    } else {
-        
-        ofLogWarning() << "Media::hide not supported for mediaType==" << mediaType;
-        return -1;
-    }
+        if(mediaType==IMGMEDIA){
+            img->fadeOut();
+        } else if(mediaType==VIDMEDIA){
+            vid->fadeOut();
+        } else if(mediaType==SEGMEDIA){
+            segVid->fadeOut();
+        } else {
+            ofLogWarning() << "Media::hide not supported for mediaType==" << mediaType;
+            return -1;
+        }
         return 0;
     }
 }
+    
 int Media::show(){
     if(!isHidden){
         ofLogWarning() << "already showing, can't show it";
         return -1;
     } else {
-     isHidden = false;
-    if(mediaType==IMGMEDIA){
-        img->fadeIn();
-    } else if(mediaType==VIDMEDIA){
-       
-        vid->fadeIn();
-        playVid();
-    } else {
-        ofLogWarning() << "Media::show not supported for mediaType==" << mediaType;
-        return -1;
-    }
+        isHidden = false;
+        if(mediaType==IMGMEDIA){
+            img->fadeIn();
+        } else if(mediaType==VIDMEDIA){
+            vid->fadeIn();
+            playVid();
+        } else if(mediaType==SEGMEDIA){
+            segVid->fadeIn();
+            playVid();
+        } else {
+            ofLogWarning() << "Media::show not supported for mediaType==" << mediaType;
+            return -1;
+        }
         return 0;
     }
 }

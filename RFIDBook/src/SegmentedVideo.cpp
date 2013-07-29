@@ -10,14 +10,13 @@
 
 
 
-SegmentedVideo::SegmentedVideo() {}
+SegmentedVideo::SegmentedVideo() {
+    ofFadeVideo::ofFadeVideo();
+}
 SegmentedVideo::~SegmentedVideo() {}
 
 
 void SegmentedVideo::setup(string fileName){
-    player.setPixelFormat(OF_PIXELS_RGBA);
-    player.loadMovie(fileName);
-    ofEnableAlphaBlending();
     
     ////////////////////////
     /// LOAD IN CUE INFO ///
@@ -62,31 +61,32 @@ void SegmentedVideo::setup(string fileName){
     
     // end
     cue end;
-    end.frame = player.getTotalNumFrames() - 30;
+    end.frame = getTotalNumFrames() - 30;
     end.gate = CLOSEDGATE;
     end.loopbackCue = 1;
     cues.push_back(end);
     
     //////////////////////
     
-    player.play();
+    ofFadeVideo::setup(fileName);
 
 }
 
 
 void SegmentedVideo::update(){
     
-    player.update();
+    //player.update();
+    ofFadeVideo::update();
     
     for (int i = 0; i < cues.size(); i++) {
         
         // If the current frame is an event cue, check gate
-        if (player.getCurrentFrame() == cues.at(i).frame){
+        if ( getCurrentFrame() == cues.at(i).frame){
             cue currentCue = cues.at(i);
             
             // If the gate is closed, loop video to specified cue
             if (currentCue.gate == CLOSEDGATE) {
-                player.setFrame(cues.at(currentCue.loopbackCue).frame);
+                setFrame(cues.at(currentCue.loopbackCue).frame);
             }
             
             // If the video has reached the last cue, reset the gates on the 2 loops
@@ -96,33 +96,6 @@ void SegmentedVideo::update(){
             }
         }
     }
-    
-}
-
-void SegmentedVideo::draw(float x, float y){
-    
-    player.draw(x-player.width/2, y-player.height/2);
-    
-    // Debug messaging
-//    ofDrawBitmapString("Press 1 to toggle flower and berry looping", 200, 20);
-//    ofDrawBitmapString(ofToString(ofGetElapsedTimeMillis() / 1000), 780, 10);
-//    ofDrawBitmapString(ofToString(player.getCurrentFrame()), 780, 20);
-//    ofDrawBitmapString("Flower looping: ", 650, 40);
-//    if (cues.at(2).gate == CLOSEDGATE) {
-//        ofDrawBitmapString("ON", 780, 40);
-//    }
-//    else {
-//        ofDrawBitmapString("OFF", 780, 40);
-//    }
-//    
-//    ofDrawBitmapString("Berry looping: ", 650, 60);
-//    if (cues.at(4).gate == CLOSEDGATE) {
-//        ofDrawBitmapString("ON", 780, 60);
-//    }
-//    else {
-//        ofDrawBitmapString("OFF", 780, 60);
-//    }
-
     
 }
 

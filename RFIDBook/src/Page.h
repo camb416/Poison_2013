@@ -30,6 +30,8 @@ public:
     
     void addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback, bool _isHidden);
     
+    bool isSegVid(string _fileName);
+    
     void setDrag(bool _doDrag);
     
     void receiveInput(char touchId_in, int pageNum_in);
