@@ -3,10 +3,10 @@
 
 bool isSegmented(string _str){
     
-    size_t thing = _str.find("seg");
+    size_t thing = _str.find("SEG");
     if(thing!=string::npos){
     
-    cout << _str.find("seg") << endl;
+    cout << _str.find("SEG") << endl;
     } else {
         cout << "uh not found?";
     }
