@@ -94,7 +94,7 @@ void BookApp::keyPressed(int key){
             case '5':
             case '6':
             case '7':
-                bookView.touch(key-48);
+                bookView.touch(key-48); // send the int of the key
             break;
             
             case '=':

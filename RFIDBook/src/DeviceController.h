@@ -33,6 +33,7 @@ public:
     PhidgetConnector kit;
     int serialId = -1; //275939
     int touchSensor(string sensor);
+    bool kitConnected = true;
     bool hasTouch(int sensorID);
     void printTouchSensors();
     bool getTouchBool(int whichSensor, int whichKit = -1);
