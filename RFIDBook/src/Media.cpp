@@ -128,6 +128,18 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
     
 }
 
+// Setup segmented video
+void Media::setup(string _vidFile, float _x, float _y){
+    segVid = new SegmentedVideo();
+    
+    segVid->setup(_vidFile);
+    setPosition(_x, _y);
+    mediaType = SEGMEDIA;
+}
+
+
+
+
 void Media::setPosition(float _x, float _y){
     x = _x;
     y = _y;
@@ -206,6 +218,10 @@ void Media::update(){
 
     }
     
+    if (mediaType == SEGMEDIA) {
+        segVid->update();
+    }
+    
 
 }
 
@@ -235,6 +251,9 @@ void Media::draw(float scale){
        // else if (vidState == 1) {
             vid->draw(x, y, vid->width*scale, vid->height*scale);
         }
+    else if(mediaType == SEGMEDIA){
+        segVid->draw(x, y);
+    }
 
 }
 void Media::printInfo(){
