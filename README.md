@@ -1,4 +1,4 @@
 Poison_2013
 ===========
 
-Test application and standalone class for playing segmented video on the magic book. Video file sold separately.
+Comprehensive repo of Magic Book and all testing applications. See README for each individual project for more info.
