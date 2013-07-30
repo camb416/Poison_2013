@@ -22,9 +22,10 @@ public:
     bool toggleLanguage();
     bool setLanguage(string _ident);
     string resolvePath(string _filepath);
+    LanguageModel model;
     
 private:
-    LanguageModel model;
+    
     
 };
 

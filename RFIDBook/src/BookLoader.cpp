@@ -13,7 +13,7 @@ BookLoader::~BookLoader(){}
 
 
 // Load each page from the book XML file
-vector< vector<MediaModel> > BookLoader::load(string fileName){
+vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageController lang){
     
     cout << " -------- LOADING BOOK XML --------" << "\n";
     

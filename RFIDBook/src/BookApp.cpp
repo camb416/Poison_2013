@@ -15,10 +15,10 @@ void BookApp::setup(){
     bookView.setup();
     
     // I think we're done with these
-    bookView.addBackplate(lang.resolvePath("assets/backplate.png"));
+    bookView.addBackplate(lang.resolvePath("backplate.png"));
     
     // Load Book XML
-    vector< vector<MediaModel> > pages = loader.load("settings/book.xml");
+    vector< vector<MediaModel> > pages = loader.load("settings/book.xml", lang);
     
     for (int i = 0; i < pages.size(); i++) {
         //bookView.addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId, pages.at(i).loopback);
@@ -34,7 +34,7 @@ void BookApp::setup(){
 
     debugState = 1;
     updateDebug();
-    dui.setup(&devices, &book, &bookView, &loader);
+    dui.setup(&devices, &book, &lang, &bookView, &loader);
     
     
     isSetup = true;

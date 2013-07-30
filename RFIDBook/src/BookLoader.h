@@ -14,6 +14,7 @@
 #include "ofxXmlSettings.h"
 #include "LanguageController.h"
 
+
 struct MediaModel{
     string src;
     ofVec2f pos;
@@ -43,7 +44,7 @@ public:
     BookLoader();
     ~BookLoader();
     
-    vector< vector<MediaModel> > load(string fileName);
+    vector< vector<MediaModel> > load(string fileName, LanguageController lang);
     
     ofxXmlSettings bookElements;
     
@@ -51,7 +52,7 @@ public:
     
     vector< vector<MediaModel> > pages;
     
-    LanguageController lang;
+    //LanguageController lang;
     
     
 };

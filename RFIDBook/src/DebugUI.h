@@ -16,6 +16,7 @@
 #include "BarGraph.h"
 #include "DeviceController.h"
 #include "BookController.h"
+#include "LanguageController.h"
 #include "BookView.h"
 #include "BookLoader.h"
 #include <iostream>
@@ -26,7 +27,7 @@ public:
     DebugUI();
     ~DebugUI();
     
-    void setup(DeviceController * _devices, BookController * _book, BookView * _bookView, BookLoader *_loader);
+    void setup(DeviceController * _devices, BookController * _book, LanguageController * _lang, BookView * _bookView, BookLoader *_loader);
     void update();
     void draw();
     
@@ -51,6 +52,7 @@ private:
     
     DeviceController * devices;
     BookController * book;
+    LanguageController * lang;
     BookLoader * loader;
     TextField tfield;
     PositionUI pos_ui;

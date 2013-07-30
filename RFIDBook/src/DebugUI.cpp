@@ -24,9 +24,10 @@ bool DebugUI::getIsVisible(){
     return isVisible;
 }
 
-void DebugUI::setup(DeviceController * _devices, BookController * _book, BookView * _bookView, BookLoader * _loader){
+void DebugUI::setup(DeviceController * _devices, BookController * _book, LanguageController * _lang, BookView * _bookView, BookLoader * _loader){
     devices = _devices;
     book = _book;
+    lang = _lang;
     bookView = _bookView;
     loader = _loader;
     
@@ -67,7 +68,7 @@ void DebugUI::update(){
     // Load in default XML file
     if(defaultXMLbtn){
         bookView->clearPages();
-        vector< vector<MediaModel> > pages = loader->load("settings/book.default");
+        vector< vector<MediaModel> > pages = loader->load("settings/book.default", *lang);
         for (int i = 0; i < pages.size(); i++) bookView->addPage(pages.at(i));
     }
     
@@ -76,7 +77,7 @@ void DebugUI::update(){
     // Load in custom XML file
     if(loadXMLbtn){
         bookView->clearPages();
-        vector< vector<MediaModel> > pages = loader->load("settings/book.xml");
+        vector< vector<MediaModel> > pages = loader->load("settings/book.xml", *lang);
         for (int i = 0; i < pages.size(); i++) bookView->addPage(pages.at(i));
     }
 }

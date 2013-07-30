@@ -49,7 +49,7 @@ string LanguageController::resolvePath(string _filepath){
     string langSpec_str;
     string common_str;
     
-    string prefix ="";
+    string prefix ="assets/";
     string filePath;
     
     int slashIndex = _filepath.find_last_of("/");
@@ -57,22 +57,22 @@ string LanguageController::resolvePath(string _filepath){
     if(slashIndex<0){
     
         langSpec_str = model.getCurrentLanguageId() + "/" + _filepath;
-        common_str = "common/" + _filepath;
+        common_str = "assets/common/" + _filepath;
         filePath = _filepath;
     
     } else if(slashIndex==0){
         // slash is the first char
         langSpec_str = model.getCurrentLanguageId()  + _filepath;
-        common_str = "common" + _filepath;
+        common_str = "assets/common" + _filepath;
         filePath = _filepath;
 
         
     } else {
         // has a slash
-        prefix = _filepath.substr(0,slashIndex+1);
+        //prefix += _filepath.substr(0,slashIndex+1);
         filePath = _filepath.substr(slashIndex+1);
         
-        langSpec_str = prefix + model.getCurrentLanguageId() + filePath;
+        langSpec_str = prefix + model.getCurrentLanguageId() + "/" + _filepath;
         common_str = prefix + "common/" + filePath;
         
     }
