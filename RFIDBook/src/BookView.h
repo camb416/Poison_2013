@@ -51,6 +51,7 @@ public:
     int showCurrentMediaByClassName(string _classname);
     int showCurrentMediaByClassName(string _classname,string _showWhenDone);
 
+    int getCurrentPage();
     
 
     

@@ -278,6 +278,11 @@ int BookView::touch(int _whichSensor){
     
     return -1;
 }
+
+int BookView::getCurrentPage(){
+    return currentPage;
+    
+}
 int BookView::release(int _whichSensor){
     ofLogNotice() << "BookView received a release on sensor: " << _whichSensor;
     return -1;

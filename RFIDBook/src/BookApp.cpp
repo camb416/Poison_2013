@@ -18,12 +18,7 @@ void BookApp::setup(){
     bookView.addBackplate(lang.resolvePath("backplate.png"));
     
     // Load Book XML
-    vector< vector<MediaModel> > pages = loader.load("settings/book.xml", lang);
-    
-    for (int i = 0; i < pages.size(); i++) {
-        //bookView.addPage(pages.at(i).media, pages.at(i).position, pages.at(i).autoplay, pages.at(i).tapId, pages.at(i).loopback);
-        bookView.addPage(pages.at(i));
-    }
+    loadPagesFromXML();
     
     // Set up RFID & touch
     devices.setup();
@@ -190,9 +185,31 @@ void BookApp::keyPressed(int key){
             case 'P':
             devices.printTouchSensors();
             break;
+            
+            // Toggle language
+            case 'l':
+            case 'L':
+            lang.toggleLanguage();
+            
+            // Reload book elements after language toggle
+            bookView.deactivate();
+            bookView.clearPages();
+            loadPagesFromXML();
+            int currentPage = bookView.getCurrentPage();
+            bookView.activate(currentPage);
+            
             //case default:
             
             //break;
+    }
+}
+
+void BookApp::loadPagesFromXML(){
+    
+    vector< vector<MediaModel> > pages = loader.load("settings/book.xml", lang);
+    
+    for (int i = 0; i < pages.size(); i++) {
+        bookView.addPage(pages.at(i));
     }
 }
 
