@@ -24,6 +24,7 @@ void ofFadeVideo::setup(string filename_in){
     alphaDest = 1.0f;
     loadMovie(filename_in);
     setAnchorPercent(0.5f, 0.5f);
+    path = filename_in;
 }
 
 void ofFadeVideo::update(){
@@ -49,6 +50,10 @@ void ofFadeVideo::draw(int x_in, int y_in){
         ofNoFill();
         ofRect(x_in, y_in, myscale*getWidth(), myscale*getHeight());
         ofFill();
+        stringstream ss;
+        ss << x_in << ", " << y_in;
+        ofDrawBitmapString(ss.str(), x_in, y_in+20);
+        ofDrawBitmapString(path,x_in, y_in+40);
     }
 }
 
@@ -70,10 +75,13 @@ void ofFadeVideo::draw(int x_in, int y_in, int w_in, int h_in){
             ofLine(x_in-wOffset, y_in-hOffset, x_in-wOffset+w_in*myscale,  y_in-hOffset + h_in*myscale);
             ofLine(x_in+wOffset, y_in-hOffset, x_in+wOffset-w_in*myscale,  y_in-hOffset + h_in*myscale);
             ofFill();
+            
             stringstream ss;
             ss << x_in << ", " << y_in << " : " << x_in-wOffset << " , " <<  y_in-hOffset;
-            
-            ofDrawBitmapString(ss.str(), 0, 0);
+            ofDrawBitmapString(ss.str(), x_in-wOffset, y_in-hOffset+20);
+            ofDrawBitmapString(path, x_in-wOffset, y_in-hOffset+40);
+            ofDrawBitmapString("frame: " + ofToString(ofVideoPlayer::getCurrentFrame()), x_in-wOffset, y_in-hOffset+60);
+            ofDrawBitmapString("alpha: " + ofToString(alpha), x_in-wOffset, y_in-hOffset + 80);
             
         }
         ofPopMatrix();

@@ -37,5 +37,7 @@ private:
     float tweenDivisor;
     bool showBorder;
     
+    string path;
+    
 };
 #endif /* defined(__RFIDBook__ofFadeImage__) */
