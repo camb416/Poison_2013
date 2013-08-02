@@ -59,6 +59,8 @@ public:
     void printCurrentMediaByClassName(string _id);
     vector<Media *> getMediaByClassName(string _id);
     
+    vector<Media *> getSegmentedMedia();
+    
     BookView * viewRef;
     
     void registerView(BookView * _viewRef){

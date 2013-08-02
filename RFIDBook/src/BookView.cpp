@@ -255,6 +255,15 @@ int BookView::showCurrentMediaByClassName(string _classname,string _showWhenDone
     return returnVal;
 }
 
+void BookView::playSegmentedVideo(){
+//    int returnVal = 0;
+    vector<Media*> segmentedVideoToActivate = mediaPages.at(currentPage)->getSegmentedMedia();
+    
+    for (int i=0; i<segmentedVideoToActivate.size(); i++){
+        segmentedVideoToActivate.at(i)->segVid->touch();
+    }
+}
+
 int BookView::touch(int _whichSensor){
     ofLogNotice() << "BookView received a touch on sensor: " << _whichSensor;
     switch(currentPage){
@@ -268,6 +277,12 @@ int BookView::touch(int _whichSensor){
                     break;
                 case 1:
                     if(hideCurrentMediaByClassName("rhp")==0) showCurrentMediaByClassName("1","rhp");
+                    break;
+                case 2:
+                    playSegmentedVideo();
+                    break;
+                case 3:
+                    //TO DO: make language change here
                     break;
             }
             

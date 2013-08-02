@@ -364,3 +364,21 @@ vector<Media*> Page::getMediaByClassName(string _id){
     
 }
 
+vector<Media*> Page::getSegmentedMedia(){
+    
+    vector<Media*> returnVal;
+    
+    for(int i=0;i<media.size();i++){
+        
+        if(isSegVid(media.at(i)->getFileName())==1){
+            returnVal.push_back(media.at(i));
+            Media * thisMedia = (Media*) media.at(i);
+            //thisMedia->setBorder(true);
+        }
+        
+    }
+    
+    
+    return returnVal;
+}
+
