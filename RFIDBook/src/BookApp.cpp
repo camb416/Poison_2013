@@ -12,13 +12,13 @@ void BookApp::setup(){
     
     lang.load("settings/languages.xml");
     
-    bookView.setup();
+    bookView.setup(&lang, "settings/book.xml");
     
     // I think we're done with these
     bookView.addBackplate(lang.resolvePath("backplate.png"));
     
     // Load Book XML
-    loadPagesFromXML();
+    bookView.loadPages();
     
     // Set up RFID & touch
     devices.setup();
@@ -190,26 +190,11 @@ void BookApp::keyPressed(int key){
             case 'l':
             case 'L':
             lang.toggleLanguage();
-            
-            // Reload book elements after language toggle
-            bookView.deactivate();
-            bookView.clearPages();
-            loadPagesFromXML();
-            int currentPage = bookView.getCurrentPage();
-            bookView.activate(currentPage);
+            bookView.loadPages();
             
             //case default:
             
             //break;
-    }
-}
-
-void BookApp::loadPagesFromXML(){
-    
-    vector< vector<MediaModel> > pages = loader.load("settings/book.xml", lang);
-    
-    for (int i = 0; i < pages.size(); i++) {
-        bookView.addPage(pages.at(i));
     }
 }
 

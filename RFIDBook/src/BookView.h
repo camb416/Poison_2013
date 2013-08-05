@@ -13,6 +13,7 @@
 #include "ofxXmlSettings.h"
 #include "BookLoader.h"
 #include "Page.h"
+#include "LanguageController.h"
 #include <iostream>
 
 class Page;
@@ -21,7 +22,7 @@ class BookView{
 public:
     BookView();
     ~BookView();
-    void setup();
+    void setup(LanguageController * _lang, string _xmlFile);
     void update();
     void draw();
     void draw(int x_in, int y_in, int debugState=0);
@@ -51,6 +52,8 @@ public:
     int showCurrentMediaByClassName(string _classname);
     int showCurrentMediaByClassName(string _classname,string _showWhenDone);
     void playSegmentedVideo();
+    
+    void loadPages();
 
     int getCurrentPage();
     
@@ -63,6 +66,10 @@ private:
     
     bool bShowDragUI;
     bool isSetup;
+    
+    string xmlFile;
+    BookLoader loader;
+    LanguageController * lang;
     
 
 };

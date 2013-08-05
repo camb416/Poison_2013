@@ -32,7 +32,6 @@ class BookApp : public ofBaseApp{
     
         void toggleDebug();
         void updateDebug();
-        void loadPagesFromXML();
     
         void sendInput(char touchId);
 

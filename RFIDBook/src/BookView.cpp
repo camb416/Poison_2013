@@ -37,7 +37,9 @@ void BookView::hideDragUI(){
 
 }
 
-void BookView::setup(){
+void BookView::setup(LanguageController * _lang, string _xmlFile){
+    lang = _lang;
+    xmlFile = _xmlFile;
 
 }
 void BookView::update(){
@@ -282,7 +284,7 @@ int BookView::touch(int _whichSensor){
                     playSegmentedVideo();
                     break;
                 case 3:
-                    //TO DO: make language change here
+                    loadPages();
                     break;
             }
             
@@ -301,4 +303,19 @@ int BookView::getCurrentPage(){
 int BookView::release(int _whichSensor){
     ofLogNotice() << "BookView received a release on sensor: " << _whichSensor;
     return -1;
+}
+
+void BookView::loadPages(){
+    
+    deactivate();
+    clearPages();
+
+    vector< vector<MediaModel> > pages = loader.load(xmlFile, * lang);
+    
+    for (int i = 0; i < pages.size(); i++) {
+        addPage(pages.at(i));
+    }
+
+    activate(currentPage);
+
 }
