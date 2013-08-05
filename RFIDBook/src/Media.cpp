@@ -139,6 +139,7 @@ void Media::setup(string _vidFile, float _x, float _y){
     mediaType = SEGMEDIA;
     
     autoplay = 1;
+    isHidden = isHiddenByDefault = false;
     //segVid->fadeOut(-1);
 }
 

@@ -18,6 +18,9 @@ SegmentedVideo::~SegmentedVideo() {}
 
 void SegmentedVideo::setup(string fileName){
     
+    
+    ofFadeVideo::setup(fileName);
+    
     ////////////////////////
     /// LOAD IN CUE INFO ///
     ////////////////////////
@@ -61,14 +64,12 @@ void SegmentedVideo::setup(string fileName){
     
     // end
     cue end;
-    end.frame = getTotalNumFrames() - 30;
+    end.frame = ofFadeVideo::getTotalNumFrames() - 30;
     end.gate = CLOSEDGATE;
     end.loopbackCue = 1;
     cues.push_back(end);
     
     //////////////////////
-    
-    ofFadeVideo::setup(fileName);
 
 }
 
