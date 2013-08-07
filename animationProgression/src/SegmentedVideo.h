@@ -33,7 +33,7 @@ class SegmentedVideo{
     void touch();
     
         ofVideoPlayer player;
-        string animFile = "belladona.mov";
+        string animFile = "belladonna_SEG.mov";
         
         vector<cue> cues;
 };

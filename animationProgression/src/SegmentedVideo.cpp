@@ -28,7 +28,7 @@ SegmentedVideo::SegmentedVideo() {
     
     // start sway
     cue flowerSway;
-    flowerSway.frame = 150;
+    flowerSway.frame = 120;
     flowerSway.gate = NOGATE;
     flowerSway.loopbackCue = -1;
     cues.push_back(flowerSway);
@@ -36,7 +36,7 @@ SegmentedVideo::SegmentedVideo() {
     
     // end sway
     cue endSway;
-    endSway.frame = 330;
+    endSway.frame = 263;
     endSway.gate = CLOSEDGATE;
     endSway.loopbackCue = 1;
     cues.push_back(endSway);
@@ -44,21 +44,21 @@ SegmentedVideo::SegmentedVideo() {
     
     // berries grow
     cue berries;
-    berries.frame = 340;
+    berries.frame = 288;
     berries.gate = NOGATE;
     berries.loopbackCue = 1;
     cues.push_back(berries);
     
     // berries fall
     cue fall;
-    fall.frame = 540;
+    fall.frame = 431;
     fall.gate = CLOSEDGATE;
     fall.loopbackCue = 3;
     cues.push_back(fall);
     
     // end
     cue end;
-    end.frame = player.getTotalNumFrames() - 30;
+    end.frame = 575;
     end.gate = CLOSEDGATE;
     end.loopbackCue = 1;
     cues.push_back(end);
