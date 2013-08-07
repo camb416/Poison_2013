@@ -36,6 +36,7 @@ void ofFadeImage::draw(int x_in, int y_in){
     
     if(alpha>0.05){
         ofSetColor(255,255,255,alpha*255);
+        //ofSetColor(0,0,0,alpha*255);
         ofImage::draw(x_in, y_in,myscale*getWidth(),myscale*getHeight());
     }
     if(showBorder){
@@ -56,6 +57,7 @@ void ofFadeImage::draw(int x_in, int y_in, int w_in, int h_in){
     float hOffset = 0.5f*myscale*h_in;
     if(alpha>0.05){
         ofSetColor(255,255,255,alpha*255);
+       // ofSetColor(0,0,0,alpha*255);
         ofPushMatrix();
         //ofTranslate(centerPoint);
         ofImage::draw(x_in, y_in, w_in*myscale, h_in*myscale);

@@ -264,7 +264,7 @@ void Page::fade(int dir){
             if(!media.at(i)->isHiddenByDefault){
             
                 float fadeVal = ofRandomuf()*(maxFadeIn-minFadeIn)+minFadeIn;
-                float offsetVal = ofRandomuf()*1000;
+                int offsetVal = ofRandomuf()*5000;
                 if(media.at(i)->mediaType==IMGMEDIA  ){
                     media.at(i)->show(fadeVal,offsetVal);
 //                    media.at(i)->img->fadeIn(fadeVal);
@@ -297,7 +297,7 @@ void Page::fade(int dir){
             float fadeVal = ofRandomuf()*(maxFadeOut-minFadeOut)+minFadeOut;
             // cout << fadeVal << endl;
             
-            if(media.at(i)->mediaType==IMGMEDIA) media.at(i)->img->fadeOut(fadeVal);
+            if(media.at(i)->mediaType==IMGMEDIA) media.at(i)->hide();
             if(media.at(i)->mediaType==VIDMEDIA) {
                 media.at(i)->vid->fadeOut(fadeVal);
                 media.at(i)->vidState = 0;

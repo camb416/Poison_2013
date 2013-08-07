@@ -316,7 +316,7 @@ void Media::setBorder(bool _showBorder){
 }
 
 int Media::hide(){
-    
+    whenToShow = -1;
     if(isHidden){
         ofLogWarning() << "already hidden, can't hide it";
         return -1;
@@ -357,6 +357,9 @@ int Media::show(float _fadeVal, int _offset){
         }
         return 0;
     } else {
-        if(whenToShow<0) whenToShow = ofGetElapsedTimeMillis()+_offset;
+        if(whenToShow<0){
+            whenToShow = ofGetElapsedTimeMillis()+_offset;
+        }
+        return 0;
     }
 }
