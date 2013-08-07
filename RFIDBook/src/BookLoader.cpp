@@ -50,8 +50,11 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 
                 MediaModel thisMedia;
                 
+                int offset;
+                
                     
                 mediaFileName = lang.resolvePath(bookElements.getAttribute("Media", "src", "", i));
+                offset = bookElements.getAttribute("Media", "offset", 0, i);
                 
                 // If file isn't found, preserve the file path to save back to the XML
                 if (mediaFileName == "FILE NOT FOUND"){
@@ -104,6 +107,7 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 thisMedia.mClass = tapId;
                 thisMedia.loopback = loopback;
                 thisMedia.isHidden = isHidden;
+                thisMedia.offset = offset;
                 /*
                 newPage.media.push_back(mediaFileName);
                 newPage.position.push_back(mediaPos);

@@ -22,6 +22,7 @@ struct MediaModel{
     string mClass;
     int loopback;
     bool isHidden;
+    int offset;
 };
 
 // parsing into MediaModel struct instead

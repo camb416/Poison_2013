@@ -21,8 +21,9 @@ Media::Media(){
 Media::~Media(){}
 
 // Image only
-void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isHidden){
+void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isHidden, int _offset){
     
+    offset = _offset;
     
     showWhenDone_str = "";
     imgFileName = mediaFile;
@@ -51,8 +52,10 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
 }
 
 // Image and video
-void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback, bool _isHidden){
+void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback, bool _isHidden, int _offset){
  
+    
+    offset = _offset;
     
     showWhenDone_str = "";
     setPosition(_x, _y);
@@ -136,6 +139,7 @@ void Media::setup(string _vidFile, float _x, float _y){
     segVid = new SegmentedVideo();
     vidFileName = _vidFile;
     vidState = 0;
+    offset = 0;
     
     segVid->setup(_vidFile);
     setPosition(_x, _y);
@@ -318,7 +322,7 @@ void Media::setBorder(bool _showBorder){
 int Media::hide(){
     whenToShow = -1;
     if(isHidden){
-        ofLogWarning() << "already hidden, can't hide it";
+        ofLogWarning() << imgFileName << " already hidden, can't hide it";
         return -1;
     } else {
         isHidden = true;
@@ -335,13 +339,15 @@ int Media::hide(){
         return 0;
     }
 }
-    
-int Media::show(float _fadeVal, int _offset){
+
+int Media::show(float _fadeVal, bool _useOffset){
+
+
     fadeVal = _fadeVal;
     if(!isHidden){
         ofLogWarning() << "already showing, can't show it";
         return -1;
-    } else if(_offset<=0){
+    } else if(offset<=0 || _useOffset == false){
         isHidden = false;
         if(mediaType==IMGMEDIA){
             img->fadeIn(fadeVal);
@@ -358,8 +364,9 @@ int Media::show(float _fadeVal, int _offset){
         return 0;
     } else {
         if(whenToShow<0){
-            whenToShow = ofGetElapsedTimeMillis()+_offset;
+            whenToShow = ofGetElapsedTimeMillis()+offset;
         }
         return 0;
     }
+    
 }

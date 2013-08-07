@@ -128,7 +128,7 @@ void BookView::addPage(vector < MediaModel> medias){
     
     for (int i = 0; i < medias.size(); i++) {
         MediaModel thisMedia = medias.at(i);
-        newPage->addMedia(thisMedia.src,thisMedia.pos,thisMedia.autoPlay,thisMedia.mClass,thisMedia.loopback, thisMedia.isHidden);
+        newPage->addMedia(thisMedia.src,thisMedia.pos,thisMedia.autoPlay,thisMedia.mClass,thisMedia.loopback, thisMedia.isHidden,thisMedia.offset);
     }
     
     mediaPages.push_back(newPage);

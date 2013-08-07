@@ -1,53 +1,53 @@
 <Page>
     
-    <Media x="1328" y="1027" src="assets/en/page1/Assasin.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="298" y="475" src="assets/en/page1/how-it-works-Open.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="540" y="642" src="assets/en/page1/IDENTIFY.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="430" y="112" src="assets/en/page1/Main-title-B.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="298" y="929" src="assets/en/page1/map-open.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1378" y="253" src="assets/en/page1/parts.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1175" y="702" src="assets/en/page1/Wolfs-bane-CLOSED-NT.png" auto="-1" class="rhp" loopback="-1" hidden="0"></Media>
-    <Media x="1606" y="675" src="assets/en/page1/Taming-Cerberus-CLOSED-NT.png" auto="-1" class="rhp" loopback="-1" hidden="0"></Media>
-    <Media x="698" y="586" src="assets/en/page1/belladonna_SEG.mov" auto="1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="950" y="600" src="assets/en/page1/overlays-and-shadows.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1181" y="561" src="assets/en/page1/wolf-15_prores.mov" auto="1" class="rhp" loopback="0" hidden="0"></Media>
-    <Media x="1408" y="693" src="assets/en/page1/wolfsbane5.mov" auto="-1" class="0" loopback="-1" hidden="1"></Media>
-    <Media x="1406" y="693" src="assets/en/page1/taming_cerberus7.mov" auto="-1" class="1" loopback="-1" hidden="1"></Media>
+    <Media x="1328" y="1027" src="assets/en/page1/Assasin.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" ></Media>
+    <Media x="298" y="475" src="assets/en/page1/how-it-works-Open.png" auto="-1" class="" loopback="-1" hidden="0"  offset="1000"></Media>
+    <Media x="540" y="642" src="assets/en/page1/IDENTIFY.png" auto="-1" class="" loopback="-1" hidden="0"  offset="1500"></Media>
+    <Media x="430" y="112" src="assets/en/page1/Main-title-B.png" auto="-1" class="" loopback="-1" hidden="0"  offset="2000"></Media>
+    <Media x="298" y="929" src="assets/en/page1/map-open.png" auto="-1" class="" loopback="-1" hidden="0"  offset="2500"></Media>
+    <Media x="1378" y="253" src="assets/en/page1/parts.png" auto="-1" class="" loopback="-1" hidden="0"  offset="3000"></Media>
+    <Media x="1175" y="702" src="assets/en/page1/Wolfs-bane-CLOSED-NT.png" auto="-1" class="rhp" loopback="-1" hidden="0"  offset="3500"></Media>
+    <Media x="1606" y="675" src="assets/en/page1/Taming-Cerberus-CLOSED-NT.png" auto="-1" class="rhp" loopback="-1" hidden="0"  offset="4000"></Media>
+    <Media x="698" y="586" src="assets/en/page1/belladonna_SEG.mov" auto="1" class="" loopback="-1" hidden="0"  offset="4500"></Media>
+    <Media x="950" y="600" src="assets/en/page1/overlays-and-shadows.png" auto="-1" class="" loopback="-1" hidden="0"  offset="5000"></Media>
+    <Media x="1181" y="561" src="assets/en/page1/wolf-15_prores.mov" auto="1" class="rhp" loopback="0" hidden="0"  offset="6000"></Media>
+    <Media x="1408" y="693" src="assets/en/page1/wolfsbane5.mov" auto="-1" class="0" loopback="-1" hidden="1"  offset="5500"></Media>
+    <Media x="1406" y="693" src="assets/en/page1/taming_cerberus7.mov" auto="-1" class="1" loopback="-1" hidden="1"  offset="6500"></Media>
 </Page>
 <Page>
     
-    <Media x="1411" y="175" src="assets/en/be/be_parts.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="301" y="594" src="assets/en/be/be_t1_lh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="760" y="623" src="assets/en/be/be_t2_lh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1502" y="439" src="assets/en/be/be_t3_lh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1425" y="701" src="assets/en/be/be_t1_rh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1301" y="77" src="assets/en/be/be_t2_rh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1358" y="915" src="assets/en/be/be_t3_rh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="605" y="644" src="assets/en/page1/belladonna_SEG.mov" auto="1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1208" y="589" src="assets/en/be/be_three_fates.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1617" y="586" src="assets/en/be/be_witch.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
+    <Media x="1411" y="175" src="assets/en/be/be_parts.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="301" y="594" src="assets/en/be/be_t1_lh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="760" y="623" src="assets/en/be/be_t2_lh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="1502" y="439" src="assets/en/be/be_t3_lh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="1425" y="701" src="assets/en/be/be_t1_rh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="1301" y="77" src="assets/en/be/be_t2_rh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="1358" y="915" src="assets/en/be/be_t3_rh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="605" y="644" src="assets/en/page1/belladonna_SEG.mov" auto="1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="1208" y="589" src="assets/en/be/be_three_fates.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="1617" y="586" src="assets/en/be/be_witch.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
 </Page>
 <Page>
     
-    <Media x="1412" y="237" src="assets/en/he/he_parts.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="522" y="602" src="assets/en/he/he_t1_lh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="532" y="543" src="assets/en/he/he_t2_lh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="253" y="732" src="assets/en/he/he_t3_lh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1462" y="658" src="assets/en/he/he_t1_rh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1315" y="194" src="assets/en/he/he_t2_rh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1454" y="990" src="assets/en/he/he_t3_rh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1419" y="678" src="assets/en/he/he_socrates.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
+    <Media x="1412" y="237" src="assets/en/he/he_parts.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="522" y="602" src="assets/en/he/he_t1_lh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="532" y="543" src="assets/en/he/he_t2_lh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="253" y="732" src="assets/en/he/he_t3_lh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="1462" y="658" src="assets/en/he/he_t1_rh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="1315" y="194" src="assets/en/he/he_t2_rh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="1454" y="990" src="assets/en/he/he_t3_rh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="1419" y="678" src="assets/en/he/he_socrates.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
 </Page>
 <Page>
     
-    <Media x="1403" y="193" src="assets/en/mo/mo_parts.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="359" y="606" src="assets/en/mo/mo_t1_lh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="470" y="737" src="assets/en/mo/mo_t2_lh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="480" y="656" src="assets/en/mo/mo_t3_lh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1434" y="683" src="assets/en/mo/mo_t1_rh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1525" y="150" src="assets/en/mo/mo_t2_rh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1394" y="947" src="assets/en/mo/mo_t3_rh.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="772" y="484" src="assets/en/mo/monkshood_SEG.mov" auto="1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1239" y="617" src="assets/en/mo/mo_wolf.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
-    <Media x="1600" y="621" src="assets/en/mo/mo_cerberus.png" auto="-1" class="" loopback="-1" hidden="0"></Media>
+    <Media x="1403" y="193" src="assets/en/mo/mo_parts.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="359" y="606" src="assets/en/mo/mo_t1_lh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="470" y="737" src="assets/en/mo/mo_t2_lh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="480" y="656" src="assets/en/mo/mo_t3_lh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="1434" y="683" src="assets/en/mo/mo_t1_rh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="1525" y="150" src="assets/en/mo/mo_t2_rh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="1394" y="947" src="assets/en/mo/mo_t3_rh.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="772" y="484" src="assets/en/mo/monkshood_SEG.mov" auto="1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="1239" y="617" src="assets/en/mo/mo_wolf.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
+    <Media x="1600" y="621" src="assets/en/mo/mo_cerberus.png" auto="-1" class="" loopback="-1" hidden="0"  offset="0"></Media>
 </Page>

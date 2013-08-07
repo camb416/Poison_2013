@@ -308,7 +308,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "188"
          endingLineNumber = "188"
-         landmarkName = "Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback, bool _isHidden)"
+         landmarkName = "Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback, bool _isHidden, int _offset)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -329,11 +329,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "397587890.072822"
+         timestampString = "397596189.917118"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "231"
-         endingLineNumber = "231"
+         startingLineNumber = "235"
+         endingLineNumber = "235"
          landmarkName = "Media::update()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -355,12 +355,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/BookLoader.cpp"
-         timestampString = "395862556.814501"
+         timestampString = "397594826.710458"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "125"
-         endingLineNumber = "125"
-         landmarkName = "BookLoader::load(string fileName)"
+         startingLineNumber = "129"
+         endingLineNumber = "129"
+         landmarkName = "BookLoader::load(string fileName, LanguageController lang)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -368,22 +368,22 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "397587890.072822"
+         timestampString = "397596189.917118"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "211"
-         endingLineNumber = "211">
+         startingLineNumber = "215"
+         endingLineNumber = "215">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "397587890.072822"
+         timestampString = "397596189.917118"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "214"
-         endingLineNumber = "214"
+         startingLineNumber = "218"
+         endingLineNumber = "218"
          landmarkName = "Media::update()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -392,11 +392,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "397587890.072822"
+         timestampString = "397596189.917118"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "217"
-         endingLineNumber = "217"
+         startingLineNumber = "221"
+         endingLineNumber = "221"
          landmarkName = "Media::update()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -405,11 +405,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "397587890.072822"
+         timestampString = "397596189.917118"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "283"
-         endingLineNumber = "283"
+         startingLineNumber = "287"
+         endingLineNumber = "287"
          landmarkName = "Media::draw(float scale)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -431,11 +431,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "397587890.072822"
+         timestampString = "397596189.917118"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "274"
-         endingLineNumber = "274"
+         startingLineNumber = "278"
+         endingLineNumber = "278"
          landmarkName = "Media::setDraggable(bool _bDrag)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -444,22 +444,22 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "397587890.072822"
+         timestampString = "397596189.917118"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "172"
-         endingLineNumber = "172">
+         startingLineNumber = "176"
+         endingLineNumber = "176">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "397587890.072822"
+         timestampString = "397596189.917118"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "180"
-         endingLineNumber = "180"
+         startingLineNumber = "184"
+         endingLineNumber = "184"
          landmarkName = "Media::playVid()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -468,12 +468,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/BookLoader.cpp"
-         timestampString = "395962037.224864"
+         timestampString = "397594826.710458"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "82"
-         endingLineNumber = "82"
-         landmarkName = "BookLoader::load(string fileName)"
+         startingLineNumber = "85"
+         endingLineNumber = "85"
+         landmarkName = "BookLoader::load(string fileName, LanguageController lang)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -481,11 +481,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "397587890.072822"
+         timestampString = "397596189.917118"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "163"
-         endingLineNumber = "163"
+         startingLineNumber = "167"
+         endingLineNumber = "167"
          landmarkName = "Media::getFileName()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -494,11 +494,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "397587890.072822"
+         timestampString = "397596189.917118"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "161"
-         endingLineNumber = "161">
+         startingLineNumber = "165"
+         endingLineNumber = "165">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -531,11 +531,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "397587890.072822"
+         timestampString = "397598892.261619"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "340"
-         endingLineNumber = "340"
+         startingLineNumber = "346"
+         endingLineNumber = "346"
          landmarkName = "Media::show(float _fadeVal, int _offset)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -544,11 +544,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "397587890.072822"
+         timestampString = "397598892.261619"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "358"
-         endingLineNumber = "358"
+         startingLineNumber = "364"
+         endingLineNumber = "364"
          landmarkName = "Media::show(float _fadeVal, int _offset)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -557,12 +557,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "397589678.541024"
+         timestampString = "397598892.261619"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "361"
-         endingLineNumber = "361"
+         startingLineNumber = "367"
+         endingLineNumber = "367"
          landmarkName = "Media::show(float _fadeVal, int _offset)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Media.cpp"
+         timestampString = "397598892.261619"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "353"
+         endingLineNumber = "353"
+         landmarkName = "Media::show(float _fadeVal, int _offset)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/BookLoader.cpp"
+         timestampString = "397595193.358414"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "110"
+         endingLineNumber = "110"
+         landmarkName = "BookLoader::load(string fileName, LanguageController lang)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

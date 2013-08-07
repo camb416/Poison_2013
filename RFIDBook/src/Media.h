@@ -34,8 +34,8 @@ public:
     
     int mediaType;
     
-    void setup(string mediaFile, float _x, float _y, string _tapId, bool _isHidden);
-    void setup(string _imgFile, string vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback, bool _isHidden);
+    void setup(string mediaFile, float _x, float _y, string _tapId, bool _isHidden, int _offset);
+    void setup(string _imgFile, string vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback, bool _isHidden, int _offset);
     void setup(string _vidFile, float _x, float _y);
     void update();
     void draw(float scale=1.0f);
@@ -56,6 +56,7 @@ public:
     bool isHidden;
     bool isHiddenByDefault;
 
+    int offset;
     int fadeInOffset;
     int whenToShow;
     float fadeVal;
@@ -83,7 +84,7 @@ public:
     // these return -1 if it's already hidden or shown,
     // or 0 if everything looks okay
     int hide();
-    int show(float _fadeVal = 8.0f, int _offset = 0);
+    int show(float _fadeVal = 8.0f, bool _useOffset = false);
 
     
     void registerView(BookView * _viewRef){

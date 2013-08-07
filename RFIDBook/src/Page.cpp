@@ -156,7 +156,7 @@ void Page::draw(float originX, float originY, float scale){
     
 }
 
-void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback, bool _isHidden){
+void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback, bool _isHidden, int _offset){
     
     Media * newMedia = new Media();
     newMedia->registerView(viewRef);
@@ -165,7 +165,7 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
     if (sub == "png") {
         
         // run the setup for a media element that is just an image
-        newMedia->setup(fileName, position.x, position.y, tapId, _isHidden);
+        newMedia->setup(fileName, position.x, position.y, tapId, _isHidden,_offset);
         
     }
     else if (sub == "mov"){
@@ -180,7 +180,7 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
             string imageFile = fileName;
             imageFile.replace(fileName.length() -3, 3, "png");
             // newMedia->setup(imageFile, fileName, position.x, position.y, autoplay, tapId, loopback);
-            newMedia->setup("", fileName, position.x, position.y, autoplay, tapId, loopback, _isHidden);
+            newMedia->setup("", fileName, position.x, position.y, autoplay, tapId, loopback, _isHidden, _offset);
             //newMedia->setBorder(true);
         }
         
@@ -264,9 +264,9 @@ void Page::fade(int dir){
             if(!media.at(i)->isHiddenByDefault){
             
                 float fadeVal = ofRandomuf()*(maxFadeIn-minFadeIn)+minFadeIn;
-                int offsetVal = ofRandomuf()*5000;
+               // int offsetVal = ofRandomuf()*5000;
                 if(media.at(i)->mediaType==IMGMEDIA  ){
-                    media.at(i)->show(fadeVal,offsetVal);
+                    media.at(i)->show(fadeVal,true);
 //                    media.at(i)->img->fadeIn(fadeVal);
                 }
                 
