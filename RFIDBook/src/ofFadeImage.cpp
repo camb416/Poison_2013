@@ -88,6 +88,8 @@ void ofFadeImage::fadeIn(float _tweenD){ // use -1 for immediate fade
     alphaDest = 1.0f;
     }
 }
+
+
 void ofFadeImage::fadeOut(float _tweenD){
     if(_tweenD<0.0f){
         alpha = alphaDest = 0.0f;

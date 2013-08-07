@@ -262,24 +262,32 @@ void Page::fade(int dir){
     if (dir == 1) {
         for (int i = 0; i < media.size(); i++) {
             if(!media.at(i)->isHiddenByDefault){
-            float fadeVal = ofRandomuf()*(maxFadeIn-minFadeIn)+minFadeIn;
-            if(media.at(i)->mediaType==IMGMEDIA  ) media.at(i)->img->fadeIn(fadeVal);
             
-            // If autoplay is on for the video, start playing
+                float fadeVal = ofRandomuf()*(maxFadeIn-minFadeIn)+minFadeIn;
+                float offsetVal = ofRandomuf()*1000;
+                if(media.at(i)->mediaType==IMGMEDIA  ){
+                    media.at(i)->show(fadeVal,offsetVal);
+//                    media.at(i)->img->fadeIn(fadeVal);
+                }
+                
             
-            if (media.at(i)->mediaType == VIDMEDIA){
-                if (media.at(i)->autoplay == 1){
-                    media.at(i)->playVid();
+                // If autoplay is on for the video, start playing
+                
+                if (media.at(i)->mediaType == VIDMEDIA){
+                    //TODO: update this
+                    if (media.at(i)->autoplay == 1){
+                        media.at(i)->playVid();
+                    }
+                    media.at(i)->vid->fadeIn(fadeVal);
                 }
-                media.at(i)->vid->fadeIn(fadeVal);
-            }
-            if (media.at(i)->mediaType == SEGMEDIA){
-                if (media.at(i)->autoplay == 1){
-                    media.at(i)->playVid();
+                // TODO: updatethis
+                if (media.at(i)->mediaType == SEGMEDIA){
+                    if (media.at(i)->autoplay == 1){
+                        media.at(i)->playVid();
+                    }
+                    media.at(i)->segVid->fadeIn(fadeVal);
                 }
-                media.at(i)->segVid->fadeIn(fadeVal);
-            }
-            }
+                }
         }
     }
     else {

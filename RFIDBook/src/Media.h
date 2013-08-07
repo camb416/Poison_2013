@@ -55,11 +55,11 @@ public:
     
     bool isHidden;
     bool isHiddenByDefault;
+
+    int fadeInOffset;
+    int whenToShow;
+    float fadeVal;
     
-    //float vidX;
-    //float vidY;
-    
-    //bool hasVid;
     bool vidState;
     
     int autoplay;
@@ -83,7 +83,8 @@ public:
     // these return -1 if it's already hidden or shown,
     // or 0 if everything looks okay
     int hide();
-    int show();
+    int show(float _fadeVal = 8.0f, int _offset = 0);
+
     
     void registerView(BookView * _viewRef){
         viewRef = _viewRef;

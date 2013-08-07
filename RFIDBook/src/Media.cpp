@@ -15,6 +15,8 @@ Media::Media(){
     vidFileName = "";
     imgFileName = "";
     mediaType = -1;
+    whenToShow = -1;
+    fadeVal = 8.0f;
 }
 Media::~Media(){}
 
@@ -26,7 +28,8 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
     imgFileName = mediaFile;
     setPosition(_x, _y);
     
-    isHidden = isHiddenByDefault = _isHidden;
+    isHidden = true;
+    isHiddenByDefault = _isHidden;
     
     //hasVid = false;
     autoplay = -1;
@@ -244,6 +247,13 @@ void Media::update(){
         segVid->getAlpha()<0.01f ? isHidden = true : isHidden = false;
     }
     
+    if(whenToShow>0){
+        if(ofGetElapsedTimeMillis()>whenToShow){
+            whenToShow = -1;
+            show();
+        }
+    }
+    
 
 }
 
@@ -311,7 +321,7 @@ int Media::hide(){
         ofLogWarning() << "already hidden, can't hide it";
         return -1;
     } else {
-    
+        isHidden = true;
         if(mediaType==IMGMEDIA){
             img->fadeOut();
         } else if(mediaType==VIDMEDIA){
@@ -326,24 +336,27 @@ int Media::hide(){
     }
 }
     
-int Media::show(){
+int Media::show(float _fadeVal, int _offset){
+    fadeVal = _fadeVal;
     if(!isHidden){
         ofLogWarning() << "already showing, can't show it";
         return -1;
-    } else {
+    } else if(_offset<=0){
         isHidden = false;
         if(mediaType==IMGMEDIA){
-            img->fadeIn();
+            img->fadeIn(fadeVal);
         } else if(mediaType==VIDMEDIA){
-            vid->fadeIn();
+            vid->fadeIn(fadeVal);
             playVid();
         } else if(mediaType==SEGMEDIA){
-            segVid->fadeIn();
+            segVid->fadeIn(fadeVal);
             playVid();
         } else {
             ofLogWarning() << "Media::show not supported for mediaType==" << mediaType;
             return -1;
         }
         return 0;
+    } else {
+        if(whenToShow<0) whenToShow = ofGetElapsedTimeMillis()+_offset;
     }
 }
