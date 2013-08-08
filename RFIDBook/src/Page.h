@@ -39,7 +39,6 @@ public:
     void fade(int dir);
     
     vector<Media*> media;
-    vector<char> validInputs;
     Media* selectedMedia;
     
     ofxXmlSettings getXML();

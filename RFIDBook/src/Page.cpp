@@ -17,16 +17,7 @@ Page::~Page(){
 }
 
 void Page::setup(){
-
-    //
-    // key press inputs for the pages
-    //
-    validInputs.push_back('H'); // touch sensor A (left)
-    validInputs.push_back('J'); // touch sensor B (right)
-    validInputs.push_back('R'); // running
-    validInputs.push_back('C'); // clear all params
-    //
-    
+  
     //
     // Media involved in left & right touch events & media faded out when touch active
     //
@@ -68,7 +59,6 @@ void Page::dragUpdate(){
     } else {
         if(selectedMedia!=NULL){
             selectedMedia->moveTo(ofGetMouseX(),ofGetMouseY());
-            //selectedMedia->printInfo();
         }
     }
 }
@@ -76,65 +66,7 @@ void Page::update(){
     for (int i = 0; i < media.size(); i++) {
         media.at(i)->update();
     }
-    /*
     
-    if (touchActive){
-        int currentFrame;
-        int lastFrame;
-        
-        try {
-            if (currentTouch == 'H'){
-                currentFrame = media.at(touchMediaMatrix[0][0])->vid.getCurrentFrame();
-                lastFrame = media.at(touchMediaMatrix[0][0])->vid.getTotalNumFrames();
-            } else if (currentTouch == 'J'){
-                currentFrame = media.at(touchMediaMatrix[1][0])->vid.getCurrentFrame();
-                lastFrame = media.at(touchMediaMatrix[1][0])->vid.getTotalNumFrames();
-            }
-            
-            if (currentFrame == lastFrame){
-                
-                if (currentTouch == 'H'){
-                    media.at(touchMediaMatrix[0][0])->vid.fadeOut();
-                    media.at(touchMediaMatrix[0][0])->stopVid();
-                    media.at(touchMediaMatrix[0][0])->vidState = 0;
-                } else if (currentTouch == 'J'){
-                    media.at(touchMediaMatrix[1][0])->vid.fadeOut();
-                    media.at(touchMediaMatrix[1][0])->stopVid();
-                    media.at(touchMediaMatrix[1][0])->vidState = 0;
-                }
-                
-                int size = touchMediaMatrix[2].size();
-                for (int i=0; i < size; i++){
-                    media.at(touchMediaMatrix[2][i])->img.fadeIn();
-                    media.at(touchMediaMatrix[2][i])->vid.fadeIn();
-                    media.at(touchMediaMatrix[2][i])->playVid();
-                }
-                
-                touchActive = false;
-                pageReset = false;
-                currentTouch = ' ';
-            } else if (pageReset == true){
-                if (currentTouch == 'H'){
-                    media.at(touchMediaMatrix[0][0])->vid.fadeOut();
-                    media.at(touchMediaMatrix[0][0])->stopVid();
-                    media.at(touchMediaMatrix[0][0])->vidState = 0;
-                } else if (currentTouch == 'J'){
-                    media.at(touchMediaMatrix[1][0])->vid.fadeOut();
-                    media.at(touchMediaMatrix[1][0])->stopVid();
-                    media.at(touchMediaMatrix[1][0])->vidState = 0;
-                }
-                touchActive = false;
-                pageReset = false;
-                currentTouch = ' ';
-            }
-        }  catch (...) {
-            touchActive = false;
-            ofLogError() << "Error updating media ";
-        }
-    }
-
-*/
-
 }
 
 void Page::draw(float originX, float originY, float scale){
@@ -328,9 +260,7 @@ ofxXmlSettings Page::getXML(){
         xml.setAttribute("Media", "class", (string)media.at(i)->mClass, i);
         xml.setAttribute("Media", "loopback", (int)media.at(i)->loopback, i);
         xml.setAttribute("Media", "hidden", (int)media.at(i)->isHiddenByDefault, i);
-
-        
-        
+        xml.setAttribute("Media", "offset", (int)media.at(i)->offset, i);
     }
     return xml;
 }
