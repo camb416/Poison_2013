@@ -14,6 +14,7 @@
 #include "ofFadeImage.h"
 #include "OfFadeVideo.h"
 #include "SegmentedVideo.h"
+#include "LanguageController.h"
 
 
 #define UNKNOWNMEDIA -1

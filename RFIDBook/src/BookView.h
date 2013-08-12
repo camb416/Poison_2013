@@ -57,7 +57,7 @@ public:
 
     int getCurrentPage();
     
-
+    LanguageController * lang;
     
 private:
     
@@ -69,7 +69,7 @@ private:
     
     string xmlFile;
     BookLoader loader;
-    LanguageController * lang;
+    
     
 
 };

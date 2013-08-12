@@ -52,8 +52,7 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 
                 int offset;
                 
-                    
-                mediaFileName = lang.resolvePath(bookElements.getAttribute("Media", "src", "", i));
+                mediaFileName = bookElements.getAttribute("Media", "src", "", i);
                 offset = bookElements.getAttribute("Media", "offset", 0, i);
                 
                 // If file isn't found, preserve the file path to save back to the XML

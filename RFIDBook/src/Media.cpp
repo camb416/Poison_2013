@@ -40,8 +40,9 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
     img = new ofFadeImage();
     
     // check for image not found
-    if (ofFile::doesFileExist(imgFileName) == true){
-        img->setup(mediaFile);
+    string resolvedPath = viewRef->lang->resolvePath(imgFileName);
+    if (ofFile::doesFileExist(resolvedPath) == true){
+        img->setup(resolvedPath);
     }
     else{
         img->setup(notFoundImgFile);
@@ -109,8 +110,9 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
         vidState = 0;
         
         // check for video not found
-        if (ofFile::doesFileExist(_vidFile) == true){
-            vid->setup(_vidFile);
+        string resolvedPath = viewRef->lang->resolvePath(vidFileName);
+        if (ofFile::doesFileExist(resolvedPath) == true){
+            vid->setup(resolvedPath);
         }
         else{
             vid->setup(notFoundVidFile);
@@ -121,9 +123,11 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
            vid->fadeOut(-1);
     }
     if(mediaType==IMGMEDIA || mediaType==DUALMEDIA){
+        imgFileName = _imgFile;
         // check for image not found
-        if (ofFile::doesFileExist(imgFileName) == true){
-            img->setup(_imgFile);
+        string resolvedPath = viewRef->lang->resolvePath(imgFileName);
+        if (ofFile::doesFileExist(resolvedPath) == true){
+            img->setup(resolvedPath);
         }
         else{
             img->setup(notFoundImgFile);
@@ -141,7 +145,7 @@ void Media::setup(string _vidFile, float _x, float _y){
     vidState = 0;
     offset = 0;
     
-    segVid->setup(_vidFile);
+    segVid->setup(viewRef->lang->resolvePath(vidFileName));
     setPosition(_x, _y);
     mediaType = SEGMEDIA;
     
