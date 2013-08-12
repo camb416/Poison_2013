@@ -284,6 +284,7 @@ int BookView::touch(int _whichSensor){
                     playSegmentedVideo();
                     break;
                 case 3:
+                    lang->toggleLanguage();
                     loadPages();
                     break;
             }
@@ -309,7 +310,7 @@ void BookView::loadPages(){
     
     deactivate();
     clearPages();
-
+    
     vector< vector<MediaModel> > pages = loader.load(xmlFile, * lang);
     
     for (int i = 0; i < pages.size(); i++) {
