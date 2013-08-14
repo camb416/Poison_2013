@@ -9,7 +9,7 @@
 #include "ofFadeImage.h"
 
 ofFadeImage::ofFadeImage(){
-    usePulse = false;
+    pulseType = 0;
     showBorder = false;
     tweenDivisor = 8.0f;
     pulseOrigin = ofRandomuf()*TWO_PI;
@@ -27,7 +27,7 @@ void ofFadeImage::setup(string filename_in){
     path = filename_in;
 }
 void ofFadeImage::update(){
-    if(usePulse){
+    if(pulseType>0){
         pulseVal = pulseOrigin+ofGetElapsedTimef()*2.0f;
         
     } else {

@@ -88,7 +88,7 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                     pulse_int = bookElements.getAttribute("Media", "pulse", 0, i);
                 }
                 else {
-                    pulse_int = -1;
+                    pulse_int = 0;
                 }
                 if (bookElements.attributeExists("Media", "hidden", i)) {
                     string hiddenString = bookElements.getAttribute("Media", "hidden", "0", i);
@@ -114,21 +114,8 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 thisMedia.loopback = loopback;
                 thisMedia.isHidden = isHidden;
                 thisMedia.offset = offset;
-                thisMedia.pulse = (pulse_int>0) ? true : false;
-                /*
-                if(thisMedia.pulse){
-                    ofLogWarning() << "PULSE IS TRUE";
-                } else {
-                    ofLogWarning() << "PULSE IS FALSE";
-                }
-                 */
-                /*
-                newPage.media.push_back(mediaFileName);
-                newPage.position.push_back(mediaPos);
-                newPage.autoplay.push_back(autoplay);
-                //newPage.tapId.push_back(tapId);
-                newPage.loopback.push_back(loopback);
-                */
+                thisMedia.pulseType = pulse_int;
+                
                 thisPage.push_back(thisMedia);
             }
             

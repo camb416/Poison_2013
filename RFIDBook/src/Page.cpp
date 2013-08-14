@@ -88,7 +88,7 @@ void Page::draw(float originX, float originY, float scale){
     
 }
 void Page::addMedia(MediaModel _mm){
-            if(_mm.pulse) ofLogWarning() << ">>>>>>>>>>>>>>>>>>>>>>>>>>>  PAGE SEES WE HAVE A PULSE   <<<<<<<<<<<<<<<<<<<<<";
+
     Media * newMedia = new Media();
     newMedia->registerView(viewRef);
     

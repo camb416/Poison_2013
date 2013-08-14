@@ -56,7 +56,7 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
 
 void Media::setup(MediaModel _mm){
     // I am so sorry for this, it's going to be inefficient.
-    setup(_mm.src,_mm.pos.x, _mm.pos.y, _mm.mClass, _mm.isHidden, _mm.offset, _mm.pulse);
+    setup(_mm.src,_mm.pos.x, _mm.pos.y, _mm.mClass, _mm.isHidden, _mm.offset, _mm.pulseType);
 }
 
 
