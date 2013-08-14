@@ -253,10 +253,12 @@ void Media::update(){
     if (mediaType == SEGMEDIA) {
         segVid->update();
         // check whether to show the button
-        if (segVid->showButton == true){
+        bool currSegButtonState = segVid->showButton;
+        if (currSegButtonState == true && lastSegButtonState == false){
             viewRef->showCurrentMediaByClassName("seg");
         }
         segVid->getAlpha()<0.01f ? isHidden = true : isHidden = false;
+        lastSegButtonState = currSegButtonState;
     }
     
     if(whenToShow>0){
