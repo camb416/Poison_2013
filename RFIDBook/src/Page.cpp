@@ -256,6 +256,7 @@ void Page::fade(int dir){
                         media.at(i)->playVid();
                     }
                     media.at(i)->segVid->fadeIn(fadeVal);
+                    media.at(i)->segVid->showButton = false;
                 }
                 }
         }
