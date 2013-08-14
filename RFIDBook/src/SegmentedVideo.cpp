@@ -87,13 +87,16 @@ void SegmentedVideo::update(){
             
             // If the gate is closed, loop video to specified cue
             if (currentCue.gate == CLOSEDGATE) {
-                setFrame(cues.at(currentCue.loopbackCue).frame);
-            }
+                //setFrame(cues.at(currentCue.loopbackCue).frame);
+                ofFadeVideo::stop();
+            } 
             
             // If the video has reached the last cue, reset the gates on the 2 loops
             if (i == cues.size() - 1) {
+                setFrame(cues.at(currentCue.loopbackCue).frame);
                 cues.at(2).gate = CLOSEDGATE;
                 cues.at(4).gate = CLOSEDGATE;
+                ofFadeVideo::play();
             }
         }
     }
@@ -103,11 +106,13 @@ void SegmentedVideo::update(){
 // Recieve touch input and open gates
 void SegmentedVideo::touch(){
     
-    if (cues.at(2).gate == CLOSEDGATE){
-        cues.at(2).gate = OPENGATE;
-    }
-    else {
-        cues.at(4).gate = OPENGATE;
-    }
+    ofFadeVideo::play();
+//    if (cues.at(2).gate == CLOSEDGATE){
+//        cues.at(2).gate = OPENGATE;
+//        ofFadeVideo::play();
+//    }
+//    else {
+//        cues.at(4).gate = OPENGATE;
+//    }
 }
 
