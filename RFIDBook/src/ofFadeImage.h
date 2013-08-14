@@ -26,8 +26,15 @@ public:
     float getAlpha(){
         return alpha;
     }
+    void setPulse(bool _usePulse){
+        usePulse = _usePulse;
+    }
     
 private:
+    
+    bool usePulse;
+    float pulseVal;
+    float pulseOrigin;
     
     float alpha;
     float alphaDest;

@@ -29,6 +29,7 @@ public:
     void draw(float originX, float originY, float scale);
     
     void addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback, bool _isHidden,int _offset);
+    void addMedia(MediaModel _mm);
     
     bool isSegVid(string _fileName);
     

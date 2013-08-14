@@ -23,6 +23,7 @@ struct MediaModel{
     int loopback;
     bool isHidden;
     int offset;
+    bool pulse;
 };
 
 // parsing into MediaModel struct instead

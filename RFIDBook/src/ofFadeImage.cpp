@@ -9,8 +9,10 @@
 #include "ofFadeImage.h"
 
 ofFadeImage::ofFadeImage(){
+    usePulse = false;
     showBorder = false;
     tweenDivisor = 8.0f;
+    pulseOrigin = ofRandomuf()*TWO_PI;
 }
 
 void ofFadeImage::setBorder(bool _showBorder){
@@ -25,6 +27,12 @@ void ofFadeImage::setup(string filename_in){
     path = filename_in;
 }
 void ofFadeImage::update(){
+    if(usePulse){
+        pulseVal = pulseOrigin+ofGetElapsedTimef()*2.0f;
+        
+    } else {
+        pulseVal = 0.0f;
+    }
     alpha += (alphaDest-alpha)/tweenDivisor;
 }
 void ofFadeImage::draw(){
@@ -32,7 +40,7 @@ void ofFadeImage::draw(){
 }
 void ofFadeImage::draw(int x_in, int y_in){
     
-    float myscale = (alpha - 1.0f)/(-2.0f)+1.0f;
+    float myscale = (alpha - 1.0f)/(-2.0f)+1.0f+sin(pulseVal)*2.0f;
     
     if(alpha>0.05){
         ofSetColor(255,255,255,alpha*255);
@@ -52,21 +60,22 @@ void ofFadeImage::draw(int x_in, int y_in){
 void ofFadeImage::draw(int x_in, int y_in, int w_in, int h_in){
 //    ofPoint centerPoint = ofPoint(x_in+w_in/2.0f, y_in+h_in/2.0f);
     
-    float myscale = (alpha - 1.0f)/(-16.0f)+1.0f;
-    float wOffset = 0.5f*myscale*w_in;
-    float hOffset = 0.5f*myscale*h_in;
+    float myscaleX = (alpha - 1.0f)/(-16.0f)+1.0f+sin(pulseVal)*0.05f;
+    float myscaleY = (alpha - 1.0f)/(-16.0f)+1.0f+cos(pulseVal)*0.05f;
+    float wOffset = 0.5f*myscaleX*w_in;
+    float hOffset = 0.5f*myscaleY*h_in;
     if(alpha>0.05){
         ofSetColor(255,255,255,alpha*255);
        // ofSetColor(0,0,0,alpha*255);
         ofPushMatrix();
         //ofTranslate(centerPoint);
-        ofImage::draw(x_in, y_in, w_in*myscale, h_in*myscale);
+        ofImage::draw(x_in, y_in, w_in*myscaleX, h_in*myscaleY);
         if(showBorder){
             ofSetColor(255,0,0,alpha*255);
             ofNoFill();
-            ofRect(x_in-wOffset, y_in-hOffset, w_in*myscale, h_in*myscale);
-            ofLine(x_in-wOffset, y_in-hOffset, x_in-wOffset+w_in*myscale,  y_in-hOffset + h_in*myscale);
-            ofLine(x_in+wOffset, y_in-hOffset, x_in+wOffset-w_in*myscale,  y_in-hOffset + h_in*myscale);
+            ofRect(x_in-wOffset, y_in-hOffset, w_in*myscaleX, h_in*myscaleY);
+            ofLine(x_in-wOffset, y_in-hOffset, x_in-wOffset+w_in*myscaleX,  y_in-hOffset + h_in*myscaleY);
+            ofLine(x_in+wOffset, y_in-hOffset, x_in+wOffset-w_in*myscaleX,  y_in-hOffset + h_in*myscaleY);
             ofFill();
             stringstream ss;
             ss << x_in << ", " << y_in << " : " << x_in-wOffset << " , " <<  y_in-hOffset;

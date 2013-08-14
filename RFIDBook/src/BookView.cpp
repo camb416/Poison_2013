@@ -128,7 +128,9 @@ void BookView::addPage(vector < MediaModel> medias){
     
     for (int i = 0; i < medias.size(); i++) {
         MediaModel thisMedia = medias.at(i);
-        newPage->addMedia(thisMedia.src,thisMedia.pos,thisMedia.autoPlay,thisMedia.mClass,thisMedia.loopback, thisMedia.isHidden,thisMedia.offset);
+        //newPage->addMedia(thisMedia.src,thisMedia.pos,thisMedia.autoPlay,thisMedia.mClass,thisMedia.loopback, thisMedia.isHidden,thisMedia.offset);
+        if(thisMedia.pulse) ofLogWarning() << ">>>>>>>>>>>>>>>>>>>>>>>>>>> WE HAVE A PUSLE";
+        newPage->addMedia(thisMedia);
     }
     
     mediaPages.push_back(newPage);

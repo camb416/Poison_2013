@@ -21,7 +21,7 @@ Media::Media(){
 Media::~Media(){}
 
 // Image only
-void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isHidden, int _offset){
+void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isHidden, int _offset, bool _usePulse){
     
     offset = _offset;
     
@@ -38,6 +38,8 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
     mediaType = IMGMEDIA;
     
     img = new ofFadeImage();
+    img->setPulse(_usePulse);
+    if(_usePulse) ofLogWarning() << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SETTING THE FULSE OF THE IMAGE TO TRUE!!!";
     
     // check for image not found
     string resolvedPath = viewRef->lang->resolvePath(imgFileName);
@@ -51,6 +53,12 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
     img->fadeOut();
 
 }
+
+void Media::setup(MediaModel _mm){
+    // I am so sorry for this, it's going to be inefficient.
+    setup(_mm.src,_mm.pos.x, _mm.pos.y, _mm.mClass, _mm.isHidden, _mm.offset, _mm.pulse);
+}
+
 
 // Image and video
 void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback, bool _isHidden, int _offset){

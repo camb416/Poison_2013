@@ -15,6 +15,7 @@
 #include "OfFadeVideo.h"
 #include "SegmentedVideo.h"
 #include "LanguageController.h"
+#include "BookLoader.h"
 
 
 #define UNKNOWNMEDIA -1
@@ -35,8 +36,17 @@ public:
     
     int mediaType;
     
-    void setup(string mediaFile, float _x, float _y, string _tapId, bool _isHidden, int _offset);
+    // TODO: the standard, though once the new jam
+    // doesn't need it, we'll ditch it.
+    void setup(string mediaFile, float _x, float _y, string _tapId, bool _isHidden, int _offset, bool _usePulse = false);
+    
+    // TODO: deprecate me...
     void setup(string _imgFile, string vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback, bool _isHidden, int _offset);
+    
+    // The new jam
+    void setup(MediaModel _mm);
+    
+    // only for seg video
     void setup(string _vidFile, float _x, float _y);
     void update();
     void draw(float scale=1.0f);

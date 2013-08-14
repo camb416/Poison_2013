@@ -87,7 +87,45 @@ void Page::draw(float originX, float originY, float scale){
     }
     
 }
+void Page::addMedia(MediaModel _mm){
+            if(_mm.pulse) ofLogWarning() << ">>>>>>>>>>>>>>>>>>>>>>>>>>>  PAGE SEES WE HAVE A PULSE   <<<<<<<<<<<<<<<<<<<<<";
+    Media * newMedia = new Media();
+    newMedia->registerView(viewRef);
+    
+    string sub = _mm.src.substr(_mm.src.length()-3,3);
+    if (sub == "png") {
+        
+        // run the setup for a media element that is just an image
+        newMedia->setup(_mm);
+//        newMedia->setup(_mm.src, _mm.pos.x, _mm.pos.y, _mm.mClass, _mm.isHidden, _mm.offset);
+        
+    }
+    else if (sub == "mov"){
+        
+        // Check if video is a segmented one
+        if (isSegVid(_mm.src) == true){
+            newMedia->setup(_mm.src, _mm.pos.x, _mm.pos.y);
+        }
+        else {
+            
+            // Run the setup for a media element that is a video and an image
+            string imageFile = _mm.src;
+            imageFile.replace(_mm.src.length() -3, 3, "png");
+            newMedia->setup(_mm.src, _mm.pos.x, _mm.pos.y, _mm.mClass, _mm.isHidden, _mm.offset);
+        }
+        
+    }
+    else {
+        
+        ofLogNotice() << "unrecognized media file extension: " << _mm.src;
+        
+    }
+    
+    media.push_back(newMedia);
+}
 
+
+// TODO: deprecate this
 void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback, bool _isHidden, int _offset){
     
     Media * newMedia = new Media();
