@@ -15,7 +15,7 @@
     <Media x="1390" y="661" src="page1/taming_cerberus7.mov" auto="-1" class="0" loopback="-1" hidden="1" offset="6500"></Media>
     <Media x="1284" y="577" src="page1/cir_A_combined.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="5300"></Media>
     <Media x="1654" y="572" src="page1/cir_A_combined.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="5400"></Media>
-    <Media x="499" y="849" src="page1/cir_A_combined.png" auto="-1" class="lhp" loopback="-1" hidden="0" offset="5400"></Media>
+    <Media x="499" y="849" src="page1/cir_A_combined.png" auto="-1" class="seg" loopback="-1" hidden="1" offset="5400"></Media>
 </Page>
 <Page>
     

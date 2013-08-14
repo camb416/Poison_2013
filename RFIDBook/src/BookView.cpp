@@ -282,7 +282,7 @@ int BookView::touch(int _whichSensor){
                     break;
                 case 2:
                     playSegmentedVideo();
-                    if(hideCurrentMediaByClassName("lhp")==0) showCurrentMediaByClassName("1","lhp");
+                    hideCurrentMediaByClassName("seg");
                     break;
                 case 3:
                     lang->toggleLanguage();
