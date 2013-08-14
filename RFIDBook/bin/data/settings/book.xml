@@ -12,10 +12,10 @@
     <Media x="950" y="600" src="page1/overlays-and-shadows.png" auto="-1" class="" loopback="-1" hidden="0" offset="5000" pulse="0" ></Media>
     <Media x="1181" y="561" src="page1/wolf-15_prores.mov" auto="1" class="rhp" loopback="0" hidden="0" offset="6000" pulse="0" ></Media>
     <Media x="1408" y="693" src="page1/wolfsbane3.mov" auto="-1" class="1" loopback="-1" hidden="1" offset="5500" pulse="-1" ></Media>
-    <Media x="1390" y="661" src="page1/taming_cerberus7.mov" auto="-1" class="0" loopback="-1" hidden="1" offset="6500" pulse="1" ></Media>
-    <Media x="1284" y="577" src="page1/cir_A_combined.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="5300" pulse="2" ></Media>
-    <Media x="1654" y="572" src="page1/cir_A_combined.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="5400" pulse="3" ></Media>
-    <Media x="499" y="849" src="page1/cir_A_combined.png" auto="-1" class="lhp" loopback="-1" hidden="0" offset="5400" pulse="4" ></Media>
+    <Media x="1390" y="661" src="page1/taming_cerberus7.mov" auto="-1" class="0" loopback="-1" hidden="1" offset="6500" pulse="0" ></Media>
+    <Media x="1284" y="577" src="page1/cir_A_combined.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="5300" pulse="1" ></Media>
+    <Media x="1654" y="572" src="page1/cir_A_combined.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="5400" pulse="2" ></Media>
+    <Media x="499" y="849" src="page1/cir_A_combined.png" auto="-1" class="lhp" loopback="-1" hidden="0" offset="5400" pulse="3" ></Media>
 </Page>
 <Page>
     

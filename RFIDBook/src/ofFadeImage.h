@@ -28,6 +28,7 @@ public:
     }
     void setPulse(int _pulseType){
         pulseType = _pulseType;
+        ofLogWarning() << "setting the pulse type to: " << pulseType;
     }
     
 private:

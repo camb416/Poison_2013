@@ -38,7 +38,7 @@ public:
     
     // TODO: the standard, though once the new jam
     // doesn't need it, we'll ditch it.
-    void setup(string mediaFile, float _x, float _y, string _tapId, bool _isHidden, int _offset, bool _usePulse = false);
+    void setup(string mediaFile, float _x, float _y, string _tapId, bool _isHidden, int _offset, int _pulseType = 0);
     
     // TODO: deprecate me...
     void setup(string _imgFile, string vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback, bool _isHidden, int _offset);

@@ -60,13 +60,36 @@ void ofFadeImage::draw(int x_in, int y_in){
 void ofFadeImage::draw(int x_in, int y_in, int w_in, int h_in){
 //    ofPoint centerPoint = ofPoint(x_in+w_in/2.0f, y_in+h_in/2.0f);
     
-    float myscaleX = (alpha - 1.0f)/(-16.0f)+1.0f+sin(pulseVal)*0.05f;
-    float myscaleY = (alpha - 1.0f)/(-16.0f)+1.0f+cos(pulseVal)*0.05f;
+    float myscaleX, myscaleY;
+    
+    // if pulsetype is 1 or 2, do the throbbing
+    switch(pulseType){
+    
+        case 1:
+        case 2:
+            myscaleX = (alpha - 1.0f)/(-16.0f)+1.0f+sin(pulseVal)*0.05f;
+            myscaleY = (alpha - 1.0f)/(-16.0f)+1.0f+cos(pulseVal)*0.05f;
+            break;
+        default:
+            myscaleX = myscaleY = (alpha - 1.0f)/(-16.0f)+1.0f;
+            break;
+            
+    }
     float wOffset = 0.5f*myscaleX*w_in;
     float hOffset = 0.5f*myscaleY*h_in;
     if(alpha>0.05){
-        ofSetColor(255,255,255,alpha*255);
-       // ofSetColor(0,0,0,alpha*255);
+        switch(pulseType){
+            case 2:
+            case 3:
+                ofSetColor(255,255,255,(alpha*sin(pulseVal)*0.25f+0.75f)*255);
+                break;
+            default:
+                ofSetColor(255,255,255,alpha*255);
+                break;
+        }
+        
+       
+        // ofSetColor(0,0,0,alpha*255);
         ofPushMatrix();
         //ofTranslate(centerPoint);
         ofImage::draw(x_in, y_in, w_in*myscaleX, h_in*myscaleY);
