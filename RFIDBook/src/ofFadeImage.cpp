@@ -81,7 +81,7 @@ void ofFadeImage::draw(int x_in, int y_in, int w_in, int h_in){
         switch(pulseType){
             case 2:
             case 3:
-                ofSetColor(255,255,255,(alpha*sin(pulseVal)*0.25f+0.75f)*255);
+                ofSetColor(255,255,255,(alpha*sin(pulseVal)*0.5f+1.0f)*255);
                 break;
             default:
                 ofSetColor(255,255,255,alpha*255);
