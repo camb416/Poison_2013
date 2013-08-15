@@ -9,7 +9,7 @@
     <Media x="1175" y="702" src="page1/Wolfs-bane-CLOSED-NT.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="3500"></Media>
     <Media x="1606" y="675" src="page1/Taming-Cerberus-CLOSED-NT.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="4000"></Media>
     <Media x="659" y="624" src="mo/monkshood_SEG.mov" auto="1" class="" loopback="-1" hidden="0" offset="0"></Media>
-    <Media x="950" y="600" src="page1/overlays-and-shadows.png" auto="-1" class="" loopback="-1" hidden="0" offset="5000" pulse="0" ></Media>
+    <Media x="950" y="600" src="page1/overlays-and-shadows.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0" ></Media>
     <Media x="1181" y="561" src="page1/wolf-15_prores.mov" auto="1" class="rhp" loopback="0" hidden="0" offset="6000" pulse="0" ></Media>
     <Media x="1408" y="693" src="page1/wolfsbane3.mov" auto="-1" class="1" loopback="-1" hidden="1" offset="5500" pulse="-1" ></Media>
     <Media x="1390" y="661" src="page1/taming_cerberus7.mov" auto="-1" class="0" loopback="-1" hidden="1" offset="6500" pulse="0" ></Media>

@@ -277,11 +277,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Page.cpp"
-         timestampString = "398190240.07796"
+         timestampString = "398288081.318753"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "158"
-         endingLineNumber = "158"
+         startingLineNumber = "159"
+         endingLineNumber = "159"
          landmarkName = "Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback, bool _isHidden, int _offset)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -565,6 +565,19 @@
          startingLineNumber = "84"
          endingLineNumber = "84"
          landmarkName = "ofFadeImage::draw(int x_in, int y_in, int w_in, int h_in)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Page.cpp"
+         timestampString = "398288081.318753"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "154"
+         endingLineNumber = "154"
+         landmarkName = "Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback, bool _isHidden, int _offset)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
