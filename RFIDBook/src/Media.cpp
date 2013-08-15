@@ -38,7 +38,7 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
     mediaType = IMGMEDIA;
     
     img = new ofFadeImage();
-    img->setPulse(_pulseType);
+    img->setPulseType(_pulseType);
         
     // check for image not found
     string resolvedPath = viewRef->lang->resolvePath(imgFileName);
@@ -161,7 +161,12 @@ void Media::setup(string _vidFile, float _x, float _y){
     //segVid->fadeOut(-1);
 }
 
-
+int Media::getPulseType(){
+    int returnVal = 0;
+    if(mediaType==IMGMEDIA){
+        returnVal = img->getPulseType();
+    }
+}
 
 
 void Media::setPosition(float _x, float _y){

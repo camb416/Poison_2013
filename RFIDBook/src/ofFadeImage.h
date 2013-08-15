@@ -26,9 +26,12 @@ public:
     float getAlpha(){
         return alpha;
     }
-    void setPulse(int _pulseType){
+    void setPulseType(int _pulseType){
         pulseType = _pulseType;
         ofLogWarning() << "setting the pulse type to: " << pulseType;
+    }
+    int getPulseType(){
+        return pulseType;
     }
     
 private:

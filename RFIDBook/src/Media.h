@@ -96,6 +96,8 @@ public:
     // or 0 if everything looks okay
     int hide();
     int show(float _fadeVal = 8.0f, bool _useOffset = false);
+    
+    int getPulseType();
 
     
     void registerView(BookView * _viewRef){
