@@ -114,6 +114,8 @@ private:
     string imgFileName;
     string vidFileName;
     
+    bool lastSegButtonState = false;
+    
     string notFoundImgFile = "assets/notfound.png";
     string notFoundVidFile = "assets/notfound.mov";
     

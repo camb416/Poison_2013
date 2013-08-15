@@ -65,7 +65,7 @@ void SegmentedVideo::setup(string fileName){
     // end
     cue end;
     end.frame = 575;
-    end.gate = CLOSEDGATE;
+    end.gate = OPENGATE;
     end.loopbackCue = 1;
     cues.push_back(end);
     
@@ -85,29 +85,29 @@ void SegmentedVideo::update(){
         if ( getCurrentFrame() == cues.at(i).frame){
             cue currentCue = cues.at(i);
             
-            // If the gate is closed, loop video to specified cue
+            // If the gate is closed, stop video and wait for touch
             if (currentCue.gate == CLOSEDGATE) {
-                setFrame(cues.at(currentCue.loopbackCue).frame);
-            }
+                ofFadeVideo::stop();
+                showButton = true;
+            } 
             
-            // If the video has reached the last cue, reset the gates on the 2 loops
+            // If the video has reached the last cue, reset the gates on the 2 cues
             if (i == cues.size() - 1) {
+                setFrame(cues.at(currentCue.loopbackCue).frame);
                 cues.at(2).gate = CLOSEDGATE;
                 cues.at(4).gate = CLOSEDGATE;
+                ofFadeVideo::play();
             }
         }
     }
     
 }
 
-// Recieve touch input and open gates
+// Recieve touch input, play video, show button
 void SegmentedVideo::touch(){
     
-    if (cues.at(2).gate == CLOSEDGATE){
-        cues.at(2).gate = OPENGATE;
-    }
-    else {
-        cues.at(4).gate = OPENGATE;
-    }
+    ofFadeVideo::play();
+    showButton = false;
+
 }
 

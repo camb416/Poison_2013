@@ -33,6 +33,7 @@ class SegmentedVideo : public ofFadeVideo{
         void update();
         //void draw(float x, float y);
         void touch();
+        bool showButton = false;
     
         //ofVideoPlayer player;
         //string animFile = "belladona.mov";

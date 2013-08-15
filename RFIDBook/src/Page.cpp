@@ -111,7 +111,8 @@ void Page::addMedia(MediaModel _mm){
             // Run the setup for a media element that is a video and an image
             string imageFile = _mm.src;
             imageFile.replace(_mm.src.length() -3, 3, "png");
-            newMedia->setup(_mm.src, _mm.pos.x, _mm.pos.y, _mm.mClass, _mm.isHidden, _mm.offset);
+            newMedia->setup("",_mm.src, _mm.pos.x, _mm.pos.y,_mm.autoPlay, _mm.mClass, _mm.loopback, _mm.isHidden, _mm.offset);
+            // newMedia->setup("", fileName, position.x, position.y, autoplay, tapId, loopback, _isHidden, _offset);
         }
         
     }
@@ -256,6 +257,7 @@ void Page::fade(int dir){
                         media.at(i)->playVid();
                     }
                     media.at(i)->segVid->fadeIn(fadeVal);
+                    media.at(i)->segVid->showButton = false;
                 }
                 }
         }
