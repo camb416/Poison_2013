@@ -165,7 +165,10 @@ int Media::getPulseType(){
     int returnVal = 0;
     if(mediaType==IMGMEDIA){
         returnVal = img->getPulseType();
+    } else {
+        returnVal = 0;
     }
+    return returnVal;
 }
 
 

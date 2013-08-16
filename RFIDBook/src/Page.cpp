@@ -301,7 +301,8 @@ ofxXmlSettings Page::getXML(){
         xml.setAttribute("Media", "loopback", (int)media.at(i)->loopback, i);
         xml.setAttribute("Media", "hidden", (int)media.at(i)->isHiddenByDefault, i);
         xml.setAttribute("Media", "offset", (int)media.at(i)->offset, i);
-        xml.setAttribute("Media", "pulse", media.at(i)->getPulseType(), i);
+        ofLogWarning() << (int)media.at(i)->getPulseType();
+        xml.setAttribute("Media", "pulse", (int)media.at(i)->getPulseType(), i);
     }
     return xml;
 }
