@@ -286,8 +286,10 @@ int BookView::touch(int _whichSensor){
                     hideCurrentMediaByClassName("seg");
                     break;
                 case 3:
-                    lang->toggleLanguage();
-                    loadPages();
+                    // TODO: add conditional
+                    if(lang->toggleLanguage()){
+                     loadPages();   
+                    }
                     break;
             }
             

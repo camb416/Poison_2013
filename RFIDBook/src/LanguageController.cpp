@@ -9,7 +9,7 @@
 #include "LanguageController.h"
 
 LanguageController::LanguageController(){
-
+    lastLanguageChanged = ofGetElapsedTimef();
 }
 LanguageController::~LanguageController(){
     
@@ -18,7 +18,8 @@ bool LanguageController::load(string settingsfile){
     return model.load(settingsfile);
 }
 bool LanguageController::toggleLanguage(){
-    if(model.getNumLanguages()>1){
+    if(model.getNumLanguages()>1 && (ofGetElapsedTimef() - lastLanguageChanged)>5.0f){
+        ofLogWarning() << "toggle languages unsuccessful";
         int newLanguage = model.getCurrentLanguageNum();
         newLanguage++;
         if(newLanguage>=model.getNumLanguages()){

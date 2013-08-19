@@ -24,6 +24,8 @@ public:
     string resolvePath(string _filepath);
     LanguageModel model;
     
+    float lastLanguageChanged;
+    
 private:
     
     
