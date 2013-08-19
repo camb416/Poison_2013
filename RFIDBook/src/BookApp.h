@@ -16,6 +16,7 @@ class BookApp : public ofBaseApp{
 
 	public:
     BookApp();
+    ~BookApp();
 		void setup();
 		void update();
 		void draw();

@@ -3,6 +3,10 @@
 BookApp::BookApp(){
     isSetup = false;
 }
+BookApp::~BookApp(){
+    devices.stopThread();
+    ofBaseApp::~ofBaseApp();
+}
 
 //--------------------------------------------------------------
 void BookApp::setup(){
