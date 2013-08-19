@@ -26,7 +26,7 @@ bool LanguageController::toggleLanguage(){
             newLanguage = 0;
         }
         string identToSwap = model.getLanguageIdentAt(newLanguage);
-        setLanguage(identToSwap);
+        return setLanguage(identToSwap);
     } else {
         return false;
     }
