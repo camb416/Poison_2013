@@ -19,7 +19,7 @@ bool LanguageController::load(string settingsfile){
 }
 bool LanguageController::toggleLanguage(){
     if(model.getNumLanguages()>1 && (ofGetElapsedTimef() - lastLanguageChanged)>5.0f){
-        ofLogWarning() << "toggle languages unsuccessful";
+        ofLogWarning() << "toggle languages unsuccessful" << (ofGetElapsedTimef() - lastLanguageChanged);
         int newLanguage = model.getCurrentLanguageNum();
         newLanguage++;
         if(newLanguage>=model.getNumLanguages()){
