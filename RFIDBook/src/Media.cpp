@@ -53,11 +53,19 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
 
 }
 
-void Media::setup(MediaModel _mm){
+void Media::setupImage(MediaModel _mm){
     // I am so sorry for this, it's going to be inefficient.
     setup(_mm.src,_mm.pos.x, _mm.pos.y, _mm.mClass, _mm.isHidden, _mm.offset, _mm.pulseType);
 }
 
+
+void Media::setupTouchVid(MediaModel _mm){
+    if(_mm.mediaType!=4){
+        ofLogError() << "setting up touch vid with a MediaModel that's not a touchvid";
+    } else {
+        setup("",_mm.src,_mm.pos.x,_mm.pos.y,0,_mm.mClass,-1,_mm.isHidden,0);
+    }
+}
 
 // Image and video
 void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback, bool _isHidden, int _offset){
@@ -146,7 +154,7 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
 }
 
 // Setup segmented video
-void Media::setup(string _vidFile, float _x, float _y){
+void Media::setupSegVideo(string _vidFile, float _x, float _y){
     segVid = new SegmentedVideo();
     vidFileName = _vidFile;
     vidState = 0;

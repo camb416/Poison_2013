@@ -24,6 +24,7 @@ struct MediaModel{
     bool isHidden;
     int offset;
     int pulseType;
+    int mediaType;
 };
 
 // parsing into MediaModel struct instead

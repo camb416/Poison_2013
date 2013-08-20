@@ -44,11 +44,18 @@ public:
     // TODO: deprecate me...
     void setup(string _imgFile, string vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback, bool _isHidden, int _offset);
     
-    // The new jam
-    void setup(MediaModel _mm);
+    // The new jam (just for image?)
+//    void setup(MediaModel _mm);
+    void setupImage(MediaModel _mm);
+    
     
     // only for seg video
-    void setup(string _vidFile, float _x, float _y);
+    //void setup(string _vidFile, float _x, float _y);
+    void setupSegVideo(string _vidFile, float _x, float _y);
+    
+    // only for touchvid
+    void setupTouchVid(MediaModel _mm);
+    
     void update();
     void draw(float scale=1.0f);
     void setPosition(float _x, float _y);

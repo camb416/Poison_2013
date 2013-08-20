@@ -51,6 +51,8 @@ public:
     int hideCurrentMediaByClassName(string _classname);
     int showCurrentMediaByClassName(string _classname);
     int showCurrentMediaByClassName(string _classname,string _showWhenDone);
+    void playVideoByClassName(string _classname);
+    
     void playSegmentedVideo();
     
     void loadPages();

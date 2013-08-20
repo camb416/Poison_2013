@@ -96,7 +96,8 @@ void Page::addMedia(MediaModel _mm){
     if (sub == "png") {
         
         // run the setup for a media element that is just an image
-        newMedia->setup(_mm);
+        //newMedia->setup(_mm);
+        newMedia->setupImage(_mm);
 //        newMedia->setup(_mm.src, _mm.pos.x, _mm.pos.y, _mm.mClass, _mm.isHidden, _mm.offset);
         
     }
@@ -104,7 +105,7 @@ void Page::addMedia(MediaModel _mm){
         
         // Check if video is a segmented one
         if (isSegVid(_mm.src) == true){
-            newMedia->setup(_mm.src, _mm.pos.x, _mm.pos.y);
+            newMedia->setupSegVideo(_mm.src, _mm.pos.x, _mm.pos.y);
         }
         else {
             
@@ -143,7 +144,7 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
         
         // Check if video is a segmented one
         if (isSegVid(fileName) == true){
-            newMedia->setup(fileName, position.x, position.y);
+            newMedia->setupSegVideo(fileName, position.x, position.y);
         }
         else {
         

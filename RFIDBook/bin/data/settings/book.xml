@@ -18,7 +18,7 @@
     <Media x="497" y="822" src="page1/cir_A_combined.png" auto="-1" class="lhp" loopback="-1" hidden="0" offset="5400" pulse="3"></Media>
 </Page>
 <Page>
-    <touchvid x="0" y="0" src="wolf-15_prores.mov" class="mytouchvid" />
+    <touchvid x="100" y="100" src="page1/wolf-15_prores.mov" class="mytouchvid" />
     <Media x="1411" y="175" src="be/be_parts.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
     <Media x="301" y="594" src="be/be_t1_lh.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
     <Media x="760" y="623" src="be/be_t2_lh.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>

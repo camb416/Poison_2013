@@ -271,6 +271,14 @@ void BookView::playSegmentedVideo(){
     }
 }
 
+void BookView::playVideoByClassName(string _classname){
+    vector<Media*> mediaToPlay = mediaPages.at(currentPage)->getMediaByClassName(_classname);
+    for(int i=0;i<mediaToPlay.size();i++){
+        mediaToPlay.at(i)->playVid();
+    }
+}
+
+
 int BookView::touch(int _whichSensor){
     ofLogNotice() << "BookView received a touch on sensor: " << _whichSensor;
     switch(currentPage){
@@ -290,6 +298,9 @@ int BookView::touch(int _whichSensor){
                     hideCurrentMediaByClassName("seg");
                     break;
                 case 3:
+                    playVideoByClassName("mytouchvid");
+                    break;
+                case 4:
                     // TODO: add conditional
                     if(lang->toggleLanguage()){
                      ofLogWarning() << "loading pages...";

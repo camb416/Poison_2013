@@ -115,14 +115,82 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 thisMedia.isHidden = isHidden;
                 thisMedia.offset = offset;
                 thisMedia.pulseType = pulse_int;
+                thisMedia.mediaType = -1;
+                thisPage.push_back(thisMedia);
+            }
+            
+            /////////////////
+            
+            // parsing touchvids
+            
+            //////////////////
+            
+            numMedia = bookElements.getNumTags("touchvid");
+            
+            for (int i=0; i<numMedia; i++){
+                
+                string mediaFileName;
+                ofVec2f mediaPos;
+                int autoplay = 0;
+                string tapId;
+                int loopback = 0;
+                int pulse_int = 0;
+                bool isHidden;
+                
+                MediaModel thisMedia;
+                
+                int offset;
+                
+                mediaFileName = bookElements.getAttribute("touchvid", "src", "", i);
+                mediaPos.x = ofToFloat(bookElements.getAttribute("touchvid", "x", "0", i));
+                mediaPos.y = ofToFloat(bookElements.getAttribute("touchvid", "y", "0", i));
+                
+                
+                if (bookElements.attributeExists("touchvid", "class", i)) {
+                    tapId = bookElements.getAttribute("touchvid", "class", "0", i);
+                }
+                else {
+                    tapId = "";
+                }
+ 
+                if (bookElements.attributeExists("touchvid", "hidden", i)) {
+                    string hiddenString = bookElements.getAttribute("Media", "hidden", "0", i);
+                    if(hiddenString.compare("1")==0 || hiddenString.compare("true")==0 || hiddenString.compare("yes")==0){
+                        isHidden = true;
+                    } else {
+                        isHidden = false;
+                    }
+                    
+                }
+                else {
+                    isHidden = false;
+                }
+                ofLogNotice() << "Loaded " << mediaFileName << " at position " << mediaPos.x << " : " << mediaPos.y;
+               
+                // build mediamodel for touchvid
+                thisMedia.mediaType = 4;
+                thisMedia.src = mediaFileName;
+                thisMedia.pos = mediaPos;
+                thisMedia.mClass = tapId;
+                thisMedia.isHidden = isHidden;
+
+                
+                thisMedia.autoPlay = -1;
+                thisMedia.offset = -1;
+                thisMedia.pulseType = -1;
+                thisMedia.loopback = -1;
                 
                 thisPage.push_back(thisMedia);
             }
+            
+            
+            //////////////////
             
             bookElements.popTag();
             //pages.push_back(newPage);
             allMedia.push_back(thisPage);
         }
+        
 
         
     }
