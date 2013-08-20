@@ -191,6 +191,9 @@ void BookView::deactivate(){
 }
 
 void BookView::savePageLayout(){
+    
+    ofLogError() << "saving XML temporarily disabled. re-enable this when the TOUCHVIDEO functionality is back.";
+    /*
     ofBuffer buff;
     string wholeXML;
     ofFile outFile;
@@ -213,6 +216,7 @@ void BookView::savePageLayout(){
     else {
         ofLogNotice() << "Error writing media object positions to positions.xml";
     }
+     */
 }
 
 void BookView::printCurrentMedia(){
@@ -314,6 +318,11 @@ int BookView::release(int _whichSensor){
 }
 
 void BookView::loadPages(){
+    
+    // this implementation is garbage. Why not create the Media Objects right away, and pass pointers to them
+    // to real Pages, and skip the vector to a vector to a vector to a vector (turtles all the way down) method.
+    // ultimately, we seriously need to ditch the really stupid and unreadable overloaded setup methods on media and
+    // just give up and call them something else in the XML!
     
     deactivate();
     clearPages();

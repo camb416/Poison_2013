@@ -23,6 +23,7 @@
 #define VIDMEDIA 1
 #define DUALMEDIA 2
 #define SEGMEDIA 3
+#define TOUCHMEDIA 4
 
 class BookView;
 
@@ -77,7 +78,6 @@ public:
     int autoplay;
     string mClass;
     
-    //TODO
     int mediaState;
     int loopCount = 0;
     
