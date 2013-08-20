@@ -288,7 +288,10 @@ int BookView::touch(int _whichSensor){
                 case 3:
                     // TODO: add conditional
                     if(lang->toggleLanguage()){
-                     loadPages();   
+                     ofLogWarning() << "loading pages...";
+                        loadPages();
+                    } else {
+                        ofLogWarning() << "toggle language unsuccessful. You might need to wait 5s for the previous language to load first.";
                     }
                     break;
             }

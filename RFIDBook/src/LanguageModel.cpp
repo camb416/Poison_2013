@@ -66,8 +66,14 @@ int LanguageModel::hasLanguage(string _ident){
 }
 
 bool LanguageModel::setCurrentLanguage(int _langid){
-    currentLanguageIndex = _langid;
-    cout << "language changed to: " << languages.at(currentLanguageIndex).name << "." << endl;;
+    if(_langid>=0 && _langid<numLanguages){
+        currentLanguageIndex = _langid;
+        ofLogNotice() << "current language set to: " << languages.at(currentLanguageIndex).name << ".";
+        return true;
+    } else {
+        ofLogNotice() << "current language could not be set to id: " << _langid << ".";
+        return false;
+    }
 }
 
 string LanguageModel::getLanguageIdentAt(int _index){
