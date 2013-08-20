@@ -19,15 +19,16 @@ bool LanguageController::load(string settingsfile){
 }
 bool LanguageController::toggleLanguage(){
     if(model.getNumLanguages()>1 && (ofGetElapsedTimef() - lastLanguageChanged)>5.0f){
-        ofLogWarning() << "toggle languages unsuccessful";
         int newLanguage = model.getCurrentLanguageNum();
         newLanguage++;
         if(newLanguage>=model.getNumLanguages()){
             newLanguage = 0;
         }
         string identToSwap = model.getLanguageIdentAt(newLanguage);
+        lastLanguageChanged = ofGetElapsedTimef();
         return setLanguage(identToSwap);
     } else {
+        //ofLogWarning() << "toggle languages unsuccessful" << (ofGetElapsedTimef() - lastLanguageChanged);
         return false;
     }
 }
@@ -37,6 +38,7 @@ bool LanguageController::setLanguage(string _ident){
     if(_ident.length()==0){
         cout << "error: attempting to swap to a language that has no identifier" << endl;
     } else if(model.hasLanguage(_ident)>-1){
+        ofLogWarning() << "seems good so far...";
         desiredId = model.hasLanguage(_ident);
         returnVal = model.setCurrentLanguage(desiredId);
         
