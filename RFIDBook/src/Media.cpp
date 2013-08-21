@@ -63,6 +63,8 @@ void Media::setupTouchVid(MediaModel _mm){
     if(_mm.mediaType!=4){
         ofLogError() << "setting up touch vid with a MediaModel that's not a touchvid";
     } else {
+        ofLogNotice() << "pause here for a sec.";
+        mediaType = TOUCHVIDEO;
         setup("",_mm.src,_mm.pos.x,_mm.pos.y,0,_mm.mClass,-1,_mm.isHidden,0);
     }
 }
@@ -79,33 +81,33 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
     mClass = _tapId;
     isHidden = isHiddenByDefault = _isHidden;
     
-    
-    if(_imgFile.length()>3){
-        if(_vidFile.length()>3){
-            mediaType = DUALMEDIA;
+    if(mediaType<0){
+        if(_imgFile.length()>3){
+            if(_vidFile.length()>3){
+                mediaType = DUALMEDIA;
 
+                
+            } else {
+                mediaType = IMGMEDIA;
+                
+            }
             
+        } else if(_vidFile.length()>3){
+            mediaType = VIDMEDIA;
+
         } else {
-            mediaType = IMGMEDIA;
-            
+            mediaType = UNKNOWNMEDIA;
         }
-        
-    } else if(_vidFile.length()>3){
-        mediaType = VIDMEDIA;
-
-    } else {
-        mediaType = UNKNOWNMEDIA;
     }
     
-    if(mediaType==VIDMEDIA){
-        
-    vid = new ofFadeVideo();
-    
+    if(mediaType==VIDMEDIA || mediaType == TOUCHVIDEO){
+        vid = new ofFadeVideo();
     }
     if(mediaType==IMGMEDIA){
         img = new ofFadeImage();
 
     }
+    
     if(mediaType==UNKNOWNMEDIA) ofLogWarning() << "UNKNOWN MEDIA NOT SUPPORTED";
     if(mediaType==DUALMEDIA) ofLogWarning() << "DUAL MEDIA NOT SUPPORTED";
     
@@ -119,7 +121,7 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
         //vid->setLoopState(OF_LOOP_NONE);
     }
     
-    if(mediaType==VIDMEDIA || mediaType==DUALMEDIA){
+    if(mediaType==VIDMEDIA || mediaType==DUALMEDIA || mediaType == TOUCHVIDEO){
         vidFileName = _vidFile;
        // hasVid = true;
         vidState = 0;
@@ -192,7 +194,7 @@ ofPoint Media::getPosition(){
 
 string Media::getFileName(){
     
-    if (mediaType==DUALMEDIA || mediaType == VIDMEDIA || mediaType == SEGMEDIA){
+    if (mediaType== TOUCHVIDEO || mediaType==DUALMEDIA || mediaType == VIDMEDIA || mediaType == SEGMEDIA){
         return vidFileName;
     } else {
         return imgFileName;
@@ -202,7 +204,7 @@ string Media::getFileName(){
 
 void Media::playVid(){
 
-    if(mediaType==VIDMEDIA){
+    if(mediaType==VIDMEDIA || mediaType == TOUCHVIDEO){
         if(vid->isPlaying()==false){
             vidState = 1;
             vid->setFrame(0);
@@ -223,7 +225,7 @@ void Media::playVid(){
 
 void Media::stopVid(){
 
-    if(mediaType==VIDMEDIA){
+    if(mediaType==VIDMEDIA || mediaType == TOUCHVIDEO){
         if(vid->isPlaying()==true){
             vid->stop();
             vid->setFrame(0);
@@ -247,33 +249,37 @@ void Media::update(){
     if(mediaType==IMGMEDIA){
         img->update();
         img->getAlpha()<0.01f ? isHidden = true : isHidden = false;
-    }
-    if (mediaType==VIDMEDIA) {
+    } else if (mediaType==VIDMEDIA || mediaType == TOUCHVIDEO) {
       
             int currentFrame = vid->getCurrentFrame();
             int lastFrame = vid->getTotalNumFrames();
-        
+
             if (currentFrame == lastFrame && vid->isPlaying()){
+                if(mediaType==VIDMEDIA){
                 if(loopback>0){
-                vid->setFrame(loopback);
+                    vid->setFrame(loopback);
                 } else if(loopback<0){
                     hide();
                     vid->stop();
                     if(showWhenDone_str.length()>0){
-                        viewRef->showCurrentMediaByClassName("rhp");
+                        viewRef->showCurrentMediaByClassName(showWhenDone_str);
                         showWhenDone_str = "";
                     }
                     
                 }
+                } else if(mediaType == TOUCHVIDEO){
+
+                    vid->setFrame(0);
+                    vid->stop();
+                }
+                
 //                ofLogNotice() << "current frame: " << currentFrame;
             }
         
         vid->update();
         vid->getAlpha()<0.01f ? isHidden = true : isHidden = false;
 
-    }
-    
-    if (mediaType == SEGMEDIA) {
+    } else if (mediaType == SEGMEDIA) {
         segVid->update();
         // check whether to show the button
         bool currSegButtonState = segVid->showButton;
@@ -302,8 +308,9 @@ void Media::setDraggable(bool _bDrag){
     isDraggable = _bDrag;
 
     if(mediaType==IMGMEDIA) img->setBorder(isDraggable);
-    if(mediaType==VIDMEDIA) vid->setBorder(isDraggable);
+    if(mediaType==VIDMEDIA || mediaType == TOUCHVIDEO) vid->setBorder(isDraggable);
     if(mediaType==SEGMEDIA) segVid->setBorder(isDraggable);
+
 
     
 }
@@ -312,12 +319,14 @@ void Media::draw(float scale){
     
     if (mediaType==IMGMEDIA){
         img->draw(x,y, img->width*scale, img->height*scale);
-    } else if(mediaType==VIDMEDIA){
-       // if (vidState == 0 && (mClass == "" || mClass == "K")){
-            //img->draw(x,y, img->width*scale, img->height*scale);
-       // }
-       // else if (vidState == 1) {
+    } else if(mediaType==VIDMEDIA || mediaType == TOUCHVIDEO){
+        
+        if(mediaType==TOUCHVIDEO) ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
+        
             vid->draw(x, y, vid->width*scale, vid->height*scale);
+        if(mediaType==TOUCHVIDEO) ofDisableBlendMode();
+        
+        
         }
     else if(mediaType == SEGMEDIA){
         segVid->draw(x, y, segVid->width*scale, segVid->height*scale);
@@ -336,6 +345,12 @@ void Media::printInfo(){
         case 2:
             ofLogNotice() << "DUAL MEDIA: " << imgFileName.length() << ": " << imgFileName << ", " << vidFileName << ", isHidden: " << isHiddenByDefault << ".";
             break;
+        case 3:
+                       ofLogNotice() << "SEG VIDEO: " << imgFileName.length() << ": " << imgFileName << ", " << vidFileName << ", isHidden: " << isHiddenByDefault << "."; 
+            break;
+        case 4:
+                                   ofLogNotice() << "TOUCH VIDEO: " << imgFileName.length() << ": " << imgFileName << ", " << vidFileName << ", isHidden: " << isHiddenByDefault << "."; 
+            break;
         default:
             ofLogNotice() << "UNKNOWN MEDIA: ";
             break;
@@ -346,7 +361,7 @@ void Media::printInfo(){
 
 void Media::setBorder(bool _showBorder){
     if(mediaType==IMGMEDIA || mediaType==DUALMEDIA) img->setBorder(_showBorder);
-    if(mediaType==VIDMEDIA || mediaType==DUALMEDIA) vid->setBorder(_showBorder);
+    if(mediaType==VIDMEDIA || mediaType==DUALMEDIA || mediaType==TOUCHVIDEO) vid->setBorder(_showBorder);
     if(mediaType==SEGMEDIA) segVid->setBorder(_showBorder);
 }
 
@@ -388,6 +403,10 @@ int Media::show(float _fadeVal, bool _useOffset){
         } else if(mediaType==SEGMEDIA){
             segVid->fadeIn(fadeVal);
             playVid();
+        } else if (mediaType==TOUCHVIDEO){
+            vid->fadeIn(fadeVal);
+            playVid();
+        
         } else {
             ofLogWarning() << "Media::show not supported for mediaType==" << mediaType;
             return -1;

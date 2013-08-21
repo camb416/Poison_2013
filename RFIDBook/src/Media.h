@@ -23,7 +23,7 @@
 #define VIDMEDIA 1
 #define DUALMEDIA 2
 #define SEGMEDIA 3
-#define TOUCHMEDIA 4
+#define TOUCHVIDEO 4
 
 class BookView;
 

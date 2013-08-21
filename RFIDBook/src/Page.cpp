@@ -100,24 +100,15 @@ void Page::addMedia(MediaModel _mm){
         newMedia->setupImage(_mm);
 //        newMedia->setup(_mm.src, _mm.pos.x, _mm.pos.y, _mm.mClass, _mm.isHidden, _mm.offset);
         
-    }
-    else if (sub == "mov"){
+    } else if (sub == "mov"){
         
         // Check if video is a segmented one
         if (isSegVid(_mm.src) == true){
             newMedia->setupSegVideo(_mm.src, _mm.pos.x, _mm.pos.y);
+        } else if(_mm.mediaType==TOUCHVIDEO){
+            newMedia->setupTouchVid(_mm);
         }
-        else {
-            
-            // Run the setup for a media element that is a video and an image
-            string imageFile = _mm.src;
-            imageFile.replace(_mm.src.length() -3, 3, "png");
-            newMedia->setup("",_mm.src, _mm.pos.x, _mm.pos.y,_mm.autoPlay, _mm.mClass, _mm.loopback, _mm.isHidden, _mm.offset);
-            // newMedia->setup("", fileName, position.x, position.y, autoplay, tapId, loopback, _isHidden, _offset);
-        }
-        
-    }
-    else {
+    } else {
         
         ofLogNotice() << "unrecognized media file extension: " << _mm.src;
         
@@ -245,7 +236,7 @@ void Page::fade(int dir){
             
                 // If autoplay is on for the video, start playing
                 
-                if (media.at(i)->mediaType == VIDMEDIA){
+                if (media.at(i)->mediaType == VIDMEDIA || media.at(i)->mediaType == TOUCHVIDEO){
                     //TODO: update this
                     if (media.at(i)->autoplay == 1){
                         media.at(i)->playVid();
@@ -271,7 +262,7 @@ void Page::fade(int dir){
             // cout << fadeVal << endl;
             
             if(media.at(i)->mediaType==IMGMEDIA) media.at(i)->hide();
-            if(media.at(i)->mediaType==VIDMEDIA) {
+            if(media.at(i)->mediaType==VIDMEDIA || media.at(i)->mediaType==TOUCHVIDEO) {
                 media.at(i)->vid->fadeOut(fadeVal);
                 media.at(i)->vidState = 0;
                 // TODO: debug this! stop all video
@@ -291,19 +282,41 @@ ofxXmlSettings Page::getXML(){
     ofxXmlSettings xml;
     xml.addTag("Page");
     xml.pushTag("Page");
+    string tagName;
+    int mediaCount = -1;
+    int touchVidCount = -1;
+    int tagCount = 0;
     for(int i=0;i<media.size();i++){
-        xml.addTag("Media");
+        switch(media.at(i)->mediaType){
+            case TOUCHVIDEO:
+                tagName = "touchvid";
+                touchVidCount++;
+                tagCount = touchVidCount;
+                break;
+            default:
+                tagName = "Media";
+                mediaCount++;
+                tagCount = mediaCount;
+                break;
+        }
+        xml.addTag(tagName);
         ofPoint pt = media.at(i)->getPosition();
-        xml.setAttribute("Media", "x", (int)pt.x,i);
-        xml.setAttribute("Media", "y", (int)pt.y,i);
-        xml.setAttribute("Media", "src", media.at(i)->getFileName(),i);
-        xml.setAttribute("Media", "auto", (int)media.at(i)->autoplay, i);
-        xml.setAttribute("Media", "class", (string)media.at(i)->mClass, i);
-        xml.setAttribute("Media", "loopback", (int)media.at(i)->loopback, i);
-        xml.setAttribute("Media", "hidden", (int)media.at(i)->isHiddenByDefault, i);
-        xml.setAttribute("Media", "offset", (int)media.at(i)->offset, i);
-        xml.setAttribute("Media", "pulse", (int)media.at(i)->getPulseType(), i);
+        xml.setAttribute(tagName, "x", (int)pt.x,tagCount);
+        xml.setAttribute(tagName, "y", (int)pt.y,tagCount);
+        xml.setAttribute(tagName, "src", media.at(i)->getFileName(),tagCount);
+        xml.setAttribute(tagName, "class", (string)media.at(i)->mClass, tagCount);
+
+        if(tagName=="Media"){
+        xml.setAttribute(tagName, "auto", (int)media.at(i)->autoplay, tagCount);
+        xml.setAttribute(tagName, "loopback", (int)media.at(i)->loopback, tagCount);
+        xml.setAttribute(tagName, "hidden", (int)media.at(i)->isHiddenByDefault, tagCount);
+        xml.setAttribute(tagName, "offset", (int)media.at(i)->offset, tagCount);
+        xml.setAttribute(tagName, "pulse", (int)media.at(i)->getPulseType(), tagCount);
+        }
     }
+    string aString;
+    xml.copyXmlToString(aString);
+    ofLogNotice() << aString;
     return xml;
 }
 

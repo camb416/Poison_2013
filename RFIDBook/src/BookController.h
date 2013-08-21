@@ -14,7 +14,8 @@
 #include "DeviceController.h"
 
 #define RFID_TIMEOUT 1
-#define NUM_TOUCHES 4
+// TODO: CHANGE THIS BACK TO 4
+#define NUM_TOUCHES 10
 
 class BookController{
     

@@ -183,6 +183,7 @@ void BookView::activate(int pagenum_in){
     }
     
     currentPage = pagenum_in;
+
 }
 
 
@@ -192,8 +193,10 @@ void BookView::deactivate(){
 
 void BookView::savePageLayout(){
     
-    ofLogError() << "saving XML temporarily disabled. re-enable this when the TOUCHVIDEO functionality is back.";
-    /*
+    //ofLogError() << "saving XML temporarily disabled. re-enable this when the TOUCHVIDEO functionality is back.";
+    
+    // temporarily adding this back in...
+    
     ofBuffer buff;
     string wholeXML;
     ofFile outFile;
@@ -216,7 +219,6 @@ void BookView::savePageLayout(){
     else {
         ofLogNotice() << "Error writing media object positions to positions.xml";
     }
-     */
 }
 
 void BookView::printCurrentMedia(){
@@ -263,7 +265,6 @@ int BookView::showCurrentMediaByClassName(string _classname,string _showWhenDone
 }
 
 void BookView::playSegmentedVideo(){
-//    int returnVal = 0;
     vector<Media*> segmentedVideoToActivate = mediaPages.at(currentPage)->getSegmentedMedia();
     
     for (int i=0; i<segmentedVideoToActivate.size(); i++){
@@ -301,7 +302,6 @@ int BookView::touch(int _whichSensor){
                     playVideoByClassName("mytouchvid");
                     break;
                 case 4:
-                    // TODO: add conditional
                     if(lang->toggleLanguage()){
                      ofLogWarning() << "loading pages...";
                         loadPages();
@@ -309,13 +309,15 @@ int BookView::touch(int _whichSensor){
                         ofLogWarning() << "toggle language unsuccessful. You might need to wait 5s for the previous language to load first.";
                     }
                     break;
+                case 9:
+                    playVideoByClassName("mytouchvid");
+                    ofLogNotice() << "trying to play the video";
+                    break;
             }
-            
             break;
     }
-    
-    
-    
+    // should the success of showing or hiding bubble up and return?
+    // doesn't now...
     return -1;
 }
 

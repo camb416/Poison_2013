@@ -98,8 +98,7 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                         isHidden = false;
                     }
                     
-                }
-                else {
+                } else {
                     isHidden = false;
                 }
                 
@@ -161,11 +160,10 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                         isHidden = false;
                     }
                     
-                }
-                else {
+                } else {
                     isHidden = false;
                 }
-                ofLogNotice() << "Loaded " << mediaFileName << " at position " << mediaPos.x << " : " << mediaPos.y;
+                ofLogNotice() << "Loaded TOUCHVID: " << mediaFileName << " at position " << mediaPos.x << " : " << mediaPos.y;
                
                 // build mediamodel for touchvid
                 thisMedia.mediaType = 4;
