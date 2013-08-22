@@ -25,6 +25,8 @@ struct MediaModel{
     int offset;
     int pulseType;
     int mediaType;
+    ofBlendMode blend;
+    int loopCount;
 };
 
 // parsing into MediaModel struct instead

@@ -310,7 +310,7 @@ int BookView::touch(int _whichSensor){
                     }
                     break;
                 case 9:
-                    playVideoByClassName("mytouchvid");
+                    playVideoByClassName("othervideo");
                     ofLogNotice() << "trying to play the video";
                     break;
             }

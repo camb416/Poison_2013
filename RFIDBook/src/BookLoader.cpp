@@ -48,6 +48,8 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 int loopback = 0;
                 int pulse_int = 0;
                 bool isHidden;
+                ofBlendMode blend;
+                int loopCount = 0;
                 
                 MediaModel thisMedia;
                 
@@ -69,6 +71,12 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                     // set autoplay to true
                     autoplay = ofToInt(bookElements.getAttribute("Media", "auto", "0", i));
                 }
+                if (bookElements.attributeExists("Media", "blend", i)) {
+                    // set autoplay to true
+                    blend = (ofBlendMode)bookElements.getAttribute("Media", "blend", 0, i);
+                } else {
+                    blend = OF_BLENDMODE_DISABLED;
+                }
                 
                 
                 if (bookElements.attributeExists("Media", "class", i)) {
@@ -83,6 +91,12 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 }
                 else {
                     loopback = -1;
+                }
+                if (bookElements.attributeExists("Media", "loopcount", i)) {
+                    loopCount = bookElements.getAttribute("Media", "loopcount", 0, i);
+                }
+                else {
+                    loopCount = 0;
                 }
                 if (bookElements.attributeExists("Media", "pulse", i)) {
                     pulse_int = bookElements.getAttribute("Media", "pulse", 0, i);
@@ -115,6 +129,8 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 thisMedia.offset = offset;
                 thisMedia.pulseType = pulse_int;
                 thisMedia.mediaType = -1;
+                thisMedia.blend = blend;
+                thisMedia.loopCount = loopCount;
                 thisPage.push_back(thisMedia);
             }
             
@@ -135,6 +151,8 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 int loopback = 0;
                 int pulse_int = 0;
                 bool isHidden;
+                ofBlendMode blend;
+                int loopCount;
                 
                 MediaModel thisMedia;
                 
@@ -163,6 +181,19 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 } else {
                     isHidden = false;
                 }
+                if (bookElements.attributeExists("touchvid", "blend", i)) {
+                    // set autoplay to true
+                    blend = (ofBlendMode)bookElements.getAttribute("touchvid", "blend", 0, i);
+                } else {
+                    blend = OF_BLENDMODE_DISABLED;
+                }
+                loopCount = 0;
+                if (bookElements.attributeExists("touchvid", "loopcount", i)) {
+                    // set autoplay to true
+                    loopCount = bookElements.getAttribute("touchvid", "loopcount", 0, i);
+                } else {
+                    loopCount = 0;
+                }
                 ofLogNotice() << "Loaded TOUCHVID: " << mediaFileName << " at position " << mediaPos.x << " : " << mediaPos.y;
                
                 // build mediamodel for touchvid
@@ -171,6 +202,8 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 thisMedia.pos = mediaPos;
                 thisMedia.mClass = tapId;
                 thisMedia.isHidden = isHidden;
+                thisMedia.blend = blend;
+                thisMedia.loopCount = loopCount;
 
                 
                 thisMedia.autoPlay = -1;

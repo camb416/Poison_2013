@@ -197,7 +197,12 @@ void BookApp::keyPressed(int key){
             case 'L':
             lang.toggleLanguage();
             bookView.loadPages();
+            break;
             
+        case 'm':
+        case 'M':
+            bookView.printCurrentMedia();
+            break;
             //case default:
             
             //break;

@@ -48,6 +48,7 @@ public:
 //    void setup(MediaModel _mm);
     void setupImage(MediaModel _mm);
     
+    void setupVideo(MediaModel _mm);
     
     // only for seg video
     //void setup(string _vidFile, float _x, float _y);
@@ -86,7 +87,6 @@ public:
     string mClass;
     
     int mediaState;
-    int loopCount = 0;
     
     // -1 = no looping, 0 = loop from beginning, {positive number} = loop from that position
     float loopback = -1.0f;
@@ -115,8 +115,18 @@ public:
         showWhenDone_str = _showWhenDone;
     }
     
+    void setBlend(ofBlendMode _blendMode){
+        blendMode = _blendMode;
+    }
+    void setLoopCount(int _loopCount){
+        loopCount = _loopCount;
+    }
+    
 private:
     
+    int loopCount;
+    int curLoopCount;
+    ofBlendMode blendMode;
     string showWhenDone_str;
     bool isDraggable;
     bool isDragging;

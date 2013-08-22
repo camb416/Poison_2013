@@ -17,6 +17,7 @@ Media::Media(){
     mediaType = -1;
     whenToShow = -1;
     fadeVal = 8.0f;
+    blendMode = OF_BLENDMODE_DISABLED;
 }
 Media::~Media(){}
 
@@ -54,8 +55,10 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
 }
 
 void Media::setupImage(MediaModel _mm){
-    // I am so sorry for this, it's going to be inefficient.
     setup(_mm.src,_mm.pos.x, _mm.pos.y, _mm.mClass, _mm.isHidden, _mm.offset, _mm.pulseType);
+}
+void Media::setupVideo(MediaModel _mm){
+       setup("",_mm.src,_mm.pos.x, _mm.pos.y, _mm.autoPlay, _mm.mClass, _mm.loopback, _mm.isHidden, _mm.offset);
 }
 
 
@@ -210,6 +213,7 @@ void Media::playVid(){
             vid->setFrame(0);
             vid->nextFrame();
             vid->play();
+            curLoopCount = 0;
         }
     }
     if(mediaType==SEGMEDIA){
@@ -229,14 +233,13 @@ void Media::stopVid(){
         if(vid->isPlaying()==true){
             vid->stop();
             vid->setFrame(0);
-            loopCount = 0;
+            curLoopCount = 0;
         }
     }
     if(mediaType==SEGMEDIA){
         if(segVid->isPlaying()==true){
             segVid->stop();
             segVid->setFrame(0);
-            loopCount = 0;
         }
     }
 
@@ -255,23 +258,57 @@ void Media::update(){
             int lastFrame = vid->getTotalNumFrames();
 
             if (currentFrame == lastFrame && vid->isPlaying()){
-                if(mediaType==VIDMEDIA){
-                if(loopback>0){
-                    vid->setFrame(loopback);
-                } else if(loopback<0){
-                    hide();
-                    vid->stop();
-                    if(showWhenDone_str.length()>0){
-                        viewRef->showCurrentMediaByClassName(showWhenDone_str);
-                        showWhenDone_str = "";
-                    }
+                if(mediaType==VIDMEDIA || mediaType == TOUCHVIDEO){
+                
+                    bool doLoop = false;
+                    if(curLoopCount<loopCount) doLoop = true;
+                    if(loopCount<0) doLoop = true;
                     
-                }
-                } else if(mediaType == TOUCHVIDEO){
+
+                    if(doLoop){
+                        // loop
+                        int frameToLoopTo = 1;
+                        if(loopback>=0) frameToLoopTo = loopback;
+                        vid->setFrame(frameToLoopTo);
+                        curLoopCount++;
+                    } else {
+                        hide();
+                        vid->stop();
+                        if(showWhenDone_str.length()>0){
+                            viewRef->showCurrentMediaByClassName(showWhenDone_str);
+                            showWhenDone_str = "";
+                        }
+  
+                    }
+                    /*
+                    if(loopback>0 && curLoopCount>0){
+                        vid->setFrame(loopback);
+                        curLoopCount--;
+                    } else if(loopback<0){
+                        hide();
+                        vid->stop();
+                        if(showWhenDone_str.length()>0){
+                            viewRef->showCurrentMediaByClassName(showWhenDone_str);
+                            showWhenDone_str = "";
+                        }
+                    } else if(loopback==0 && curLoopCount<1){
+                        vid->stop();
+                        vid->setFrame(1);
+                    } else if(curLoopCount>0){
+                        vid->setFrame(1);
+                        vid->play();
+                    }
+*/
+                    
+                    
+                } /*else if(mediaType == TOUCHVIDEO){
 
                     vid->setFrame(0);
-                    vid->stop();
-                }
+                    
+                    if(curLoopCount--<1) vid->stop();
+                        
+
+                }*/
                 
 //                ofLogNotice() << "current frame: " << currentFrame;
             }
@@ -317,14 +354,17 @@ void Media::setDraggable(bool _bDrag){
 
 void Media::draw(float scale){
     
+    ofEnableBlendMode(blendMode);
+    
     if (mediaType==IMGMEDIA){
         img->draw(x,y, img->width*scale, img->height*scale);
     } else if(mediaType==VIDMEDIA || mediaType == TOUCHVIDEO){
         
-        if(mediaType==TOUCHVIDEO) ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
+      //  if(mediaType==TOUCHVIDEO) ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
         
             vid->draw(x, y, vid->width*scale, vid->height*scale);
-        if(mediaType==TOUCHVIDEO) ofDisableBlendMode();
+        
+      //  if(mediaType==TOUCHVIDEO) ofDisableBlendMode();
         
         
         }
@@ -399,12 +439,15 @@ int Media::show(float _fadeVal, bool _useOffset){
             img->fadeIn(fadeVal);
         } else if(mediaType==VIDMEDIA){
             vid->fadeIn(fadeVal);
+            vid->setFrame(1);
             playVid();
         } else if(mediaType==SEGMEDIA){
             segVid->fadeIn(fadeVal);
+                        vid->setFrame(1);
             playVid();
         } else if (mediaType==TOUCHVIDEO){
             vid->fadeIn(fadeVal);
+                        vid->setFrame(1);
             playVid();
         
         } else {

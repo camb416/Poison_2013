@@ -107,12 +107,17 @@ void Page::addMedia(MediaModel _mm){
             newMedia->setupSegVideo(_mm.src, _mm.pos.x, _mm.pos.y);
         } else if(_mm.mediaType==TOUCHVIDEO){
             newMedia->setupTouchVid(_mm);
+        } else {
+            newMedia->setupVideo(_mm);
         }
     } else {
         
         ofLogNotice() << "unrecognized media file extension: " << _mm.src;
         
     }
+    
+    newMedia->setBlend(_mm.blend);
+    newMedia->setLoopCount(_mm.loopCount);
     
     media.push_back(newMedia);
 }
