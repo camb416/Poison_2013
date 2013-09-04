@@ -1,0 +1,19 @@
+body, table td{
+	font-family:sans-serif;
+	font-size:0.875em;
+}
+td, div{
+	padding:5px;
+}
+.green{
+	background-color:#aaffaa;
+}
+.red{
+	background-color:#FFAAAA;
+}
+.yellow{
+	background-color: #ffffaa;
+}
+img{
+	height:64px;
+}
