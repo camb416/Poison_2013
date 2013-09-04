@@ -272,7 +272,7 @@ void Media::update(){
                         vid->setFrame(frameToLoopTo);
                         curLoopCount++;
                     } else {
-                        hide();
+                        if(mediaType==VIDMEDIA) hide();
                         vid->stop();
                         if(showWhenDone_str.length()>0){
                             viewRef->showCurrentMediaByClassName(showWhenDone_str);

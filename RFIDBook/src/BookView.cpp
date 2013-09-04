@@ -299,7 +299,7 @@ int BookView::touch(int _whichSensor){
                     hideCurrentMediaByClassName("seg");
                     break;
                 case 3:
-                    playVideoByClassName("mytouchvid");
+                    playVideoByClassName("3");
                     break;
                 case 4:
                     if(lang->toggleLanguage()){
@@ -312,6 +312,9 @@ int BookView::touch(int _whichSensor){
                 case 9:
                     playVideoByClassName("othervideo");
                     ofLogNotice() << "trying to play the video";
+                    break;
+                case 8:
+                    playVideoByClassName("heartvid");
                     break;
             }
             break;

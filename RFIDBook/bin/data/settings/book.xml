@@ -1,11 +1,13 @@
 <Page>
     <touchvid x="100" y="100" src="page0/blob3.mov" class="mytouchvid" blend="0" loopcount="1" />
     <Media x="300" y="300" src="page0/blob2.mov" class="othervideo" loopcount="2" />
-    </Page>
+    <touchvid x="600" y="600" src="page0/justtheheart.mov" class="heartvid" loopcount = "1" />
+</Page>
 <Page>
     
     <Media x="1328" y="1027" src="page1/Assasin.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
-    <Media x="298" y="475" src="page1/how-it-works-Open.png" auto="-1" class="" loopback="-1" hidden="0" offset="100" pulse="0"></Media>
+    <touchvid x="216" y="348" src="page0/justtheheart.mov" auto="-1" class="3" loopback="-1" loopcount="1" hidden="0" offset="100" pulse="0" />
+    <Media x="298" y="475" src="page1/noheart.png" auto="-1" class="" loopback="-1" hidden="0" offset="100" pulse="0" />
     <Media x="634" y="680" src="page1/IDENTIFY.png" auto="-1" class="" loopback="-1" hidden="0" offset="150" pulse="0"></Media>
     <Media x="430" y="112" src="page1/Main-title-B.png" auto="-1" class="" loopback="-1" hidden="0" offset="200" pulse="0"></Media>
     <Media x="298" y="929" src="page1/map-open.png" auto="-1" class="" loopback="-1" hidden="0" offset="250" pulse="0"></Media>
