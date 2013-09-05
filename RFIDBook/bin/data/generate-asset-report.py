@@ -65,7 +65,7 @@ for item in matches:
 	fileList.append(item)
 
 
-output_str += "</table><table><th>OTHER FILES</th></table>"
+output_str += '</table><table class="table2"><th>ASSET FOLDER LISTING</th></table>'
 
 
 
@@ -77,7 +77,7 @@ def list_files(startpath):
 	for root, dirs, files in os.walk(startpath):
 		level = root.replace(startpath, '').count(os.sep)
 		indent = ' ' * 4 * (level)
-		result += '<div style="margin-left:'+str(40*(level+1))+';">'+('{}{}/'.format(indent, os.path.basename(root)))+"</div>"
+		result += '<div class="folder" style="margin-left:'+str(40*(level+1))+';">'+('{}{}/'.format(indent, os.path.basename(root)))+"</div>"
 		subindent = ' ' * 4 * (level + 1)
 
 		for f in files:

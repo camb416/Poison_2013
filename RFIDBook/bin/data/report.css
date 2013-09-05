@@ -10,7 +10,9 @@ body{
 	margin:50px;
 }
 td, div{
-	padding:10px;
+	padding: 3px;
+	margin: 2px;
+	box-shadow: #888 1px 1px 4px;
 }
 .green{
 	background-color:#aaffaa;
@@ -23,4 +25,11 @@ td, div{
 }
 img{
 	height:64px;
+}
+div.folder{
+	width:96px;
+	position:relative;
+}
+.table2{
+	margin-top:40px;
 }
