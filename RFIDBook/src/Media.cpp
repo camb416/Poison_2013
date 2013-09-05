@@ -45,8 +45,7 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
     string resolvedPath = viewRef->lang->resolvePath(imgFileName);
     if (ofFile::doesFileExist(resolvedPath) == true){
         img->setup(resolvedPath);
-    }
-    else{
+    } else {
         img->setup(notFoundImgFile);
     }
     

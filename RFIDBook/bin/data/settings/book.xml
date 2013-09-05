@@ -11,6 +11,7 @@
     <Media x="1617" y="586" src="be/be_witch.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
     <Media x="1565" y="969" src="be/belladonna_eyes.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
     <Media x="659" y="624" src="be/belladonna_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
+    <Media x="960" y="600" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
 </Page>
 <Page>
     
@@ -23,6 +24,7 @@
     <Media x="1454" y="990" src="he/he_t3_rh.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
     <Media x="1419" y="678" src="he/he_socrates.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
     <Media x="659" y="624" src="he/conium_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
+    <Media x="960" y="600" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
 </Page>
 <Page>
     
@@ -47,6 +49,7 @@
     <Media x="1252" y="562" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="530" pulse="1"></Media>
     <Media x="1543" y="537" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="2"></Media>
     <Media x="497" y="822" src="cir_A_combined.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3"></Media>
+    <Media x="960" y="600" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
 </Page>
 <Page>
     
@@ -64,5 +67,6 @@
     <Media x="1455" y="356" src="rh/rh_medical_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="600" pulse="0"></Media>
     <Media x="1222" y="976" src="rh/rh_where_to_find_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="500" pulse="0"></Media>
     <Media x="1633" y="1008" src="rh/rh_symptoms_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="700" pulse="0"></Media>
+    <Media x="960" y="600" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
 </Page>
 

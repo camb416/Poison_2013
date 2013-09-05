@@ -1,6 +1,8 @@
 import re
 import os
 
+print "generating report..."
+
 f = open('settings/book.xml','r')
 f2 = open('report.html','w')
 c = f.read()
@@ -25,17 +27,13 @@ def isImage(path):
 	return result
 
 def getOpenLink(path):
-	if isImage(path):
-		result = '<a href="'+path+'" >'
-	else:
-		result = ""
+	result = '<a href="'+path+'" target="_blank" >'
 	return result
 
 def getCloseLink(path):
-	if isImage(path):
-		result = '</a>'
-	else:
-		result = ''
+
+	result = '</a>'
+
 	return result
 
 for item in matches:
@@ -93,11 +91,8 @@ def list_files(startpath):
 					if tempstring3 == listitem:
 						foundFlag = True
 						break
-				if foundFlag:
-					print "file found OK"
-
-				else:
-					print "file not found."
+				if foundFlag==False:
+					# print "file not found."
 					itemClass = "red"
 
 				result += '<div style="width:400px; margin-left:'+str(40*(level+1))+'px" class="'+itemClass+'" >'+getOpenLink(tempstring) + ('{}{}'.format(subindent, f)) +getCloseLink(tempstring) +' '+'</div>\n'
