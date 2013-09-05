@@ -81,26 +81,26 @@ def list_files(startpath):
 		subindent = ' ' * 4 * (level + 1)
 
 		for f in files:
-			tempstring = root+"/"+f
+			if(f[0]!='.'):
+				tempstring = root+"/"+f
 
-			tempstring2 = tempstring.replace("assets/","")
-			print tempstring2
-			tempstring3 = re.sub('^.*?/',"",tempstring2)
-			print "\t" + tempstring3
-			foundFlag = False
-			itemClass = "green"
-			for listitem in fileList:
-				if tempstring3 == listitem:
-					foundFlag = True
-					break
-			if foundFlag:
-				print "file found OK"
+				tempstring2 = tempstring.replace("assets/","")
 
-			else:
-				print "file not found."
-				itemClass = "red"
+				tempstring3 = re.sub('^.*?/',"",tempstring2)
+				foundFlag = False
+				itemClass = "green"
+				for listitem in fileList:
+					if tempstring3 == listitem:
+						foundFlag = True
+						break
+				if foundFlag:
+					print "file found OK"
 
-			result += '<div style="width:400px; margin-left:'+str(40*(level+1))+'px" class="'+itemClass+'" >'+getOpenLink(tempstring) + ('{}{}'.format(subindent, f)) +getCloseLink(tempstring) +' '+'</div>\n'
+				else:
+					print "file not found."
+					itemClass = "red"
+
+				result += '<div style="width:400px; margin-left:'+str(40*(level+1))+'px" class="'+itemClass+'" >'+getOpenLink(tempstring) + ('{}{}'.format(subindent, f)) +getCloseLink(tempstring) +' '+'</div>\n'
 	return result
 
 # print list_files(".")
@@ -108,3 +108,4 @@ output_str += list_files("assets")
 f.close()
 f2.write(output_str)
 f2.close()
+print "\nreport generated.\n"
