@@ -42,8 +42,8 @@
     <Media x="1614" y="879" src="mo/mo_symptoms_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="650" pulse="0"></Media>
     <Media x="1260" y="862" src="mo/mo_where_to_find_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="700" pulse="0"></Media>
     <Media x="1162" y="948" src="mo/mo_identify_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="750" pulse="0"></Media>
-    <Media x="1408" y="693" src="mo/wo_hunter28.mov" class="1" auto="-1" loopback="-1" hidden="1" offset="550" pulse="0"></Media>
-    <Media x="1390" y="661" src="mo/wo_cerberus13.mov" class="0" auto="-1" loopback="-1" hidden="1" offset="650" pulse="0"></Media>
+    <Media x="1408" y="693" src="page1/wolfsbane3.mov" class="1" auto="-1" loopback="-1" hidden="1" offset="550" pulse="0"></Media>
+    <Media x="1390" y="661" src="page1/taming_cerberus7.mov" class="0" auto="-1" loopback="-1" hidden="1" offset="650" pulse="0"></Media>
     <Media x="1252" y="562" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="530" pulse="1"></Media>
     <Media x="1543" y="537" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="2"></Media>
     <Media x="497" y="822" src="cir_A_combined.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3"></Media>
@@ -65,4 +65,29 @@
     <Media x="1222" y="976" src="rh/rh_where_to_find_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="500" pulse="0"></Media>
     <Media x="1633" y="1008" src="rh/rh_symptoms_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="700" pulse="0"></Media>
 </Page>
-
+<Page>
+    
+    <Media x="300" y="300" src="page0/blob2.mov" class="othervideo" auto="0" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
+    <touchvid x="100" y="100" src="page0/blob3.mov" class="mytouchvid"></touchvid>
+    <touchvid x="600" y="600" src="page0/justtheheart.mov" class="heartvid"></touchvid>
+</Page>
+<Page>
+    
+    <Media x="1328" y="1027" src="page1/Assasin.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
+    <Media x="298" y="475" src="page1/noheart.png" class="" auto="-1" loopback="-1" hidden="0" offset="100" pulse="0"></Media>
+    <Media x="634" y="680" src="page1/IDENTIFY.png" class="" auto="-1" loopback="-1" hidden="0" offset="150" pulse="0"></Media>
+    <Media x="430" y="112" src="page1/Main-title-B.png" class="" auto="-1" loopback="-1" hidden="0" offset="200" pulse="0"></Media>
+    <Media x="298" y="929" src="page1/map-open.png" class="" auto="-1" loopback="-1" hidden="0" offset="250" pulse="0"></Media>
+    <Media x="1378" y="253" src="page1/parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="300" pulse="0"></Media>
+    <Media x="1222" y="524" src="page1/Wolfs-bane-CLOSED-NT.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="350" pulse="0"></Media>
+    <Media x="1601" y="684" src="page1/Taming-Cerberus-CLOSED-NT.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="400" pulse="0"></Media>
+    <Media x="659" y="624" src="mo/monkshood_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
+    <Media x="950" y="600" src="page1/overlays-and-shadows.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
+    <Media x="1269" y="752" src="page1/wolf-15_prores.mov" class="rhp" auto="1" loopback="0" hidden="0" offset="600" pulse="0"></Media>
+    <Media x="1408" y="693" src="page1/wolfsbane3.mov" class="1" auto="-1" loopback="-1" hidden="1" offset="550" pulse="0"></Media>
+    <Media x="1390" y="661" src="page1/taming_cerberus7.mov" class="0" auto="-1" loopback="-1" hidden="1" offset="650" pulse="0"></Media>
+    <Media x="1252" y="562" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="530" pulse="1"></Media>
+    <Media x="1543" y="537" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="2"></Media>
+    <Media x="497" y="822" src="cir_A_combined.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3"></Media>
+    <touchvid x="216" y="348" src="page0/justtheheart.mov" class="3"></touchvid>
+</Page>
