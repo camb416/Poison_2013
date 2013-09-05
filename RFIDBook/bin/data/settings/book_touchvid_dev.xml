@@ -60,7 +60,7 @@
     <Media x="1394" y="947" src="rh/rh_parts_t2.png" auto="-1" class="" loopback="-1" hidden="0" offset="550" pulse="0"></Media>
     <Media x="1394" y="947" src="rh/rh_medical_t3.png" auto="-1" class="" loopback="-1" hidden="0" offset="600" pulse="0"></Media>
     <Media x="1394" y="947" src="rh/rh_where_to_find_t3.png" auto="-1" class="" loopback="-1" hidden="0" offset="500" pulse="0"></Media>
-    <Media x="1394" y="947" src="rh/rh_symptoms_t3.png" auto="-1" class="" loopback="-1" hidden="0" offset="700" pulse="0"></Media>
+    <Media x="1394" y="947" src="rh/rh_where_symptoms_t3.png" auto="-1" class="" loopback="-1" hidden="0" offset="700" pulse="0"></Media>
     
 </Page>
 <Page>
