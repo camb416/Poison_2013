@@ -31,10 +31,8 @@
     <Media x="308" y="880" src="mo/mo_where_to_find_t1.png" class="" auto="-1" loopback="-1" hidden="0" offset="200" pulse="0"></Media>
     <Media x="1415" y="244" src="mo/mo_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="250" pulse="0"></Media>
     <Media x="1435" y="388" src="mo/mo_parts_t1.png" class="" auto="-1" loopback="-1" hidden="0" offset="250" pulse="0"></Media>
-    
     <Media x="1605" y="621" src="mo/mo_wolf.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="300" pulse="0"></Media>
     <Media x="1302" y="642" src="mo/mo_cerberus.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="350" pulse="0"></Media>
-    
     <Media x="609" y="117" src="mo/mo_title_t2.png" class="" auto="-1" loopback="-1" hidden="0" offset="400" pulse="0"></Media>
     <Media x="359" y="573" src="mo/mo_symptoms_t2.png" class="" auto="-1" loopback="-1" hidden="0" offset="450" pulse="0"></Media>
     <Media x="780" y="922" src="mo/mo_identify_t2.png" class="" auto="-1" loopback="-1" hidden="0" offset="500" pulse="0"></Media>
@@ -43,7 +41,6 @@
     <Media x="1614" y="879" src="mo/mo_symptoms_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="650" pulse="0"></Media>
     <Media x="1260" y="862" src="mo/mo_where_to_find_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="700" pulse="0"></Media>
     <Media x="1162" y="948" src="mo/mo_identify_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="750" pulse="0"></Media>
-    
     <Media x="1408" y="693" src="page1/wolfsbane3.mov" class="1" auto="-1" loopback="-1" hidden="1" offset="550" pulse="0"></Media>
     <Media x="1390" y="661" src="page1/taming_cerberus7.mov" class="0" auto="-1" loopback="-1" hidden="1" offset="650" pulse="0"></Media>
     <Media x="1252" y="562" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="530" pulse="1"></Media>
@@ -52,7 +49,7 @@
 </Page>
 <Page>
     
-    <Media x="633" y="646" src="rh/rhododendron_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
+    <Media x="519" y="615" src="rh/rhododendron_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
     <Media x="325" y="79" src="rh/rh_title_t1.png" class="" auto="-1" loopback="-1" hidden="0" offset="100" pulse="0"></Media>
     <Media x="310" y="337" src="rh/rh_symptoms_t1.png" class="" auto="-1" loopback="-1" hidden="0" offset="150" pulse="0"></Media>
     <Media x="290" y="1005" src="rh/rh_where_to_find_t1.png" class="" auto="-1" loopback="-1" hidden="0" offset="200" pulse="0"></Media>
