@@ -1,25 +1,5 @@
 
 <Page>
-    
-    <Media x="1328" y="1027" src="page1/Assasin.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
-    <touchvid x="216" y="348" src="page0/justtheheart.mov" auto="-1" class="3" loopback="-1" loopcount="1" hidden="0" offset="100" pulse="0" />
-    <Media x="298" y="475" src="page1/noheart.png" auto="-1" class="" loopback="-1" hidden="0" offset="100" pulse="0" />
-    <Media x="634" y="680" src="page1/IDENTIFY.png" auto="-1" class="" loopback="-1" hidden="0" offset="150" pulse="0"></Media>
-    <Media x="430" y="112" src="page1/Main-title-B.png" auto="-1" class="" loopback="-1" hidden="0" offset="200" pulse="0"></Media>
-    <Media x="298" y="929" src="page1/map-open.png" auto="-1" class="" loopback="-1" hidden="0" offset="250" pulse="0"></Media>
-    <Media x="1378" y="253" src="page1/parts.png" auto="-1" class="" loopback="-1" hidden="0" offset="300" pulse="0"></Media>
-    <Media x="1222" y="524" src="page1/Wolfs-bane-CLOSED-NT.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="350" pulse="0"></Media>
-    <Media x="1601" y="684" src="page1/Taming-Cerberus-CLOSED-NT.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="400" pulse="0"></Media>
-    <Media x="659" y="624" src="mo/monkshood_SEG.mov" auto="1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
-    <Media x="950" y="600" src="page1/overlays-and-shadows.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
-    <Media x="1269" y="752" src="page1/wolf-15_prores.mov" auto="1" class="rhp" loopback="0" hidden="0" offset="600" pulse="0"></Media>
-    <Media x="1408" y="693" src="page1/wolfsbane3.mov" auto="-1" class="1" loopback="-1" hidden="1" offset="550" pulse="0"></Media>
-    <Media x="1390" y="661" src="page1/taming_cerberus7.mov" auto="-1" class="0" loopback="-1" hidden="1" offset="650" pulse="0"></Media>
-    <Media x="1252" y="562" src="cir_A_combined.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="530" pulse="1"></Media>
-    <Media x="1543" y="537" src="cir_A_combined.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="540" pulse="2"></Media>
-    <Media x="497" y="822" src="cir_A_combined.png" auto="-1" class="lhp" loopback="-1" hidden="0" offset="540" pulse="3"></Media>
-</Page>
-<Page>
 
     <Media x="1411" y="175" src="be/be_parts.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
     <Media x="301" y="594" src="be/be_t1_lh.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
@@ -28,9 +8,10 @@
     <Media x="1425" y="701" src="be/be_t1_rh.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
     <Media x="1301" y="77" src="be/be_t2_rh.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
     <Media x="1358" y="915" src="be/be_t3_rh.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
-    <Media x="605" y="644" src="page1/belladonna_SEG.mov" auto="1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
     <Media x="1208" y="589" src="be/be_three_fates.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
     <Media x="1617" y="586" src="be/be_witch.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
+    <Media x="659" y="624" src="be/belladonna_SEG.mov" auto="1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
+
 </Page>
 <Page>
     
@@ -42,6 +23,7 @@
     <Media x="1315" y="194" src="he/he_t2_rh.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
     <Media x="1454" y="990" src="he/he_t3_rh.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
     <Media x="1419" y="678" src="he/he_socrates.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
+    <Media x="659" y="624" src="he/conium_SEG.mov" auto="1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
 </Page>
 <Page>
     
@@ -65,7 +47,7 @@
 </Page>
 <Page>
     
-    <Media x="772" y="484" src="rh/Rhododendron .mov" auto="1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
+    <Media x="772" y="484" src="rh/rhododendron_SEG.mov" auto="1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
     <Media x="1403" y="193" src="rh/rh_title_t1.png" auto="-1" class="" loopback="-1" hidden="0" offset="100" pulse="0"></Media>
     <Media x="359" y="606" src="rh/rh_symptoms_t1.png" auto="-1" class="" loopback="-1" hidden="0" offset="150" pulse="0"></Media>
     <Media x="470" y="737" src="rh/rh_where_to_find_t1.png" auto="-1" class="" loopback="-1" hidden="0" offset="200" pulse="0"></Media>
@@ -85,4 +67,25 @@
     <touchvid x="100" y="100" src="page0/blob3.mov" class="mytouchvid" blend="0" loopcount="1" />
     <Media x="300" y="300" src="page0/blob2.mov" class="othervideo" loopcount="2" />
     <touchvid x="600" y="600" src="page0/justtheheart.mov" class="heartvid" loopcount="1" />
+</Page>
+
+<Page>
+    
+    <Media x="1328" y="1027" src="page1/Assasin.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
+    <touchvid x="216" y="348" src="page0/justtheheart.mov" auto="-1" class="3" loopback="-1" loopcount="1" hidden="0" offset="100" pulse="0" />
+    <Media x="298" y="475" src="page1/noheart.png" auto="-1" class="" loopback="-1" hidden="0" offset="100" pulse="0" />
+    <Media x="634" y="680" src="page1/IDENTIFY.png" auto="-1" class="" loopback="-1" hidden="0" offset="150" pulse="0"></Media>
+    <Media x="430" y="112" src="page1/Main-title-B.png" auto="-1" class="" loopback="-1" hidden="0" offset="200" pulse="0"></Media>
+    <Media x="298" y="929" src="page1/map-open.png" auto="-1" class="" loopback="-1" hidden="0" offset="250" pulse="0"></Media>
+    <Media x="1378" y="253" src="page1/parts.png" auto="-1" class="" loopback="-1" hidden="0" offset="300" pulse="0"></Media>
+    <Media x="1222" y="524" src="page1/Wolfs-bane-CLOSED-NT.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="350" pulse="0"></Media>
+    <Media x="1601" y="684" src="page1/Taming-Cerberus-CLOSED-NT.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="400" pulse="0"></Media>
+    <Media x="659" y="624" src="mo/monkshood_SEG.mov" auto="1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
+    <Media x="950" y="600" src="page1/overlays-and-shadows.png" auto="-1" class="" loopback="-1" hidden="0" offset="0" pulse="0"></Media>
+    <Media x="1269" y="752" src="page1/wolf-15_prores.mov" auto="1" class="rhp" loopback="0" hidden="0" offset="600" pulse="0"></Media>
+    <Media x="1408" y="693" src="page1/wolfsbane3.mov" auto="-1" class="1" loopback="-1" hidden="1" offset="550" pulse="0"></Media>
+    <Media x="1390" y="661" src="page1/taming_cerberus7.mov" auto="-1" class="0" loopback="-1" hidden="1" offset="650" pulse="0"></Media>
+    <Media x="1252" y="562" src="cir_A_combined.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="530" pulse="1"></Media>
+    <Media x="1543" y="537" src="cir_A_combined.png" auto="-1" class="rhp" loopback="-1" hidden="0" offset="540" pulse="2"></Media>
+    <Media x="497" y="822" src="cir_A_combined.png" auto="-1" class="lhp" loopback="-1" hidden="0" offset="540" pulse="3"></Media>
 </Page>
