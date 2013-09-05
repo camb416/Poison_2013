@@ -1,6 +1,5 @@
 #!/bin/bash
 
+python generate-asset-report.py
 
-cat settings/book.xml
-
-# "[^"\n]*\.[^"\n]*"
+open report.html

@@ -11,6 +11,33 @@ fileList = []
 
 output_str = '<html><head><link rel="stylesheet" type="text/css" href="report.css"></head><body><table><tr><th>FILES USED IN BOOK</th><th>english?</th><th>common?</th><th>translatable</th></tr>'
 
+def getImageTag(path):
+	result = ""
+	if path.find(".png")>-1:
+		result = '<img src="'+path+'" />'
+
+	return result
+
+def isImage(path):
+	result = False
+	if path.find(".png")>-1:
+		result = True
+	return result
+
+def getOpenLink(path):
+	if isImage(path):
+		result = '<a href="'+path+'" >'
+	else:
+		result = ""
+	return result
+
+def getCloseLink(path):
+	if isImage(path):
+		result = '</a>'
+	else:
+		result = ''
+	return result
+
 for item in matches:
 	
 	itempath = "assets/en/"+item
@@ -26,14 +53,14 @@ for item in matches:
 	elif hasCommon | hasEnglish:
 		itemClass = "green"
 		if hasEnglish:
-			img_str = '<img src="'+itempath+'" />'
+			img_str = itempath
 		elif hasCommon:
-			img_str = '<img src="'+itempath2+'" />'
+			img_str = itempath2
 	else:
 		itemClass = "red"
 
 	itemOutput_str = '<tr class="'+itemClass+'">'
-	itemOutput_str += "<td>" + item + "</td><td>"+ str(hasEnglish)+"</td><td>"+str(hasCommon)+"</td><td>"+str(hasEnglish)+"</td><td>"+img_str+"</td></tr>"
+	itemOutput_str += "<td>" + getOpenLink(img_str)+ item + getCloseLink(img_str) + "</td><td>"+ str(hasEnglish)+"</td><td>"+str(hasCommon)+"</td><td>"+str(hasEnglish)+"</td></tr>"
 	output_str += "\n" + itemOutput_str
 	fileList.append(item)
 
@@ -41,12 +68,7 @@ for item in matches:
 output_str += "</table><table><th>OTHER FILES</th></table>"
 
 
-def getImageTag(path):
-	result = ""
-	if path.find(".png")>-1:
-		result = '<img src="'+path+'" />'
 
-	return result
 
 
 
@@ -55,7 +77,7 @@ def list_files(startpath):
 	for root, dirs, files in os.walk(startpath):
 		level = root.replace(startpath, '').count(os.sep)
 		indent = ' ' * 4 * (level)
-		result += ('{}{}/'.format(indent, os.path.basename(root)))+"\n"
+		result += '<div style="margin-left:'+str(40*(level+1))+';">'+('{}{}/'.format(indent, os.path.basename(root)))+"</div>"
 		subindent = ' ' * 4 * (level + 1)
 
 		for f in files:
@@ -78,11 +100,11 @@ def list_files(startpath):
 				print "file not found."
 				itemClass = "red"
 
-			result += '<div style="width:400px; margin-left:'+str(40*(level+1))+'px" class="'+itemClass+'" >'+('{}{}'.format(subindent, f)) +' '+getImageTag(tempstring)+'</div>\n'
+			result += '<div style="width:400px; margin-left:'+str(40*(level+1))+'px" class="'+itemClass+'" >'+getOpenLink(tempstring) + ('{}{}'.format(subindent, f)) +getCloseLink(tempstring) +' '+'</div>\n'
 	return result
 
 # print list_files(".")
 output_str += list_files("assets")
-
+f.close()
 f2.write(output_str)
 f2.close()

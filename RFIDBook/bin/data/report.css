@@ -1,9 +1,16 @@
 body, table td{
 	font-family:sans-serif;
-	font-size:0.875em;
+	font-size:0.75em;
+
+	font-weight: bold;
+	letter-spacing:0.1em;
+}
+body{
+	background-color:eeeeee;
+	margin:50px;
 }
 td, div{
-	padding:5px;
+	padding:10px;
 }
 .green{
 	background-color:#aaffaa;
