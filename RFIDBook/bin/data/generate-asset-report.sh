@@ -2,4 +2,5 @@
 
 python generate-asset-report.py
 
-open report.html
+open -a /Applications/Safari.app report.html
+#open report.html
