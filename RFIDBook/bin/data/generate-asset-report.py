@@ -11,7 +11,7 @@ matches = re.findall('(?<=src=")[^"\n]*(?=")',c)
 # (?<=src=")[^"\n]*(?=")
 fileList = []
 
-output_str = '<html><head><link rel="stylesheet" type="text/css" href="report.css"></head><body><table><tr><th>FILES USED IN BOOK</th><th>english?</th><th>common?</th><th>translatable</th></tr>'
+output_str = '<html><head><link rel="stylesheet/less" type="text/css" href="report.less"><script src="js/less-1.4.1.min.js" type="text/javascript"></script></head><body><table><tr><th>FILES USED IN BOOK</th><th>english?</th><th>common?</th><th>translatable</th></tr>'
 
 def getImageTag(path):
 	result = ""
