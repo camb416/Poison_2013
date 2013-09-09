@@ -50,6 +50,7 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 bool isHidden;
                 ofBlendMode blend;
                 int loopCount = 0;
+                int flipMode_int;
                 
                 MediaModel thisMedia;
                 
@@ -116,6 +117,13 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                     isHidden = false;
                 }
                 
+                if (bookElements.attributeExists("Media", "flip", i)) {
+                    flipMode_int = bookElements.getAttribute("Media", "flip", 0, i);
+                    ofLogNotice() << "theres a flipmode and its: " << flipMode_int;
+                } else {
+                    flipMode_int = 0;
+                }
+                
                 
                 
                 ofLogNotice() << "Loaded " << mediaFileName << " at position " << mediaPos.x << " : " << mediaPos.y;
@@ -131,6 +139,7 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 thisMedia.mediaType = -1;
                 thisMedia.blend = blend;
                 thisMedia.loopCount = loopCount;
+                thisMedia.flip = flipMode_int;
                 thisPage.push_back(thisMedia);
             }
             

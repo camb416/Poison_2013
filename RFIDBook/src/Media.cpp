@@ -58,6 +58,7 @@ void Media::setupImage(MediaModel _mm){
 }
 void Media::setupVideo(MediaModel _mm){
        setup("",_mm.src,_mm.pos.x, _mm.pos.y, _mm.autoPlay, _mm.mClass, _mm.loopback, _mm.isHidden, _mm.offset);
+        setFlipMode(_mm.flip);
 }
 
 
@@ -157,6 +158,11 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
     
 }
 
+void Media::setupSegVideo(MediaModel _mm){
+    setupSegVideo(_mm.src, _mm.pos.x, _mm.pos.y);
+    setFlipMode(_mm.flip);
+}
+
 // Setup segmented video
 void Media::setupSegVideo(string _vidFile, float _x, float _y){
     segVid = new SegmentedVideo();
@@ -170,6 +176,7 @@ void Media::setupSegVideo(string _vidFile, float _x, float _y){
     
     autoplay = 1;
     isHidden = isHiddenByDefault = false;
+    
     //segVid->fadeOut(-1);
 }
 
@@ -368,7 +375,11 @@ void Media::draw(float scale){
         
         }
     else if(mediaType == SEGMEDIA){
-        segVid->draw(x, y, segVid->width*scale, segVid->height*scale);
+        if(flipMode>0){
+            segVid->draw(x, y, segVid->width*scale*-1, segVid->height*scale);
+        } else {
+            segVid->draw(x, y, segVid->width*scale, segVid->height*scale);
+        }
     }
 
 }

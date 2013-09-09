@@ -53,6 +53,7 @@ public:
     // only for seg video
     //void setup(string _vidFile, float _x, float _y);
     void setupSegVideo(string _vidFile, float _x, float _y);
+    void setupSegVideo(MediaModel _mm); // use this one.
     
     // only for touchvid
     void setupTouchVid(MediaModel _mm);
@@ -122,6 +123,15 @@ public:
         loopCount = _loopCount;
     }
     
+    int getFlipMode(){
+        return flipMode;
+    }
+    
+    void setFlipMode(int _flipMode){
+        flipMode = _flipMode;
+        ofLogNotice() << "setting flipmode to: " << _flipMode;
+    }
+    
 private:
     
     int loopCount;
@@ -137,6 +147,8 @@ private:
     
     string notFoundImgFile = "assets/notfound.png";
     string notFoundVidFile = "assets/notfound.mov";
+    
+    int flipMode;
     
     
 };

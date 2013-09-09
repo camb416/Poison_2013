@@ -9,6 +9,6 @@ if [ $# -eq 0 ] ; then
 	exit 0
 fi
 
-rsync -avh . sysadmin@$1:/Users/sysadmin/Documents/of_v0.7.4_osx_release/apps/Poison_2013/RFIDBook/bin/data/ 
+rsync -avh --stats --progress . sysadmin@$1:/Users/sysadmin/Documents/of_v0.7.4_osx_release/apps/Poison_2013/RFIDBook/bin/data/ 
 
 # /Users/sysadmin/Documents/of_v0.7.4_osx_release/apps/Poison_2013/RFIDBook/bin/data

@@ -27,6 +27,7 @@ struct MediaModel{
     int mediaType;
     ofBlendMode blend;
     int loopCount;
+    int flip;
 };
 
 // parsing into MediaModel struct instead

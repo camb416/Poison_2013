@@ -16,6 +16,6 @@
 
 # echo $D
 
-rsync -avh --stats "media@172.16.40.23:/Volumes/mediavol1/2013_Poison/Production/Media\ Exhibits/POI_me_4.x_Magic_Book/data/" .
+rsync -avh --stats --progress "media@172.16.40.23:/Volumes/mediavol1/2013_Poison/Production/Media\ Exhibits/POI_me_4.x_Magic_Book/data/" .
 
 # /Users/sysadmin/Documents/of_v0.7.4_osx_release/apps/Poison_2013/RFIDBook/bin/data

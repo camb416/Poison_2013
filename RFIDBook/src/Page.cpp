@@ -104,7 +104,8 @@ void Page::addMedia(MediaModel _mm){
         
         // Check if video is a segmented one
         if (isSegVid(_mm.src) == true){
-            newMedia->setupSegVideo(_mm.src, _mm.pos.x, _mm.pos.y);
+            //newMedia->setupSegVideo(_mm.src, _mm.pos.x, _mm.pos.y);
+            newMedia->setupSegVideo(_mm);
         } else if(_mm.mediaType==TOUCHVIDEO){
             newMedia->setupTouchVid(_mm);
         } else {
@@ -317,6 +318,7 @@ ofxXmlSettings Page::getXML(){
         xml.setAttribute(tagName, "hidden", (int)media.at(i)->isHiddenByDefault, tagCount);
         xml.setAttribute(tagName, "offset", (int)media.at(i)->offset, tagCount);
         xml.setAttribute(tagName, "pulse", (int)media.at(i)->getPulseType(), tagCount);
+        xml.setAttribute(tagName, "flip", (int)media.at(i)->getFlipMode(),tagCount);
         }
     }
     string aString;
