@@ -296,7 +296,7 @@ int BookView::touch(int _whichSensor){
                     break;
                 case 2:
                     playSegmentedVideo();
-                    hideCurrentMediaByClassName("seg");
+                    hideCurrentMediaByClassName("lhp");
                     break;
                 case 3:
                     playVideoByClassName("3");

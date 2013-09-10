@@ -17,6 +17,8 @@
 #define CLOSEDGATE 0
 #define OPENGATE 1
 
+//class BookView;
+
 struct cue {
     int frame;
     int gate;
@@ -24,6 +26,11 @@ struct cue {
 };
 
 class SegmentedVideo : public ofFadeVideo{
+    
+private:
+    //BookView * bookView;
+    
+    
     
     public:
         SegmentedVideo();
@@ -35,10 +42,17 @@ class SegmentedVideo : public ofFadeVideo{
         void touch();
         bool showButton = false;
     
+    //void setView(BookView * _bookView){ bookView = _bookView; }
+    
         //ofVideoPlayer player;
         //string animFile = "belladona.mov";
-        
+    
+    
+    
         vector<cue> cues;
+
+    
+    
 };
 
 #endif /* defined(__animationProgression__SegmentedVideo__) */
