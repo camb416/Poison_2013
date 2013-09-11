@@ -29,6 +29,11 @@ void ofFadeImage::setup(string filename_in){
 
 }
 void ofFadeImage::update(){
+    // for testing
+    //if(path=="assets/common/cir_A_combined.png"){
+        //string hiddenString;
+        //ofLogNotice() << "circle: " << alpha << ", " << alphaDest;
+   // }
     if(pulseType>0){
         pulseVal = pulseOrigin+ofGetElapsedTimef()*2.0f;
         

@@ -261,6 +261,17 @@ void Media::update(){
     //TODO check mediaState to see what to do
     
     if(mediaType==IMGMEDIA){
+        // for testing
+       // if(img->getPath() == "assets/common/cir_A_combined.png"){
+           // string hiddenString = "false";
+            //if(isHidden) hiddenString = "true";
+           // ofLogNotice() << "hidden? " << hiddenString;
+       // }
+        
+       // if(img->getPath() == "assets/common/cir_A_combined.png"){
+       //     ofLogNotice() << whenToShow << ", " << offset;
+       // }
+        
         img->update();
         img->getAlpha()<0.01f ? isHidden = true : isHidden = false;
     } else if (mediaType==VIDMEDIA || mediaType == TOUCHVIDEO) {
@@ -368,7 +379,11 @@ void Media::draw(float scale){
     ofEnableBlendMode(blendMode);
     
     if (mediaType==IMGMEDIA){
+   // if(img->getPath()=="assets/common/cir_A_combined.png"){
+  //   ofLogNotice() << "break";
+  //  }
         img->draw(x,y, img->width*scale, img->height*scale);
+    
     } else if(mediaType==VIDMEDIA || mediaType == TOUCHVIDEO){
         
       //  if(mediaType==TOUCHVIDEO) ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
@@ -421,11 +436,14 @@ void Media::setBorder(bool _showBorder){
 }
 
 int Media::hide(){
-    whenToShow = -1;
+    
     if(isHidden){
         ofLogWarning() << imgFileName << " already hidden, can't hide it";
+        
         return -1;
     } else {
+        whenToShow = -1;
+        ofLogNotice() << "this runs for some reason";
         isHidden = true;
         if(mediaType==IMGMEDIA){
             img->fadeOut();
@@ -443,7 +461,13 @@ int Media::hide(){
 
 int Media::show(float _fadeVal, bool _useOffset){
 
-
+    if(mediaType == IMGMEDIA)
+        
+        if(img->getPath() == "assets/common/cir_A_combined.png"){
+    ofLogNotice() << "showing: " << img->getPath();
+            
+        }
+    
     fadeVal = _fadeVal;
     if(!isHidden){
         ofLogWarning() << "already showing, can't show it";
@@ -451,6 +475,9 @@ int Media::show(float _fadeVal, bool _useOffset){
     } else if(offset<=0 || _useOffset == false){
         isHidden = false;
         if(mediaType==IMGMEDIA){
+            if(img->getPath() == "assets/common/cir_A_combined.png"){
+            ofLogNotice() << "fading in " << img->getPath();
+            }
             img->fadeIn(fadeVal);
         } else if(mediaType==VIDMEDIA){
             vid->fadeIn(fadeVal);
@@ -472,7 +499,8 @@ int Media::show(float _fadeVal, bool _useOffset){
         return 0;
     } else {
         if(whenToShow<0){
-            whenToShow = ofGetElapsedTimeMillis()+offset; // assign whenToShow and let update handle the fadeIn
+            whenToShow = ofGetElapsedTimeMillis()+offset;
+            // assign whenToShow and let update handle the fadeIn
         }
         return 0;
     }
