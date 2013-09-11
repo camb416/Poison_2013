@@ -24,6 +24,30 @@
     <Media x="536" y="808" src="cir_A_combined.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="16540" pulse="3" flip="0"></Media>
     <Media x="1046" y="647" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
 </Page>
+
+<Page>
+    
+    <Media x="578" y="654" src="rh/rhododendron_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="325" y="79" src="rh/rh_title_t1.png" class="" auto="-1" loopback="-1" hidden="0" offset="4000" pulse="0" flip="0"></Media>
+    <Media x="287" y="336" src="rh/rh_symptoms_t1.png" class="" auto="-1" loopback="-1" hidden="0" offset="4150" pulse="0" flip="0"></Media>
+    <Media x="300" y="934" src="rh/rh_where_to_find_t1.png" class="" auto="-1" loopback="-1" hidden="0" offset="4200" pulse="0" flip="0"></Media>
+    <Media x="1494" y="134" src="rh/rh_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="4250" pulse="0" flip="0"></Media>
+    <Media x="1505" y="284" src="rh/rh_parts_t1.png" class="" auto="-1" loopback="-1" hidden="0" offset="4250" pulse="0" flip="0"></Media>
+    <Media x="1605" y="656" src="rh/rh_sweet_victory.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="4300" pulse="0" flip="0"></Media>
+    <Media x="1246" y="662" src="rh/rh_kill_goats.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="4350" pulse="0" flip="0"></Media>
+    <Media x="476" y="89" src="rh/rh_title_t2.png" class="" auto="-1" loopback="-1" hidden="0" offset="5400" pulse="0" flip="0"></Media>
+    <Media x="802" y="206" src="rh/rh_symptoms_t2.png" class="" auto="-1" loopback="-1" hidden="0" offset="5450" pulse="0" flip="0"></Media>
+    <Media x="1604" y="392" src="rh/rh_parts_t2.png" class="" auto="-1" loopback="-1" hidden="0" offset="5550" pulse="0" flip="0"></Media>
+    <Media x="1449" y="1000" src="rh/rh_medical_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="5600" pulse="0" flip="0"></Media>
+    <Media x="415" y="1104" src="rh/rh_where_to_find_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="500" pulse="0" flip="0"></Media>
+    <Media x="751" y="1007" src="rh/rh_symptoms_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="700" pulse="0" flip="0"></Media>
+    <Media x="1417" y="694" src="rh/sweet_victory_V3.mov" class="1" auto="-1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
+    <Media x="1247" y="673" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="16530" pulse="1" flip="0"></Media>
+    <Media x="1622" y="774" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="16540" pulse="2" flip="0"></Media>
+    <Media x="527" y="807" src="cir_A_combined.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="16540" pulse="3" flip="0"></Media>
+    <Media x="877" y="607" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+</Page>
+
 <Page>
     
     <Media x="1411" y="175" src="be/be_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
@@ -57,25 +81,3 @@
     <Media x="960" y="600" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
 </Page>
 
-<Page>
-    
-    <Media x="578" y="654" src="rh/rhododendron_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="325" y="79" src="rh/rh_title_t1.png" class="" auto="-1" loopback="-1" hidden="0" offset="4000" pulse="0" flip="0"></Media>
-    <Media x="287" y="336" src="rh/rh_symptoms_t1.png" class="" auto="-1" loopback="-1" hidden="0" offset="4150" pulse="0" flip="0"></Media>
-    <Media x="300" y="934" src="rh/rh_where_to_find_t1.png" class="" auto="-1" loopback="-1" hidden="0" offset="4200" pulse="0" flip="0"></Media>
-    <Media x="1494" y="134" src="rh/rh_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="4250" pulse="0" flip="0"></Media>
-    <Media x="1505" y="284" src="rh/rh_parts_t1.png" class="" auto="-1" loopback="-1" hidden="0" offset="4250" pulse="0" flip="0"></Media>
-    <Media x="1605" y="656" src="rh/rh_sweet_victory.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="4300" pulse="0" flip="0"></Media>
-    <Media x="1246" y="662" src="rh/rh_kill_goats.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="4350" pulse="0" flip="0"></Media>
-    <Media x="476" y="89" src="rh/rh_title_t2.png" class="" auto="-1" loopback="-1" hidden="0" offset="5400" pulse="0" flip="0"></Media>
-    <Media x="802" y="206" src="rh/rh_symptoms_t2.png" class="" auto="-1" loopback="-1" hidden="0" offset="5450" pulse="0" flip="0"></Media>
-    <Media x="1604" y="392" src="rh/rh_parts_t2.png" class="" auto="-1" loopback="-1" hidden="0" offset="5550" pulse="0" flip="0"></Media>
-    <Media x="1449" y="1000" src="rh/rh_medical_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="5600" pulse="0" flip="0"></Media>
-    <Media x="415" y="1104" src="rh/rh_where_to_find_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="500" pulse="0" flip="0"></Media>
-    <Media x="751" y="1007" src="rh/rh_symptoms_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="700" pulse="0" flip="0"></Media>
-    <Media x="1417" y="694" src="rh/sweet_victory_V3.mov" class="1" auto="-1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
-    <Media x="1247" y="673" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="16530" pulse="1" flip="0"></Media>
-    <Media x="1622" y="774" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="16540" pulse="2" flip="0"></Media>
-    <Media x="527" y="807" src="cir_A_combined.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="16540" pulse="3" flip="0"></Media>
-    <Media x="877" y="607" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-</Page>
