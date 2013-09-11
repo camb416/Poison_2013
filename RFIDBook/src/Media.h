@@ -74,13 +74,7 @@ public:
     float x;
     float y;
     
-    bool isHidden;
-    bool isHiddenByDefault;
 
-    int offset;
-    int fadeInOffset;
-    int whenToShow;
-    float fadeVal;
     
     bool vidState;
     
@@ -132,6 +126,12 @@ public:
         ofLogNotice() << "setting flipmode to: " << _flipMode;
     }
     
+    bool getHidden(){
+        return isHidden;
+    }
+    int getOffset(){ return offset; }
+    int getIsHiddenByDefault(){ return isHiddenByDefault; }
+    
 private:
     
     int loopCount;
@@ -149,6 +149,14 @@ private:
     string notFoundVidFile = "assets/notfound.mov";
     
     int flipMode;
+    
+    bool isHidden;
+    bool isHiddenByDefault;
+    
+    int offset;
+    int fadeInOffset;
+    int whenToShow;
+    float fadeVal;
     
     
 };

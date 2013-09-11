@@ -75,14 +75,14 @@ void Page::draw(float originX, float originY, float scale){
         
         // Run the normal draw method for each media element
         for (int i = 0; i < media.size(); i++) {
-            if(!media.at(i)->isHidden) media.at(i)->draw();
+            if(!media.at(i)->getHidden()) media.at(i)->draw();
         }
         
     }
     else {
         // Run the scaled draw method for each media element
         for (int i = 0; i < media.size(); i++) {
-            if(!media.at(i)->isHidden) media.at(i)->draw(scale);
+            if(!media.at(i)->getHidden()) media.at(i)->draw(scale);
         }
     }
     
@@ -231,7 +231,7 @@ void Page::fade(int dir){
     if (dir == 1) { // fading in
         
         for (int i = 0; i < media.size(); i++) {
-            if(!media.at(i)->isHiddenByDefault){
+            if(!media.at(i)->getIsHiddenByDefault()){
             
                 float fadeVal = ofRandomuf()*(maxFadeIn-minFadeIn)+minFadeIn;
                // int offsetVal = ofRandomuf()*5000;
@@ -315,8 +315,8 @@ ofxXmlSettings Page::getXML(){
         if(tagName=="Media"){
         xml.setAttribute(tagName, "auto", (int)media.at(i)->autoplay, tagCount);
         xml.setAttribute(tagName, "loopback", (int)media.at(i)->loopback, tagCount);
-        xml.setAttribute(tagName, "hidden", (int)media.at(i)->isHiddenByDefault, tagCount);
-        xml.setAttribute(tagName, "offset", (int)media.at(i)->offset, tagCount);
+        xml.setAttribute(tagName, "hidden", (int)media.at(i)->getIsHiddenByDefault(), tagCount);
+        xml.setAttribute(tagName, "offset", (int)media.at(i)->getOffset(), tagCount);
         xml.setAttribute(tagName, "pulse", (int)media.at(i)->getPulseType(), tagCount);
         xml.setAttribute(tagName, "flip", (int)media.at(i)->getFlipMode(),tagCount);
         }
