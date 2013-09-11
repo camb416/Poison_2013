@@ -232,13 +232,16 @@ void BookView::printCurrentMediaByClassName(string _id){
 
 int BookView::hideCurrentMediaByClassName(string _classname){
     int returnVal = 0;
+    ofLogNotice() << "trying to hide: " << _classname;
     // TODO: there's a bug here.... mediaToHide == 0 when you are on an interstitial!!!!....
     vector<Media*> mediaToHide = mediaPages.at(currentPage)->getMediaByClassName(_classname);
     for(int i=0;i<mediaToHide.size();i++){
         if(mediaToHide.at(i)->hide()!=0){
+            ofLogNotice() << "failure at media: " << i;
             returnVal = -1;
         }
     }
+    ofLogNotice() << "reporting back: " << returnVal;
     return returnVal;
 }
 int BookView::showCurrentMediaByClassName(string _classname){
@@ -289,7 +292,12 @@ int BookView::touch(int _whichSensor){
         case 3:
             switch(_whichSensor){
                 case 0:
-                    if(hideCurrentMediaByClassName("rhp")==0) showCurrentMediaByClassName("0","rhp");
+                    if(hideCurrentMediaByClassName("rhp")==0){
+                        ofLogNotice() << "success. showing the rhp media.";
+                       showCurrentMediaByClassName("0","rhp"); 
+                    } else {
+                        ofLogNotice() << "failed. not showing the rhp media";
+                    }
                     break;
                 case 1:
                     if(hideCurrentMediaByClassName("rhp")==0) showCurrentMediaByClassName("1","rhp");

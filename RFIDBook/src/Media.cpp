@@ -9,6 +9,11 @@
 #include "Media.h"
 #include "BookView.h"
 
+
+// isHidden is true by default
+// if there is an offset, show offloads the fadeIn of the ofFadeImage, ofFadeVideo or SegmentedVideo pointer
+// to the update method, which calls show() again when it's ready.
+
 Media::Media(){
     isDraggable = true;
     isDragging = false;
@@ -467,7 +472,7 @@ int Media::show(float _fadeVal, bool _useOffset){
         return 0;
     } else {
         if(whenToShow<0){
-            whenToShow = ofGetElapsedTimeMillis()+offset;
+            whenToShow = ofGetElapsedTimeMillis()+offset; // assign whenToShow and let update handle the fadeIn
         }
         return 0;
     }

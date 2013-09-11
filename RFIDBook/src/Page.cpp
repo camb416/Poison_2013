@@ -228,15 +228,15 @@ void Page::fade(int dir){
     float minFadeOut = 2.0f;
     float maxFadeOut = 8.0f;
     
-    if (dir == 1) {
+    if (dir == 1) { // fading in
+        
         for (int i = 0; i < media.size(); i++) {
             if(!media.at(i)->isHiddenByDefault){
             
                 float fadeVal = ofRandomuf()*(maxFadeIn-minFadeIn)+minFadeIn;
                // int offsetVal = ofRandomuf()*5000;
                 if(media.at(i)->mediaType==IMGMEDIA  ){
-                    media.at(i)->show(fadeVal,true);
-//                    media.at(i)->img->fadeIn(fadeVal);
+                    media.at(i)->show(fadeVal,true); // show it
                 }
                 
             
