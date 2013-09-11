@@ -436,13 +436,13 @@ void Media::setBorder(bool _showBorder){
 }
 
 int Media::hide(){
-    
+    whenToShow = -1;    
     if(isHidden){
         ofLogWarning() << imgFileName << " already hidden, can't hide it";
         
         return -1;
     } else {
-        whenToShow = -1;
+
         ofLogNotice() << "this runs for some reason";
         isHidden = true;
         if(mediaType==IMGMEDIA){
