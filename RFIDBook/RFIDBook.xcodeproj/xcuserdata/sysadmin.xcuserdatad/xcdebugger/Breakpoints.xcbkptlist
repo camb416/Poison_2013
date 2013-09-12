@@ -131,5 +131,18 @@
          landmarkName = "PhidgetConnector::sensorChanged (CPhidgetInterfaceKitHandle IFK, int index, int value)"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/ofFadeImage.cpp"
+         timestampString = "400621543.619305"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "146"
+         endingLineNumber = "146"
+         landmarkName = "ofFadeImage::fadeOut(float _tweenD)"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
