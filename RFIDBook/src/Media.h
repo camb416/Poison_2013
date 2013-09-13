@@ -74,6 +74,7 @@ public:
     float x;
     float y;
     
+    string getPath();
 
     
     bool vidState;
@@ -81,7 +82,6 @@ public:
     int autoplay;
     string mClass;
     
-    int mediaState;
     
     // -1 = no looping, 0 = loop from beginning, {positive number} = loop from that position
     float loopback = -1.0f;
@@ -131,6 +131,7 @@ public:
     }
     int getOffset(){ return offset; }
     int getIsHiddenByDefault(){ return isHiddenByDefault; }
+    float getAlpha();
     
 private:
     

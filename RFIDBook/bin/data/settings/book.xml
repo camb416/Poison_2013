@@ -17,11 +17,11 @@
     <Media x="309" y="466" src="mo/mo_symptoms_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="4000" pulse="0" flip="0"></Media>
     <Media x="324" y="792" src="mo/mo_where_to_find_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="4000" pulse="0" flip="0"></Media>
     <Media x="773" y="1095" src="mo/mo_identify_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="4000" pulse="0" flip="0"></Media>
-    <Media x="1415" y="662" src="mo/wo_hunter29.mov" class="1" auto="-1" loopback="-1" hidden="1" offset="4000" pulse="0" flip="0"></Media>
-    <Media x="1425" y="641" src="mo/wo_cerberus16.mov" class="0" auto="-1" loopback="-1" hidden="1" offset="10000" pulse="0" flip="0"></Media>
-    <Media x="1179" y="683" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="10000" pulse="1" flip="0"></Media>
-    <Media x="1577" y="660" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="10000" pulse="2" flip="0"></Media>
-    <Media x="536" y="808" src="cir_A_combined.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="10000" pulse="3" flip="0"></Media>
+    <Media x="1415" y="662" src="mo/wo_hunter29.mov" class="1" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
+    <Media x="1425" y="641" src="mo/wo_cerberus16.mov" class="0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
+    <Media x="1179" y="683" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="1000" pulse="1" flip="0"></Media>
+    <Media x="1577" y="660" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="2000" pulse="2" flip="0"></Media>
+    <Media x="536" y="808" src="cir_A_combined.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="3000" pulse="3" flip="0"></Media>
     <Media x="1046" y="647" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
 </Page>
 
@@ -42,9 +42,9 @@
     <Media x="415" y="1104" src="rh/rh_where_to_find_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="751" y="1007" src="rh/rh_symptoms_t3.png" class="" auto="-1" loopback="-1" hidden="0" offset="700" pulse="0" flip="0"></Media>
     <Media x="1417" y="694" src="rh/sweet_victory_V3.mov" class="1" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1247" y="673" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="10000" pulse="1" flip="0"></Media>
-    <Media x="1622" y="774" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="10000" pulse="2" flip="0"></Media>
-    <Media x="527" y="807" src="cir_A_combined.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="10000" pulse="3" flip="0"></Media>
+    <Media x="1247" y="673" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="1000" pulse="1" flip="0"></Media>
+    <Media x="1622" y="774" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="2000" pulse="2" flip="0"></Media>
+    <Media x="527" y="807" src="cir_A_combined.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="3000" pulse="3" flip="0"></Media>
     <Media x="877" y="607" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
 </Page>
 

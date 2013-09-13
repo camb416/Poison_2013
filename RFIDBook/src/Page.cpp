@@ -75,14 +75,16 @@ void Page::draw(float originX, float originY, float scale){
         
         // Run the normal draw method for each media element
         for (int i = 0; i < media.size(); i++) {
-            if(!media.at(i)->getHidden()) media.at(i)->draw();
+            if(media.at(i)->getAlpha()>0.01f){
+               media.at(i)->draw(); 
+            }
         }
         
     }
     else {
         // Run the scaled draw method for each media element
         for (int i = 0; i < media.size(); i++) {
-            if(!media.at(i)->getHidden()) media.at(i)->draw(scale);
+            if(media.at(i)->getAlpha()>0.01f) media.at(i)->draw(scale);
         }
     }
     
@@ -222,6 +224,10 @@ void Page::receiveInput(char touchId_in, int pageNum_in){
 
 void Page::fade(int dir){
     
+    ofLogNotice() << "fading: " << dir << ", " << media.size();
+    if(media.size()==1){
+        ofLogNotice() << "this certainly doesn't seem right";
+    }
     // Loop through media elements and fade them in or out
     float minFadeIn = 4.0f;
     float maxFadeIn = 64.0f;
@@ -235,9 +241,13 @@ void Page::fade(int dir){
             
                 float fadeVal = ofRandomuf()*(maxFadeIn-minFadeIn)+minFadeIn;
                // int offsetVal = ofRandomuf()*5000;
-                if(media.at(i)->mediaType==IMGMEDIA  ){
-                    media.at(i)->show(fadeVal,true); // show it
+                
+              //  if(media.at(i)->mediaType==IMGMEDIA  ){
+                if(media.at(i)->mediaType==SEGMEDIA){
+                    ofLogNotice() << "<<<<<<<<<<<<< showing a seg media >>>>>>>>>>>>>>>";
                 }
+                    media.at(i)->show(fadeVal,true); // show it
+               /* }
                 
             
                 // If autoplay is on for the video, start playing
@@ -256,17 +266,31 @@ void Page::fade(int dir){
                     }
                     media.at(i)->segVid->fadeIn(fadeVal);
                     media.at(i)->segVid->showButton = false;
+                }*/
                 }
-                }
+            
         }
-    }
-    else {
+    } else {
         for (int i = 0; i < media.size(); i++) {
-            // TODO - handle video fade out as well
+            // TODO - handle video fade out as well!!!!!
            
             float fadeVal = ofRandomuf()*(maxFadeOut-minFadeOut)+minFadeOut;
             // cout << fadeVal << endl;
             
+           // if(media.at(i)->mediaType!=SEGMEDIA){
+            
+            if(i==0) {
+                ofLogNotice() << "hiding the seg..." << endl;
+            }
+              ofLogWarning() << "hide result:::::: " <<   media.at(i)->hide();
+                
+           // } else {
+           //     media.at(i)->segVid->fadeOut(fadeVal);
+           //     media.at(i)->vidState = 0;
+                // TODO: debug this! stop all video
+            //    media.at(i)->stopVid();
+           // }
+            /*
             if(media.at(i)->mediaType==IMGMEDIA) media.at(i)->hide();
             if(media.at(i)->mediaType==VIDMEDIA || media.at(i)->mediaType==TOUCHVIDEO) {
                 media.at(i)->vid->fadeOut(fadeVal);
@@ -280,6 +304,7 @@ void Page::fade(int dir){
                 // TODO: debug this! stop all video
                 media.at(i)->stopVid();
             }
+            */
         }
     }
     

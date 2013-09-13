@@ -14,6 +14,7 @@ ofFadeImage::ofFadeImage(){
     tweenDivisor = 8.0f;
     pulseOrigin = ofRandomuf()*TWO_PI;
         isFading = false;
+    path="";
 }
 
 void ofFadeImage::setBorder(bool _showBorder){
@@ -150,5 +151,9 @@ void ofFadeImage::fadeOut(float _tweenD){
         tweenDivisor = _tweenD;
         alphaDest = 0.0f;
     }
+}
+
+string ofFadeImage::getPath(){
+    return path;
 }
 

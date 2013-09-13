@@ -196,6 +196,50 @@ string BookController::getReport(){
     return report_str;
 }
 
+void BookController::turnPageLeft(){
+    turnPage(-1);
+}
+void BookController::turnPageRight(){
+    turnPage(1);
+}
+
+void BookController::turnPage(int _dir){
+    // -1 go back
+    // 1 go fwd
+    // 0 refreshpage? no implemented.
+    // sanitize this? use bool instead?
+    
+    ofLogNotice() << "whatSituation() returns: " << whatSituation() << ", forcedState: " << forcedState << ", getPageNumByStringState() returns: " << getPageNumByStringState(forcedState) << "." ;
+    
+    int currentPageThisMoment = getPageNumByStringState(forcedState);
+    if(currentPageThisMoment>=0){
+    ofLogNotice() << "you are currently on: " << currentPageThisMoment << ". You want to be on: " << (currentPageThisMoment+_dir);
+        
+        int destinationPage = currentPageThisMoment + _dir;
+        
+        if(destinationPage <0){
+            destinationPage = 7;
+        } else if(destinationPage>=8) {
+            destinationPage = 0;
+        }
+        forcedState = pageIDs[destinationPage];
+        ofLogNotice() << "setting the page state to: " << forcedState << ".";
+        
+    } else {
+        ofLogWarning() << "can't tell which page the book is on to increment or decrement it.";
+    }
+}
+int BookController::getPageNumByStringState(string _pageState){
+    int returnVal = -1;
+    for(int i=0;i<8;i++){
+        if(pageIDs[i]==_pageState){
+            returnVal = i;
+        }
+    }
+    
+    return returnVal;
+}
+
 void BookController::forcedInput(char _keypress){     //represent RFID actions with keypress
   
     switch(_keypress){
@@ -249,6 +293,7 @@ void BookController::forcedInput(char _keypress){     //represent RFID actions w
         forcedState = "AB";
         useRFID = !useRFID;
         break;
+
             
         
             

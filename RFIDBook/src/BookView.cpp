@@ -14,6 +14,7 @@ BookView::BookView(){
     bShowDragUI = false;
     isSetup = false;
     cout << "OKAY, THE BOOKVIEW EXISTS... HERE'S THE CONSTRUCTOR TO PROVE IT" << endl;
+    isBusy = true;
 }
 BookView::~BookView(){
     
@@ -40,13 +41,11 @@ void BookView::hideDragUI(){
 void BookView::setup(LanguageController * _lang, string _xmlFile){
     lang = _lang;
     xmlFile = _xmlFile;
+    isBusy = false;
 
 }
 void BookView::update(){
-    /*for(int i=0;i<pages.size();i++){
-        pages.at(i)->update();
-    }
-    */
+    
     if(currentPage>=0 && bShowDragUI) mediaPages.at(currentPage)->dragUpdate();
     for(int i=0;i<mediaPages.size();i++){
         mediaPages.at(i)->update();
@@ -54,11 +53,12 @@ void BookView::update(){
     
 }
 void BookView::draw(){
+    
     ofEnableAlphaBlending();
     draw(0,0,0);
 }
 void BookView::draw(int x_in, int y_in, int debugState){
-    
+        
     // Debug draw
     if(debugState>0){
     ofSetColor(255);
@@ -164,22 +164,15 @@ void BookView::activate(int pagenum_in){
 
 
     if(pagenum_in != currentPage){
-        for(int i=0;i<mediaPages.size();i++){
-           
-            if(i==pagenum_in){
-                mediaPages.at(i)->fade(1);
-            } else {
-                mediaPages.at(i)->fade(-1);
-                try {
-                    if (mediaPages.at(currentPage)->touchActive == true){
-                        mediaPages.at(currentPage)->pageReset = true;
-                    }
-                } catch (...) {
-                    
-                }
-                
-            }
-        }
+        
+            ofLogNotice() << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> activating page::: " << pagenum_in;
+        
+        if(currentPage>-1 && currentPage<mediaPages.size())
+            mediaPages.at(currentPage)->fade(-1);
+        
+        if(pagenum_in>-1 && pagenum_in<mediaPages.size())
+            mediaPages.at(pagenum_in)->fade(1);
+        
     }
     
     currentPage = pagenum_in;
@@ -231,14 +224,19 @@ void BookView::printCurrentMediaByClassName(string _id){
 }
 
 int BookView::hideCurrentMediaByClassName(string _classname){
+    
+    CHECKBUSY
+    
+    isBusy = true;
     int returnVal = 0;
     ofLogNotice() << "trying to hide: " << _classname;
     // TODO: there's a bug here.... mediaToHide == 0 when you are on an interstitial!!!!....
     vector<Media*> mediaToHide = mediaPages.at(currentPage)->getMediaByClassName(_classname);
     
     for(int i=0;i<mediaToHide.size();i++){
-        if(mediaToHide.at(i)->getHidden()!=0){
+        if(mediaToHide.at(i)->getHidden()==true){
             returnVal = -1;
+            isBusy = false;
             return -1;
         }
     
@@ -251,6 +249,7 @@ int BookView::hideCurrentMediaByClassName(string _classname){
     }
     
     ofLogNotice() << "reporting back: " << returnVal;
+    isBusy = false;
     return returnVal;
 }
 int BookView::showCurrentMediaByClassName(string _classname){

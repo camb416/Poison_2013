@@ -55,14 +55,6 @@ void BookApp::update(){
         devices.update();
         book.update();
         bookView.update();
-        
-        /*
-            if(book.isPageLanded()){
-                    // checks for three sensors active.
-            }
-    */
-        
-        
     }
     dui.update();
     
@@ -203,9 +195,19 @@ void BookApp::keyPressed(int key){
         case 'M':
             bookView.printCurrentMedia();
             break;
-            //case default:
+
+        case 358:
+            // right arrow
+            book.turnPageRight();
+            break;
             
-            //break;
+        case 356:
+            // left arrow
+            book.turnPageLeft();
+            break;
+        default:
+            ofLogNotice() << "received an unknown keypress: " << key << ".";
+            break;
     }
 }
 

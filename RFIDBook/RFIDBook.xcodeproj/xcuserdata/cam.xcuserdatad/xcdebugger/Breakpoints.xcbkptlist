@@ -242,11 +242,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/BookView.cpp"
-         timestampString = "395872022.516823"
+         timestampString = "400702145.170603"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "40"
-         endingLineNumber = "40">
+         startingLineNumber = "41"
+         endingLineNumber = "41">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -292,11 +292,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400610672.474018"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "254"
-         endingLineNumber = "254"
+         startingLineNumber = "256"
+         endingLineNumber = "256"
          landmarkName = "Media::stopVid()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -305,11 +305,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400610672.474018"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "257"
-         endingLineNumber = "257"
+         startingLineNumber = "259"
+         endingLineNumber = "259"
          landmarkName = "Media::stopVid()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -318,11 +318,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400610672.474018"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "260"
-         endingLineNumber = "260"
+         startingLineNumber = "262"
+         endingLineNumber = "262"
          landmarkName = "Media::update()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -331,22 +331,22 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400613245.416948"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "376"
-         endingLineNumber = "376">
+         startingLineNumber = "342"
+         endingLineNumber = "342">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/ofFadeImage.cpp"
-         timestampString = "400612732.90905"
+         timestampString = "400709713.333491"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "67"
-         endingLineNumber = "67"
+         startingLineNumber = "68"
+         endingLineNumber = "68"
          landmarkName = "ofFadeImage::draw(int x_in, int y_in)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -355,22 +355,22 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400613245.416948"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "366"
-         endingLineNumber = "366">
+         startingLineNumber = "333"
+         endingLineNumber = "333">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400610672.474018"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "215"
-         endingLineNumber = "215"
+         startingLineNumber = "217"
+         endingLineNumber = "217"
          landmarkName = "Media::getFileName()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -379,11 +379,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400610672.474018"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "223"
-         endingLineNumber = "223"
+         startingLineNumber = "225"
+         endingLineNumber = "225"
          landmarkName = "Media::playVid()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -405,11 +405,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400610672.474018"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "206"
-         endingLineNumber = "206"
+         startingLineNumber = "208"
+         endingLineNumber = "208"
          landmarkName = "Media::getPosition()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -418,11 +418,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400610672.474018"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "204"
-         endingLineNumber = "204">
+         startingLineNumber = "206"
+         endingLineNumber = "206">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -455,11 +455,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400613619.130909"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "458"
-         endingLineNumber = "458"
+         startingLineNumber = "452"
+         endingLineNumber = "452"
          landmarkName = "Media::hide()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -468,11 +468,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400613619.130909"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "486"
-         endingLineNumber = "486"
+         startingLineNumber = "499"
+         endingLineNumber = "499"
          landmarkName = "Media::show(float _fadeVal, bool _useOffset)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -481,11 +481,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400613619.130909"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "491"
-         endingLineNumber = "491"
+         startingLineNumber = "505"
+         endingLineNumber = "505"
          landmarkName = "Media::show(float _fadeVal, bool _useOffset)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -494,11 +494,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400613619.130909"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "470"
-         endingLineNumber = "470"
+         startingLineNumber = "479"
+         endingLineNumber = "479"
          landmarkName = "Media::show(float _fadeVal, bool _useOffset)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -507,11 +507,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/ofFadeImage.cpp"
-         timestampString = "400612732.90905"
+         timestampString = "400709713.333491"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "99"
-         endingLineNumber = "99"
+         startingLineNumber = "100"
+         endingLineNumber = "100"
          landmarkName = "ofFadeImage::draw(int x_in, int y_in, int w_in, int h_in)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -520,11 +520,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400613245.416948"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "279"
-         endingLineNumber = "279"
+         startingLineNumber = "274"
+         endingLineNumber = "274"
          landmarkName = "Media::update()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -572,11 +572,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400610672.474018"
+         timestampString = "400709713.333491"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "74"
-         endingLineNumber = "74"
+         startingLineNumber = "75"
+         endingLineNumber = "75"
          landmarkName = "Media::setupTouchVid(MediaModel _mm)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -585,11 +585,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400610672.474018"
+         timestampString = "400709713.333491"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
+         startingLineNumber = "85"
+         endingLineNumber = "85"
          landmarkName = "Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback, bool _isHidden, int _offset)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -598,11 +598,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400610672.474018"
+         timestampString = "400709713.333491"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "90"
-         endingLineNumber = "90"
+         startingLineNumber = "91"
+         endingLineNumber = "91"
          landmarkName = "Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _autoplay, string _tapId, int _loopback, bool _isHidden, int _offset)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -624,11 +624,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/BookView.cpp"
-         timestampString = "398875634.353244"
+         timestampString = "400708387.694034"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "225"
-         endingLineNumber = "225"
+         startingLineNumber = "218"
+         endingLineNumber = "218"
          landmarkName = "BookView::printCurrentMedia()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -650,11 +650,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/BookView.cpp"
-         timestampString = "400614620.191278"
+         timestampString = "400708387.694034"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "290"
-         endingLineNumber = "290"
+         startingLineNumber = "289"
+         endingLineNumber = "289"
          landmarkName = "BookView::playVideoByClassName(string _classname)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -663,7 +663,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.h"
-         timestampString = "400614486.810119"
+         timestampString = "400779922.78489"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "117"
@@ -676,11 +676,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400613245.416948"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "280"
-         endingLineNumber = "280"
+         startingLineNumber = "275"
+         endingLineNumber = "275"
          landmarkName = "Media::update()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -689,11 +689,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400613245.416948"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "383"
-         endingLineNumber = "383"
+         startingLineNumber = "362"
+         endingLineNumber = "362"
          landmarkName = "Media::draw(float scale)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -702,11 +702,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400613619.130909"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "467"
-         endingLineNumber = "467"
+         startingLineNumber = "476"
+         endingLineNumber = "476"
          landmarkName = "Media::show(float _fadeVal, bool _useOffset)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -715,11 +715,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400613619.130909"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "479"
-         endingLineNumber = "479"
+         startingLineNumber = "492"
+         endingLineNumber = "492"
          landmarkName = "Media::show(float _fadeVal, bool _useOffset)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -728,12 +728,285 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/Media.cpp"
-         timestampString = "400613512.679497"
+         timestampString = "400780807.214493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "354"
-         endingLineNumber = "354"
+         startingLineNumber = "321"
+         endingLineNumber = "321"
          landmarkName = "Media::update()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/BookView.cpp"
+         timestampString = "400703282.234828"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "63"
+         endingLineNumber = "63"
+         landmarkName = "BookView::draw(int x_in, int y_in, int debugState)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/BookView.cpp"
+         timestampString = "400708030.557421"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "166"
+         endingLineNumber = "166"
+         landmarkName = "BookView::activate(int pagenum_in)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/ofFadeVideo.cpp"
+         timestampString = "400706555.093607"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "100"
+         endingLineNumber = "100"
+         landmarkName = "ofFadeVideo::fadeOut(float _tweenD)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Page.cpp"
+         timestampString = "400780329.992245"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "296"
+         endingLineNumber = "296"
+         landmarkName = "Page::fade(int dir)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Media.cpp"
+         timestampString = "400780807.214493"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "445"
+         endingLineNumber = "445"
+         landmarkName = "Media::hide()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Page.cpp"
+         timestampString = "400780329.992245"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "285"
+         endingLineNumber = "285"
+         landmarkName = "Page::fade(int dir)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Page.cpp"
+         timestampString = "400780329.992245"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "283"
+         endingLineNumber = "283"
+         landmarkName = "Page::fade(int dir)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Page.cpp"
+         timestampString = "400707735.140153"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "229"
+         endingLineNumber = "229"
+         landmarkName = "Page::fade(int dir)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Media.cpp"
+         timestampString = "400780807.214493"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "459"
+         endingLineNumber = "459"
+         landmarkName = "Media::getPath()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Media.cpp"
+         timestampString = "400780807.214493"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "462"
+         endingLineNumber = "462"
+         landmarkName = "Media::getPath()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Media.cpp"
+         timestampString = "400780807.214493"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "465"
+         endingLineNumber = "465"
+         landmarkName = "Media::getPath()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Media.cpp"
+         timestampString = "400780807.214493"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "468"
+         endingLineNumber = "468"
+         landmarkName = "Media::getPath()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/ofFadeVideo.cpp"
+         timestampString = "400780118.887434"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "92"
+         endingLineNumber = "92"
+         landmarkName = "ofFadeVideo::fadeIn(float _tweenD)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Media.cpp"
+         timestampString = "400780807.214493"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "500"
+         endingLineNumber = "500"
+         landmarkName = "Media::show(float _fadeVal, bool _useOffset)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Page.cpp"
+         timestampString = "400780323.695297"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "247"
+         endingLineNumber = "247"
+         landmarkName = "Page::fade(int dir)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Media.cpp"
+         timestampString = "400780807.214493"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "480"
+         endingLineNumber = "480"
+         landmarkName = "Media::show(float _fadeVal, bool _useOffset)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Media.cpp"
+         timestampString = "400780807.214493"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "484"
+         endingLineNumber = "484"
+         landmarkName = "Media::show(float _fadeVal, bool _useOffset)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Media.cpp"
+         timestampString = "400780807.214493"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "489"
+         endingLineNumber = "489"
+         landmarkName = "Media::show(float _fadeVal, bool _useOffset)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Media.cpp"
+         timestampString = "400780807.214493"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "496"
+         endingLineNumber = "496"
+         landmarkName = "Media::show(float _fadeVal, bool _useOffset)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Media.cpp"
+         timestampString = "400780807.214493"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "510"
+         endingLineNumber = "510"
+         landmarkName = "Media::show(float _fadeVal, bool _useOffset)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Media.cpp"
+         timestampString = "400780807.214493"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "513"
+         endingLineNumber = "513"
+         landmarkName = "Media::show(float _fadeVal, bool _useOffset)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -32,9 +32,7 @@ public:
     int getPulseType(){
         return pulseType;
     }
-    string getPath(){
-        return path;
-    }
+    string getPath();
     
 private:
     

@@ -8,6 +8,11 @@
 
 #ifndef __RFIDBook__BookView__
 #define __RFIDBook__BookView__
+
+
+#define CHECKBUSY     if(isBusy){ofLogWarning() << "BookView::setup(). returning."; return -1;}
+
+
 #include "ofMain.h"
 #include "ofFadeImage.h"
 #include "ofxXmlSettings.h"
@@ -71,6 +76,8 @@ private:
     
     string xmlFile;
     BookLoader loader;
+    
+    bool isBusy;
     
     
 

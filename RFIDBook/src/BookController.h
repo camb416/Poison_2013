@@ -36,6 +36,9 @@ public:
     bool useRFID;
     bool checkedForRFIDTimeout;
     
+    void turnPageLeft();
+    void turnPageRight();
+    
     //char currentTouch;
     
 private:
@@ -49,6 +52,11 @@ private:
     
     bool touchStates[NUM_TOUCHES];
     bool prevTouchStates[NUM_TOUCHES];
+    
+    void turnPage(int _dir);
+    string pageIDs[8] = {"A","AB","B","BC","C","CD","D","AD"};
+    
+    int getPageNumByStringState(string _pageState);
     
 };
 

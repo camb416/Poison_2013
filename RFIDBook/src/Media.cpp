@@ -23,6 +23,7 @@ Media::Media(){
     whenToShow = -1;
     fadeVal = 8.0f;
     blendMode = OF_BLENDMODE_DISABLED;
+    
 }
 Media::~Media(){}
 
@@ -180,7 +181,8 @@ void Media::setupSegVideo(string _vidFile, float _x, float _y){
     mediaType = SEGMEDIA;
     
     autoplay = 1;
-    isHidden = isHiddenByDefault = false;
+    isHidden = true;
+    isHiddenByDefault = false;
     
     //segVid->fadeOut(-1);
 }
@@ -257,23 +259,16 @@ void Media::stopVid(){
 }
 
 void Media::update(){
-    
-    //TODO check mediaState to see what to do
-    
+        
     if(mediaType==IMGMEDIA){
-        // for testing
-       // if(img->getPath() == "assets/common/cir_A_combined.png"){
-           // string hiddenString = "false";
-            //if(isHidden) hiddenString = "true";
-           // ofLogNotice() << "hidden? " << hiddenString;
-       // }
-        
-       // if(img->getPath() == "assets/common/cir_A_combined.png"){
-       //     ofLogNotice() << whenToShow << ", " << offset;
-       // }
-        
+ 
         img->update();
-        img->getAlpha()<0.01f ? isHidden = true : isHidden = false;
+        
+        // this is an issue. we need to call it hidden even if
+        // its still visible since hidden reports back to business
+        // logic. ick.
+        // img->getAlpha()<0.01f ? isHidden = true : isHidden = false;
+    
     } else if (mediaType==VIDMEDIA || mediaType == TOUCHVIDEO) {
       
             int currentFrame = vid->getCurrentFrame();
@@ -302,41 +297,13 @@ void Media::update(){
                         }
   
                     }
-                    /*
-                    if(loopback>0 && curLoopCount>0){
-                        vid->setFrame(loopback);
-                        curLoopCount--;
-                    } else if(loopback<0){
-                        hide();
-                        vid->stop();
-                        if(showWhenDone_str.length()>0){
-                            viewRef->showCurrentMediaByClassName(showWhenDone_str);
-                            showWhenDone_str = "";
-                        }
-                    } else if(loopback==0 && curLoopCount<1){
-                        vid->stop();
-                        vid->setFrame(1);
-                    } else if(curLoopCount>0){
-                        vid->setFrame(1);
-                        vid->play();
-                    }
-*/
-                    
-                    
-                } /*else if(mediaType == TOUCHVIDEO){
-
-                    vid->setFrame(0);
-                    
-                    if(curLoopCount--<1) vid->stop();
-                        
-
-                }*/
                 
-//                ofLogNotice() << "current frame: " << currentFrame;
+                    
+                }
             }
         
         vid->update();
-        vid->getAlpha()<0.01f ? isHidden = true : isHidden = false;
+ //       vid->getAlpha()<0.01f ? isHidden = true : isHidden = false;
 
     } else if (mediaType == SEGMEDIA) {
         segVid->update();
@@ -345,7 +312,7 @@ void Media::update(){
         if (currSegButtonState == true && lastSegButtonState == false){
             viewRef->showCurrentMediaByClassName("lhp");
         }
-        segVid->getAlpha()<0.01f ? isHidden = true : isHidden = false;
+ //       segVid->getAlpha()<0.01f ? isHidden = true : isHidden = false;
         lastSegButtonState = currSegButtonState;
     }
     
@@ -370,8 +337,20 @@ void Media::setDraggable(bool _bDrag){
     if(mediaType==VIDMEDIA || mediaType == TOUCHVIDEO) vid->setBorder(isDraggable);
     if(mediaType==SEGMEDIA) segVid->setBorder(isDraggable);
 
+}
 
-    
+float Media::getAlpha(){
+    switch(mediaType){
+        case IMGMEDIA:
+            return img->getAlpha();
+            break;
+        case VIDMEDIA:
+            return vid->getAlpha();
+            break;
+        case SEGMEDIA:
+            return segVid->getAlpha();
+            break;
+    }
 }
 
 void Media::draw(float scale){
@@ -438,19 +417,34 @@ void Media::setBorder(bool _showBorder){
 int Media::hide(){
     whenToShow = -1;    
     if(isHidden){
-        ofLogWarning() << imgFileName << " already hidden, can't hide it";
+        string pathName = "unknown";
+        switch(mediaType){
+            case IMGMEDIA:
+                pathName = img->getPath();
+                break;
+            case VIDMEDIA:
+                pathName = vid->getPath();
+                break;
+            case SEGMEDIA:
+                pathName = segVid->getPath();
+                break;
+        }
+        ofLogWarning() << pathName << " already hidden, can't hide it";
         
         return -1;
     } else {
 
-        ofLogNotice() << "this runs for some reason";
         isHidden = true;
         if(mediaType==IMGMEDIA){
             img->fadeOut();
         } else if(mediaType==VIDMEDIA){
             vid->fadeOut();
+            vidState = 0;
+            stopVid();
         } else if(mediaType==SEGMEDIA){
             segVid->fadeOut();
+            vidState = 0;
+            stopVid();
         } else {
             ofLogWarning() << "Media::hide not supported for mediaType==" << mediaType;
             return -1;
@@ -459,34 +453,54 @@ int Media::hide(){
     }
 }
 
+string Media::getPath(){
+    switch(mediaType){
+        case IMGMEDIA:
+            return img->getPath();
+            break;
+        case VIDMEDIA:
+            return vid->getPath();
+            break;
+        case SEGMEDIA:
+            return segVid->getPath();
+            break;
+    }
+    return "error";
+}
+
 int Media::show(float _fadeVal, bool _useOffset){
 
-    if(mediaType == IMGMEDIA)
+    //if(mediaType == IMGMEDIA)
         
-        if(img->getPath() == "assets/common/cir_A_combined.png"){
-    ofLogNotice() << "showing: " << img->getPath();
+     //   if(img->getPath() == "assets/common/cir_A_combined.png"){
+    //ofLogNotice() << "showing: " << img->getPath();
             
-        }
+     //   }
     
     fadeVal = _fadeVal;
     if(!isHidden){
-        ofLogWarning() << "already showing, can't show it";
+        
+        string output_str = getPath();
+       ofLogWarning() << "already showing, can't show it: " << output_str ;
+        
+        
         return -1;
     } else if(offset<=0 || _useOffset == false){
         isHidden = false;
         if(mediaType==IMGMEDIA){
-            if(img->getPath() == "assets/common/cir_A_combined.png"){
-            ofLogNotice() << "fading in " << img->getPath();
-            }
+            //if(img->getPath() == "assets/common/cir_A_combined.png"){
+            //ofLogNotice() << "fading in " << img->getPath();
+            //}
             img->fadeIn(fadeVal);
         } else if(mediaType==VIDMEDIA){
             vid->fadeIn(fadeVal);
             vid->setFrame(1);
-            playVid();
+            if(autoplay ==1) playVid();
         } else if(mediaType==SEGMEDIA){
             segVid->fadeIn(fadeVal);
-                        vid->setFrame(1);
-            playVid();
+            segVid->setFrame(1);
+           if(autoplay ==1) playVid();
+            segVid->showButton = false;
         } else if (mediaType==TOUCHVIDEO){
             vid->fadeIn(fadeVal);
                         vid->setFrame(1);
