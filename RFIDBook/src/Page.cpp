@@ -128,7 +128,7 @@ void Page::addMedia(MediaModel _mm){
 
 // TODO: deprecate this
 void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback, bool _isHidden, int _offset){
-    
+    /*
     Media * newMedia = new Media();
     newMedia->registerView(viewRef);
     
@@ -164,6 +164,7 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
     
     media.push_back(newMedia);
     //ofLogNotice() << "Added new media element " << fileName << " to page at position " << position.x << "," << position.y;
+     */
     
 }
 
@@ -243,7 +244,7 @@ void Page::fade(int dir){
                // int offsetVal = ofRandomuf()*5000;
                 
               //  if(media.at(i)->mediaType==IMGMEDIA  ){
-                if(media.at(i)->mediaType==SEGMEDIA){
+                if(media.at(i)->getMediaType()==SEGMEDIA){
                     ofLogNotice() << "<<<<<<<<<<<<< showing a seg media >>>>>>>>>>>>>>>";
                 }
                     media.at(i)->show(fadeVal,true); // show it
@@ -318,7 +319,7 @@ ofxXmlSettings Page::getXML(){
     int touchVidCount = -1;
     int tagCount = 0;
     for(int i=0;i<media.size();i++){
-        switch(media.at(i)->mediaType){
+        switch(media.at(i)->getMediaType()){
             case TOUCHVIDEO:
                 tagName = "touchvid";
                 touchVidCount++;
@@ -335,11 +336,11 @@ ofxXmlSettings Page::getXML(){
         xml.setAttribute(tagName, "x", (int)pt.x,tagCount);
         xml.setAttribute(tagName, "y", (int)pt.y,tagCount);
         xml.setAttribute(tagName, "src", media.at(i)->getFileName(),tagCount);
-        xml.setAttribute(tagName, "class", (string)media.at(i)->mClass, tagCount);
+        xml.setAttribute(tagName, "class", (string)media.at(i)->getClass(), tagCount);
 
         if(tagName=="Media"){
-        xml.setAttribute(tagName, "auto", (int)media.at(i)->autoplay, tagCount);
-        xml.setAttribute(tagName, "loopback", (int)media.at(i)->loopback, tagCount);
+        xml.setAttribute(tagName, "auto", (int)media.at(i)->getAutoPlay(), tagCount);
+        xml.setAttribute(tagName, "loopback", (int)media.at(i)->getLoopBack(), tagCount);
         xml.setAttribute(tagName, "hidden", (int)media.at(i)->getIsHiddenByDefault(), tagCount);
         xml.setAttribute(tagName, "offset", (int)media.at(i)->getOffset(), tagCount);
         xml.setAttribute(tagName, "pulse", (int)media.at(i)->getPulseType(), tagCount);
@@ -376,7 +377,7 @@ vector<Media*> Page::getMediaByClassName(string _id){
     
     for(int i=0;i<media.size();i++){
        
-        if(media.at(i)->mClass.compare(_id)==0){
+        if(media.at(i)->getClass().compare(_id)==0){
             returnVal.push_back(media.at(i));
             Media * thisMedia = (Media*) media.at(i);
             //thisMedia->setBorder(true);
