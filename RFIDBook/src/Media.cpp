@@ -477,6 +477,10 @@ int Media::show(float _fadeVal, bool _useOffset){
             
      //   }
     
+    if(mediaType==VIDMEDIA){
+        ofLogNotice() << "attempting to show a video...";
+    }
+    
     fadeVal = _fadeVal;
     if(!isHidden){
         
