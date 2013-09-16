@@ -79,8 +79,8 @@ void ofFadeImage::draw(int x_in, int y_in, int w_in, int h_in){
     
         case 1:
         case 2:
-            myscaleX = (alpha - 1.0f)/(-16.0f)+1.0f+sin(pulseVal)*0.05f;
-            myscaleY = (alpha - 1.0f)/(-16.0f)+1.0f+cos(pulseVal)*0.05f;
+            myscaleX = (alpha - 1.0f)/(-16.0f)+1.0f+sin(pulseVal)*0.1f;
+            myscaleY = (alpha - 1.0f)/(-16.0f)+1.0f+cos(pulseVal)*0.1f;
             break;
         default:
             myscaleX = myscaleY = (alpha - 1.0f)/(-16.0f)+1.0f;

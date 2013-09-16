@@ -51,8 +51,6 @@ public:
     ofFadeVideo * vid;
     SegmentedVideo * segVid;
     
-    
-    void moveTo(int _x, int _y);
     void printInfo();
     
 
@@ -95,6 +93,7 @@ public:
     void setBorder(bool _showBorder);
     void setDraggable(bool _bDrag);
     void setPosition(float _x, float _y);
+    void moveTo(int _x, int _y);
     
     void registerView(BookView * _viewRef){ viewRef = _viewRef; }
     int showWhenDone(string _showWhenDone){ showWhenDone_str = _showWhenDone; }
