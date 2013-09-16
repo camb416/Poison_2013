@@ -8,6 +8,11 @@
 
 #ifndef __RFIDBook__BookView__
 #define __RFIDBook__BookView__
+
+
+#define CHECKBUSY     if(isBusy){ofLogWarning() << "BookView::setup(). returning."; return -1;}
+
+
 #include "ofMain.h"
 #include "ofFadeImage.h"
 #include "ofxXmlSettings.h"
@@ -51,6 +56,8 @@ public:
     int hideCurrentMediaByClassName(string _classname);
     int showCurrentMediaByClassName(string _classname);
     int showCurrentMediaByClassName(string _classname,string _showWhenDone);
+    void playVideoByClassName(string _classname);
+    
     void playSegmentedVideo();
     
     void loadPages();
@@ -69,6 +76,8 @@ private:
     
     string xmlFile;
     BookLoader loader;
+    
+    bool isBusy;
     
     
 

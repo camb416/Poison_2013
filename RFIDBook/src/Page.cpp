@@ -75,14 +75,16 @@ void Page::draw(float originX, float originY, float scale){
         
         // Run the normal draw method for each media element
         for (int i = 0; i < media.size(); i++) {
-            if(!media.at(i)->isHidden) media.at(i)->draw();
+            if(media.at(i)->getAlpha()>0.01f){
+               media.at(i)->draw(); 
+            }
         }
         
     }
     else {
         // Run the scaled draw method for each media element
         for (int i = 0; i < media.size(); i++) {
-            if(!media.at(i)->isHidden) media.at(i)->draw(scale);
+            if(media.at(i)->getAlpha()>0.01f) media.at(i)->draw(scale);
         }
     }
     
@@ -96,31 +98,29 @@ void Page::addMedia(MediaModel _mm){
     if (sub == "png") {
         
         // run the setup for a media element that is just an image
-        newMedia->setup(_mm);
+        //newMedia->setup(_mm);
+        newMedia->setupImage(_mm);
 //        newMedia->setup(_mm.src, _mm.pos.x, _mm.pos.y, _mm.mClass, _mm.isHidden, _mm.offset);
         
-    }
-    else if (sub == "mov"){
+    } else if (sub == "mov"){
         
         // Check if video is a segmented one
         if (isSegVid(_mm.src) == true){
-            newMedia->setup(_mm.src, _mm.pos.x, _mm.pos.y);
+            //newMedia->setupSegVideo(_mm.src, _mm.pos.x, _mm.pos.y);
+            newMedia->setupSegVideo(_mm);
+        } else if(_mm.mediaType==TOUCHVIDEO){
+            newMedia->setupTouchVid(_mm);
+        } else {
+            newMedia->setupVideo(_mm);
         }
-        else {
-            
-            // Run the setup for a media element that is a video and an image
-            string imageFile = _mm.src;
-            imageFile.replace(_mm.src.length() -3, 3, "png");
-            newMedia->setup("",_mm.src, _mm.pos.x, _mm.pos.y,_mm.autoPlay, _mm.mClass, _mm.loopback, _mm.isHidden, _mm.offset);
-            // newMedia->setup("", fileName, position.x, position.y, autoplay, tapId, loopback, _isHidden, _offset);
-        }
-        
-    }
-    else {
+    } else {
         
         ofLogNotice() << "unrecognized media file extension: " << _mm.src;
         
     }
+    
+    newMedia->setBlend(_mm.blend);
+    newMedia->setLoopCount(_mm.loopCount);
     
     media.push_back(newMedia);
 }
@@ -128,7 +128,7 @@ void Page::addMedia(MediaModel _mm){
 
 // TODO: deprecate this
 void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapId, int loopback, bool _isHidden, int _offset){
-    
+    /*
     Media * newMedia = new Media();
     newMedia->registerView(viewRef);
     
@@ -143,7 +143,7 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
         
         // Check if video is a segmented one
         if (isSegVid(fileName) == true){
-            newMedia->setup(fileName, position.x, position.y);
+            newMedia->setupSegVideo(fileName, position.x, position.y);
         }
         else {
         
@@ -164,6 +164,7 @@ void Page::addMedia(string fileName, ofVec2f position, int autoplay, string tapI
     
     media.push_back(newMedia);
     //ofLogNotice() << "Added new media element " << fileName << " to page at position " << position.x << "," << position.y;
+     */
     
 }
 
@@ -224,27 +225,35 @@ void Page::receiveInput(char touchId_in, int pageNum_in){
 
 void Page::fade(int dir){
     
+    ofLogNotice() << "fading: " << dir << ", " << media.size();
+    if(media.size()==1){
+        ofLogNotice() << "this certainly doesn't seem right";
+    }
     // Loop through media elements and fade them in or out
     float minFadeIn = 4.0f;
     float maxFadeIn = 64.0f;
     float minFadeOut = 2.0f;
     float maxFadeOut = 8.0f;
     
-    if (dir == 1) {
+    if (dir == 1) { // fading in
+        
         for (int i = 0; i < media.size(); i++) {
-            if(!media.at(i)->isHiddenByDefault){
+            if(!media.at(i)->getIsHiddenByDefault()){
             
                 float fadeVal = ofRandomuf()*(maxFadeIn-minFadeIn)+minFadeIn;
                // int offsetVal = ofRandomuf()*5000;
-                if(media.at(i)->mediaType==IMGMEDIA  ){
-                    media.at(i)->show(fadeVal,true);
-//                    media.at(i)->img->fadeIn(fadeVal);
+                
+              //  if(media.at(i)->mediaType==IMGMEDIA  ){
+                if(media.at(i)->getMediaType()==SEGMEDIA){
+                    ofLogNotice() << "<<<<<<<<<<<<< showing a seg media >>>>>>>>>>>>>>>";
                 }
+                    media.at(i)->show(fadeVal,true); // show it
+               /* }
                 
             
                 // If autoplay is on for the video, start playing
                 
-                if (media.at(i)->mediaType == VIDMEDIA){
+                if (media.at(i)->mediaType == VIDMEDIA || media.at(i)->mediaType == TOUCHVIDEO){
                     //TODO: update this
                     if (media.at(i)->autoplay == 1){
                         media.at(i)->playVid();
@@ -258,19 +267,33 @@ void Page::fade(int dir){
                     }
                     media.at(i)->segVid->fadeIn(fadeVal);
                     media.at(i)->segVid->showButton = false;
+                }*/
                 }
-                }
+            
         }
-    }
-    else {
+    } else {
         for (int i = 0; i < media.size(); i++) {
-            // TODO - handle video fade out as well
+            // TODO - handle video fade out as well!!!!!
            
             float fadeVal = ofRandomuf()*(maxFadeOut-minFadeOut)+minFadeOut;
             // cout << fadeVal << endl;
             
+           // if(media.at(i)->mediaType!=SEGMEDIA){
+            
+            if(i==0) {
+                ofLogNotice() << "hiding the seg..." << endl;
+            }
+              ofLogWarning() << "hide result:::::: " <<   media.at(i)->hide();
+                
+           // } else {
+           //     media.at(i)->segVid->fadeOut(fadeVal);
+           //     media.at(i)->vidState = 0;
+                // TODO: debug this! stop all video
+            //    media.at(i)->stopVid();
+           // }
+            /*
             if(media.at(i)->mediaType==IMGMEDIA) media.at(i)->hide();
-            if(media.at(i)->mediaType==VIDMEDIA) {
+            if(media.at(i)->mediaType==VIDMEDIA || media.at(i)->mediaType==TOUCHVIDEO) {
                 media.at(i)->vid->fadeOut(fadeVal);
                 media.at(i)->vidState = 0;
                 // TODO: debug this! stop all video
@@ -282,6 +305,7 @@ void Page::fade(int dir){
                 // TODO: debug this! stop all video
                 media.at(i)->stopVid();
             }
+            */
         }
     }
     
@@ -290,19 +314,42 @@ ofxXmlSettings Page::getXML(){
     ofxXmlSettings xml;
     xml.addTag("Page");
     xml.pushTag("Page");
+    string tagName;
+    int mediaCount = -1;
+    int touchVidCount = -1;
+    int tagCount = 0;
     for(int i=0;i<media.size();i++){
-        xml.addTag("Media");
+        switch(media.at(i)->getMediaType()){
+            case TOUCHVIDEO:
+                tagName = "touchvid";
+                touchVidCount++;
+                tagCount = touchVidCount;
+                break;
+            default:
+                tagName = "Media";
+                mediaCount++;
+                tagCount = mediaCount;
+                break;
+        }
+        xml.addTag(tagName);
         ofPoint pt = media.at(i)->getPosition();
-        xml.setAttribute("Media", "x", (int)pt.x,i);
-        xml.setAttribute("Media", "y", (int)pt.y,i);
-        xml.setAttribute("Media", "src", media.at(i)->getFileName(),i);
-        xml.setAttribute("Media", "auto", (int)media.at(i)->autoplay, i);
-        xml.setAttribute("Media", "class", (string)media.at(i)->mClass, i);
-        xml.setAttribute("Media", "loopback", (int)media.at(i)->loopback, i);
-        xml.setAttribute("Media", "hidden", (int)media.at(i)->isHiddenByDefault, i);
-        xml.setAttribute("Media", "offset", (int)media.at(i)->offset, i);
-        xml.setAttribute("Media", "pulse", (int)media.at(i)->getPulseType(), i);
+        xml.setAttribute(tagName, "x", (int)pt.x,tagCount);
+        xml.setAttribute(tagName, "y", (int)pt.y,tagCount);
+        xml.setAttribute(tagName, "src", media.at(i)->getFileName(),tagCount);
+        xml.setAttribute(tagName, "class", (string)media.at(i)->getClass(), tagCount);
+
+        if(tagName=="Media"){
+        xml.setAttribute(tagName, "auto", (int)media.at(i)->getAutoPlay(), tagCount);
+        xml.setAttribute(tagName, "loopback", (int)media.at(i)->getLoopBack(), tagCount);
+        xml.setAttribute(tagName, "hidden", (int)media.at(i)->getIsHiddenByDefault(), tagCount);
+        xml.setAttribute(tagName, "offset", (int)media.at(i)->getOffset(), tagCount);
+        xml.setAttribute(tagName, "pulse", (int)media.at(i)->getPulseType(), tagCount);
+        xml.setAttribute(tagName, "flip", (int)media.at(i)->getFlipMode(),tagCount);
+        }
     }
+    string aString;
+    xml.copyXmlToString(aString);
+    ofLogNotice() << aString;
     return xml;
 }
 
@@ -330,7 +377,7 @@ vector<Media*> Page::getMediaByClassName(string _id){
     
     for(int i=0;i<media.size();i++){
        
-        if(media.at(i)->mClass.compare(_id)==0){
+        if(media.at(i)->getClass().compare(_id)==0){
             returnVal.push_back(media.at(i));
             Media * thisMedia = (Media*) media.at(i);
             //thisMedia->setBorder(true);

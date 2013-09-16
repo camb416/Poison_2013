@@ -89,6 +89,7 @@ void SegmentedVideo::update(){
             if (currentCue.gate == CLOSEDGATE) {
                 ofFadeVideo::stop();
                 showButton = true;
+                
             } 
             
             // If the video has reached the last cue, reset the gates on the 2 cues

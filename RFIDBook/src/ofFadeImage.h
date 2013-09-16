@@ -32,6 +32,7 @@ public:
     int getPulseType(){
         return pulseType;
     }
+    string getPath();
     
 private:
     
@@ -44,6 +45,7 @@ private:
     float tweenDivisor;
     bool showBorder;
     string path;
+    bool isFading;
     
     
     
