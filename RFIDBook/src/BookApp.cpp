@@ -31,9 +31,15 @@ void BookApp::setup(){
     book.setup(&devices,&bookView);
    // rfidsetup();
 
+    
+    cropper.setup(1920,1200);
+    cropper.loadFromFile();
+    
     debugState = 1;
     updateDebug();
-    dui.setup(&devices, &book, &lang, &bookView, &loader);
+    dui.setup(&devices, &book, &lang, &bookView, &loader, &cropper);
+    
+
     
     
     isSetup = true;
@@ -58,6 +64,8 @@ void BookApp::update(){
     }
     dui.update();
     
+    cropper.update();
+    
 }
 
 //--------------------------------------------------------------
@@ -68,7 +76,11 @@ void BookApp::draw(){
   //  } else {
         bookView.draw(0,0);
    // }
+    cropper.draw();
+    
     dui.draw();
+    
+    
     
 }
 
@@ -234,12 +246,12 @@ void BookApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void BookApp::mouseMoved(int x, int y ){
-
+    cropper.mouseMoved(x,y);
 }
 
 //--------------------------------------------------------------
 void BookApp::mouseDragged(int x, int y, int button){
-
+    cropper.mouseDragged(x,y);
 }
 
 //--------------------------------------------------------------
@@ -247,6 +259,8 @@ void BookApp::mousePressed(int x, int y, int button){
     
     // only send it if the debug ui's not up
     if(!dui.getIsVisible()) book.mousePressed();
+    
+        cropper.mousePressed(x,y);
 }
 
 //--------------------------------------------------------------
@@ -254,6 +268,8 @@ void BookApp::mouseReleased(int x, int y, int button){
     
     // only send it if the debug ui's not up
     if(!dui.getIsVisible()) book.mouseReleased();
+    
+        cropper.mouseReleased(x,y);
 }
 
 //--------------------------------------------------------------

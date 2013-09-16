@@ -15,6 +15,7 @@ DebugUI::DebugUI(){
     defaultXMLbtn = false;
     isVisible = false;
     bFullScreencheckbox = bFullScreencheckbox_prev = false;
+    bQuadWarperEdit = bQuadWarperEdit_prev = false;
 }
 DebugUI::~DebugUI(){
     
@@ -24,7 +25,8 @@ bool DebugUI::getIsVisible(){
     return isVisible;
 }
 
-void DebugUI::setup(DeviceController * _devices, BookController * _book, LanguageController * _lang, BookView * _bookView, BookLoader * _loader){
+void DebugUI::setup(DeviceController * _devices, BookController * _book, LanguageController * _lang, BookView * _bookView, BookLoader * _loader, ofxQuadCropper * _cropper){
+    cropper = _cropper;
     devices = _devices;
     book = _book;
     lang = _lang;
@@ -36,13 +38,14 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, Languag
     
     gui.hide();
     gui.addTitle("Magic Book");
-    gui.addToggle("Drag UI",bDragUIcheckbox);
-    gui.addButton("default XML", defaultXMLbtn);
-    gui.addButton("load XML", loadXMLbtn);
-    gui.addButton("save XML", saveXMLbtn);
-    gui.addToggle("full screen", bFullScreencheckbox);
+    gui.addToggle("DRAGGABLE BOOK ELEMENTS",bDragUIcheckbox);
+    gui.addButton("DEFAULT BOOK XML", defaultXMLbtn);
+    gui.addButton("LOAD BOOK XML", loadXMLbtn);
+    gui.addButton("SAVE BOOK XML", saveXMLbtn);
+    gui.addToggle("FULLSCREEN", bFullScreencheckbox);
 
     gui.addTitle("Testing functions").setNewColumn(true);
+    gui.addToggle("EDIT QUAD WARPER",bQuadWarperEdit);
     
     gui.loadFromXML();
     
@@ -52,6 +55,8 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, Languag
 void DebugUI::update(){
     
     tfield.update("Magic Book \n" + book->getReport() + "\n" + book->whatSituation());
+    
+
     
     if(ofGetMousePressed()) pos_ui.update();
     

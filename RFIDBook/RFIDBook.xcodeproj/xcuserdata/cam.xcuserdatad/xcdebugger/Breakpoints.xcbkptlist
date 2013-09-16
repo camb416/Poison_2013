@@ -253,13 +253,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/DebugUI.cpp"
-         timestampString = "396291916.936655"
+         timestampString = "401057960.201395"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "52"
-         endingLineNumber = "52"
-         landmarkName = "DebugUI::update()"
-         landmarkType = "5">
+         startingLineNumber = "55"
+         endingLineNumber = "55">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
