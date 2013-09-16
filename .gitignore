@@ -63,3 +63,11 @@ RFIDBook/bin/data/assets/en/he
 RFIDBook/bin/data/assets/en/mo
 
 RFIDBook/bin/data/assets/en/be
+
+*.mp4
+
+RFIDBook/bin/data/fpo/be_fpo
+
+RFIDBook/bin/data/fpo/he_fpo
+
+RFIDBook/bin/data/fpo/mo_fpo
