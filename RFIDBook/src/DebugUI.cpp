@@ -15,7 +15,8 @@ DebugUI::DebugUI(){
     defaultXMLbtn = false;
     isVisible = false;
     bFullScreencheckbox = bFullScreencheckbox_prev = false;
-    bQuadWarperEdit = bQuadWarperEdit_prev = false;
+    bQuadCropperEdit = bQuadCropperEdit_prev = false;
+    loadCropBtn = saveCropBtn = false;
 }
 DebugUI::~DebugUI(){
     
@@ -38,14 +39,17 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, Languag
     
     gui.hide();
     gui.addTitle("Magic Book");
-    gui.addToggle("DRAGGABLE BOOK ELEMENTS",bDragUIcheckbox);
-    gui.addButton("DEFAULT BOOK XML", defaultXMLbtn);
-    gui.addButton("LOAD BOOK XML", loadXMLbtn);
-    gui.addButton("SAVE BOOK XML", saveXMLbtn);
+    gui.addToggle("EDIT BOOK",bDragUIcheckbox);
+    gui.addButton("DEFAULT BOOK", defaultXMLbtn);
+    gui.addButton("LOAD BOOK", loadXMLbtn);
+    gui.addButton("SAVE BOOK", saveXMLbtn);
     gui.addToggle("FULLSCREEN", bFullScreencheckbox);
 
     gui.addTitle("Testing functions").setNewColumn(true);
-    gui.addToggle("EDIT QUAD WARPER",bQuadWarperEdit);
+    gui.addToggle("EDIT CROP",bQuadCropperEdit);
+    gui.addButton("LOAD CROP",loadCropBtn);
+    gui.addButton("SAVE CROP",saveCropBtn);
+    
     
     gui.loadFromXML();
     
@@ -56,7 +60,21 @@ void DebugUI::update(){
     
     tfield.update("Magic Book \n" + book->getReport() + "\n" + book->whatSituation());
     
-
+    
+    if(loadCropBtn){
+       cropper->loadFromFile();
+        loadCropBtn = false;
+    }
+    if(saveCropBtn){
+        cropper->saveToFile();
+        saveCropBtn = false;
+        
+    }
+    
+    if(bQuadCropperEdit!=bQuadCropperEdit_prev){
+        bQuadCropperEdit ? cropper->showDragUI() : cropper->hideDragUI();
+        bQuadCropperEdit_prev = bQuadCropperEdit;
+    }
     
     if(ofGetMousePressed()) pos_ui.update();
     

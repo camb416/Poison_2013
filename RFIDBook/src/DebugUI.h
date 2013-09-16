@@ -51,8 +51,10 @@ private:
     bool bFullScreencheckbox;
     bool bFullScreencheckbox_prev;
     
-    bool bQuadWarperEdit;
-    bool bQuadWarperEdit_prev;
+    bool bQuadCropperEdit;
+    bool bQuadCropperEdit_prev;
+    bool loadCropBtn;
+    bool saveCropBtn;
     
     DeviceController * devices;
     BookController * book;

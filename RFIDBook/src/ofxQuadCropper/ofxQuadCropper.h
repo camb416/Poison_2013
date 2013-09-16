@@ -41,9 +41,13 @@ public:
     int deactivate();
     bool getActive();
     
+    int showDragUI();
+    int hideDragUI();
+    
 private:
     
     bool isActive;
+    
     
     void draw(int _screenW, int _screenH);
     

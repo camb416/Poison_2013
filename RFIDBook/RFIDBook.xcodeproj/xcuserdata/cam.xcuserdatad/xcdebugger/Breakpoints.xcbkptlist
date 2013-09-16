@@ -253,11 +253,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/DebugUI.cpp"
-         timestampString = "401057960.201395"
+         timestampString = "401059495.222798"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55">
+         startingLineNumber = "59"
+         endingLineNumber = "59">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"

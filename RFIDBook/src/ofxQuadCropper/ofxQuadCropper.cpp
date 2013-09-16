@@ -59,22 +59,23 @@ void ofxQuadCropper::draw(int _screenW, int _screenH){
     ofVertex(0,0);
     ofEndShape();
     
-    for(int i=0;i<NUM_POINTS;i++){
-        if(i==selectedPoint){
-            ofSetColor(255,0,0);
-        } else {
-            ofSetColor(255,255,255);
+    if(isActive){
+        for(int i=0;i<NUM_POINTS;i++){
+            if(i==selectedPoint){
+                ofSetColor(255,0,0);
+            } else {
+                ofSetColor(255,255,255);
+            }
+            ofCircle(points[i].x*_screenW,points[i].y*_screenH,10);
         }
-        ofCircle(points[i].x*_screenW,points[i].y*_screenH,10);
+        ofBeginShape();
+        ofNoFill();
+        ofSetColor(255,255,255);
+        for(int i=0;i<NUM_POINTS;i++){
+            ofVertex(points[i].x*_screenW,points[i].y*_screenH);
+        }
+        ofEndShape();
     }
-    ofBeginShape();
-    ofNoFill();
-    ofSetColor(255,255,255);
-    for(int i=0;i<NUM_POINTS;i++){
-        ofVertex(points[i].x*_screenW,points[i].y*_screenH);
-    }
-    ofEndShape();
-    
     
     
 }
@@ -174,19 +175,21 @@ int ofxQuadCropper::getNearest(ofPoint _mousePos){
 }
 
 void ofxQuadCropper::mouseMoved(int _x, int _y){
-    selectedPoint = getNearest(ofPoint(_x,_y));
+   if(isActive) selectedPoint = getNearest(ofPoint(_x,_y));
    // ofLogNotice() << "mouseMoved";
     
 }
 void ofxQuadCropper::mousePressed(int _x, int _y){
-    isDragging = true;
+   if(isActive) isDragging = true;
      //   ofLogNotice() << "mousePressed";
 }
 void ofxQuadCropper::mouseDragged(int _x, int _y){
+    if(isActive){
     if(selectedPoint>-1){
         float newX = (float)_x / (float) screenW;
         float newY = (float)_y / (float) screenH;
         points[selectedPoint].set(newX,newY);
+    }
     }
      //   ofLogNotice() << "mouseDragged";
 }
@@ -214,4 +217,13 @@ int ofxQuadCropper::deactivate(){
         return 0;
     }
 }
+
+int ofxQuadCropper::showDragUI(){
+    return activate();
+}
+
+int ofxQuadCropper::hideDragUI(){
+    return deactivate();
+}
+
 
