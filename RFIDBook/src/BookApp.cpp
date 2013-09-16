@@ -31,9 +31,15 @@ void BookApp::setup(){
     book.setup(&devices,&bookView);
    // rfidsetup();
 
+    
+    cropper.setup(1920,1200);
+    cropper.loadFromFile();
+    
     debugState = 1;
     updateDebug();
-    dui.setup(&devices, &book, &lang, &bookView, &loader);
+    dui.setup(&devices, &book, &lang, &bookView, &loader, &cropper);
+    
+
     
     
     isSetup = true;
@@ -55,16 +61,10 @@ void BookApp::update(){
         devices.update();
         book.update();
         bookView.update();
-        
-        /*
-            if(book.isPageLanded()){
-                    // checks for three sensors active.
-            }
-    */
-        
-        
     }
     dui.update();
+    
+    cropper.update();
     
 }
 
@@ -76,7 +76,11 @@ void BookApp::draw(){
   //  } else {
         bookView.draw(0,0);
    // }
+    cropper.draw();
+    
     dui.draw();
+    
+    
     
 }
 
@@ -93,6 +97,8 @@ void BookApp::keyPressed(int key){
             case '5':
             case '6':
             case '7':
+            case '8':
+            case '9':
                 bookView.touch(key-48); // send the int of the key
             break;
             
@@ -195,10 +201,25 @@ void BookApp::keyPressed(int key){
             case 'L':
             lang.toggleLanguage();
             bookView.loadPages();
+            break;
             
-            //case default:
+        case 'm':
+        case 'M':
+            bookView.printCurrentMedia();
+            break;
+
+        case 358:
+            // right arrow
+            book.turnPageRight();
+            break;
             
-            //break;
+        case 356:
+            // left arrow
+            book.turnPageLeft();
+            break;
+        default:
+            ofLogNotice() << "received an unknown keypress: " << key << ".";
+            break;
     }
 }
 
@@ -225,12 +246,12 @@ void BookApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void BookApp::mouseMoved(int x, int y ){
-
+    cropper.mouseMoved(x,y);
 }
 
 //--------------------------------------------------------------
 void BookApp::mouseDragged(int x, int y, int button){
-
+    cropper.mouseDragged(x,y);
 }
 
 //--------------------------------------------------------------
@@ -238,6 +259,8 @@ void BookApp::mousePressed(int x, int y, int button){
     
     // only send it if the debug ui's not up
     if(!dui.getIsVisible()) book.mousePressed();
+    
+        cropper.mousePressed(x,y);
 }
 
 //--------------------------------------------------------------
@@ -245,6 +268,8 @@ void BookApp::mouseReleased(int x, int y, int button){
     
     // only send it if the debug ui's not up
     if(!dui.getIsVisible()) book.mouseReleased();
+    
+        cropper.mouseReleased(x,y);
 }
 
 //--------------------------------------------------------------

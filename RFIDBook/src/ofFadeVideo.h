@@ -27,6 +27,10 @@ public:
         return alpha;
     }
     
+    string getPath(){
+        return path;
+    }
+    
 private:
     
     float alpha;

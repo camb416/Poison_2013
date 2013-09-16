@@ -14,7 +14,8 @@
 #include "DeviceController.h"
 
 #define RFID_TIMEOUT 1
-#define NUM_TOUCHES 4
+// TODO: CHANGE THIS BACK TO 4
+#define NUM_TOUCHES 10
 
 class BookController{
     
@@ -35,6 +36,9 @@ public:
     bool useRFID;
     bool checkedForRFIDTimeout;
     
+    void turnPageLeft();
+    void turnPageRight();
+    
     //char currentTouch;
     
 private:
@@ -48,6 +52,11 @@ private:
     
     bool touchStates[NUM_TOUCHES];
     bool prevTouchStates[NUM_TOUCHES];
+    
+    void turnPage(int _dir);
+    string pageIDs[8] = {"A","AB","B","BC","C","CD","D","AD"};
+    
+    int getPageNumByStringState(string _pageState);
     
 };
 

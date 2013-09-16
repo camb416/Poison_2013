@@ -19,6 +19,7 @@
 #include "LanguageController.h"
 #include "BookView.h"
 #include "BookLoader.h"
+#include "ofxQuadCropper.h"
 #include <iostream>
 
 class DebugUI{
@@ -27,7 +28,7 @@ public:
     DebugUI();
     ~DebugUI();
     
-    void setup(DeviceController * _devices, BookController * _book, LanguageController * _lang, BookView * _bookView, BookLoader *_loader);
+    void setup(DeviceController * _devices, BookController * _book, LanguageController * _lang, BookView * _bookView, BookLoader *_loader, ofxQuadCropper * _cropper);
     void update();
     void draw();
     
@@ -50,12 +51,18 @@ private:
     bool bFullScreencheckbox;
     bool bFullScreencheckbox_prev;
     
+    bool bQuadCropperEdit;
+    bool bQuadCropperEdit_prev;
+    bool loadCropBtn;
+    bool saveCropBtn;
+    
     DeviceController * devices;
     BookController * book;
     LanguageController * lang;
     BookLoader * loader;
     TextField tfield;
     PositionUI pos_ui;
+    ofxQuadCropper * cropper;
 
 };
 

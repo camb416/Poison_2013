@@ -24,6 +24,10 @@ struct MediaModel{
     bool isHidden;
     int offset;
     int pulseType;
+    int mediaType;
+    ofBlendMode blend;
+    int loopCount;
+    int flip;
 };
 
 // parsing into MediaModel struct instead

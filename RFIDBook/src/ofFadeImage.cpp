@@ -13,6 +13,8 @@ ofFadeImage::ofFadeImage(){
     showBorder = false;
     tweenDivisor = 8.0f;
     pulseOrigin = ofRandomuf()*TWO_PI;
+        isFading = false;
+    path="";
 }
 
 void ofFadeImage::setBorder(bool _showBorder){
@@ -25,8 +27,14 @@ void ofFadeImage::setup(string filename_in){
     loadImage(filename_in);
     setAnchorPercent(0.5f, 0.5f);
     path = filename_in;
+
 }
 void ofFadeImage::update(){
+    // for testing
+    //if(path=="assets/common/cir_A_combined.png"){
+        //string hiddenString;
+        //ofLogNotice() << "circle: " << alpha << ", " << alphaDest;
+   // }
     if(pulseType>0){
         pulseVal = pulseOrigin+ofGetElapsedTimef()*2.0f;
         
@@ -34,6 +42,9 @@ void ofFadeImage::update(){
         pulseVal = 0.0f;
     }
     alpha += (alphaDest-alpha)/tweenDivisor;
+    if(abs(alphaDest-alpha)<0.01f){
+        isFading = false;
+    }
 }
 void ofFadeImage::draw(){
     draw(0,0);
@@ -63,21 +74,26 @@ void ofFadeImage::draw(int x_in, int y_in, int w_in, int h_in){
     float myscaleX, myscaleY;
     
     // if pulsetype is 1 or 2, do the throbbing
+    if(!isFading){
     switch(pulseType){
     
         case 1:
         case 2:
-            myscaleX = (alpha - 1.0f)/(-16.0f)+1.0f+sin(pulseVal)*0.05f;
-            myscaleY = (alpha - 1.0f)/(-16.0f)+1.0f+cos(pulseVal)*0.05f;
+            myscaleX = (alpha - 1.0f)/(-16.0f)+1.0f+sin(pulseVal)*0.1f;
+            myscaleY = (alpha - 1.0f)/(-16.0f)+1.0f+cos(pulseVal)*0.1f;
             break;
         default:
             myscaleX = myscaleY = (alpha - 1.0f)/(-16.0f)+1.0f;
             break;
             
     }
+    } else {
+        myscaleX = myscaleY = (alpha - 1.0f)/(-16.0f)+1.0f;
+    }
     float wOffset = 0.5f*myscaleX*w_in;
     float hOffset = 0.5f*myscaleY*h_in;
     if(alpha>0.05){
+        if(!isFading){
         switch(pulseType){
             case 2:
             case 3:
@@ -87,7 +103,9 @@ void ofFadeImage::draw(int x_in, int y_in, int w_in, int h_in){
                 ofSetColor(255,255,255,alpha*255);
                 break;
         }
-        
+        } else {
+           ofSetColor(255,255,255,alpha*255); 
+        }
        
         // ofSetColor(0,0,0,alpha*255);
         ofPushMatrix();
@@ -114,6 +132,7 @@ void ofFadeImage::draw(int x_in, int y_in, int w_in, int h_in){
     
 } 
 void ofFadeImage::fadeIn(float _tweenD){ // use -1 for immediate fade
+    isFading = true;
     if(_tweenD<0.0f){
         alpha = alphaDest = 1.0f;
     } else {
@@ -125,11 +144,16 @@ void ofFadeImage::fadeIn(float _tweenD){ // use -1 for immediate fade
 
 
 void ofFadeImage::fadeOut(float _tweenD){
+    isFading = true;
     if(_tweenD<0.0f){
         alpha = alphaDest = 0.0f;
     } else {
         tweenDivisor = _tweenD;
         alphaDest = 0.0f;
     }
+}
+
+string ofFadeImage::getPath(){
+    return path;
 }
 

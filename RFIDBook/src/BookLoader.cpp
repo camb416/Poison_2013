@@ -48,6 +48,9 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 int loopback = 0;
                 int pulse_int = 0;
                 bool isHidden;
+                ofBlendMode blend;
+                int loopCount = 0;
+                int flipMode_int;
                 
                 MediaModel thisMedia;
                 
@@ -69,6 +72,12 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                     // set autoplay to true
                     autoplay = ofToInt(bookElements.getAttribute("Media", "auto", "0", i));
                 }
+                if (bookElements.attributeExists("Media", "blend", i)) {
+                    // set autoplay to true
+                    blend = (ofBlendMode)bookElements.getAttribute("Media", "blend", 0, i);
+                } else {
+                    blend = OF_BLENDMODE_DISABLED;
+                }
                 
                 
                 if (bookElements.attributeExists("Media", "class", i)) {
@@ -84,6 +93,12 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 else {
                     loopback = -1;
                 }
+                if (bookElements.attributeExists("Media", "loopcount", i)) {
+                    loopCount = bookElements.getAttribute("Media", "loopcount", 0, i);
+                }
+                else {
+                    loopCount = 0;
+                }
                 if (bookElements.attributeExists("Media", "pulse", i)) {
                     pulse_int = bookElements.getAttribute("Media", "pulse", 0, i);
                 }
@@ -98,9 +113,15 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                         isHidden = false;
                     }
                     
-                }
-                else {
+                } else {
                     isHidden = false;
+                }
+                
+                if (bookElements.attributeExists("Media", "flip", i)) {
+                    flipMode_int = bookElements.getAttribute("Media", "flip", 0, i);
+                    ofLogNotice() << "theres a flipmode and its: " << flipMode_int;
+                } else {
+                    flipMode_int = 0;
                 }
                 
                 
@@ -115,14 +136,101 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 thisMedia.isHidden = isHidden;
                 thisMedia.offset = offset;
                 thisMedia.pulseType = pulse_int;
+                thisMedia.mediaType = -1;
+                thisMedia.blend = blend;
+                thisMedia.loopCount = loopCount;
+                thisMedia.flip = flipMode_int;
+                thisPage.push_back(thisMedia);
+            }
+            
+            /////////////////
+            
+            // parsing touchvids
+            
+            //////////////////
+            
+            numMedia = bookElements.getNumTags("touchvid");
+            
+            for (int i=0; i<numMedia; i++){
+                
+                string mediaFileName;
+                ofVec2f mediaPos;
+                int autoplay = 0;
+                string tapId;
+                int loopback = 0;
+                int pulse_int = 0;
+                bool isHidden;
+                ofBlendMode blend;
+                int loopCount;
+                
+                MediaModel thisMedia;
+                
+                int offset;
+                
+                mediaFileName = bookElements.getAttribute("touchvid", "src", "", i);
+                mediaPos.x = ofToFloat(bookElements.getAttribute("touchvid", "x", "0", i));
+                mediaPos.y = ofToFloat(bookElements.getAttribute("touchvid", "y", "0", i));
+                
+                
+                if (bookElements.attributeExists("touchvid", "class", i)) {
+                    tapId = bookElements.getAttribute("touchvid", "class", "0", i);
+                }
+                else {
+                    tapId = "";
+                }
+ 
+                if (bookElements.attributeExists("touchvid", "hidden", i)) {
+                    string hiddenString = bookElements.getAttribute("Media", "hidden", "0", i);
+                    if(hiddenString.compare("1")==0 || hiddenString.compare("true")==0 || hiddenString.compare("yes")==0){
+                        isHidden = true;
+                    } else {
+                        isHidden = false;
+                    }
+                    
+                } else {
+                    isHidden = false;
+                }
+                if (bookElements.attributeExists("touchvid", "blend", i)) {
+                    // set autoplay to true
+                    blend = (ofBlendMode)bookElements.getAttribute("touchvid", "blend", 0, i);
+                } else {
+                    blend = OF_BLENDMODE_DISABLED;
+                }
+                loopCount = 0;
+                if (bookElements.attributeExists("touchvid", "loopcount", i)) {
+                    // set autoplay to true
+                    loopCount = bookElements.getAttribute("touchvid", "loopcount", 0, i);
+                } else {
+                    loopCount = 0;
+                }
+                ofLogNotice() << "Loaded TOUCHVID: " << mediaFileName << " at position " << mediaPos.x << " : " << mediaPos.y;
+               
+                // build mediamodel for touchvid
+                thisMedia.mediaType = 4;
+                thisMedia.src = mediaFileName;
+                thisMedia.pos = mediaPos;
+                thisMedia.mClass = tapId;
+                thisMedia.isHidden = isHidden;
+                thisMedia.blend = blend;
+                thisMedia.loopCount = loopCount;
+
+                
+                thisMedia.autoPlay = -1;
+                thisMedia.offset = -1;
+                thisMedia.pulseType = -1;
+                thisMedia.loopback = -1;
                 
                 thisPage.push_back(thisMedia);
             }
+            
+            
+            //////////////////
             
             bookElements.popTag();
             //pages.push_back(newPage);
             allMedia.push_back(thisPage);
         }
+        
 
         
     }

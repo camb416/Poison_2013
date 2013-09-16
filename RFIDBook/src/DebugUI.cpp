@@ -15,6 +15,8 @@ DebugUI::DebugUI(){
     defaultXMLbtn = false;
     isVisible = false;
     bFullScreencheckbox = bFullScreencheckbox_prev = false;
+    bQuadCropperEdit = bQuadCropperEdit_prev = false;
+    loadCropBtn = saveCropBtn = false;
 }
 DebugUI::~DebugUI(){
     
@@ -24,7 +26,8 @@ bool DebugUI::getIsVisible(){
     return isVisible;
 }
 
-void DebugUI::setup(DeviceController * _devices, BookController * _book, LanguageController * _lang, BookView * _bookView, BookLoader * _loader){
+void DebugUI::setup(DeviceController * _devices, BookController * _book, LanguageController * _lang, BookView * _bookView, BookLoader * _loader, ofxQuadCropper * _cropper){
+    cropper = _cropper;
     devices = _devices;
     book = _book;
     lang = _lang;
@@ -36,13 +39,17 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, Languag
     
     gui.hide();
     gui.addTitle("Magic Book");
-    gui.addToggle("Drag UI",bDragUIcheckbox);
-    gui.addButton("default XML", defaultXMLbtn);
-    gui.addButton("load XML", loadXMLbtn);
-    gui.addButton("save XML", saveXMLbtn);
-    gui.addToggle("full screen", bFullScreencheckbox);
+    gui.addToggle("EDIT BOOK",bDragUIcheckbox);
+    gui.addButton("DEFAULT BOOK", defaultXMLbtn);
+    gui.addButton("LOAD BOOK", loadXMLbtn);
+    gui.addButton("SAVE BOOK", saveXMLbtn);
+    gui.addToggle("FULLSCREEN", bFullScreencheckbox);
 
     gui.addTitle("Testing functions").setNewColumn(true);
+    gui.addToggle("EDIT CROP",bQuadCropperEdit);
+    gui.addButton("LOAD CROP",loadCropBtn);
+    gui.addButton("SAVE CROP",saveCropBtn);
+    
     
     gui.loadFromXML();
     
@@ -52,6 +59,22 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, Languag
 void DebugUI::update(){
     
     tfield.update("Magic Book \n" + book->getReport() + "\n" + book->whatSituation());
+    
+    
+    if(loadCropBtn){
+       cropper->loadFromFile();
+        loadCropBtn = false;
+    }
+    if(saveCropBtn){
+        cropper->saveToFile();
+        saveCropBtn = false;
+        
+    }
+    
+    if(bQuadCropperEdit!=bQuadCropperEdit_prev){
+        bQuadCropperEdit ? cropper->showDragUI() : cropper->hideDragUI();
+        bQuadCropperEdit_prev = bQuadCropperEdit;
+    }
     
     if(ofGetMousePressed()) pos_ui.update();
     

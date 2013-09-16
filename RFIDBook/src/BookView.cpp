@@ -14,6 +14,7 @@ BookView::BookView(){
     bShowDragUI = false;
     isSetup = false;
     cout << "OKAY, THE BOOKVIEW EXISTS... HERE'S THE CONSTRUCTOR TO PROVE IT" << endl;
+    isBusy = true;
 }
 BookView::~BookView(){
     
@@ -40,13 +41,11 @@ void BookView::hideDragUI(){
 void BookView::setup(LanguageController * _lang, string _xmlFile){
     lang = _lang;
     xmlFile = _xmlFile;
+    isBusy = false;
 
 }
 void BookView::update(){
-    /*for(int i=0;i<pages.size();i++){
-        pages.at(i)->update();
-    }
-    */
+    
     if(currentPage>=0 && bShowDragUI) mediaPages.at(currentPage)->dragUpdate();
     for(int i=0;i<mediaPages.size();i++){
         mediaPages.at(i)->update();
@@ -54,11 +53,12 @@ void BookView::update(){
     
 }
 void BookView::draw(){
+    
     ofEnableAlphaBlending();
     draw(0,0,0);
 }
 void BookView::draw(int x_in, int y_in, int debugState){
-    
+        
     // Debug draw
     if(debugState>0){
     ofSetColor(255);
@@ -164,25 +164,19 @@ void BookView::activate(int pagenum_in){
 
 
     if(pagenum_in != currentPage){
-        for(int i=0;i<mediaPages.size();i++){
-           
-            if(i==pagenum_in){
-                mediaPages.at(i)->fade(1);
-            } else {
-                mediaPages.at(i)->fade(-1);
-                try {
-                    if (mediaPages.at(currentPage)->touchActive == true){
-                        mediaPages.at(currentPage)->pageReset = true;
-                    }
-                } catch (...) {
-                    
-                }
-                
-            }
-        }
+        
+            ofLogNotice() << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> activating page::: " << pagenum_in;
+        
+        if(currentPage>-1 && currentPage<mediaPages.size())
+            mediaPages.at(currentPage)->fade(-1);
+        
+        if(pagenum_in>-1 && pagenum_in<mediaPages.size())
+            mediaPages.at(pagenum_in)->fade(1);
+        
     }
     
     currentPage = pagenum_in;
+
 }
 
 
@@ -191,6 +185,11 @@ void BookView::deactivate(){
 }
 
 void BookView::savePageLayout(){
+    
+    //ofLogError() << "saving XML temporarily disabled. re-enable this when the TOUCHVIDEO functionality is back.";
+    
+    // temporarily adding this back in...
+    
     ofBuffer buff;
     string wholeXML;
     ofFile outFile;
@@ -225,14 +224,32 @@ void BookView::printCurrentMediaByClassName(string _id){
 }
 
 int BookView::hideCurrentMediaByClassName(string _classname){
+    
+    CHECKBUSY
+    
+    isBusy = true;
     int returnVal = 0;
+    ofLogNotice() << "trying to hide: " << _classname;
     // TODO: there's a bug here.... mediaToHide == 0 when you are on an interstitial!!!!....
     vector<Media*> mediaToHide = mediaPages.at(currentPage)->getMediaByClassName(_classname);
+    
     for(int i=0;i<mediaToHide.size();i++){
-        if(mediaToHide.at(i)->hide()!=0){
+        if(mediaToHide.at(i)->getHidden()==true){
             returnVal = -1;
+            isBusy = false;
+            return -1;
+        }
+    
+    }
+    
+    if(returnVal==0){
+        for(int i=0;i<mediaToHide.size();i++){
+            mediaToHide.at(i)->hide();
         }
     }
+    
+    ofLogNotice() << "reporting back: " << returnVal;
+    isBusy = false;
     return returnVal;
 }
 int BookView::showCurrentMediaByClassName(string _classname){
@@ -259,13 +276,20 @@ int BookView::showCurrentMediaByClassName(string _classname,string _showWhenDone
 }
 
 void BookView::playSegmentedVideo(){
-//    int returnVal = 0;
     vector<Media*> segmentedVideoToActivate = mediaPages.at(currentPage)->getSegmentedMedia();
     
     for (int i=0; i<segmentedVideoToActivate.size(); i++){
         segmentedVideoToActivate.at(i)->segVid->touch();
     }
 }
+
+void BookView::playVideoByClassName(string _classname){
+    vector<Media*> mediaToPlay = mediaPages.at(currentPage)->getMediaByClassName(_classname);
+    for(int i=0;i<mediaToPlay.size();i++){
+        mediaToPlay.at(i)->playVid();
+    }
+}
+
 
 int BookView::touch(int _whichSensor){
     ofLogNotice() << "BookView received a touch on sensor: " << _whichSensor;
@@ -276,17 +300,24 @@ int BookView::touch(int _whichSensor){
         case 3:
             switch(_whichSensor){
                 case 0:
-                    if(hideCurrentMediaByClassName("rhp")==0) showCurrentMediaByClassName("0","rhp");
+                    if(hideCurrentMediaByClassName("rhp")==0){
+                        ofLogNotice() << "success. showing the rhp media.";
+                       showCurrentMediaByClassName("0","rhp"); 
+                    } else {
+                        ofLogNotice() << "failed. not showing the rhp media";
+                    }
                     break;
                 case 1:
                     if(hideCurrentMediaByClassName("rhp")==0) showCurrentMediaByClassName("1","rhp");
                     break;
                 case 2:
                     playSegmentedVideo();
-                    hideCurrentMediaByClassName("seg");
+                    hideCurrentMediaByClassName("lhp");
                     break;
                 case 3:
-                    // TODO: add conditional
+                    playVideoByClassName("3");
+                    break;
+                case 4:
                     if(lang->toggleLanguage()){
                      ofLogWarning() << "loading pages...";
                         loadPages();
@@ -294,13 +325,18 @@ int BookView::touch(int _whichSensor){
                         ofLogWarning() << "toggle language unsuccessful. You might need to wait 5s for the previous language to load first.";
                     }
                     break;
+                case 9:
+                    playVideoByClassName("othervideo");
+                    ofLogNotice() << "trying to play the video";
+                    break;
+                case 8:
+                    playVideoByClassName("heartvid");
+                    break;
             }
-            
             break;
     }
-    
-    
-    
+    // should the success of showing or hiding bubble up and return?
+    // doesn't now...
     return -1;
 }
 
@@ -314,6 +350,11 @@ int BookView::release(int _whichSensor){
 }
 
 void BookView::loadPages(){
+    
+    // this implementation is garbage. Why not create the Media Objects right away, and pass pointers to them
+    // to real Pages, and skip the vector to a vector to a vector to a vector (turtles all the way down) method.
+    // ultimately, we seriously need to ditch the really stupid and unreadable overloaded setup methods on media and
+    // just give up and call them something else in the XML!
     
     deactivate();
     clearPages();
