@@ -19,7 +19,8 @@
 #include "LanguageController.h"
 #include "BookView.h"
 #include "BookLoader.h"
-#include "ofxQuadCropper.h"
+#include "ofxQuadCrop.h"
+#include "ofxQuadImage.h"
 #include <iostream>
 
 class DebugUI{
@@ -28,7 +29,7 @@ public:
     DebugUI();
     ~DebugUI();
     
-    void setup(DeviceController * _devices, BookController * _book, LanguageController * _lang, BookView * _bookView, BookLoader *_loader, ofxQuadCropper * _cropper);
+    void setup(DeviceController * _devices, BookController * _book, LanguageController * _lang, BookView * _bookView, BookLoader *_loader, ofxQuadCrop * _cropper, ofxQuadImage * _quadImage);
     void update();
     void draw();
     
@@ -56,13 +57,18 @@ private:
     bool loadCropBtn;
     bool saveCropBtn;
     
+    bool bQuadImageEdit, bQuadImageEdit_prev;
+    bool loadQuadImageBtn;
+    bool saveQuadImageBtn;
+    
     DeviceController * devices;
     BookController * book;
     LanguageController * lang;
     BookLoader * loader;
     TextField tfield;
     PositionUI pos_ui;
-    ofxQuadCropper * cropper;
+    ofxQuadCrop * cropper;
+    ofxQuadImage * quadImage;
 
 };
 
