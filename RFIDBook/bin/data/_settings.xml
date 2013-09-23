@@ -17,7 +17,7 @@
     </Button_SAVE_BOOK>
     <Toggle_FULLSCREEN>
         <name>FULLSCREEN</name>
-        <value>0</value>
+        <value>1</value>
     </Toggle_FULLSCREEN>
     <Toggle_EDIT_CROP>
         <name>EDIT CROP</name>
@@ -33,11 +33,11 @@
     </Button_SAVE_CROP>
     <Toggle_EDIT_IMAGE>
         <name>EDIT IMAGE</name>
-        <value>1</value>
+        <value>0</value>
     </Toggle_EDIT_IMAGE>
     <Toggle_Loose_Dragging>
         <name>Loose Dragging</name>
-        <value>1</value>
+        <value>0</value>
     </Toggle_Loose_Dragging>
     <Button_LOAD_IMAGE>
         <name>LOAD IMAGE</name>
