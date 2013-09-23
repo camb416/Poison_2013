@@ -14,9 +14,22 @@
     <Button_save_XML>
         <name>save XML</name>
         <value>0</value>
-    </Button_save_XML>
-    <Toggle_full_screen>
-        <name>full screen</name>
+
+    </Button_SAVE_BOOK>
+    <Toggle_FULLSCREEN>
+        <name>FULLSCREEN</name>
+        <value>1</value>
+    </Toggle_FULLSCREEN>
+    <Toggle_EDIT_CROP>
+        <name>EDIT CROP</name>
         <value>0</value>
-    </Toggle_full_screen>
+    </Toggle_EDIT_CROP>
+    <Button_LOAD_CROP>
+        <name>LOAD CROP</name>
+        <value>0</value>
+    </Button_LOAD_CROP>
+    <Button_SAVE_CROP>
+        <name>SAVE CROP</name>
+        <value>0</value>
+    </Button_SAVE_CROP>
 </controls>
