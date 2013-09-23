@@ -253,11 +253,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/DebugUI.cpp"
-         timestampString = "401652796.105476"
+         timestampString = "401656557.038214"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "68"
-         endingLineNumber = "68">
+         startingLineNumber = "69"
+         endingLineNumber = "69">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1005,6 +1005,45 @@
          startingLineNumber = "472"
          endingLineNumber = "472"
          landmarkName = "Media::show(float _fadeVal, bool _useOffset)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../quadtest/src/ofxQuad.cpp"
+         timestampString = "401657692.338525"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "210"
+         endingLineNumber = "210"
+         landmarkName = "ofxQuad::getNearest(ofPoint _mousePos)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../quadtest/src/ofxQuad.cpp"
+         timestampString = "401657692.338525"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "208"
+         endingLineNumber = "208"
+         landmarkName = "ofxQuad::getNearest(ofPoint _mousePos)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../quadtest/src/ofxQuad.cpp"
+         timestampString = "401657988.713573"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "349"
+         endingLineNumber = "349"
+         landmarkName = "ofxQuad::getBottomRight()"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -58,6 +58,7 @@ private:
     bool saveCropBtn;
     
     bool bQuadImageEdit, bQuadImageEdit_prev;
+    bool bLooseDrag, bLooseDrag_prev;
     bool loadQuadImageBtn;
     bool saveQuadImageBtn;
     

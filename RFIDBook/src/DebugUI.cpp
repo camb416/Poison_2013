@@ -54,6 +54,7 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, Languag
     
     gui.addTitle("Image Crop").setNewColumn(true);
     gui.addToggle("EDIT IMAGE",bQuadImageEdit);
+    gui.addToggle("Loose Dragging",bLooseDrag);
     gui.addButton("LOAD IMAGE",loadQuadImageBtn);
     gui.addButton("SAVE IMAGE",saveQuadImageBtn);
     
@@ -94,6 +95,10 @@ void DebugUI::update(){
     if(bQuadImageEdit!=bQuadImageEdit_prev){
         bQuadImageEdit ? quadImage->showDragUI() : quadImage->hideDragUI();
         bQuadImageEdit_prev = bQuadImageEdit;
+    }
+    if(bLooseDrag != bLooseDrag_prev){
+        quadImage->setLooseDrag(bLooseDrag);
+        bLooseDrag_prev = bLooseDrag;
     }
     
     
