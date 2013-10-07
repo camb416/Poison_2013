@@ -1,24 +1,23 @@
 <controls>
-    <Toggle_Drag_UI>
-        <name>Drag UI</name>
+    <Toggle_EDIT_BOOK>
+        <name>EDIT BOOK</name>
         <value>0</value>
-    </Toggle_Drag_UI>
-    <Button_default_XML>
-        <name>default XML</name>
+    </Toggle_EDIT_BOOK>
+    <Button_DEFAULT_BOOK>
+        <name>DEFAULT BOOK</name>
         <value>0</value>
-    </Button_default_XML>
-    <Button_load_XML>
-        <name>load XML</name>
+    </Button_DEFAULT_BOOK>
+    <Button_LOAD_BOOK>
+        <name>LOAD BOOK</name>
         <value>0</value>
-    </Button_load_XML>
-    <Button_save_XML>
-        <name>save XML</name>
+    </Button_LOAD_BOOK>
+    <Button_SAVE_BOOK>
+        <name>SAVE BOOK</name>
         <value>0</value>
-
     </Button_SAVE_BOOK>
     <Toggle_FULLSCREEN>
         <name>FULLSCREEN</name>
-        <value>1</value>
+        <value>0</value>
     </Toggle_FULLSCREEN>
     <Toggle_EDIT_CROP>
         <name>EDIT CROP</name>
