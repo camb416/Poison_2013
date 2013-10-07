@@ -15,7 +15,6 @@ ofxQuad::ofxQuad(){
     nearestPoint = -1;
     selectedPoint = -1;
     isDragging = false;
-    bLooseDrag = false;
     
     isActive = false;
     pos.set(0,0);
@@ -81,10 +80,6 @@ void ofxQuad::draw(){
             }
             ofCircle(points[i].x*contextDimensions.x,points[i].y*contextDimensions.y,10);
         }
-        ofFill();
-        ofCircle((getCenter().x + pin.x)*contextDimensions.x,(getCenter().y+pin.y)*contextDimensions.y,5);
-
-        
         ofBeginShape();
         ofNoFill();
         ofSetColor(255,255,255);
@@ -183,10 +178,6 @@ void ofxQuad::reset(){
     points[4].set(0.5f,0.5f);
 }
 
-void ofxQuad::setLooseDrag(bool _bLooseDrag){
-    bLooseDrag = _bLooseDrag;
-}
-
 int ofxQuad::getNearest(ofPoint _mousePos){
     float rolloverThreshold =20;
     
@@ -201,17 +192,6 @@ int ofxQuad::getNearest(ofPoint _mousePos){
             
         }
     }
-    if(bLooseDrag){
-    if(whichSelected<0){
-        ofPoint bottomRight = getBottomRight();
-        
-        if(_mousePos.x>getTopLeft().x && _mousePos.x < getBottomRight().x){
-            
-            whichSelected = 4;
-        }
-    }
-    }
-    
     return whichSelected;
 }
 
@@ -228,37 +208,19 @@ void ofxQuad::mouseMoved(int _x, int _y){
     
 }
 void ofxQuad::mousePressed(int _x, int _y){
-    if(isActive){
-        isDragging = true;
-        //drop the pin
-        pin = ofPoint(_x,_y)/contextDimensions - getCenter();
-    }
+    if(isActive) isDragging = true;
     //   ofLogNotice() << "mousePressed";
 }
 void ofxQuad::mouseDragged(int _x, int _y){
     if(isActive){
         if(selectedPoint>-1){
-            
-            float tempX, tempY;
-            
-            tempX = _x;
-            tempY = _y;
-            /*
-            if(selectedPoint==4){
-                tempX += pin.x;
-                tempY += pin.y;
-            }
-            */
-            float newX = ((float)tempX)/ (float) contextDimensions.x;
-            float newY = ((float)tempY)/ (float) contextDimensions.y;
-            
-            
+            float newX = ((float)_x)/ (float) contextDimensions.x;
+            float newY = ((float)_y)/ (float) contextDimensions.y;
             ofPoint translation;
-            translation.set(newX - points[selectedPoint].x - pin.x, newY - points[selectedPoint].y - pin.y);
+            translation.set(newX - points[selectedPoint].x, newY - points[selectedPoint].y);
             
             
-            points[selectedPoint] = ofPoint(newX,newY);
-            
+            points[selectedPoint].set(newX,newY);
             
             if(bAlign){
                 switch(selectedPoint){
@@ -282,9 +244,9 @@ void ofxQuad::mouseDragged(int _x, int _y){
             }
             if(selectedPoint==4){
                 // dragging the center;
-                for(int i=0;i<4;i++){
                 
-                    points[i] += (translation);
+                for(int i=0;i<4;i++){
+                    points[i] += translation;
                 }
                 /*
                 points[0].x = points[4].x-0.5f*getPctWidth();
@@ -308,7 +270,6 @@ void ofxQuad::mouseDragged(int _x, int _y){
 }
 void ofxQuad::mouseReleased(int _x, int _y){
     selectedPoint = -1;
-    pin.set(0,0);
 }
 
 bool ofxQuad::getActive(){
@@ -344,12 +305,6 @@ ofPoint ofxQuad::getTopLeft(){
     topLeft.set(points[0].x*contextDimensions.x,points[0].y*contextDimensions.y);
     return topLeft;
 }
-ofPoint ofxQuad::getBottomRight(){
-    ofPoint bottomRight;
-    bottomRight.set(points[2].x*contextDimensions.x,points[2].y*contextDimensions.y);
-    return bottomRight;
-}
-
 ofPoint ofxQuad::getSize(){
 
     ofPoint mySize;
@@ -359,6 +314,22 @@ ofPoint ofxQuad::getSize(){
     //mySize *= contextDimensions;
     
     return mySize;
+    /*
+    float largestX = -999.99f;
+    int whichPoint = -1;
+    for(int i=0;i<NUM_POINTS;i++){
+        if(points[i].x>largestX){
+            whichPoint = i;
+            largestX = points[i].x;
+        }
+    }
+    if(whichPoint>-1 && whichPoint<NUM_POINTS){
+        return points[whichPoint];
+    } else {
+        ofPoint dummyVal;
+        ofLogWarning() << "something is failing in ofxQuad::getSize()";
+        return dummyVal;
+    }*/
 }
 
 

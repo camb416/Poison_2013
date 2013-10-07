@@ -51,15 +51,12 @@ public:
     bool getAlign();
     
     ofPoint getTopLeft();
-    ofPoint getBottomRight();
     float getWidth();
     float getHeight();
     ofPoint getSize();
     ofPoint getCenter();
     float getPctWidth();
     float getPctHeight();
-    
-    void setLooseDrag(bool _bLooseDrag);
     
 protected:
     
@@ -87,9 +84,6 @@ protected:
     int selectedPoint;
     
     bool isDragging;
-    bool bLooseDrag;
-    
-    ofPoint pin; // used for offset dragging
     
     
     

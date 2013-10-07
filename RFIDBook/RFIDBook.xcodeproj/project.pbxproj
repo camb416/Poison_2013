@@ -30,9 +30,7 @@
 		32323D26176A31FD0093710C /* TextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D16176A31FD0093710C /* TextField.cpp */; };
 		32323D2F176B6B440093710C /* ImageDraggerUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32323D2D176B6B440093710C /* ImageDraggerUI.cpp */; };
 		3251B2C0176BB0B6006B9BF6 /* DebugUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3251B2BE176BB0B6006B9BF6 /* DebugUI.cpp */; };
-		32896C2417F0B5070026DD8D /* ofxQuad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32896C1E17F0B5070026DD8D /* ofxQuad.cpp */; };
-		32896C2517F0B5070026DD8D /* ofxQuadCrop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32896C2017F0B5070026DD8D /* ofxQuadCrop.cpp */; };
-		32896C2617F0B5070026DD8D /* ofxQuadImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32896C2217F0B5070026DD8D /* ofxQuadImage.cpp */; };
+		32B9363017E7A5690096F00E /* ofxQuadCropper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32B9362E17E7A5690096F00E /* ofxQuadCropper.cpp */; };
 		3317b76ee9202b4c6482d15c4ec6cc7b /* ofxSimpleGuiToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1c56b6200d48da052208be05afd7bde7 /* ofxSimpleGuiToggle.cpp */; };
 		49073c5c875b61f6d54cf6ab8584e712 /* ofxSimpleGuiQuadWarp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39b743be64c2fc3fc8c221637b98639e /* ofxSimpleGuiQuadWarp.cpp */; };
 		495e773e470ff7c742646e77652f964d /* ofxSimpleGuiContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = cd862afb8eff69d2b30a7293a307d7d7 /* ofxSimpleGuiContent.cpp */; };
@@ -147,12 +145,8 @@
 		32323D2E176B6B440093710C /* ImageDraggerUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDraggerUI.h; sourceTree = "<group>"; };
 		3251B2BE176BB0B6006B9BF6 /* DebugUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DebugUI.cpp; sourceTree = "<group>"; };
 		3251B2BF176BB0B6006B9BF6 /* DebugUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugUI.h; sourceTree = "<group>"; };
-		32896C1E17F0B5070026DD8D /* ofxQuad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxQuad.cpp; path = ../quadtest/src/ofxQuad.cpp; sourceTree = "<group>"; };
-		32896C1F17F0B5070026DD8D /* ofxQuad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxQuad.h; path = ../quadtest/src/ofxQuad.h; sourceTree = "<group>"; };
-		32896C2017F0B5070026DD8D /* ofxQuadCrop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxQuadCrop.cpp; path = ../quadtest/src/ofxQuadCrop.cpp; sourceTree = "<group>"; };
-		32896C2117F0B5070026DD8D /* ofxQuadCrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxQuadCrop.h; path = ../quadtest/src/ofxQuadCrop.h; sourceTree = "<group>"; };
-		32896C2217F0B5070026DD8D /* ofxQuadImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxQuadImage.cpp; path = ../quadtest/src/ofxQuadImage.cpp; sourceTree = "<group>"; };
-		32896C2317F0B5070026DD8D /* ofxQuadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxQuadImage.h; path = ../quadtest/src/ofxQuadImage.h; sourceTree = "<group>"; };
+		32B9362E17E7A5690096F00E /* ofxQuadCropper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxQuadCropper.cpp; sourceTree = "<group>"; };
+		32B9362F17E7A5690096F00E /* ofxQuadCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxQuadCropper.h; sourceTree = "<group>"; };
 		33067f54b52161835b50408dca636f93 /* ofxSimpleGuiToggle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSimpleGuiToggle.h; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiToggle.h; sourceTree = SOURCE_ROOT; };
 		37be47726868d2acd7e5ce49194a7984 /* ofxSimpleGuiColorPicker.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSimpleGuiColorPicker.cpp; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiColorPicker.cpp; sourceTree = SOURCE_ROOT; };
 		39b743be64c2fc3fc8c221637b98639e /* ofxSimpleGuiQuadWarp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSimpleGuiQuadWarp.cpp; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiQuadWarp.cpp; sourceTree = SOURCE_ROOT; };
@@ -327,6 +321,7 @@
 		32323D2A176A4E310093710C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				32B9362D17E7A5690096F00E /* ofxQuadCropper */,
 				1B11985517A6BEEF0003A356 /* SegmentedVideo.cpp */,
 				1B11985617A6BEEF0003A356 /* SegmentedVideo.h */,
 				32323D16176A31FD0093710C /* TextField.cpp */,
@@ -371,17 +366,13 @@
 			name = Book;
 			sourceTree = "<group>";
 		};
-		32896C1D17F0B4DE0026DD8D /* ofxQuad */ = {
+		32B9362D17E7A5690096F00E /* ofxQuadCropper */ = {
 			isa = PBXGroup;
 			children = (
-				32896C1E17F0B5070026DD8D /* ofxQuad.cpp */,
-				32896C1F17F0B5070026DD8D /* ofxQuad.h */,
-				32896C2017F0B5070026DD8D /* ofxQuadCrop.cpp */,
-				32896C2117F0B5070026DD8D /* ofxQuadCrop.h */,
-				32896C2217F0B5070026DD8D /* ofxQuadImage.cpp */,
-				32896C2317F0B5070026DD8D /* ofxQuadImage.h */,
+				32B9362E17E7A5690096F00E /* ofxQuadCropper.cpp */,
+				32B9362F17E7A5690096F00E /* ofxQuadCropper.h */,
 			);
-			name = ofxQuad;
+			path = ofxQuadCropper;
 			sourceTree = "<group>";
 		};
 		3ffcd8cde089ea259d68f78cef41a435 /* Controls */ = {
@@ -445,7 +436,6 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				32896C1D17F0B4DE0026DD8D /* ofxQuad */,
 				1f4fb5c423662b96adfdcc0badec1cb0 /* ofxXmlSettings */,
 				734ac65571adbb395c126c1aeb876186 /* ofxMSAInteractiveObject */,
 				cfdd139fa301cd9d0914d00f9e1d4fdc /* ofxSimpleGuiToo */,
@@ -674,9 +664,7 @@
 				F9DC82491778C383000D8922 /* PhidgetConnector.cpp in Sources */,
 				F9DC824A1778C383000D8922 /* PhidgetModel.cpp in Sources */,
 				1B11985717A6BEEF0003A356 /* SegmentedVideo.cpp in Sources */,
-				32896C2417F0B5070026DD8D /* ofxQuad.cpp in Sources */,
-				32896C2517F0B5070026DD8D /* ofxQuadCrop.cpp in Sources */,
-				32896C2617F0B5070026DD8D /* ofxQuadImage.cpp in Sources */,
+				32B9363017E7A5690096F00E /* ofxQuadCropper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,8 +16,8 @@ class ofxQuadCrop : public ofxQuad{
     
     
 public:
+    void draw(int _screenW, int _screenH);
     void draw();
-    void drawOutline();
         
 
 };
