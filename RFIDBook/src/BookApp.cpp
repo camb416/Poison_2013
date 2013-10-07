@@ -35,7 +35,7 @@ void BookApp::setup(){
     cropper.setup(1920,1200);
     cropper.loadFromFile();
     
-    quadImage.setup(640,480,"assets/common/pages_mask.png");
+    quadImage.setup(1920,1200,"assets/common/pages_mask.png");
     quadImage.setAlign(true);
     quadImage.loadFromFile("settings/pages_mask.xml");
     
