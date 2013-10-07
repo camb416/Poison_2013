@@ -35,9 +35,14 @@ void BookApp::setup(){
     cropper.setup(1920,1200);
     cropper.loadFromFile();
     
+    quadImage.setup(640,480,"assets/common/pages_mask.png");
+    quadImage.setAlign(true);
+    quadImage.loadFromFile("settings/pages_mask.xml");
+    
+    
     debugState = 1;
     updateDebug();
-    dui.setup(&devices, &book, &lang, &bookView, &loader, &cropper);
+    dui.setup(&devices, &book, &lang, &bookView, &loader, &cropper, &quadImage);
     
 
     
@@ -65,6 +70,7 @@ void BookApp::update(){
     dui.update();
     
     cropper.update();
+    quadImage.update();
     
 }
 
@@ -77,6 +83,7 @@ void BookApp::draw(){
         bookView.draw(0,0);
    // }
     cropper.draw();
+    quadImage.draw();
     
     dui.draw();
     
@@ -247,11 +254,13 @@ void BookApp::keyReleased(int key){
 //--------------------------------------------------------------
 void BookApp::mouseMoved(int x, int y ){
     cropper.mouseMoved(x,y);
+    quadImage.mouseMoved(x,y);
 }
 
 //--------------------------------------------------------------
 void BookApp::mouseDragged(int x, int y, int button){
     cropper.mouseDragged(x,y);
+    quadImage.mouseDragged(x,y);
 }
 
 //--------------------------------------------------------------
@@ -261,6 +270,7 @@ void BookApp::mousePressed(int x, int y, int button){
     if(!dui.getIsVisible()) book.mousePressed();
     
         cropper.mousePressed(x,y);
+    quadImage.mousePressed(x,y);
 }
 
 //--------------------------------------------------------------
@@ -270,6 +280,7 @@ void BookApp::mouseReleased(int x, int y, int button){
     if(!dui.getIsVisible()) book.mouseReleased();
     
         cropper.mouseReleased(x,y);
+    quadImage.mouseReleased(x,y);
 }
 
 //--------------------------------------------------------------

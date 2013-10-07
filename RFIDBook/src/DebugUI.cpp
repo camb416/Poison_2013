@@ -26,7 +26,9 @@ bool DebugUI::getIsVisible(){
     return isVisible;
 }
 
-void DebugUI::setup(DeviceController * _devices, BookController * _book, LanguageController * _lang, BookView * _bookView, BookLoader * _loader, ofxQuadCropper * _cropper){
+void DebugUI::setup(DeviceController * _devices, BookController * _book, LanguageController * _lang, BookView * _bookView, BookLoader * _loader, ofxQuadCrop * _cropper, ofxQuadImage * _quadImage){
+    
+    quadImage = _quadImage;
     cropper = _cropper;
     devices = _devices;
     book = _book;
@@ -45,10 +47,18 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, Languag
     gui.addButton("SAVE BOOK", saveXMLbtn);
     gui.addToggle("FULLSCREEN", bFullScreencheckbox);
 
-    gui.addTitle("Testing functions").setNewColumn(true);
+    gui.addTitle("Quad Crop").setNewColumn(true);
     gui.addToggle("EDIT CROP",bQuadCropperEdit);
     gui.addButton("LOAD CROP",loadCropBtn);
     gui.addButton("SAVE CROP",saveCropBtn);
+    
+    gui.addTitle("Image Crop").setNewColumn(true);
+    gui.addToggle("EDIT IMAGE",bQuadImageEdit);
+    gui.addToggle("Loose Dragging",bLooseDrag);
+    gui.addButton("LOAD IMAGE",loadQuadImageBtn);
+    gui.addButton("SAVE IMAGE",saveQuadImageBtn);
+    
+    
     
     
     gui.loadFromXML();
@@ -68,13 +78,29 @@ void DebugUI::update(){
     if(saveCropBtn){
         cropper->saveToFile();
         saveCropBtn = false;
-        
     }
-    
     if(bQuadCropperEdit!=bQuadCropperEdit_prev){
         bQuadCropperEdit ? cropper->showDragUI() : cropper->hideDragUI();
         bQuadCropperEdit_prev = bQuadCropperEdit;
     }
+    
+    if(loadQuadImageBtn){
+        quadImage->loadFromFile("settings/pages_mask.xml");
+        loadQuadImageBtn = false;
+    }
+    if(saveQuadImageBtn){
+        quadImage->saveToFile("settings/pages_mask.xml");
+        saveQuadImageBtn = false;
+    }
+    if(bQuadImageEdit!=bQuadImageEdit_prev){
+        bQuadImageEdit ? quadImage->showDragUI() : quadImage->hideDragUI();
+        bQuadImageEdit_prev = bQuadImageEdit;
+    }
+    if(bLooseDrag != bLooseDrag_prev){
+        quadImage->setLooseDrag(bLooseDrag);
+        bLooseDrag_prev = bLooseDrag;
+    }
+    
     
     if(ofGetMousePressed()) pos_ui.update();
     

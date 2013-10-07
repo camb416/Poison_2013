@@ -451,7 +451,7 @@ string Media::getPath(){
 int Media::show(float _fadeVal, bool _useOffset){
     
     if(mediaType==VIDMEDIA){
-        ofLogNotice() << "attempting to show a video...";
+        ofLogNotice() << "attempting to show a video..." << vidFileName;
     }
     
     fadeVal = _fadeVal;

@@ -11,7 +11,7 @@
 #include "LanguageController.h"
 #include "DebugUI.h"
 #include "BookLoader.h"
-#include "ofxQuadCropper.h"
+#include "ofxQuadCrop.h"
 
 class BookApp : public ofBaseApp{
 
@@ -56,6 +56,7 @@ class BookApp : public ofBaseApp{
         bool useRFID;
         bool useTouch;
     
-        ofxQuadCropper cropper;
+        ofxQuadCrop cropper;
+    ofxQuadImage quadImage;
 		
 };

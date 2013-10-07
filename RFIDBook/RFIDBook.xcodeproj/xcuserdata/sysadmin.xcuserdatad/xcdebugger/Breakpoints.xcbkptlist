@@ -140,9 +140,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "146"
-         endingLineNumber = "146"
-         landmarkName = "ofFadeImage::fadeOut(float _tweenD)"
-         landmarkType = "5">
+         endingLineNumber = "146">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
