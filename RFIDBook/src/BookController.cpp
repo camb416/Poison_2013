@@ -50,6 +50,7 @@ void BookController::update(){
     // don't use the RFID sensors (for testing).
     ///////////////////////////////////////////
     
+    
     if(ofGetElapsedTimeMillis()>(RFID_TIMEOUT*1000) && !checkedForRFIDTimeout){
         if(!deviceController->hasSeenRFID()){
             ofLogWarning() << "Haven't seen the RFID sensors for " << RFID_TIMEOUT << " second(s). Using manual mode.";
@@ -116,13 +117,16 @@ void BookController::update(){
             prevTouchStates[i] = touchStates[i];
         }
     }
+
     if((ofGetElapsedTimef() - lastReceivedTouch) > touchTimeOut){
+        
+        
         if(promptCount==-1){
             // first prompt sent
             bookView->touchPrompt(0);
             promptCount++;
             lastSentPrompt = ofGetElapsedTimef();
-        }else if((lastSentPrompt - ofGetElapsedTimef()) > timeBetweenPrompts){
+        }else if((ofGetElapsedTimef() - lastSentPrompt) > timeBetweenPrompts){
             if(promptCount<numTouchPrompts){
                 bookView->touchPrompt(promptCount);
                 promptCount++;
