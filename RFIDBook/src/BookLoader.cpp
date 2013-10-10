@@ -119,7 +119,6 @@ vector< vector<MediaModel> > BookLoader::load(string fileName, LanguageControlle
                 
                 if (bookElements.attributeExists("Media", "flip", i)) {
                     flipMode_int = bookElements.getAttribute("Media", "flip", 0, i);
-                    ofLogNotice() << "theres a flipmode and its: " << flipMode_int;
                 } else {
                     flipMode_int = 0;
                 }

@@ -191,7 +191,7 @@ void BookView::savePageLayout(){
     // temporarily adding this back in...
     
     ofBuffer buff;
-    string wholeXML;
+    string wholeXML = "<Book>\n\r";
     ofFile outFile;
     
     for(int i=0;i<mediaPages.size();i++){
@@ -200,6 +200,7 @@ void BookView::savePageLayout(){
         xml.copyXmlToString(myString);
         wholeXML += myString;
     }
+    wholeXML += "\n\r</Book>";
     cout << wholeXML << endl;
     
     buff.set(wholeXML);
@@ -367,4 +368,16 @@ void BookView::loadPages(){
 
     activate(currentPage);
 
+}
+
+int BookView::touchPrompt(int _whichPrompt){
+    
+    ofLogNotice() << "received a touchPrompt# " << _whichPrompt << " at " << ofGetElapsedTimef();
+    
+    if(!touchPromptVisible){
+        touchPromptVisible = true;
+        return 0;//showCurrentMediaByClassName("touch0");
+    } else {
+        return -1;
+    }
 }

@@ -15,6 +15,11 @@ BookController::BookController(){
     forcedState = "A";
     //lastTouchPage = -1;
     checkedForRFIDTimeout = false;
+    lastReceivedTouch = 0.0f;
+    touchTimeOut = 10.0f;
+    timeBetweenPrompts = 3.0f;
+    numTouchPrompts = 3;
+    promptCount = -1;
     for(int i=0;i<NUM_TOUCHES;i++){
         touchStates[i] = prevTouchStates[i] = false;
     }
@@ -100,14 +105,40 @@ void BookController::update(){
                 // a sensor changed.
                 if(touchStates[i]){
                     // it was a touch
+                    lastReceivedTouch = ofGetElapsedTimef();
                     bookView->touch(i);
                 } else {
                     // it was a release
+                    lastReceivedTouch = ofGetElapsedTimef();
                     bookView->release(i);
                 }
             }
             prevTouchStates[i] = touchStates[i];
         }
+    }
+    if((ofGetElapsedTimef() - lastReceivedTouch) > touchTimeOut){
+        if(promptCount==-1){
+            // first prompt sent
+            bookView->touchPrompt(0);
+            promptCount++;
+            lastSentPrompt = ofGetElapsedTimef();
+        }else if((lastSentPrompt - ofGetElapsedTimef()) > timeBetweenPrompts){
+            if(promptCount<numTouchPrompts){
+                bookView->touchPrompt(promptCount);
+                promptCount++;
+                lastSentPrompt = ofGetElapsedTimef();
+            } else {
+                // its over, send it a -1
+                promptCount = -1;
+                bookView->touchPrompt(promptCount);
+                lastReceivedTouch = ofGetElapsedTimef();
+            }
+            
+        } else {
+            // outlier
+            ofLogNotice() << "outlier" ;
+        }
+        
     }
 
     

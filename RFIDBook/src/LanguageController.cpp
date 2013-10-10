@@ -59,13 +59,13 @@ string LanguageController::resolvePath(string _filepath){
     
     if(slashIndex<0){
     
-        langSpec_str = model.getCurrentLanguageId() + "/" + _filepath;
+        langSpec_str = prefix + model.getCurrentLanguageId() + "/" + _filepath;
         common_str = "assets/common/" + _filepath;
         filePath = _filepath;
     
     } else if(slashIndex==0){
         // slash is the first char
-        langSpec_str = model.getCurrentLanguageId()  + _filepath;
+        langSpec_str = prefix + model.getCurrentLanguageId()  + _filepath;
         common_str = "assets/common" + _filepath;
         filePath = _filepath;
 
