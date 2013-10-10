@@ -1,6 +1,5 @@
 <Book>
-
-<Page>
+<Page>
     
     <Media x="960" y="600" src="be/all_txt.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1411" y="175" src="be/be_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
@@ -38,9 +37,9 @@
     <Media x="1223" y="659" src="mo/mo_cerberus.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="350" pulse="0" flip="0"></Media>
     <Media x="1415" y="662" src="mo/wo_hunter29.mov" class="1" auto="1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
     <Media x="1425" y="641" src="mo/wo_cerberus16.mov" class="0" auto="1" loopback="-1" hidden="1" offset="650" pulse="0" flip="0"></Media>
-    <Media x="1189" y="698" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="530" pulse="1" flip="0"></Media>
-    <Media x="1538" y="681" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="2" flip="0"></Media>
-    <Media x="535" y="793" src="cir_A_combined.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3" flip="0"></Media>
+    <Media x="1269" y="570" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="530" pulse="1" flip="0"></Media>
+    <Media x="1565" y="537" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="2" flip="0"></Media>
+    <Media x="483" y="844" src="cir_A_combined.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3" flip="0"></Media>
     <Media x="1046" y="647" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1290" y="817" src="hand_v1.png" class="touch0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
     <Media x="1239" y="451" src="hand_v2.png" class="touch1" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
@@ -64,5 +63,4 @@
     <Media x="916" y="611" src="hand_v3.png" class="touch2" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
 </Page>
 
-
-</Book>
+</Book>

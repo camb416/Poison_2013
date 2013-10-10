@@ -57,6 +57,9 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, Languag
     gui.addToggle("Loose Dragging",bLooseDrag);
     gui.addButton("LOAD IMAGE",loadQuadImageBtn);
     gui.addButton("SAVE IMAGE",saveQuadImageBtn);
+    gui.addFPSCounter();
+    
+    gui.setAlignRight(true);
     
     
     
@@ -138,6 +141,8 @@ bool DebugUI::getDragSetting(){
 void DebugUI::draw(){
     
     if(isVisible){
+        ofPushMatrix();
+        ofTranslate(150,0);
         ofEnableAlphaBlending();
         ofSetColor(255,255,255,128);
         ofFill();
@@ -145,8 +150,11 @@ void DebugUI::draw(){
         ofSetColor(255,255,255,255);
         devices->draw(10,300);
         tfield.draw();
+        
+         ofPopMatrix();
         if(ofGetMousePressed()) pos_ui.draw();
         gui.draw();
+       
     }
 }
 
