@@ -66,6 +66,8 @@ public:
     
     LanguageController * lang;
     
+    int touchPrompt(int _whichPrompt);
+    
 private:
     
     ofImage backplate;
@@ -78,6 +80,9 @@ private:
     BookLoader loader;
     
     bool isBusy;
+    
+    bool touchPromptVisible;
+    int whichTouchPromptIsVisible;
     
     
 

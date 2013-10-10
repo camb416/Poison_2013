@@ -58,6 +58,13 @@ private:
     
     int getPageNumByStringState(string _pageState);
     
+    float lastReceivedTouch;    // last got a touch (in seconds)
+    float touchTimeOut;         // how long to wait
+    float lastSentPrompt;       // last time we told the view to display a prompt
+    int promptCount;            // how many prompts have been sent to the view
+    float timeBetweenPrompts;   // time between the touch prompts
+    int numTouchPrompts;        // how many unique prompts
+    
 };
 
 

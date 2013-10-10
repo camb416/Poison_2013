@@ -56,6 +56,7 @@ void BookApp::setup(){
 
 //--------------------------------------------------------------
 void BookApp::update(){
+
     ofEnableAlphaBlending();
     
     //TODO: fixthis
@@ -71,7 +72,7 @@ void BookApp::update(){
     
     cropper.update();
     quadImage.update();
-    
+
 }
 
 //--------------------------------------------------------------

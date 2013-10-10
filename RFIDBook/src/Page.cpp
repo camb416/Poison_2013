@@ -225,7 +225,6 @@ void Page::receiveInput(char touchId_in, int pageNum_in){
 
 void Page::fade(int dir){
     
-    ofLogNotice() << "fading: " << dir << ", " << media.size();
     if(media.size()==1){
         ofLogNotice() << "this certainly doesn't seem right";
     }

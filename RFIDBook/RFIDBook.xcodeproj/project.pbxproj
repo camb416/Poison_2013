@@ -573,7 +573,7 @@
 		E4B69B4C0A3A1720003C02F2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "RFIDBook" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -724,6 +724,7 @@
 					/Library/Frameworks/Phidget21.framework/Headers,
 					../../../addons/ofxMSATimer/src,
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-lpthread",

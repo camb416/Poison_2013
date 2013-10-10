@@ -116,7 +116,6 @@ int ofxQuad::loadFromFile(string _file){
             
             points[i].set(thisX,thisY);
             
-            ofLogNotice() << "loaded a point at: " << thisX << ", " << thisY;
             
         }
         
