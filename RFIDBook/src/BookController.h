@@ -64,7 +64,9 @@ private:
     int promptCount;            // how many prompts have been sent to the view
     float timeBetweenPrompts;   // time between the touch prompts
     int numTouchPrompts;        // how many unique prompts
+    void resetTouchPrompt();
     
+    string previousSituation;
 };
 
 

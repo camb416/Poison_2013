@@ -164,8 +164,12 @@ void BookView::mouseReleased(){
 // Activate the current page
 void BookView::activate(int pagenum_in){
 
-
+// this is called on every update. Badly named perhaps.
+    
     if(pagenum_in != currentPage){
+        
+        touchPrompt(-1); // resets the touchprompt
+
         
             ofLogNotice() << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> activating page::: " << pagenum_in;
         
@@ -228,7 +232,7 @@ void BookView::printCurrentMediaByClassName(string _id){
 
 int BookView::hideCurrentMediaByClassName(string _classname){
     
-    CHECKBUSY
+    //CHECKBUSY
     
     isBusy = true;
     int returnVal = 0;
@@ -401,6 +405,13 @@ int BookView::touchPrompt(int _whichPrompt){
         showCurrentMediaByClassName(newPromptClass);
         touchPromptVisible = true;
         whichTouchPromptIsVisible = _whichPrompt;
+    } else {
+        touchPromptVisible = false;
+        whichTouchPromptIsVisible = -1;
+        for(int i=1;i<4;i++){
+            string imgclass = "touch" + ofToString(i);
+            hideCurrentMediaByClassName(imgclass);
+        }
     }
     
     return 0;

@@ -12,7 +12,7 @@
 BookController::BookController(){
     isSetup = false;
     useRFID = true;
-    forcedState = "A";
+    forcedState = previousSituation = "A";
     //lastTouchPage = -1;
     checkedForRFIDTimeout = false;
     lastReceivedTouch = 0.0f;
@@ -27,6 +27,13 @@ BookController::BookController(){
 BookController::~BookController(){
     
 }
+
+void BookController::resetTouchPrompt(){
+    lastReceivedTouch = ofGetElapsedTimef();
+    promptCount = -1;
+    bookView->touchPrompt(-1);
+}
+
 
 void BookController::setup(DeviceController * deviceController_in, BookView * bookView_in){
     deviceController = deviceController_in;
@@ -59,17 +66,22 @@ void BookController::update(){
         }
     }
     
-    string currentSitation;
-    currentSitation = whatSituation();
+    string currentSituation;
+    currentSituation = whatSituation();
     
-    
+    if(currentSituation!=previousSituation){
+        // something happened with the pages (momentary)
+        resetTouchPrompt();
+        previousSituation = currentSituation;
+        
+    }
     //currentTouch = touchSituation();
     
-    if(currentSitation.length() == 1){
+    if(currentSituation.length() == 1){
         // page is landed
         
         // take A-D and make 0-3
-        char curSit_char = currentSitation[0];
+        char curSit_char = currentSituation[0];
         int whichPageNum = (int)curSit_char - 65;
 
         //bookView->mediaPages.at(whichPageNum)->receiveInput(currentTouch, whichPageNum);
@@ -77,15 +89,13 @@ void BookController::update(){
         // send the view activation.
         bookView->activate(whichPageNum);
         
-        } else if(currentSitation.length()==2){
-        // you're on an interstitial
-        
-        bookView->deactivate();
-        
-        
+        } else if(currentSituation.length()==2){
+            // you're on an interstitial
+            bookView->deactivate();
+            resetTouchPrompt();
         } else {
         // seems like an error...
-        cout << "Error: Current Book Situation has a strange length: " << currentSitation.length() << endl;
+        cout << "Error: Current Book Situation has a strange length: " << currentSituation.length() << endl;
     }
     //lastTouchPage = currentSitation;
     
@@ -106,11 +116,11 @@ void BookController::update(){
                 // a sensor changed.
                 if(touchStates[i]){
                     // it was a touch
-                    lastReceivedTouch = ofGetElapsedTimef();
+                    resetTouchPrompt();
                     bookView->touch(i);
                 } else {
                     // it was a release
-                    lastReceivedTouch = ofGetElapsedTimef();
+                    resetTouchPrompt();
                     bookView->release(i);
                 }
             }

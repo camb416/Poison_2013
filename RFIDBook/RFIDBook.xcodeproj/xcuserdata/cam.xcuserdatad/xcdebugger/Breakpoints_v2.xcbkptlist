@@ -784,11 +784,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/BookView.cpp"
-            timestampString = "403125676.497898"
+            timestampString = "403131729.303549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "BookView::playVideoByClassName(string _classname)"
             landmarkType = "5">
          </BreakpointContent>
@@ -848,11 +848,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/BookView.cpp"
-            timestampString = "403125676.497898"
+            timestampString = "403131729.303549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "BookView::activate(int pagenum_in)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1168,11 +1168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/BookView.cpp"
-            timestampString = "403125676.497898"
+            timestampString = "403131729.303549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
             landmarkName = "BookView::showCurrentMediaByClassName(string _classname,string _showWhenDone)"
             landmarkType = "5">
          </BreakpointContent>

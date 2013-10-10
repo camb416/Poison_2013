@@ -10,7 +10,7 @@
 #define __RFIDBook__BookView__
 
 
-#define CHECKBUSY     if(isBusy){ofLogWarning() << "BookView::setup(). returning."; return -1;}
+#define CHECKBUSY     if(isBusy){ofLogWarning() << "CHECKBUSY failed."; return -1;}
 
 
 #include "ofMain.h"
