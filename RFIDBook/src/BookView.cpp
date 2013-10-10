@@ -257,17 +257,23 @@ int BookView::hideCurrentMediaByClassName(string _classname){
 }
 int BookView::showCurrentMediaByClassName(string _classname){
     int returnVal = 0;
+    if(currentPage>=0){
     vector<Media*> mediaToShow = mediaPages.at(currentPage)->getMediaByClassName(_classname);
     for(int i=0;i<mediaToShow.size();i++){
         if(mediaToShow.at(i)->show()!=0){
             returnVal = -1;
         }
     }
+     
+    } else {
+        returnVal = -1;
+    }
     return returnVal;
 }
 
 int BookView::showCurrentMediaByClassName(string _classname,string _showWhenDone){
     int returnVal = 0;
+        if(currentPage>=0){
     vector<Media*> mediaToShow = mediaPages.at(currentPage)->getMediaByClassName(_classname);
     for(int i=0;i<mediaToShow.size();i++){
         if(mediaToShow.at(i)->show()!=0){
@@ -275,6 +281,9 @@ int BookView::showCurrentMediaByClassName(string _classname,string _showWhenDone
         }
         mediaToShow.at(i)->showWhenDone(_showWhenDone);
     }
+        } else {
+            returnVal = -1;
+        }
     return returnVal;
 }
 
