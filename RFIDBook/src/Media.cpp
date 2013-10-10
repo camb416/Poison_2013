@@ -23,6 +23,7 @@ Media::Media(){
     whenToShow = -1;
     fadeVal = 8.0f;
     blendMode = OF_BLENDMODE_DISABLED;
+    flipMode = 0;
     
 }
 Media::~Media(){}
@@ -61,6 +62,7 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
 
 void Media::setupImage(MediaModel _mm){
     setup(_mm.src,_mm.pos.x, _mm.pos.y, _mm.mClass, _mm.isHidden, _mm.offset, _mm.pulseType);
+    setFlipMode(_mm.flip);
 }
 void Media::setupVideo(MediaModel _mm){
        setup("",_mm.src,_mm.pos.x, _mm.pos.y, _mm.autoPlay, _mm.mClass, _mm.loopback, _mm.isHidden, _mm.offset);
@@ -75,6 +77,7 @@ void Media::setupTouchVid(MediaModel _mm){
         ofLogNotice() << "pause here for a sec.";
         mediaType = TOUCHVIDEO;
         setup("",_mm.src,_mm.pos.x,_mm.pos.y,0,_mm.mClass,-1,_mm.isHidden,0);
+        setFlipMode(_mm.flip);
     }
 }
 
@@ -350,16 +353,15 @@ void Media::draw(float scale){
     
     ofEnableBlendMode(blendMode);
     
+    float flipModifier  = 1.0f;
+    if(flipMode>0) flipModifier = -1.0f;
+    
     if (mediaType==IMGMEDIA){
-        img->draw(x,y, img->width*scale, img->height*scale);
+        img->draw(x,y, img->width*scale*flipModifier, img->height*scale);
     } else if(mediaType==VIDMEDIA || mediaType == TOUCHVIDEO){        
-            vid->draw(x, y, vid->width*scale, vid->height*scale);
+            vid->draw(x, y, vid->width*scale*flipModifier, vid->height*scale);
     } else if(mediaType == SEGMEDIA){
-        if(flipMode>0){
-            segVid->draw(x, y, segVid->width*scale*-1, segVid->height*scale);
-        } else {
-            segVid->draw(x, y, segVid->width*scale, segVid->height*scale);
-        }
+            segVid->draw(x, y, segVid->width*scale*flipModifier, segVid->height*scale);
     }
 
 }

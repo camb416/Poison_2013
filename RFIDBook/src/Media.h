@@ -89,7 +89,14 @@ public:
     // setters //////////////////////////////////////////////
     void setBlend(ofBlendMode _blendMode){ blendMode = _blendMode; }
     void setLoopCount(int _loopCount){ loopCount = _loopCount; }
-    void setFlipMode(int _flipMode){ flipMode = _flipMode; }
+    void setFlipMode(int _flipMode){
+        // sanitize input
+        if(_flipMode==1){
+            flipMode = 1;
+        } else {
+            flipMode = 0;
+        }
+    }
     void setBorder(bool _showBorder);
     void setDraggable(bool _bDrag);
     void setPosition(float _x, float _y);

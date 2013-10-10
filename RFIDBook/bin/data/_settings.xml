@@ -17,7 +17,7 @@
     </Button_SAVE_BOOK>
     <Toggle_FULLSCREEN>
         <name>FULLSCREEN</name>
-        <value>1</value>
+        <value>0</value>
     </Toggle_FULLSCREEN>
     <Toggle_EDIT_CROP>
         <name>EDIT CROP</name>
