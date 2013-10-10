@@ -15,6 +15,8 @@ BookView::BookView(){
     isSetup = false;
     cout << "OKAY, THE BOOKVIEW EXISTS... HERE'S THE CONSTRUCTOR TO PROVE IT" << endl;
     isBusy = true;
+    touchPromptVisible = false;
+    whichTouchPromptIsVisible = -1;
 }
 BookView::~BookView(){
     
@@ -374,10 +376,22 @@ int BookView::touchPrompt(int _whichPrompt){
     
     ofLogNotice() << "received a touchPrompt# " << _whichPrompt << " at " << ofGetElapsedTimef();
     
-    if(!touchPromptVisible){
+    string newPromptClass = "";
+    string oldPromptClass= "";
+    
+    newPromptClass = "touch" + ofToString(_whichPrompt);
+    if(touchPromptVisible && whichTouchPromptIsVisible>=0) oldPromptClass = "touch" + ofToString(whichTouchPromptIsVisible);
+
+    
+    if(touchPromptVisible && oldPromptClass!="") hideCurrentMediaByClassName(oldPromptClass);
+
+    
+    if(_whichPrompt>=0){
+        showCurrentMediaByClassName(newPromptClass);
         touchPromptVisible = true;
-        return 0;//showCurrentMediaByClassName("touch0");
-    } else {
-        return -1;
+        whichTouchPromptIsVisible = _whichPrompt;
     }
+    
+    return 0;
+    
 }

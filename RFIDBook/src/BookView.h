@@ -82,6 +82,7 @@ private:
     bool isBusy;
     
     bool touchPromptVisible;
+    int whichTouchPromptIsVisible;
     
     
 

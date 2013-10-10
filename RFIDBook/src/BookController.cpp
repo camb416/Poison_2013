@@ -123,13 +123,13 @@ void BookController::update(){
         
         if(promptCount==-1){
             // first prompt sent
-            bookView->touchPrompt(0);
-            promptCount++;
+            bookView->touchPrompt(++promptCount);
+
             lastSentPrompt = ofGetElapsedTimef();
         }else if((ofGetElapsedTimef() - lastSentPrompt) > timeBetweenPrompts){
-            if(promptCount<numTouchPrompts){
-                bookView->touchPrompt(promptCount);
-                promptCount++;
+            if(promptCount<(numTouchPrompts-1)){
+                bookView->touchPrompt(++promptCount);
+
                 lastSentPrompt = ofGetElapsedTimef();
             } else {
                 // its over, send it a -1
@@ -140,7 +140,7 @@ void BookController::update(){
             
         } else {
             // outlier
-            ofLogNotice() << "outlier" ;
+            // ofLogNotice() << "outlier" ;
         }
         
     }
