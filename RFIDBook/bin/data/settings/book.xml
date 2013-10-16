@@ -5,7 +5,7 @@
     <Media x="923" y="576" src="be/all_txt.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1461" y="125" src="be/be_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1208" y="589" src="be/be_three_fates.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1617" y="586" src="be/be_witch.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="1568" y="561" src="be/be_witch.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="482" y="649" src="be/belladonna_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1271" y="570" src="touch_circle1.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="530" pulse="3" flip="0"></Media>
     <Media x="610" y="856" src="touch_txt1.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="10000" pulse="0" flip="0"></Media>
@@ -17,6 +17,8 @@
     <Media x="659" y="1215" src="hand1.png" class="touch0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
     <Media x="1378" y="984" src="hand2.png" class="touch1" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
     <Media x="1592" y="946" src="hand3.png" class="touch2" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
+    <Media x="1415" y="662" src="mo/wo_hunter29.mov" class="1" auto="1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
+    <Media x="1425" y="641" src="mo/wo_cerberus16.mov" class="0" auto="1" loopback="-1" hidden="1" offset="650" pulse="0" flip="0"></Media>
 </Page>
 <Page>
     
@@ -30,7 +32,10 @@
     <Media x="960" y="600" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="659" y="1215" src="hand1.png" class="touch0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
     <Media x="1378" y="984" src="hand2.png" class="touch1" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1592" y="946" src="hand3.png" class="touch2" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media></Page>
+    <Media x="1592" y="946" src="hand3.png" class="touch2" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
+    <Media x="1415" y="662" src="mo/wo_hunter29.mov" class="1" auto="1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
+    <Media x="1425" y="641" src="mo/wo_cerberus16.mov" class="0" auto="1" loopback="-1" hidden="1" offset="650" pulse="0" flip="0"></Media>
+</Page>
 <Page>
     
     <Media x="588" y="632" src="mo/monkshood_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
@@ -46,7 +51,8 @@
     <Media x="1046" y="647" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="659" y="1215" src="hand1.png" class="touch0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
     <Media x="1378" y="984" src="hand2.png" class="touch1" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1592" y="946" src="hand3.png" class="touch2" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media></Page>
+    <Media x="1592" y="946" src="hand3.png" class="touch2" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
+</Page>
 <Page>
     
     <Media x="560" y="661" src="rh/rhododendron_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
@@ -55,6 +61,7 @@
     <Media x="1557" y="631" src="rh/rh_sweet_victory.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="300" pulse="0" flip="0"></Media>
     <Media x="1246" y="635" src="rh/rh_kill_goats.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="350" pulse="0" flip="0"></Media>
     <Media x="1417" y="694" src="rh/sweet_victory_V3.mov" class="1" auto="1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
+    <Media x="1425" y="641" src="mo/wo_cerberus16.mov" class="0" auto="1" loopback="-1" hidden="1" offset="650" pulse="0" flip="0"></Media>
     <Media x="1408" y="693" src="rh/goat-video.mov" class="0" auto="-1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
     <Media x="1265" y="647" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="530" pulse="1" flip="0"></Media>
     <Media x="1571" y="743" src="cir_A_combined.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="2" flip="0"></Media>
@@ -62,7 +69,8 @@
     <Media x="960" y="600" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="659" y="1215" src="hand1.png" class="touch0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
     <Media x="1378" y="984" src="hand2.png" class="touch1" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1592" y="946" src="hand3.png" class="touch2" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media></Page>
+    <Media x="1592" y="946" src="hand3.png" class="touch2" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
+</Page>
 
 
 </Book>
