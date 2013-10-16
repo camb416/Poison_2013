@@ -153,6 +153,7 @@
 		32896C2117F0B5070026DD8D /* ofxQuadCrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxQuadCrop.h; path = ../quadtest/src/ofxQuadCrop.h; sourceTree = "<group>"; };
 		32896C2217F0B5070026DD8D /* ofxQuadImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxQuadImage.cpp; path = ../quadtest/src/ofxQuadImage.cpp; sourceTree = "<group>"; };
 		32896C2317F0B5070026DD8D /* ofxQuadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxQuadImage.h; path = ../quadtest/src/ofxQuadImage.h; sourceTree = "<group>"; };
+		32B2B999180F332A00BD01FD /* _settings.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = _settings.xml; path = bin/data/_settings.xml; sourceTree = "<group>"; };
 		33067f54b52161835b50408dca636f93 /* ofxSimpleGuiToggle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSimpleGuiToggle.h; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiToggle.h; sourceTree = SOURCE_ROOT; };
 		37be47726868d2acd7e5ce49194a7984 /* ofxSimpleGuiColorPicker.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSimpleGuiColorPicker.cpp; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiColorPicker.cpp; sourceTree = SOURCE_ROOT; };
 		39b743be64c2fc3fc8c221637b98639e /* ofxSimpleGuiQuadWarp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSimpleGuiQuadWarp.cpp; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiQuadWarp.cpp; sourceTree = SOURCE_ROOT; };
@@ -506,6 +507,7 @@
 			children = (
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
+				32B2B999180F332A00BD01FD /* _settings.xml */,
 				1B74ADD31796E98A00890989 /* book.xml */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,

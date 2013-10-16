@@ -397,7 +397,7 @@ void BookView::loadPages(){
 
 int BookView::touchPrompt(int _whichPrompt){
     
-    ofLogNotice() << "received a touchPrompt# " << _whichPrompt << " at " << ofGetElapsedTimef();
+    //ofLogNotice() << "received a touchPrompt# " << _whichPrompt << " at " << ofGetElapsedTimef();
     
     string newPromptClass = "";
     string oldPromptClass= "";

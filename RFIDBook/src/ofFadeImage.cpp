@@ -13,7 +13,7 @@ ofFadeImage::ofFadeImage(){
     showBorder = false;
     tweenDivisor = 8.0f;
     pulseOrigin = ofRandomuf()*TWO_PI;
-        isFading = false;
+    isFading = false;
     path="";
 }
 
@@ -32,12 +32,11 @@ void ofFadeImage::setup(string filename_in){
 void ofFadeImage::update(){
     // for testing
     //if(path=="assets/common/cir_A_combined.png"){
-        //string hiddenString;
-        //ofLogNotice() << "circle: " << alpha << ", " << alphaDest;
-   // }
+    //string hiddenString;
+    //ofLogNotice() << "circle: " << alpha << ", " << alphaDest;
+    // }
     if(pulseType>0){
         pulseVal = pulseOrigin+ofGetElapsedTimef()*2.0f;
-        
     } else {
         pulseVal = 0.0f;
     }
@@ -55,7 +54,6 @@ void ofFadeImage::draw(int x_in, int y_in){
     
     if(alpha>0.05){
         ofSetColor(255,255,255,alpha*255);
-        //ofSetColor(0,0,0,alpha*255);
         ofImage::draw(x_in, y_in,myscale*getWidth(),myscale*getHeight());
     }
     if(showBorder){
