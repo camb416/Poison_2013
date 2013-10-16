@@ -789,7 +789,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "307"
             endingLineNumber = "307"
-            landmarkName = "BookView::playVideoByClassName(string _classname)"
+            landmarkName = "BookView::playSegmentedVideo()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

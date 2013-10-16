@@ -197,19 +197,27 @@ void BookView::savePageLayout(){
     // temporarily adding this back in...
     
     ofBuffer buff;
-    string wholeXML = "<Book>\n\r";
+    string wholeXML_str = "<Book>\n\r";
+    
+    ofxXmlSettings wholeXML_xml;
+    wholeXML_xml.addTag("Book");
+    wholeXML_xml.setAttribute("Book", "promptTimeout", 30.0f,0); // touch prompt timeout (in seconds)
+    wholeXML_xml.setAttribute("Book", "promptDuration", 3.0f,0); // touch prompt duration (in seconds)
+    wholeXML_xml.setAttribute("Book", "numPrompts", 3.0f,0);
+    
+    
     ofFile outFile;
     
     for(int i=0;i<mediaPages.size();i++){
         string myString;
         ofxXmlSettings xml = mediaPages.at(i)->getXML();
         xml.copyXmlToString(myString);
-        wholeXML += myString;
+        wholeXML_str += myString;
     }
-    wholeXML += "\n\r</Book>";
-    cout << wholeXML << endl;
+    wholeXML_str += "\n\r</Book>";
+    cout << wholeXML_str << endl;
     
-    buff.set(wholeXML);
+    buff.set(wholeXML_str);
     
     bool written = ofBufferToFile("settings/book.xml", buff);
     
