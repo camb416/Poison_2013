@@ -18,17 +18,12 @@ BookView::BookView(){
     touchPromptVisible = false;
     whichTouchPromptIsVisible = -1;
     bSuppressTouchPrompt = false;
-    bShowGrid = false;
-    grid_img.loadImage("assets/common/10pxgrid.png");
-}
+    }
 BookView::~BookView(){
     
 }
 
-int BookView::toggleGrid(){
-    bShowGrid = !bShowGrid;
-    return 0;
-}
+
 
 void BookView::showDragUI(){
 
@@ -70,7 +65,7 @@ void BookView::draw(){
 void BookView::draw(int x_in, int y_in, int debugState){
     
     
-    if(!bShowGrid){
+
     
     // Debug draw
     if(debugState>0){
@@ -98,10 +93,7 @@ void BookView::draw(int x_in, int y_in, int debugState){
         }
         ofPopMatrix();
     }
-    } else {
-        ofSetColor(255,255,255,255);
-        grid_img.draw(0,0);
-    }
+
 }
 
 // Add all media elements and add to page

@@ -2,7 +2,19 @@
 
 BookApp::BookApp(){
     isSetup = false;
+    bShowGrid = 0;
+    grid_img.loadImage("assets/common/10pxgrid.png");
+
 }
+
+int BookApp::toggleGrid(){
+    if(++bShowGrid >2){
+        bShowGrid = 0;
+    }
+    
+    return 0;
+}
+
 BookApp::~BookApp(){
     devices.stopThread();
     ofBaseApp::~ofBaseApp();
@@ -77,14 +89,16 @@ void BookApp::update(){
 
 //--------------------------------------------------------------
 void BookApp::draw(){
+    
+    
     ofEnableAlphaBlending();
-  //  if(debugState>0){
+   
+    ofSetColor(255,255,255);
+        if(bShowGrid==0) bookView.draw(0,0);
+        if(bShowGrid!=0) grid_img.draw(0,0);
+        if(bShowGrid!=1) cropper.draw();
+        if(bShowGrid!=1) quadImage.draw();
 
-  //  } else {
-        bookView.draw(0,0);
-   // }
-    cropper.draw();
-    quadImage.draw();
     
     dui.draw();
     
@@ -112,7 +126,7 @@ void BookApp::keyPressed(int key){
             
             case 'g':
             case 'G':
-                bookView.toggleGrid();
+                toggleGrid();
             break;
             
             case '=':

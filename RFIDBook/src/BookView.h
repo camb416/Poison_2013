@@ -69,11 +69,10 @@ public:
     int touchPrompt(int _whichPrompt);
     int suppressTouch(bool _bSuppressTouchPrompt);
     
-    int toggleGrid();
+
     
 private:
     
-    bool bShowGrid;
     
     ofImage backplate;
     int currentPage;
@@ -90,7 +89,6 @@ private:
     int whichTouchPromptIsVisible;
     bool bSuppressTouchPrompt;
     
-    ofImage grid_img;
     
     
 

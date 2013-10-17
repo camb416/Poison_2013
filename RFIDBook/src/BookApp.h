@@ -57,6 +57,11 @@ class BookApp : public ofBaseApp{
         bool useTouch;
     
         ofxQuadCrop cropper;
-    ofxQuadImage quadImage;
+        ofxQuadImage quadImage;
+        ofImage grid_img;
+    
+private:
+        int toggleGrid();
+    int bShowGrid;
 		
 };

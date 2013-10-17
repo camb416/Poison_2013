@@ -280,11 +280,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/BookApp.cpp"
-            timestampString = "398637077.229644"
+            timestampString = "403719974.694403"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "BookApp::setup()"
             landmarkType = "5">
          </BreakpointContent>
@@ -738,11 +738,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/BookView.cpp"
-            timestampString = "403719411.275588"
+            timestampString = "403719974.694403"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
             landmarkName = "BookView::playSegmentedVideo()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1090,11 +1090,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/BookView.cpp"
-            timestampString = "403719411.275588"
+            timestampString = "403719974.694403"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
             landmarkName = "BookView::showCurrentMediaByClassName(string _classname,string _showWhenDone)"
             landmarkType = "5">
          </BreakpointContent>
