@@ -17,9 +17,17 @@ BookView::BookView(){
     isBusy = true;
     touchPromptVisible = false;
     whichTouchPromptIsVisible = -1;
+    bSuppressTouchPrompt = false;
+    bShowGrid = false;
+    grid_img.loadImage("assets/common/10pxgrid.png");
 }
 BookView::~BookView(){
     
+}
+
+int BookView::toggleGrid(){
+    bShowGrid = !bShowGrid;
+    return 0;
 }
 
 void BookView::showDragUI(){
@@ -60,7 +68,10 @@ void BookView::draw(){
     draw(0,0,0);
 }
 void BookView::draw(int x_in, int y_in, int debugState){
-        
+    
+    
+    if(!bShowGrid){
+    
     // Debug draw
     if(debugState>0){
     ofSetColor(255);
@@ -86,6 +97,10 @@ void BookView::draw(int x_in, int y_in, int debugState){
             mediaPages.at(i)->draw(0,0,1.0f);
         }
         ofPopMatrix();
+    }
+    } else {
+        ofSetColor(255,255,255,255);
+        grid_img.draw(0,0);
     }
 }
 
@@ -397,7 +412,7 @@ void BookView::loadPages(){
 
 int BookView::touchPrompt(int _whichPrompt){
     
-    //ofLogNotice() << "received a touchPrompt# " << _whichPrompt << " at " << ofGetElapsedTimef();
+    if(!bSuppressTouchPrompt){
     
     string newPromptClass = "";
     string oldPromptClass= "";
@@ -423,5 +438,18 @@ int BookView::touchPrompt(int _whichPrompt){
     }
     
     return 0;
+    } else {
+        // touchprompts are being suppressed,
+        // don't do ANYTHING. It's probably because
+        // the videos are playing or something.
+        return -1;
+    }
     
+}
+int BookView::suppressTouch(bool _bSuppress){
+    // TODO: IMplement this functionality for the
+    // videos to suppress the prompts.
+    bSuppressTouchPrompt = _bSuppress;
+    
+    return -1;
 }

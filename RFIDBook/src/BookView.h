@@ -67,8 +67,13 @@ public:
     LanguageController * lang;
     
     int touchPrompt(int _whichPrompt);
+    int suppressTouch(bool _bSuppressTouchPrompt);
+    
+    int toggleGrid();
     
 private:
+    
+    bool bShowGrid;
     
     ofImage backplate;
     int currentPage;
@@ -83,6 +88,9 @@ private:
     
     bool touchPromptVisible;
     int whichTouchPromptIsVisible;
+    bool bSuppressTouchPrompt;
+    
+    ofImage grid_img;
     
     
 

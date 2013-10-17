@@ -110,6 +110,11 @@ void BookApp::keyPressed(int key){
                 bookView.touch(key-48); // send the int of the key
             break;
             
+            case 'g':
+            case 'G':
+                bookView.toggleGrid();
+            break;
+            
             case '=':
             case '+':
             
