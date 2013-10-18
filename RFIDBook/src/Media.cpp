@@ -24,6 +24,7 @@ Media::Media(){
     fadeVal = 8.0f;
     blendMode = OF_BLENDMODE_DISABLED;
     flipMode = 0;
+    bSuppressPrompts = false;
     
 }
 Media::~Media(){}
@@ -293,6 +294,12 @@ void Media::update(){
                         if(showWhenDone_str.length()>0){
                             viewRef->showCurrentMediaByClassName(showWhenDone_str);
                             showWhenDone_str = "";
+                            if(bSuppressPrompts){
+                                // unsuppress the prompts in the view
+                                ofLogNotice() << "UNSUPPRESSING THE TOUCH PROMPTS";
+                                viewRef->suppressTouch(false);
+                                bSuppressPrompts = false;
+                            }
                         }
   
                     }

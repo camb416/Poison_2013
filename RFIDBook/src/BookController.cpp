@@ -16,7 +16,7 @@ BookController::BookController(){
     //lastTouchPage = -1;
     checkedForRFIDTimeout = false;
     lastReceivedTouch = 0.0f;
-    touchTimeOut = 30.0f;                 // TIMEOUT LENGTH
+    touchTimeOut = 5.0f;                 // TIMEOUT LENGTH
     timeBetweenPrompts = 2.0f;              // TIME BETWEEN THE TOUCH PROMPTS
     numTouchPrompts = 3;                    // how many touch prompts?
     promptCount = -1;

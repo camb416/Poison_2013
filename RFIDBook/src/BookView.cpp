@@ -276,6 +276,7 @@ int BookView::hideCurrentMediaByClassName(string _classname){
     }
     return returnVal;
 }
+
 int BookView::showCurrentMediaByClassName(string _classname){
     int returnVal = 0;
     if(currentPage>=0){
@@ -292,19 +293,22 @@ int BookView::showCurrentMediaByClassName(string _classname){
     return returnVal;
 }
 
-int BookView::showCurrentMediaByClassName(string _classname,string _showWhenDone){
+int BookView::showCurrentMediaByClassName(string _classname,string _showWhenDone, bool _suppressPrompts){
+    
+    suppressTouch(_suppressPrompts);
+    
     int returnVal = 0;
-        if(currentPage>=0){
-    vector<Media*> mediaToShow = mediaPages.at(currentPage)->getMediaByClassName(_classname);
-    for(int i=0;i<mediaToShow.size();i++){
-        if(mediaToShow.at(i)->show()!=0){
-            returnVal = -1;
+    if(currentPage>=0){
+        vector<Media*> mediaToShow = mediaPages.at(currentPage)->getMediaByClassName(_classname);
+        for(int i=0;i<mediaToShow.size();i++){
+            if(mediaToShow.at(i)->show()!=0){
+                returnVal = -1;
+            }
+            mediaToShow.at(i)->showWhenDone(_showWhenDone, _suppressPrompts);
         }
-        mediaToShow.at(i)->showWhenDone(_showWhenDone);
+    } else {
+        returnVal = -1;
     }
-        } else {
-            returnVal = -1;
-        }
     return returnVal;
 }
 
@@ -335,13 +339,13 @@ int BookView::touch(int _whichSensor){
                 case 0:
                     if(hideCurrentMediaByClassName("rhp")==0){
                         ofLogNotice() << "success. showing the rhp media.";
-                       showCurrentMediaByClassName("0","rhp"); 
+                       showCurrentMediaByClassName("0","rhp", true);
                     } else {
                         ofLogNotice() << "failed. not showing the rhp media";
                     }
                     break;
                 case 1:
-                    if(hideCurrentMediaByClassName("rhp")==0) showCurrentMediaByClassName("1","rhp");
+                    if(hideCurrentMediaByClassName("rhp")==0) showCurrentMediaByClassName("1","rhp",true);
                     break;
                 case 2:
                     playSegmentedVideo();
@@ -439,9 +443,14 @@ int BookView::touchPrompt(int _whichPrompt){
     
 }
 int BookView::suppressTouch(bool _bSuppress){
-    // TODO: IMplement this functionality for the
-    // videos to suppress the prompts.
-    bSuppressTouchPrompt = _bSuppress;
     
-    return -1;
+    // double-call hide touchprompt so it's called regardless of the
+    // bool parameter accepted (c'mon, you've seen worse.)
+    
+    ofLogNotice() << "SUPPRESS TOUCH: " << _bSuppress;
+    touchPrompt(-1);
+    bSuppressTouchPrompt = _bSuppress;
+    touchPrompt(-1);
+    
+    return 0;
 }

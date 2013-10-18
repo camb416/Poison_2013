@@ -103,7 +103,10 @@ public:
     void moveTo(int _x, int _y);
     
     void registerView(BookView * _viewRef){ viewRef = _viewRef; }
-    int showWhenDone(string _showWhenDone){ showWhenDone_str = _showWhenDone; }
+    int showWhenDone(string _showWhenDone, bool _suppressPrompts){
+        showWhenDone_str = _showWhenDone;
+        bSuppressPrompts = _suppressPrompts;
+    }
     
     /////////////////////////////////////////////////////////
     
@@ -115,6 +118,7 @@ private:
     int curLoopCount;
     ofBlendMode blendMode;
     string showWhenDone_str;
+    bool bSuppressPrompts;
     bool isDraggable;
     bool isDragging;
     string imgFileName;
