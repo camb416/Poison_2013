@@ -4,15 +4,15 @@
     
     <Media x="923" y="576" src="be/all_txt.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1461" y="125" src="be/be_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1208" y="589" src="be/be_three_fates.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1568" y="561" src="be/be_witch.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="1208" y="589" src="be/be_three_fates.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="1568" y="561" src="be/be_witch.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="482" y="649" src="be/belladonna_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1271" y="570" src="touch_circle1.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="530" pulse="3" flip="0"></Media>
-    <Media x="610" y="856" src="touch_txt1.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="10000" pulse="0" flip="0"></Media>
+    <Media x="610" y="856" src="touch_txt1.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="100" pulse="0" flip="0"></Media>
     <Media x="1561" y="540" src="touch_circle2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3" flip="0"></Media>
-    <Media x="1343" y="658" src="touch_txt2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="11000" pulse="0" flip="0"></Media>
+    <Media x="1343" y="658" src="touch_txt2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="110" pulse="0" flip="0"></Media>
     <Media x="488" y="840" src="touch_circle3.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3" flip="0"></Media>
-    <Media x="1687" y="600" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="12000" pulse="0" flip="0"></Media>
+    <Media x="1687" y="600" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="120" pulse="0" flip="0"></Media>
     <Media x="960" y="600" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="659" y="1215" src="hand1.png" class="touch0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
     <Media x="1378" y="984" src="hand2.png" class="touch1" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
@@ -24,15 +24,15 @@
     
     <Media x="1485" y="207" src="he/he_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="960" y="600" src="he/he_txt.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1419" y="678" src="he/he_socrates.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="1419" y="678" src="he/he_socrates.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="596" y="649" src="he/conium_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1271" y="570" src="touch_circle1.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="530" pulse="3" flip="0"></Media>
 
-    <Media x="610" y="856" src="touch_txt1.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="10000" pulse="0" flip="0"></Media>
+    <Media x="610" y="856" src="touch_txt1.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="100" pulse="0" flip="0"></Media>
     <Media x="1561" y="540" src="touch_circle2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3" flip="0"></Media>
-    <Media x="1343" y="658" src="touch_txt2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="11000" pulse="0" flip="0"></Media>
+    <Media x="1343" y="658" src="touch_txt2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="110" pulse="0" flip="0"></Media>
     <Media x="488" y="840" src="touch_circle3.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3" flip="0"></Media>
-    <Media x="1687" y="600" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="12000" pulse="0" flip="0"></Media>
+    <Media x="1687" y="600" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="120" pulse="0" flip="0"></Media>
     <Media x="960" y="600" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="659" y="1215" src="hand1.png" class="touch0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
     <Media x="1378" y="984" src="hand2.png" class="touch1" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
@@ -51,11 +51,11 @@
     <Media x="1425" y="641" src="mo/wo_cerberus16.mov" class="0" auto="1" loopback="-1" hidden="1" offset="650" pulse="0" flip="0"></Media>
     <Media x="1271" y="570" src="touch_circle1.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="530" pulse="3" flip="0"></Media>
 
-    <Media x="610" y="856" src="touch_txt1.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="10000" pulse="0" flip="0"></Media>
+    <Media x="610" y="856" src="touch_txt1.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="100" pulse="0" flip="0"></Media>
     <Media x="1561" y="540" src="touch_circle2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3" flip="0"></Media>
-    <Media x="1343" y="658" src="touch_txt2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="11000" pulse="0" flip="0"></Media>
+    <Media x="1343" y="658" src="touch_txt2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="110" pulse="0" flip="0"></Media>
     <Media x="488" y="840" src="touch_circle3.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3" flip="0"></Media>
-    <Media x="1687" y="600" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="12000" pulse="0" flip="0"></Media>
+    <Media x="1687" y="600" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="120" pulse="0" flip="0"></Media>
     <Media x="1046" y="647" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="659" y="1215" src="hand1.png" class="touch0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
     <Media x="1378" y="984" src="hand2.png" class="touch1" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
@@ -73,11 +73,11 @@
     <Media x="1408" y="693" src="be/Witch.mov" class="0" auto="-1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
     <Media x="1271" y="570" src="touch_circle1.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="530" pulse="3" flip="0"></Media>
 
-    <Media x="610" y="856" src="touch_txt1.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="10000" pulse="0" flip="0"></Media>
+    <Media x="610" y="856" src="touch_txt1.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="100" pulse="0" flip="0"></Media>
     <Media x="1561" y="540" src="touch_circle2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3" flip="0"></Media>
-    <Media x="1343" y="658" src="touch_txt2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="11000" pulse="0" flip="0"></Media>
+    <Media x="1343" y="658" src="touch_txt2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="110" pulse="0" flip="0"></Media>
     <Media x="488" y="840" src="touch_circle3.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3" flip="0"></Media>
-    <Media x="1687" y="600" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="12000" pulse="0" flip="0"></Media>
+    <Media x="1687" y="600" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="120" pulse="0" flip="0"></Media>
     <Media x="960" y="600" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="659" y="1215" src="hand1.png" class="touch0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
     <Media x="1378" y="984" src="hand2.png" class="touch1" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
