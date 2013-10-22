@@ -289,7 +289,10 @@ void Media::update(){
                         vid->setFrame(frameToLoopTo);
                         curLoopCount++;
                     } else {
-                        if(mediaType==VIDMEDIA) hide();
+                        if(mediaType==VIDMEDIA){
+                         hide();
+                            ofLogNotice() << "HIDE DAT VIDEO";
+                        }
                         vid->stop();
                         if(showWhenDone_str.length()>0){
                             viewRef->showCurrentMediaByClassName(showWhenDone_str);
