@@ -141,12 +141,13 @@ bool DebugUI::getDragSetting(){
 void DebugUI::draw(){
     
     if(isVisible){
-        ofPushMatrix();
-        ofTranslate(150,0);
+
         ofEnableAlphaBlending();
         ofSetColor(255,255,255,128);
         ofFill();
         ofRect(0,0,ofGetWidth(),ofGetHeight());
+        ofPushMatrix();
+        ofTranslate(150,0);
         ofSetColor(255,255,255,255);
         devices->draw(10,300);
         tfield.draw();

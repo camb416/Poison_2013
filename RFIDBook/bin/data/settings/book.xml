@@ -23,27 +23,23 @@
     
     <Media x="1485" y="207" src="he/he_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="960" y="600" src="he/he_txt.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1419" y="678" src="he/he_socrates.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="1399" y="657" src="he/he_socrates.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="596" y="649" src="he/conium_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1271" y="570" src="touch_circle1.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="530" pulse="3" flip="0"></Media>
     <Media x="610" y="856" src="touch_txt1.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="100" pulse="0" flip="0"></Media>
-    <Media x="1561" y="540" src="touch_circle2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3" flip="0"></Media>
-    <Media x="1343" y="658" src="touch_txt2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="110" pulse="0" flip="0"></Media>
     <Media x="488" y="840" src="touch_circle3.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3" flip="0"></Media>
-    <Media x="1687" y="600" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="120" pulse="0" flip="0"></Media>
+    <Media x="1389" y="614" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="120" pulse="0" flip="0"></Media>
     <Media x="960" y="600" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="659" y="1215" src="hand1.png" class="touch0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
     <Media x="1378" y="984" src="hand2.png" class="touch1" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1592" y="946" src="hand3.png" class="touch2" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1415" y="662" src="mo/wo_hunter30.mov" class="1" auto="1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
-    <Media x="1425" y="641" src="mo/wo_cerberus16.mov" class="0" auto="1" loopback="-1" hidden="1" offset="650" pulse="0" flip="0"></Media>
+    <Media x="1415" y="662" src="he/death_of_socrates6.mov" class="0" auto="1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
 </Page>
 <Page>
     
     <Media x="588" y="632" src="mo/monkshood_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="960" y="600" src="mo/mo_txt.png" class="" auto="-1" loopback="-1" hidden="0" offset="100" pulse="0" flip="0"></Media>
     <Media x="1342" y="203" src="mo/mo_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="250" pulse="0" flip="0"></Media>
-    <Media x="1590" y="865" src="mo/banner_wolfsbane.mov" class="rhp" auto="1" loopback="1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="1550" y="524" src="mo/banner_wolfsbane.mov" class="rhp" auto="1" loopback="1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1552" y="640" src="mo/mo_wolf.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="300" pulse="0" flip="0"></Media>
     <Media x="1223" y="659" src="mo/mo_cerberus.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="350" pulse="0" flip="0"></Media>
     <Media x="1415" y="662" src="mo/wo_hunter30.mov" class="1" auto="1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
