@@ -278,9 +278,9 @@ void Media::update(){
                 if(mediaType==VIDMEDIA || mediaType == TOUCHVIDEO){
                 
                     bool doLoop = false;
-                    if(curLoopCount<loopCount) doLoop = true;
-                    if(loopCount<0) doLoop = true;
-                    
+                    //if(curLoopCount<loopCount) doLoop = true;
+                    //if(loopCount<0) doLoop = true;
+                    if(loopback>-1) doLoop = true;
 
                     if(doLoop){
                         // loop
