@@ -135,7 +135,6 @@ private:
     bool isHiddenByDefault;
     
     int offset;
-    int fadeInOffset;
     int whenToShow;
     float fadeVal;
     

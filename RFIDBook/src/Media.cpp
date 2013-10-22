@@ -25,6 +25,7 @@ Media::Media(){
     blendMode = OF_BLENDMODE_DISABLED;
     flipMode = 0;
     bSuppressPrompts = false;
+    isHidden = true;
     
 }
 Media::~Media(){}
@@ -38,7 +39,7 @@ void Media::setup(string mediaFile, float _x, float _y, string _tapId, bool _isH
     imgFileName = mediaFile;
     setPosition(_x, _y);
     
-    isHidden = true;
+    //isHidden = true;
     isHiddenByDefault = _isHidden;
     
     //hasVid = false;
@@ -93,22 +94,18 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
     setPosition(_x, _y);
     
     mClass = _tapId;
-    isHidden = isHiddenByDefault = _isHidden;
+    isHiddenByDefault = _isHidden;
+    //isHidden = true;
     
     if(mediaType<0){
         if(_imgFile.length()>3){
             if(_vidFile.length()>3){
                 mediaType = DUALMEDIA;
-
-                
             } else {
                 mediaType = IMGMEDIA;
-                
             }
-            
         } else if(_vidFile.length()>3){
             mediaType = VIDMEDIA;
-
         } else {
             mediaType = UNKNOWNMEDIA;
         }
@@ -151,7 +148,7 @@ void Media::setup(string _imgFile, string _vidFile, float _x, float _y, int _aut
         
         autoplay = _autoplay;
         loopback = _loopback;
-           vid->fadeOut(-1);
+        vid->fadeOut(-1);
     }
     if(mediaType==IMGMEDIA || mediaType==DUALMEDIA){
         imgFileName = _imgFile;

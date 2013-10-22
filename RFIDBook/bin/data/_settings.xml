@@ -1,7 +1,7 @@
 <controls>
     <Toggle_EDIT_BOOK>
         <name>EDIT BOOK</name>
-        <value>1</value>
+        <value>0</value>
     </Toggle_EDIT_BOOK>
     <Button_DEFAULT_BOOK>
         <name>DEFAULT BOOK</name>
