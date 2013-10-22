@@ -1,5 +1,6 @@
 <Book>
-<Page>
+
+<Page>
     
     <Media x="923" y="576" src="be/all_txt.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1461" y="125" src="be/be_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
@@ -15,7 +16,6 @@
     <Media x="960" y="600" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="659" y="1215" src="hand1.png" class="touch0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
     <Media x="1378" y="984" src="hand2.png" class="touch1" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1592" y="946" src="hand3.png" class="touch2" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
     <Media x="1415" y="662" src="mo/wo_hunter30.mov" class="1" auto="1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
     <Media x="1425" y="641" src="mo/wo_cerberus16.mov" class="0" auto="1" loopback="-1" hidden="1" offset="650" pulse="0" flip="0"></Media>
 </Page>
@@ -25,14 +25,14 @@
     <Media x="960" y="600" src="he/he_txt.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1399" y="657" src="he/he_socrates.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="596" y="649" src="he/conium_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1271" y="570" src="touch_circle1.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="530" pulse="3" flip="0"></Media>
+    <Media x="1546" y="537" src="touch_circle1.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="530" pulse="3" flip="0"></Media>
     <Media x="610" y="856" src="touch_txt1.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="100" pulse="0" flip="0"></Media>
     <Media x="488" y="840" src="touch_circle3.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="540" pulse="3" flip="0"></Media>
-    <Media x="1389" y="614" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="120" pulse="0" flip="0"></Media>
+    <Media x="1681" y="598" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="120" pulse="0" flip="0"></Media>
     <Media x="960" y="600" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="659" y="1215" src="hand1.png" class="touch0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1378" y="984" src="hand2.png" class="touch1" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1415" y="662" src="he/death_of_socrates6.mov" class="0" auto="1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
+    <Media x="1592" y="946" src="hand3.png" class="touch2" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
+    <Media x="1415" y="662" src="he/death_of_socrates6.mov" class="1" auto="1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
 </Page>
 <Page>
     
@@ -77,4 +77,5 @@
     <Media x="1592" y="946" src="hand3.png" class="touch2" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
 </Page>
 
-</Book>
+
+</Book>
