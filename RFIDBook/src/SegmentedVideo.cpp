@@ -34,7 +34,7 @@ void SegmentedVideo::setup(string fileName){
     
     // start sway
     cue flowerSway;
-    flowerSway.frame = 75;
+    flowerSway.frame = 140;
     flowerSway.gate = NOGATE;
     flowerSway.loopbackCue = -1;
     cues.push_back(flowerSway);
@@ -64,7 +64,7 @@ void SegmentedVideo::setup(string fileName){
     
     // end
     cue end;
-    end.frame = 400;
+    end.frame = 565;
     end.gate = OPENGATE;
     end.loopbackCue = 1;
     cues.push_back(end);
