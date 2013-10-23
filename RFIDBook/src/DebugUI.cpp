@@ -57,12 +57,8 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, Languag
     gui.addToggle("Loose Dragging",bLooseDrag);
     gui.addButton("LOAD IMAGE",loadQuadImageBtn);
     gui.addButton("SAVE IMAGE",saveQuadImageBtn);
-    gui.addFPSCounter();
     
     gui.setAlignRight(true);
-    
-    
-    
     
     gui.loadFromXML();
     
