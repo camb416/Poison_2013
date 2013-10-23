@@ -10,7 +10,21 @@
 
 using namespace std;
 
-
+void DeviceController::loadDeviceDetails(){
+    // 1. load an XML
+    
+    // 2. loop through the xml objects...
+    
+    // 3. for each xml object
+    
+    // 4. push back a new RFIDDevice
+    
+    // 5. using the info in the XML.
+    
+    // 6. Dance
+    
+    // 7. Break
+}
 
 void DeviceController::setup(){
     bSeenRFID = false;

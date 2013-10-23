@@ -28,30 +28,16 @@ struct cue {
 class SegmentedVideo : public ofFadeVideo{
     
 private:
-    //BookView * bookView;
-    
-    
-    
     public:
         SegmentedVideo();
         ~SegmentedVideo();
     
         void setup(string fileName);
         void update();
-        //void draw(float x, float y);
         void touch();
         bool showButton = false;
     
-    //void setView(BookView * _bookView){ bookView = _bookView; }
-    
-        //ofVideoPlayer player;
-        //string animFile = "belladona.mov";
-    
-    
-    
         vector<cue> cues;
-
-    
     
 };
 

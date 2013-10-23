@@ -19,12 +19,17 @@
 
 
 class DeviceController : public ofThread{
+
+private:
+        void loadDeviceDetails(); // use this for putting the details in XML.
+    
 public:
     
     void setup();
     void draw(int _x = 0, int _y = 0);
     void update();
     void report();
+
     
     
     //////////////////////////////////////////
