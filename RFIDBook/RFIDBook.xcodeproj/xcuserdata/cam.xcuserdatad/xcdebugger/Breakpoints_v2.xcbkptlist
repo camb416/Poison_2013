@@ -271,7 +271,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
             endingLineNumber = "69"
-            landmarkName = "DebugUI::setup(DeviceController * _devices, BookController * _book, LanguageController * _lang, BookView * _bookView, BookLoader * _loader, ofxQuadCrop * _cropper, ofxQuadImage * _quadImage)"
+            landmarkName = "DebugUI::update()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
