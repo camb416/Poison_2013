@@ -1,4 +1,7 @@
 <languages>
+    <!-- for each language you want, add it here, and use the id as the folder name in assets -->
 	<language id="en" name="English" />
 	<language id="fr" name="French" />
+    <!--language id="es" name="Spanish" />
+    <language id="cz" name="Czech" /-->
 </languages>

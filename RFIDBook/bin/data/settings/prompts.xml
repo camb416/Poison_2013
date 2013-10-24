@@ -5,7 +5,7 @@
 <!-- how long does each hand stay there before crossfading to the next one -->
 <timebetweenprompts>3.0</timebetweenprompts>
 
-<!-- just keep this to three (the max hands you'll see -->
+<!-- just keep this to three (the max hands you'll see) -->
 <numtouchprompts>3</numtouchprompts>
 
 </settings>

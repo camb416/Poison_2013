@@ -338,7 +338,7 @@ int BookView::touch(int _whichSensor){
             switch(_whichSensor){
                 case 0:
                     if(hideCurrentMediaByClassName("rhp")==0){
-                        ofLogNotice() << "success. showing the rhp media.";
+                        ofLogNotice() << "success. hiding the rhp media.";
                        showCurrentMediaByClassName("0","rhp", true);
                     } else {
                         ofLogNotice() << "failed. not showing the rhp media";
@@ -348,11 +348,8 @@ int BookView::touch(int _whichSensor){
                     if(hideCurrentMediaByClassName("rhp")==0) showCurrentMediaByClassName("1","rhp",true);
                     break;
                 case 2:
-                    playSegmentedVideo();
+                    playSegmentedVideo(); // the seg video assumes that "lhp" will show when ready
                     hideCurrentMediaByClassName("lhp");
-                    break;
-                case 3:
-                    playVideoByClassName("3");
                     break;
                 case 4:
                     if(lang->toggleLanguage()){
@@ -362,13 +359,7 @@ int BookView::touch(int _whichSensor){
                         ofLogWarning() << "toggle language unsuccessful. You might need to wait 5s for the previous language to load first.";
                     }
                     break;
-                case 9:
-                    playVideoByClassName("othervideo");
-                    ofLogNotice() << "trying to play the video";
-                    break;
-                case 8:
-                    playVideoByClassName("heartvid");
-                    break;
+
             }
             break;
     }

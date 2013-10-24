@@ -40,6 +40,7 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, Languag
     tfield.update("Magic Book", 16,760);
     
     gui.hide();
+    
     gui.addTitle("Magic Book");
     gui.addToggle("EDIT BOOK",bDragUIcheckbox);
     gui.addButton("DEFAULT BOOK", defaultXMLbtn);

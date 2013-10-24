@@ -18,6 +18,7 @@ void ofFadeVideo::setBorder(bool _showBorder){
 }
 
 void ofFadeVideo::setup(string filename_in){
+    //closeMovie();
     setPixelFormat(OF_PIXELS_RGBA);
     ofEnableAlphaBlending();
     alpha = 0.0f;

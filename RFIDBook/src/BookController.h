@@ -26,11 +26,19 @@ public:
     
     void setup(DeviceController * deviceController_in, BookView * bookView_in);
     void update();
+    
     bool isPageLanded();
     string getReport();
+    
+    // situations refer to where the RFID sensors are at.
     string whatSituation();
+    
+    // deprecated??
     char touchSituation();
+    
+    // deprecated??
     void forcedInput(char _keyStatus);
+    
     void mousePressed();
     void mouseReleased();
     
