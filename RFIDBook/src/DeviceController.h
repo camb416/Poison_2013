@@ -9,6 +9,7 @@
 #ifndef __RFIDBook__DeviceController__
 #define __RFIDBook__DeviceController__
 
+
 #include "ofMain.h"
 #include <iostream>
 #include "RFIDDevice.h"
@@ -16,12 +17,13 @@
 #include <time.h>  
 #include "MSATimer.h"
 #include "PhidgetConnector.h"
-
+#include "ofxXmlSettings.h"
 
 class DeviceController : public ofThread{
 
 private:
-        void loadDeviceDetails(); // use this for putting the details in XML.
+    void loadDeviceDetails(); // use this for putting the details in XML.
+    ofxXmlSettings device_xml;
     
 public:
     

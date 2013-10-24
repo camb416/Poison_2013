@@ -11,19 +11,63 @@
 using namespace std;
 
 void DeviceController::loadDeviceDetails(){
+    ///////////////////////////////////////////////////////////////////////////
+    //////////////////// rfid-devices.xml /////////////////////////////////////
+    /* ////////////////////////////////////////////////////////////////////////
+     
+     <!-- keep the xml elements in this order, only change the serial numbers -->
+     <devices>
+        <device>
+            <location>top-left</location>
+            <serial>335342</serial>
+        </device>
+         <device>
+             <location>top-right</location>
+             <serial>335300</serial>
+         </device>
+         <device>
+             <location>middle-left</location>
+             <serial>335334</serial>
+         </device>
+         <device>
+             <location>middle-right</location>
+             <serial>335095</serial>
+         </device>
+         <device>
+             <location>bottom-left</location>
+             <serial>335113</serial>
+         </device>
+         <device>
+             <location>bottom-right</location>
+             <serial>335290</serial>
+         </device>
+     </devices>
+     */
+
+    ///////////////////////////////////////////////////////////////////////////
+    //////////////////// //////////////// /////////////////////////////////////
+    
     // 1. load an XML
+    device_xml.loadFile("rfid-devices.xml");
+    device_xml.pushTag("devices");
     
-    // 2. loop through the xml objects...
+    int numDeviceElems = device_xml.getNumTags("device");
     
-    // 3. for each xml object
-    
-    // 4. push back a new RFIDDevice
-    
-    // 5. using the info in the XML.
-    
-    // 6. Dance
-    
-    // 7. Break
+    if(numDeviceElems!=6){
+        cout << "only found " << numDeviceElems << ". There should be six";
+    } else {
+        // 2. loop through the xml objects...
+        for(int i=0;i<numDeviceElems;i++){
+            device_xml.pushTag("device",i);
+            // 3. for each xml object
+            string location_str = device_xml.getValue("location","notfound");
+            int serial_int = device_xml.getValue("serial",-1);
+            cout << "tag element: " << location_str << " : " << serial_int << endl;
+            // 4. push back a new RFIDDevice
+            
+            device_xml.popTag();
+        }
+    }
 }
 
 void DeviceController::setup(){

@@ -1,0 +1,27 @@
+<!-- keep the xml elements in this order, only change the serial numbers -->
+     <devices>
+        <device>
+            <location>top-left</location>
+            <serial>335342</serial>
+        </device>
+         <device>
+             <location>top-right</location>
+             <serial>335300</serial>
+         </device>
+         <device>
+             <location>middle-left</location>
+             <serial>335334</serial>
+         </device>
+         <device>
+             <location>middle-right</location>
+             <serial>335095</serial>
+         </device>
+         <device>
+             <location>bottom-left</location>
+             <serial>335113</serial>
+         </device>
+         <device>
+             <location>bottom-right</location>
+             <serial>335290</serial>
+         </device>
+     </devices>
