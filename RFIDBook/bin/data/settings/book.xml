@@ -49,7 +49,8 @@
     <Media x="960" y="600" src="mo/mo_txt.png" class="" auto="-1" loopback="-1" hidden="0" offset="100" pulse="0" flip="0"></Media>
     <Media x="1342" y="203" src="mo/mo_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="250" pulse="0" flip="0"></Media>
     <Media x="1550" y="524" src="mo/banner_worthyWolfsbane.mov" class="rhp" auto="1" loopback="1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1415" y="524" src="mo/banner_tamingCerberus.mov" class="rhp" auto="1" loopback="1" hidden="0" offset="0" pulse="0" flip="0"></Media>    <Media x="1552" y="640" src="mo/mo_wolf.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="300" pulse="0" flip="0"></Media>
+    <Media x="1415" y="524" src="mo/banner_tamingCerberus.mov" class="rhp" auto="1" loopback="1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="1552" y="640" src="mo/mo_wolf.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="300" pulse="0" flip="0"></Media>
     <Media x="1223" y="659" src="mo/mo_cerberus.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="350" pulse="0" flip="0"></Media>
     <Media x="1415" y="662" src="mo/wo_hunter30.mov" class="1" auto="1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
     <Media x="1425" y="641" src="mo/wo_cerberus16.mov" class="0" auto="1" loopback="-1" hidden="1" offset="650" pulse="0" flip="0"></Media>
