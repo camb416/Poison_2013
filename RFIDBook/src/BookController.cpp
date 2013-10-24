@@ -13,19 +13,29 @@ BookController::BookController(){
     isSetup = false;
     useRFID = true;
     forcedState = previousSituation = "A";
-    //lastTouchPage = -1;
     checkedForRFIDTimeout = false;
     lastReceivedTouch = 0.0f;
-    touchTimeOut = 60.0f;                 // TIMEOUT LENGTH
-    timeBetweenPrompts = 3.0f;              // TIME BETWEEN THE TOUCH PROMPTS
-    numTouchPrompts = 3;                    // how many touch prompts?
+    
+    // XML load
+    prompts_xml.loadFile("settings/prompts.xml");
+    prompts_xml.pushTag("settings");
+    touchTimeOut = prompts_xml.getValue("touchtimeout", 60.0f);
+    timeBetweenPrompts = prompts_xml.getValue("timebetweenprompts",3.0f);
+    numTouchPrompts = prompts_xml.getValue("numtouchprompts",3);
+    
+    // hardcode
+    // touchTimeOut = 60.0f;                 // TIMEOUT LENGTH
+    // timeBetweenPrompts = 3.0f;              // TIME BETWEEN THE TOUCH PROMPTS
+    // numTouchPrompts = 3;                    // how many touch prompts?
+    
+    
     promptCount = -1;
     for(int i=0;i<NUM_TOUCHES;i++){
         touchStates[i] = prevTouchStates[i] = false;
     }
 }
 BookController::~BookController(){
-    
+    // empty destructor
 }
 
 void BookController::resetTouchPrompt(){

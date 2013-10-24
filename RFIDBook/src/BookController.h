@@ -12,6 +12,7 @@
 #include <iostream>
 #include "BookView.h"
 #include "DeviceController.h"
+#include "ofxXmlSettings.h"
 
 #define RFID_TIMEOUT 1
 // TODO: CHANGE THIS BACK TO 4
@@ -42,6 +43,9 @@ public:
     //char currentTouch;
     
 private:
+    
+    ofxXmlSettings prompts_xml;
+    
     DeviceController * deviceController;
     BookView * bookView;
     bool isSetup;

@@ -90,8 +90,11 @@ void DeviceController::setup(){
     selected_img.loadImage("assets/common/radio_selected.png");
     
     timer.start();
+    
+    // loading RFID details from XML...
     loadDeviceDetails();
     
+    // hard-coded RFID details...
     /*
     for(int i=0;i<numSensors;i++){
         RFIDDevice * aDevice = new RFIDDevice();
