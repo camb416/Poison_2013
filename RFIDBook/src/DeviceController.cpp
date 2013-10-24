@@ -48,7 +48,7 @@ void DeviceController::loadDeviceDetails(){
     //////////////////// //////////////// /////////////////////////////////////
     
     // 1. load an XML
-    device_xml.loadFile("rfid-devices.xml");
+    device_xml.loadFile("settings/rfid-devices.xml");
     device_xml.pushTag("devices");
     
     int numDeviceElems = device_xml.getNumTags("device");
@@ -64,6 +64,16 @@ void DeviceController::loadDeviceDetails(){
             int serial_int = device_xml.getValue("serial",-1);
             cout << "tag element: " << location_str << " : " << serial_int << endl;
             // 4. push back a new RFIDDevice
+            RFIDDevice * aDevice = new RFIDDevice();
+            rfids.push_back(aDevice);
+            if(i%2==0){
+                leftSensors.push_back(aDevice);
+            } else {
+                rightSensors.push_back(aDevice);
+            }
+            rfids.at(i)->setup(location_str,this);
+            rfids.at(i)->connect(serial_int);
+
             
             device_xml.popTag();
         }
@@ -79,6 +89,10 @@ void DeviceController::setup(){
     active_img.loadImage("assets/common/radio_active.png");
     selected_img.loadImage("assets/common/radio_selected.png");
     
+    timer.start();
+    loadDeviceDetails();
+    
+    /*
     for(int i=0;i<numSensors;i++){
         RFIDDevice * aDevice = new RFIDDevice();
         rfids.push_back(aDevice);
@@ -89,7 +103,7 @@ void DeviceController::setup(){
         }
     }
     
-    timer.start();
+    
     rfids.at(0)->setup("top-left",this);
     rfids.at(1)->setup("top-right",this);
     rfids.at(2)->setup("middle-left",this);
@@ -104,6 +118,8 @@ void DeviceController::setup(){
     rfids.at(4)->connect(335113);
     rfids.at(5)->connect(335290);
 
+    */
+    
     lastTime = 0;
     curSensor = 0;
     
