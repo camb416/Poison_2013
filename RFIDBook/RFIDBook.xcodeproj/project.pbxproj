@@ -110,6 +110,7 @@
 		1B11985517A6BEEF0003A356 /* SegmentedVideo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentedVideo.cpp; sourceTree = "<group>"; };
 		1B11985617A6BEEF0003A356 /* SegmentedVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedVideo.h; sourceTree = "<group>"; };
 		1B74ADD31796E98A00890989 /* book.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = book.xml; path = bin/data/settings/book.xml; sourceTree = "<group>"; };
+		1BC4D4041819C57800BC855C /* languages.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = languages.xml; path = bin/data/settings/languages.xml; sourceTree = "<group>"; };
 		1BDF431D1795BC7E00B23DB9 /* Phidget21.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Phidget21.framework; path = /Library/Frameworks/Phidget21.framework; sourceTree = "<absolute>"; };
 		1c56b6200d48da052208be05afd7bde7 /* ofxSimpleGuiToggle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSimpleGuiToggle.cpp; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiToggle.cpp; sourceTree = SOURCE_ROOT; };
 		1dcab31f5077c9c550b1adb37be42a5e /* ofxSimpleGuiFPSCounter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSimpleGuiFPSCounter.h; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiFPSCounter.h; sourceTree = SOURCE_ROOT; };
@@ -153,7 +154,6 @@
 		32896C2117F0B5070026DD8D /* ofxQuadCrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxQuadCrop.h; path = ../quadtest/src/ofxQuadCrop.h; sourceTree = "<group>"; };
 		32896C2217F0B5070026DD8D /* ofxQuadImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxQuadImage.cpp; path = ../quadtest/src/ofxQuadImage.cpp; sourceTree = "<group>"; };
 		32896C2317F0B5070026DD8D /* ofxQuadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxQuadImage.h; path = ../quadtest/src/ofxQuadImage.h; sourceTree = "<group>"; };
-		32B2B999180F332A00BD01FD /* _settings.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = _settings.xml; path = bin/data/_settings.xml; sourceTree = "<group>"; };
 		32C8DD9B1819B61C00361E0A /* prompts.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = prompts.xml; path = bin/data/settings/prompts.xml; sourceTree = "<group>"; };
 		32C8DD9C1819B61C00361E0A /* rfid-devices.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "rfid-devices.xml"; path = "bin/data/settings/rfid-devices.xml"; sourceTree = "<group>"; };
 		33067f54b52161835b50408dca636f93 /* ofxSimpleGuiToggle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSimpleGuiToggle.h; path = ../../../addons/ofxSimpleGuiToo/src/Controls/ofxSimpleGuiToggle.h; sourceTree = SOURCE_ROOT; };
@@ -292,6 +292,12 @@
 		32323D27176A4DEA0093710C /* App */ = {
 			isa = PBXGroup;
 			children = (
+				32323D05176A31FD0093710C /* LanguageController.cpp */,
+				32323D06176A31FD0093710C /* LanguageController.h */,
+				32323D07176A31FD0093710C /* LanguageModel.cpp */,
+				32323D08176A31FD0093710C /* LanguageModel.h */,
+				F974422F1770BFED009D91B4 /* BookLoader.cpp */,
+				F97442301770BFED009D91B4 /* BookLoader.h */,
 				32323D09176A31FD0093710C /* main.cpp */,
 				32323CFD176A31FD0093710C /* BookApp.cpp */,
 				32323CFE176A31FD0093710C /* BookApp.h */,
@@ -302,6 +308,8 @@
 		32323D28176A4E000093710C /* Debug View */ = {
 			isa = PBXGroup;
 			children = (
+				32323D16176A31FD0093710C /* TextField.cpp */,
+				32323D17176A31FD0093710C /* TextField.h */,
 				3251B2BE176BB0B6006B9BF6 /* DebugUI.cpp */,
 				3251B2BF176BB0B6006B9BF6 /* DebugUI.h */,
 				32323D10176A31FD0093710C /* PositionUI.cpp */,
@@ -327,27 +335,19 @@
 			name = "Hardware Interface";
 			sourceTree = "<group>";
 		};
-		32323D2A176A4E310093710C /* Utils */ = {
+		32323D2A176A4E310093710C /* Media */ = {
 			isa = PBXGroup;
 			children = (
 				1B11985517A6BEEF0003A356 /* SegmentedVideo.cpp */,
 				1B11985617A6BEEF0003A356 /* SegmentedVideo.h */,
-				32323D16176A31FD0093710C /* TextField.cpp */,
-				32323D17176A31FD0093710C /* TextField.h */,
 				32323D0A176A31FD0093710C /* Media.cpp */,
 				32323D0B176A31FD0093710C /* Media.h */,
 				32323D0C176A31FD0093710C /* ofFadeImage.cpp */,
 				32323D0D176A31FD0093710C /* ofFadeImage.h */,
 				F941A11D177888DF000C5161 /* ofFadeVideo.cpp */,
 				F941A11E177888DF000C5161 /* ofFadeVideo.h */,
-				32323D05176A31FD0093710C /* LanguageController.cpp */,
-				32323D06176A31FD0093710C /* LanguageController.h */,
-				32323D07176A31FD0093710C /* LanguageModel.cpp */,
-				32323D08176A31FD0093710C /* LanguageModel.h */,
-				F974422F1770BFED009D91B4 /* BookLoader.cpp */,
-				F97442301770BFED009D91B4 /* BookLoader.h */,
 			);
-			name = Utils;
+			name = Media;
 			sourceTree = "<group>";
 		};
 		32323D2B176A4E530093710C /* Deprecated */ = {
@@ -509,7 +509,7 @@
 			children = (
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
-				32B2B999180F332A00BD01FD /* _settings.xml */,
+				1BC4D4041819C57800BC855C /* languages.xml */,
 				32C8DD9B1819B61C00361E0A /* prompts.xml */,
 				32C8DD9C1819B61C00361E0A /* rfid-devices.xml */,
 				1B74ADD31796E98A00890989 /* book.xml */,
@@ -526,7 +526,7 @@
 			children = (
 				32323D2C176A4E6F0093710C /* Book */,
 				32323D2B176A4E530093710C /* Deprecated */,
-				32323D2A176A4E310093710C /* Utils */,
+				32323D2A176A4E310093710C /* Media */,
 				32323D29176A4E100093710C /* Hardware Interface */,
 				32323D28176A4E000093710C /* Debug View */,
 				32323D27176A4DEA0093710C /* App */,

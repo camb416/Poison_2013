@@ -43,10 +43,6 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, Languag
     
     gui.hide();
 
-
-
-
-    
     gui.addTitle("Image Crop").setNewColumn(true);
     gui.addToggle("EDIT IMAGE",bQuadImageEdit);
     gui.addToggle("Loose Dragging",bLooseDrag);

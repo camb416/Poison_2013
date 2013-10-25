@@ -53,6 +53,7 @@ public:
     int activePage;
     char currentTouch;
     
+    // bullcrap
     vector<vector<int> > touchMediaMatrix;
     
     void printCurrentMedia();
