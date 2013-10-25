@@ -17,6 +17,8 @@ DebugUI::DebugUI(){
     bFullScreencheckbox = bFullScreencheckbox_prev = false;
     bQuadCropperEdit = bQuadCropperEdit_prev = false;
     loadCropBtn = saveCropBtn = false;
+    
+    bShowCursor = false;
 }
 DebugUI::~DebugUI(){
     
@@ -40,17 +42,10 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, Languag
     tfield.update("Magic Book", 16,760);
     
     gui.hide();
-    gui.addTitle("Magic Book");
-    gui.addToggle("EDIT BOOK",bDragUIcheckbox);
-    gui.addButton("DEFAULT BOOK", defaultXMLbtn);
-    gui.addButton("LOAD BOOK", loadXMLbtn);
-    gui.addButton("SAVE BOOK", saveXMLbtn);
-    gui.addToggle("FULLSCREEN", bFullScreencheckbox);
 
-    gui.addTitle("Quad Crop").setNewColumn(true);
-    gui.addToggle("EDIT CROP",bQuadCropperEdit);
-    gui.addButton("LOAD CROP",loadCropBtn);
-    gui.addButton("SAVE CROP",saveCropBtn);
+
+
+
     
     gui.addTitle("Image Crop").setNewColumn(true);
     gui.addToggle("EDIT IMAGE",bQuadImageEdit);
@@ -58,9 +53,26 @@ void DebugUI::setup(DeviceController * _devices, BookController * _book, Languag
     gui.addButton("LOAD IMAGE",loadQuadImageBtn);
     gui.addButton("SAVE IMAGE",saveQuadImageBtn);
     
+    gui.addTitle("Quad Crop").setNewColumn(true);
+    gui.addToggle("EDIT CROP",bQuadCropperEdit);
+    gui.addButton("LOAD CROP",loadCropBtn);
+    gui.addButton("SAVE CROP",saveCropBtn);
+    
+    gui.addTitle("Magic Book");
+    gui.addToggle("EDIT BOOK",bDragUIcheckbox);
+    gui.addButton("DEFAULT BOOK", defaultXMLbtn);
+    gui.addButton("LOAD BOOK", loadXMLbtn);
+    gui.addButton("SAVE BOOK", saveXMLbtn);
+    
+    gui.addTitle("View").setNewColumn(true);
+    gui.addToggle("FULLSCREEN", bFullScreencheckbox);
+    gui.addToggle("SHOW CURSOR", bShowCursor);
+    
     gui.setAlignRight(true);
     
     gui.loadFromXML();
+    
+    if(!bShowCursor) hideCursor();
     
     if(bFullScreencheckbox) ofSetFullscreen(true);
     
@@ -161,11 +173,40 @@ void DebugUI::toggleFullScreen(){
 
 void DebugUI::show(){
     gui.show();
+    showCursor();
 }
 void DebugUI::hide(){
     gui.hide();
+    if(!bShowCursor) hideCursor();
 }
 void DebugUI::toggle(){
+    
     isVisible = !isVisible;
-    isVisible ? show() : hide();
+    
+    if(isVisible){
+        show();
+        showCursor();
+    } else{
+        hide();
+        if(!bShowCursor) hideCursor();
+    }
+    
+}
+
+bool DebugUI::toggleCursor(){
+    bShowCursor = !bShowCursor;
+    if(bShowCursor){
+        ofShowCursor();
+    } else {
+        ofHideCursor();
+    }
+    return bShowCursor;
+}
+
+bool DebugUI::showCursor(){
+    ofShowCursor();
+}
+
+bool DebugUI::hideCursor(){
+    ofHideCursor();
 }

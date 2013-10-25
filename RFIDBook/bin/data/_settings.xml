@@ -1,4 +1,32 @@
 <controls>
+    <Toggle_EDIT_IMAGE>
+        <name>EDIT IMAGE</name>
+        <value>0</value>
+    </Toggle_EDIT_IMAGE>
+    <Toggle_Loose_Dragging>
+        <name>Loose Dragging</name>
+        <value>0</value>
+    </Toggle_Loose_Dragging>
+    <Button_LOAD_IMAGE>
+        <name>LOAD IMAGE</name>
+        <value>0</value>
+    </Button_LOAD_IMAGE>
+    <Button_SAVE_IMAGE>
+        <name>SAVE IMAGE</name>
+        <value>0</value>
+    </Button_SAVE_IMAGE>
+    <Toggle_EDIT_CROP>
+        <name>EDIT CROP</name>
+        <value>0</value>
+    </Toggle_EDIT_CROP>
+    <Button_LOAD_CROP>
+        <name>LOAD CROP</name>
+        <value>0</value>
+    </Button_LOAD_CROP>
+    <Button_SAVE_CROP>
+        <name>SAVE CROP</name>
+        <value>0</value>
+    </Button_SAVE_CROP>
     <Toggle_EDIT_BOOK>
         <name>EDIT BOOK</name>
         <value>0</value>
@@ -19,32 +47,8 @@
         <name>FULLSCREEN</name>
         <value>1</value>
     </Toggle_FULLSCREEN>
-    <Toggle_EDIT_CROP>
-        <name>EDIT CROP</name>
+    <Toggle_SHOW_CURSOR>
+        <name>SHOW CURSOR</name>
         <value>0</value>
-    </Toggle_EDIT_CROP>
-    <Button_LOAD_CROP>
-        <name>LOAD CROP</name>
-        <value>0</value>
-    </Button_LOAD_CROP>
-    <Button_SAVE_CROP>
-        <name>SAVE CROP</name>
-        <value>0</value>
-    </Button_SAVE_CROP>
-    <Toggle_EDIT_IMAGE>
-        <name>EDIT IMAGE</name>
-        <value>0</value>
-    </Toggle_EDIT_IMAGE>
-    <Toggle_Loose_Dragging>
-        <name>Loose Dragging</name>
-        <value>0</value>
-    </Toggle_Loose_Dragging>
-    <Button_LOAD_IMAGE>
-        <name>LOAD IMAGE</name>
-        <value>0</value>
-    </Button_LOAD_IMAGE>
-    <Button_SAVE_IMAGE>
-        <name>SAVE IMAGE</name>
-        <value>0</value>
-    </Button_SAVE_IMAGE>
+    </Toggle_SHOW_CURSOR>
 </controls>

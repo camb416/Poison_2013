@@ -40,6 +40,8 @@ public:
     bool getIsVisible();
     bool getDragSetting();
     void toggleFullScreen();
+    
+    bool toggleCursor();
      
 private:
     BookView * bookView;
@@ -70,6 +72,11 @@ private:
     PositionUI pos_ui;
     ofxQuadCrop * cropper;
     ofxQuadImage * quadImage;
+    
+
+    bool hideCursor();
+    bool showCursor();
+    bool bShowCursor;
 
 };
 

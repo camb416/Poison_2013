@@ -2,18 +2,24 @@
 
 BookApp::BookApp(){
     isSetup = false;
-    bShowGrid = 0;
+    showGrid_int = 0;
+
     grid_img.loadImage("assets/common/10pxgrid.png");
 
 }
 
+
+
 int BookApp::toggleGrid(){
-    if(++bShowGrid >2){
-        bShowGrid = 0;
+    if(++showGrid_int >2){
+        showGrid_int = 0;
     }
     
     return 0;
 }
+
+
+
 
 BookApp::~BookApp(){
     devices.stopThread();
@@ -94,10 +100,10 @@ void BookApp::draw(){
     ofEnableAlphaBlending();
    
     ofSetColor(255,255,255);
-        if(bShowGrid==0) bookView.draw(0,0);
-        if(bShowGrid!=0) grid_img.draw(0,0);
-        if(bShowGrid!=1) cropper.draw();
-        if(bShowGrid!=1) quadImage.draw();
+        if(showGrid_int==0) bookView.draw(0,0);
+        if(showGrid_int!=0) grid_img.draw(0,0);
+        if(showGrid_int!=1) cropper.draw();
+        if(showGrid_int!=1) quadImage.draw();
 
     
     dui.draw();
@@ -129,19 +135,9 @@ void BookApp::keyPressed(int key){
                 toggleGrid();
             break;
             
-            case '=':
-            case '+':
-            
-            if(bookView.hideCurrentMediaByClassName("rhp")==0) bookView.showCurrentMediaByClassName("0","rhp");
-            
-            break;
-            
-            case '-':
-            case '_':
-            
-            if(bookView.hideCurrentMediaByClassName("rhp")==0) bookView.showCurrentMediaByClassName("1","rhp");
-            
-            
+            case 'm':
+            case 'M':
+                dui.toggleCursor();
             break;
             
             case 'a': 
@@ -197,9 +193,13 @@ void BookApp::keyPressed(int key){
             
             case 's':
             case 'S':
-            bookView.savePageLayout();
+            // bookView.savePageLayout(); // use the debug UI instead.
             break;
             
+            /*
+             // 
+             // if this hasn't been deprecated, it certainly should have been!
+             //
             // Fake touch input
             case 'h':
             case 'H':
@@ -212,7 +212,8 @@ void BookApp::keyPressed(int key){
             
             book.forcedInput('J');
             break;
-
+             */
+            
             case '`':
             case '~':
             dui.toggle();
@@ -229,11 +230,7 @@ void BookApp::keyPressed(int key){
             lang.toggleLanguage();
             bookView.loadPages();
             break;
-            
-        case 'm':
-        case 'M':
-            bookView.printCurrentMedia();
-            break;
+
 
         case 358:
             // right arrow

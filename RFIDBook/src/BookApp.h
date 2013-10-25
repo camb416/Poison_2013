@@ -62,6 +62,9 @@ class BookApp : public ofBaseApp{
     
 private:
         int toggleGrid();
-    int bShowGrid;
+        int showGrid_int;
+    
+
+    
 		
 };
