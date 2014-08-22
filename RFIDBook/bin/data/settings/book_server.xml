@@ -1,15 +1,15 @@
 <Book>
 
 <Page>
-    
-    <Media x="710" y="1055" src="be/be_txt_desc.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="265" y="943" src="be/be_txt_map.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1430" y="1013" src="be/be_txt_med.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="572" y="118" src="be/be_txt_names.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="152" y="1151" src="be/be_txt_pageNum_left.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1764" y="1159" src="be/be_txt_pageNum_right.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1440" y="287" src="be/be_txt_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="310" y="323" src="be/be_txt_symptoms.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <!--   <Media x="978" y="601" src="be/be_txt.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>-->
+    <Media x="978" y="601" src="be/be_txt_desc.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="be/be_txt_map.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="be/be_txt_med.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="be/be_txt_names.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="be/be_txt_pageNum_left.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="be/be_txt_pageNum_right.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="be/be_txt_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="be/be_txt_symptoms.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1464" y="162" src="be/be_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1642" y="641" src="be/be_three_fates.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1230" y="660" src="be/be_witch.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
@@ -20,9 +20,9 @@
     <Media x="1356" y="851" src="touch_txt2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="5000" pulse="0" flip="0"></Media>
     <Media x="525" y="823" src="touch_circle3.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="5000" pulse="3" flip="0"></Media>
     <Media x="1687" y="781" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="5000" pulse="0" flip="0"></Media>
+   <!-- <Media x="942" y="613" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>-->
     <Media x="1428" y="624" src="be/3_fates_F.mov" class="1" auto="1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
     <Media x="1411" y="614" src="be/witch_F.mov" class="0" auto="1" loopback="-1" hidden="1" offset="650" pulse="0" flip="0"></Media>
-    <Media x="977" y="592" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1611" y="422" src="be/banner_Atropa.mov" class="rhp" auto="1" loopback="1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1210" y="442" src="be/banner_flyTheyDidNot.mov" class="rhp" auto="1" loopback="1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="699" y="1200" src="hand1.png" class="touch0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
@@ -30,15 +30,15 @@
     <Media x="1641" y="1185" src="hand3.png" class="touch2" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
 </Page>
 <Page>
-    
-    <Media x="727" y="652" src="he/he_txt_desc.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="291" y="949" src="he/he_txt_map.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1359" y="1043" src="he/he_txt_med.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="483" y="117" src="he/he_txt_names.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="164" y="1152" src="he/he_txt_pageNum_left.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1756" y="1148" src="he/he_txt_pageNum_right.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1431" y="254" src="he/he_txt_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="266" y="395" src="he/he_txt_symptoms.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <!--   <Media x="978" y="601" src="he/he_txt.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>-->
+    <Media x="978" y="601" src="he/he_txt_desc.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="he/he_txt_map.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="he/he_txt_med.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="he/he_txt_names.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="he/he_txt_pageNum_left.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="he/he_txt_pageNum_right.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="he/he_txt_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="he/he_txt_symptoms.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1472" y="233" src="he/he_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1427" y="630" src="he/he_socrates.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="638" y="688" src="he/conium_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
@@ -46,7 +46,7 @@
     <Media x="627" y="848" src="touch_txt3.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="5000" pulse="0" flip="0"></Media>
     <Media x="531" y="831" src="touch_circle3.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="5000" pulse="3" flip="0"></Media>
     <Media x="1699" y="762" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="5000" pulse="0" flip="0"></Media>
-    <Media x="977" y="592" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <!--  <Media x="977" y="592" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>-->
     <Media x="1421" y="711" src="he/death_of_socrates_F.mov" class="1" auto="1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
     <Media x="1450" y="668" src="he/death_of_socrates_F.mov" class="0" auto="1" loopback="-1" hidden="1" offset="550" pulse="0" flip="0"></Media>
     <Media x="1258" y="563" src="he/banner_socrates.mov" class="rhp" auto="1" loopback="1" hidden="0" offset="0" pulse="0" flip="0"></Media>
@@ -54,15 +54,15 @@
     <Media x="1641" y="1185" src="hand3.png" class="touch2" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
 </Page>
 <Page>
-    
-    <Media x="737" y="811" src="mo/mo_txt_desc.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="294" y="911" src="mo/mo_txt_map.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1483" y="1009" src="mo/mo_txt_med.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="584" y="128" src="mo/mo_txt_names.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="152" y="1153" src="mo/mo_txt_pageNum_left.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1754" y="1144" src="mo/mo_txt_pageNum_right.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1511" y="291" src="mo/mo_txt_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="335" y="319" src="mo/mo_txt_symptoms.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <!--    <Media x="978" y="601" src="mo/mo_txt.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>-->
+    <Media x="978" y="601" src="mo/mo_txt_desc.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="mo/mo_txt_map.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="mo/mo_txt_med.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="mo/mo_txt_names.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="mo/mo_txt_pageNum_left.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="mo/mo_txt_pageNum_right.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="mo/mo_txt_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="mo/mo_txt_symptoms.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="609" y="636" src="mo/monkshood_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1329" y="220" src="mo/mo_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="250" pulse="0" flip="0"></Media>
     <Media x="1281" y="541" src="mo/banner_worthyWolfsbane.mov" class="rhp" auto="1" loopback="1" hidden="0" offset="0" pulse="0" flip="0"></Media>
@@ -75,22 +75,23 @@
     <Media x="613" y="883" src="touch_txt1.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="5000" pulse="0" flip="0"></Media>
     <Media x="1577" y="758" src="touch_circle2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="5000" pulse="3" flip="0"></Media>
     <Media x="1372" y="852" src="touch_txt2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="5000" pulse="0" flip="0"></Media>
-    <Media x="977" y="592" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="532" y="829" src="touch_circle3.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="5000" pulse="3" flip="0"></Media>
     <Media x="1703" y="777" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="5000" pulse="0" flip="0"></Media>
+    <!--   <Media x="982" y="611" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>-->
     <Media x="699" y="1200" src="hand1.png" class="touch0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
     <Media x="1424" y="1166" src="hand2.png" class="touch1" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
     <Media x="1641" y="1185" src="hand3.png" class="touch2" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>
 </Page>
 <Page>
-    <Media x="764" y="1056" src="rh/rh_txt_desc.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="298" y="928" src="rh/rh_txt_map.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1435" y="1034" src="rh/rh_txt_med.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="730" y="150" src="rh/rh_txt_names.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="206" y="1152" src="rh/rh_txt_pageNum_left.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1716" y="1148" src="rh/rh_txt_pageNum_right.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="1469" y="371" src="rh/rh_txt_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
-    <Media x="310" y="317" src="rh/rh_txt_symptoms.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <!--   <Media x="978" y="601" src="rh/rh_txt.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>-->
+    <Media x="978" y="601" src="rh/rh_txt_desc.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="rh/rh_txt_map.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="rh/rh_txt_med.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="rh/rh_txt_names.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="rh/rh_txt_pageNum_left.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="rh/rh_txt_pageNum_right.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="rh/rh_txt_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <Media x="978" y="601" src="rh/rh_txt_symptoms.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="562" y="676" src="rh/rhododendron_SEG.mov" class="" auto="1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1431" y="170" src="rh/rh_parts.png" class="" auto="-1" loopback="-1" hidden="0" offset="250" pulse="0" flip="0"></Media>
     <Media x="1242" y="717" src="rh/rh_sweet_victory.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="300" pulse="0" flip="0"></Media>
@@ -103,7 +104,7 @@
     <Media x="1386" y="825" src="touch_txt2.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="5000" pulse="0" flip="0"></Media>
     <Media x="530" y="831" src="touch_circle3.png" class="lhp" auto="-1" loopback="-1" hidden="0" offset="5000" pulse="3" flip="0"></Media>
     <Media x="1680" y="762" src="touch_txt3.png" class="rhp" auto="-1" loopback="-1" hidden="0" offset="5000" pulse="0" flip="0"></Media>
-    <Media x="977" y="592" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>
+    <!--    <Media x="980" y="611" src="overlay.png" class="" auto="-1" loopback="-1" hidden="0" offset="0" pulse="0" flip="0"></Media>-->
     <Media x="1582" y="558" src="rh/banner_getRidofGoats.mov" class="rhp" auto="1" loopback="1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="1235" y="524" src="rh/banner_sweetVictory.mov" class="rhp" auto="1" loopback="1" hidden="0" offset="0" pulse="0" flip="0"></Media>
     <Media x="699" y="1200" src="hand1.png" class="touch0" auto="-1" loopback="-1" hidden="1" offset="0" pulse="0" flip="0"></Media>

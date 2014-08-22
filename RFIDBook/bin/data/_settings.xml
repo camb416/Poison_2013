@@ -5,7 +5,7 @@
     </Toggle_EDIT_IMAGE>
     <Toggle_Loose_Dragging>
         <name>Loose Dragging</name>
-        <value>1</value>
+        <value>0</value>
     </Toggle_Loose_Dragging>
     <Button_LOAD_IMAGE>
         <name>LOAD IMAGE</name>
@@ -29,7 +29,7 @@
     </Button_SAVE_CROP>
     <Toggle_EDIT_BOOK>
         <name>EDIT BOOK</name>
-        <value>1</value>
+        <value>0</value>
     </Toggle_EDIT_BOOK>
     <Button_DEFAULT_BOOK>
         <name>DEFAULT BOOK</name>
